@@ -1,0 +1,12 @@
+D:\学习\net\codes\WindowsFormsApp1\test\bin\Debug\test.exe.config
+D:\学习\net\codes\WindowsFormsApp1\test\bin\Debug\test.exe
+D:\学习\net\codes\WindowsFormsApp1\test\bin\Debug\test.pdb
+D:\学习\net\codes\WindowsFormsApp1\test\obj\Debug\test.Properties.Resources.resources
+D:\学习\net\codes\WindowsFormsApp1\test\obj\Debug\test.csproj.GenerateResource.Cache
+D:\学习\net\codes\WindowsFormsApp1\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+D:\学习\net\codes\WindowsFormsApp1\test\obj\Debug\test.exe
+D:\学习\net\codes\WindowsFormsApp1\test\obj\Debug\test.pdb
+D:\学习\net\codes\WindowsFormsApp1\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+D:\学习\net\codes\WindowsFormsApp1\test\bin\Debug\IrisSkin2.dll
+D:\学习\net\codes\WindowsFormsApp1\test\obj\Debug\test.SignForm.resources
+D:\学习\net\codes\WindowsFormsApp1\test\obj\Debug\test.MainForm.resources
