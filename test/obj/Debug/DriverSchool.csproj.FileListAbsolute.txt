@@ -10,3 +10,15 @@ D:\学习\net\codes\WindowsFormsApp1\test\obj\Debug\DriverSchool.csproj.Generate
 D:\学习\net\codes\WindowsFormsApp1\test\obj\Debug\DriverSchool.csproj.CoreCompileInputs.cache
 D:\学习\net\codes\WindowsFormsApp1\test\obj\Debug\test.exe
 D:\学习\net\codes\WindowsFormsApp1\test\obj\Debug\test.pdb
+D:\work\DriverSchool\DriverSchoolManagementSystem\test\bin\Debug\test.exe.config
+D:\work\DriverSchool\DriverSchoolManagementSystem\test\bin\Debug\test.exe
+D:\work\DriverSchool\DriverSchoolManagementSystem\test\bin\Debug\test.pdb
+D:\work\DriverSchool\DriverSchoolManagementSystem\test\bin\Debug\IrisSkin2.dll
+D:\work\DriverSchool\DriverSchoolManagementSystem\test\obj\Debug\DriverSchool.csprojResolveAssemblyReference.cache
+D:\work\DriverSchool\DriverSchoolManagementSystem\test\obj\Debug\test.SignForm.resources
+D:\work\DriverSchool\DriverSchoolManagementSystem\test\obj\Debug\test.MainForm.resources
+D:\work\DriverSchool\DriverSchoolManagementSystem\test\obj\Debug\test.Properties.Resources.resources
+D:\work\DriverSchool\DriverSchoolManagementSystem\test\obj\Debug\DriverSchool.csproj.GenerateResource.Cache
+D:\work\DriverSchool\DriverSchoolManagementSystem\test\obj\Debug\DriverSchool.csproj.CoreCompileInputs.cache
+D:\work\DriverSchool\DriverSchoolManagementSystem\test\obj\Debug\test.exe
+D:\work\DriverSchool\DriverSchoolManagementSystem\test\obj\Debug\test.pdb

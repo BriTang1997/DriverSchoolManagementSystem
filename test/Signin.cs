@@ -13,7 +13,7 @@ namespace test
 {
     public partial class SignForm : Form
     {
-        public bool yes = false;
+        public bool yes = true;
         public string name;
         public SignForm()
         {
