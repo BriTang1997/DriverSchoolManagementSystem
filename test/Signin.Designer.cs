@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.passw = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.uname = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // skinEngine1
@@ -41,12 +41,12 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
-            // textBox2
+            // passw
             // 
-            this.textBox2.Location = new System.Drawing.Point(81, 77);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 2;
+            this.passw.Location = new System.Drawing.Point(81, 77);
+            this.passw.Name = "passw";
+            this.passw.Size = new System.Drawing.Size(100, 21);
+            this.passw.TabIndex = 2;
             // 
             // label1
             // 
@@ -59,7 +59,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(96, 130);
+            this.button1.Location = new System.Drawing.Point(106, 133);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -76,22 +76,22 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "label2";
             // 
-            // textBox1
+            // uname
             // 
-            this.textBox1.Location = new System.Drawing.Point(81, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 1;
+            this.uname.Location = new System.Drawing.Point(81, 34);
+            this.uname.Name = "uname";
+            this.uname.Size = new System.Drawing.Size(100, 21);
+            this.uname.TabIndex = 1;
             // 
             // SignForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(220, 183);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.uname);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.passw);
             this.Controls.Add(this.label1);
             this.Name = "SignForm";
             this.Text = "登录";
@@ -103,11 +103,11 @@
 
         #endregion
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox passw;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox uname;
     }
 }
 

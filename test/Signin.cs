@@ -13,7 +13,7 @@ namespace test
 {
     public partial class SignForm : Form
     {
-        public bool yes = true;
+        public bool yes = false;
         public string name;
         public SignForm()
         {
@@ -26,7 +26,7 @@ namespace test
             label1.Text = "用户名";
             label2.Text = "密码";
             button1.Text = "登录";
-            textBox2.PasswordChar='*';
+            passw.PasswordChar='*';
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -36,32 +36,22 @@ namespace test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            name = textBox1.Text;
-            string strconn = "Data Source = TheOldOfTang;Initial Catalog = DriverSchool;Integrated Security = SSPI";
-            using (SqlConnection conn = new SqlConnection(strconn))
+            name = uname.Text;
+            string strconn = "Data Source = (local);Initial Catalog = DriverSchool;";
+            strconn += "UID = " + uname.Text + ";Pwd = " + passw.Text +";";
+            try
             {
-                conn.Open();
-                string namew = textBox1.Text;
-                string number = textBox2.Text;
-                string tem;
-                string order = "select password from managers ";
-                order += "where MID = @MID";
-
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = order;
-                cmd.Parameters.Add(new SqlParameter("@MID", namew));
-                cmd.Connection = conn;
-                tem = (string)cmd.ExecuteScalar();
-                if (tem == number)
+                using (SqlConnection conn = new SqlConnection(strconn))
                 {
+                    conn.Open();
                     MessageBox.Show("登陆成功！");
                     yes = true;
                     Close();
                 }
-                else
-                    MessageBox.Show("查无此人，请检查密码或用户名");
             }
-
+            catch (Exception aaa) {
+                MessageBox.Show("登录失败，不存在该管理员。");
+            }
         }
     }
 }
