@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2017-12-29 19:50:14                          */
+/* Created on:     2017-12-30 12:51:03                          */
 /*==============================================================*/
 
 
@@ -210,6 +210,13 @@ if exists (select 1
 go
 
 if exists (select 1
+            from  sysobjects
+           where  id = object_id('manager')
+            and   type = 'U')
+   drop table manager
+go
+
+if exists (select 1
             from  sysindexes
            where  id    = object_id('sc')
             and   name  = 'sc3_FK'
@@ -302,7 +309,8 @@ go
 create table coach (
    CNO                  char(10)             not null,
    CNAME                char(8)              not null,
-   SEX                  char(2)              not null,
+   SEX                  char(2)              not null
+      constraint CKC_SEX_COACH check (SEX in ('ÄÐ','¡®Å®¡¯')),
    PHONE                char(11)             not null,
    constraint PK_COACH primary key nonclustered (CNO)
 )
@@ -312,7 +320,7 @@ go
 /* Table: e_kind                                                */
 /*==============================================================*/
 create table e_kind (
-   ENAME                char(24)             not null,
+   ENAME                char(512)            not null,
    EKNO                 char(8)              not null,
    EINTRO               varchar(64)          null,
    constraint PK_E_KIND primary key nonclustered (EKNO)
@@ -325,8 +333,9 @@ go
 create table exam (
    SNO                  char(10)             not null,
    SJNAME               smallint             not null,
-   GRADE                int                  not null,
-   DATE                 datetime             not null,
+   GRADE                int                  not null default 0
+      constraint CKC_GRADE_EXAM check (GRADE between 0 and 100),
+   EDATE                datetime             not null,
    constraint PK_EXAM primary key (SNO, SJNAME)
 )
 go
@@ -355,9 +364,8 @@ create table expenditure (
    BNO                  char(10)             not null,
    EKNO                 char(8)              null,
    LIC                  char(8)              null,
-   DATE                 datetime             not null,
+   EDATE                datetime             not null,
    OPERATOR             char(8)              not null,
-   KIND                 char(24)             not null,
    constraint PK_EXPENDITURE primary key nonclustered (BNO)
 )
 go
@@ -383,7 +391,7 @@ go
 /*==============================================================*/
 create table i_kind (
    INAME                char(24)             not null,
-   IINTRO               varchar(64)          null,
+   IINTRO               varchar(512)         null,
    IKNO                 char(8)              not null,
    constraint PK_I_KIND primary key nonclustered (IKNO)
 )
@@ -397,9 +405,8 @@ create table income (
    SNO                  char(10)             null,
    IKNO                 char(8)              null,
    CASH                 int                  not null,
-   DATE                 datetime             not null,
+   EDATE                datetime             not null,
    OPERATOR             char(8)              not null,
-   KIND                 char(24)             not null,
    constraint PK_INCOME primary key nonclustered (INO)
 )
 go
@@ -417,6 +424,18 @@ go
 /*==============================================================*/
 create index inkind_FK on income (
 IKNO ASC
+)
+go
+
+/*==============================================================*/
+/* Table: manager                                               */
+/*==============================================================*/
+create table manager (
+   MNAME                varchar(20)          not null,
+   PASSWORD             varchar(20)          not null,
+   POWER                smallint             not null
+      constraint CKC_POWER_MANAGER check (POWER between 1 and 4),
+   constraint PK_MANAGER primary key nonclustered (MNAME)
 )
 go
 
@@ -463,8 +482,10 @@ create table student (
    SNAME                char(10)             not null,
    PHONE                char(11)             not null,
    PAY                  tinyint              not null,
-   SEX                  char(2)              not null,
-   PROGRESS             smallint             not null,
+   SEX                  char(2)              not null
+      constraint CKC_SEX_STUDENT check (SEX in ('ÄÐ','¡®Å®¡¯')),
+   PROGRESS             smallint             not null
+      constraint CKC_PROGRESS_STUDENT check (PROGRESS between 1 and 5),
    constraint PK_STUDENT primary key nonclustered (SNO)
 )
 go
@@ -475,7 +496,7 @@ go
 create table subject (
    SJNAME               smallint             not null,
    PLACE                char(40)             null,
-   SINTRO               varchar(64)          null,
+   SINTRO               varchar(512)         null,
    constraint PK_SUBJECT primary key nonclustered (SJNAME)
 )
 go
