@@ -310,7 +310,7 @@ create table coach (
    CNO                  char(10)             not null,
    CNAME                char(8)              not null,
    SEX                  char(2)              not null
-      constraint CKC_SEX_COACH check (SEX in ('男','‘女’')),
+      constraint CKC_SEX_COACH check (SEX in ('男','女')),
    PHONE                char(11)             not null,
    constraint PK_COACH primary key nonclustered (CNO)
 )
@@ -483,7 +483,7 @@ create table student (
    PHONE                char(11)             not null,
    PAY                  tinyint              not null,
    SEX                  char(2)              not null
-      constraint CKC_SEX_STUDENT check (SEX in ('男','‘女’')),
+      constraint CKC_SEX_STUDENT check (SEX in ('男','女')),
    PROGRESS             smallint             not null
       constraint CKC_PROGRESS_STUDENT check (PROGRESS between 1 and 5),
    constraint PK_STUDENT primary key nonclustered (SNO)
