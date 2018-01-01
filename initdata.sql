@@ -46,13 +46,10 @@ values ('苏A01001','黄','一汽大众','2001-1-1',10000),
 insert dbo.exam(SJNAME,SNO,GRADE,EDATE)
 values (1,'XY000002',90,'2009-10-1'),
 (2,'XY000002',99,'2009-11-2'),
-(3,'XY000002',50,'2010-1-3'),
 (4,'XY000002',99,'2010-1-7'),
 (3,'XY000002',99,'2010-1-5'),
 (1,'XY000003',99,'2009-10-1'),
 (2,'XY000003',90,'2009-11-1'),
-(1,'XY000004',33,'2009-10-1'),
-(1,'XY000004',55,'2009-11-1'),
 (1,'XY000004',90,'2009-12-1')
 
 ---学生教练
@@ -120,29 +117,4 @@ values ('ekind003','EX00000001',200,'2009-10-1','苏A01002','tsy'),
 ('ekind004','EX00000008',20000,'2009-7-1','苏A01003','tsy'),
 ('ekind004','EX00000009',20000,'2009-8-1','苏A01004','tsy')
 
-
-CREATE PROCEDURE GET_INCOME_NUMBER
-AS 
-SELECT COUNT(*)
-FROM income
-
-CREATE PROCEDURE INSERT_INCOME(@sn char(10),@mon int,@dat datetime,@ope char(8),@ik char(8),@in char(10))
-AS 
-INSERT INTO income(SNO,CASH,EDATE,OPERATOR,IKNO,INO)
-values (@sn,@mon,@dat,@ope,@ik,@in)
-
-CREATE PROCEDURE INSERT_EXPENDITURE(@LI char(8),@mon int,@dat datetime,@ope char(8),@ek char(8),@in char(10))
-AS 
-INSERT INTO expenditure(LIC,CASH,EDATE,OPERATOR,EKNO,BNO)
-values (@LI,@mon,@dat,@ope,@ek,@in)
-
-CREATE PROCEDURE INSERT_EXAM(@SNO char(8),@dat datetime,@SJ char(8),@GRADE int)
-AS 
-INSERT INTO exam(SNO,SJNAME,EDATE,GRADE)
-values (@SNO,@SJ,@dat,@GRADE)
-
-SELECT *
-FROM exam
----@SNO char(8),@dat datetime,@SJ char(8),@GRADE int)
-EXEC INSERT_EXAM 'XY000005' ,'2009-9-30',1,22 
 
