@@ -75,6 +75,7 @@ namespace test
         *  编写时间：2018-1-1,20:15
         *  编写人：唐胜洋
         *  功能：初始化业务模块的内容
+        *  更新：1-2，内容：支出模块初始化。
         * */
         private void bussiness_init() {
             for(int i = 2009;i<=2018;i++)
@@ -96,7 +97,10 @@ namespace test
             for (int i = 1; i < 31; i++)
                 b_exp_day.Items.Add(i);
             b_exp_day.SelectedItem = System.DateTime.Now.Day;
-
+            /*
+             * 从数据库中读取下拉菜单
+             * 
+             */
             using (conn = new SqlConnection(sqlconnect))
             {
                 conn.Open();
@@ -108,7 +112,13 @@ namespace test
                 {
                     b_inc_kind.Items.Add( dr.GetString(0) );
                 }
+                cmd.CommandText = "select EKNO from e_kind ";
                 dr.Close();
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    b_exp_kind.Items.Add(dr.GetString(0));
+                }
             }
             
         }
@@ -326,7 +336,25 @@ namespace test
         private void b_inc_add_Click(object sender, EventArgs e)
         {
             if (b_inc_sno.Text.Length < 1 || b_inc_kind.Text.Length < 1 || b_inc_money.Text.Length < 1 || b_inc_ino.Text.Length < 1)
+            {
+                MessageBox.Show("请完善信息!");
                 return;
+            }
+            else if(Regex.IsMatch(b_inc_sno.Text, @"^XY[0-9]{8}\s+$") || Regex.IsMatch(b_inc_sno.Text, @"^XY[0-9]{8}$"))
+            {
+                MessageBox.Show("学号格式错误!");
+                return;
+            }
+            else if (Regex.IsMatch(b_inc_money.Text, @"[1-9]\d*"))
+            {
+                MessageBox.Show("请输入数字!");
+                return;
+            }
+            else if (Regex.IsMatch(b_inc_ino.Text, @"IN[0-9]{8}"))
+            {
+                MessageBox.Show("账单号格式错误!");
+                return;
+            }
             using (conn = new SqlConnection(sqlconnect))
             {
                 try
@@ -343,6 +371,7 @@ namespace test
                     int t = cmd.ExecuteNonQuery();
                     if (t == 0)
                         throw new Exception();
+                    MessageBox.Show("插入成功！");
                 }
                 catch(Exception em)
                 {
@@ -385,24 +414,116 @@ namespace test
                 MessageBox.Show("操作数据库失败");
             }
         }
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  16:28
+         * 功能：支出种类改变的时候的的响应
+         */
+        private void b_exp_kind_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (conn = new SqlConnection(sqlconnect))
+            {
+                conn.Open();
+                string text;
+                string tem = "select EINTRO from e_kind where EKNO = '" + b_exp_kind.Text + "'";
+                cmd = new SqlCommand(tem, conn);
+                text = (string)cmd.ExecuteScalar();
+                b_exp_note.Text = text;
+            }
+        }
+
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  16:28
+         * 功能：点击提交的响应
+         */
         private void b_exp_sub_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                da.DeleteCommand = myCbd.GetDeleteCommand();
+                int cont = da.Update(myset.Tables["expenditure"]);
+                myset.Tables["expenditure"].AcceptChanges();
+                MessageBox.Show("成功更新了" + cont + "行数据.");
+                myset.Clear();
+                da.Fill(myset, "expenditure");
+                b_dataview.Refresh();
+            }
+            catch (Exception em)
+            {
+                myset.Tables["expenditure"].RejectChanges();
+                MessageBox.Show("提交失败");
+            }
         }
-
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  16:28
+         * 功能：点击删除的响应
+         */
         private void b_exp_del_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("确定要删除所选一行数据？", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                int k = b_dataview.SelectedRows.Count;
+                for (int i = k; i > 0; i--)
+                {
+                    string ENO = b_dataview.SelectedRows[i - 1].Cells["BNO"].Value.ToString();
+                    DataRow tdr = myset.Tables["expenditure"].Rows.Find(ENO);
+                    tdr.Delete();
+                }
+            }
         }
 
-        private void b_exp_upd_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  16:28
+         * 功能：出账模块点击增加的响应
+         */
         private void b_exp_add_Click(object sender, EventArgs e)
         {
-
+            if (b_exp_lic.Text.Length < 1 || b_exp_kind.Text.Length < 1 || b_exp_money.Text.Length < 1 || b_exp_bno.Text.Length < 1)
+            {
+                MessageBox.Show("请完善信息!");
+                return;
+            }
+            else if (Regex.IsMatch(b_exp_lic.Text, @"^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$"))
+            {
+                MessageBox.Show("车牌号格式错误!");
+                return;
+            }
+            else if (Regex.IsMatch(b_exp_money.Text, @"[1-9]\d*"))
+            {
+                MessageBox.Show("请输入数字!");
+                return;
+            }
+            else if (Regex.IsMatch(b_exp_bno.Text, @"EX[0-9]{8}"))
+            {
+                MessageBox.Show("账单号格式错误!");
+                return;
+            }
+            using (conn = new SqlConnection(sqlconnect))
+            {
+                try
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "exec INSERT_EXPENDITURE @lic,@mon,@date,@ope,@ek,@bno";
+                    cmd.Parameters.Add(new SqlParameter("@lic", b_exp_lic.Text));
+                    cmd.Parameters.Add(new SqlParameter("@mon", b_exp_money.Text));
+                    cmd.Parameters.Add(new SqlParameter("@date", b_exp_year.Text + "-" + b_exp_mon.Text + "-" + b_exp_day.Text));
+                    cmd.Parameters.Add(new SqlParameter("@ope", f1.name));
+                    cmd.Parameters.Add(new SqlParameter("@ek", b_exp_kind.Text));
+                    cmd.Parameters.Add(new SqlParameter("@bno", b_exp_bno.Text));
+                    int t = cmd.ExecuteNonQuery();
+                    if (t == 0)
+                        throw new Exception();
+                    MessageBox.Show("插入成功！");
+                }
+                catch (Exception em)
+                {
+                    MessageBox.Show("插入失败，请检查输入。");
+                }
+            }
         }
 
 
@@ -508,6 +629,12 @@ namespace test
             }
         }
 
+
+
+
+        #endregion
+
+        #region 统计
 
         #endregion
 

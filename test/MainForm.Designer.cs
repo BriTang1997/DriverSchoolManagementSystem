@@ -45,6 +45,9 @@
             this.b_dataview = new System.Windows.Forms.DataGridView();
             this.bussiness_table = new System.Windows.Forms.TabControl();
             this.page_income = new System.Windows.Forms.TabPage();
+            this.l_inc_ino_note = new System.Windows.Forms.Label();
+            this.L_b_inc_ino = new System.Windows.Forms.Label();
+            this.b_inc_ino = new System.Windows.Forms.TextBox();
             this.b_inc_add = new System.Windows.Forms.Button();
             this.b_inc_del = new System.Windows.Forms.Button();
             this.b_inc_sub = new System.Windows.Forms.Button();
@@ -66,7 +69,6 @@
             this.b_inc_sno = new System.Windows.Forms.TextBox();
             this.page_expend = new System.Windows.Forms.TabPage();
             this.b_exp_add = new System.Windows.Forms.Button();
-            this.b_exp_upd = new System.Windows.Forms.Button();
             this.b_exp_del = new System.Windows.Forms.Button();
             this.b_exp_sub = new System.Windows.Forms.Button();
             this.b_exp_note = new System.Windows.Forms.RichTextBox();
@@ -82,13 +84,13 @@
             this.b_exp_mon = new System.Windows.Forms.ComboBox();
             this.b_exp_year = new System.Windows.Forms.ComboBox();
             this.L_b_exp_lic = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.b_exp_lic = new System.Windows.Forms.TextBox();
             this.page_exam = new System.Windows.Forms.TabPage();
             this.page_sc = new System.Windows.Forms.TabPage();
             this.page_cc = new System.Windows.Forms.TabPage();
-            this.L_b_inc_ino = new System.Windows.Forms.Label();
-            this.b_inc_ino = new System.Windows.Forms.TextBox();
-            this.l_inc_ino_note = new System.Windows.Forms.Label();
+            this.L_b_exp_bno_not = new System.Windows.Forms.Label();
+            this.L_b_exp_bno = new System.Windows.Forms.Label();
+            this.b_exp_bno = new System.Windows.Forms.TextBox();
             this.menu.SuspendLayout();
             this.业务panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.b_dataview)).BeginInit();
@@ -253,6 +255,31 @@
             this.page_income.Text = "入账";
             this.page_income.UseVisualStyleBackColor = true;
             this.page_income.Click += new System.EventHandler(this.page_income_Click);
+            // 
+            // l_inc_ino_note
+            // 
+            this.l_inc_ino_note.AutoSize = true;
+            this.l_inc_ino_note.Location = new System.Drawing.Point(150, 69);
+            this.l_inc_ino_note.Name = "l_inc_ino_note";
+            this.l_inc_ino_note.Size = new System.Drawing.Size(83, 12);
+            this.l_inc_ino_note.TabIndex = 22;
+            this.l_inc_ino_note.Text = "如:IN00000001";
+            // 
+            // L_b_inc_ino
+            // 
+            this.L_b_inc_ino.AutoSize = true;
+            this.L_b_inc_ino.Location = new System.Drawing.Point(6, 69);
+            this.L_b_inc_ino.Name = "L_b_inc_ino";
+            this.L_b_inc_ino.Size = new System.Drawing.Size(41, 12);
+            this.L_b_inc_ino.TabIndex = 21;
+            this.L_b_inc_ino.Text = "表单号";
+            // 
+            // b_inc_ino
+            // 
+            this.b_inc_ino.Location = new System.Drawing.Point(53, 66);
+            this.b_inc_ino.Name = "b_inc_ino";
+            this.b_inc_ino.Size = new System.Drawing.Size(88, 21);
+            this.b_inc_ino.TabIndex = 20;
             // 
             // b_inc_add
             // 
@@ -422,8 +449,10 @@
             // 
             // page_expend
             // 
+            this.page_expend.Controls.Add(this.L_b_exp_bno_not);
+            this.page_expend.Controls.Add(this.L_b_exp_bno);
+            this.page_expend.Controls.Add(this.b_exp_bno);
             this.page_expend.Controls.Add(this.b_exp_add);
-            this.page_expend.Controls.Add(this.b_exp_upd);
             this.page_expend.Controls.Add(this.b_exp_del);
             this.page_expend.Controls.Add(this.b_exp_sub);
             this.page_expend.Controls.Add(this.b_exp_note);
@@ -439,7 +468,7 @@
             this.page_expend.Controls.Add(this.b_exp_mon);
             this.page_expend.Controls.Add(this.b_exp_year);
             this.page_expend.Controls.Add(this.L_b_exp_lic);
-            this.page_expend.Controls.Add(this.textBox3);
+            this.page_expend.Controls.Add(this.b_exp_lic);
             this.page_expend.Location = new System.Drawing.Point(4, 22);
             this.page_expend.Name = "page_expend";
             this.page_expend.Padding = new System.Windows.Forms.Padding(3);
@@ -451,27 +480,17 @@
             // 
             // b_exp_add
             // 
-            this.b_exp_add.Location = new System.Drawing.Point(240, 71);
+            this.b_exp_add.Location = new System.Drawing.Point(6, 91);
             this.b_exp_add.Name = "b_exp_add";
-            this.b_exp_add.Size = new System.Drawing.Size(71, 29);
+            this.b_exp_add.Size = new System.Drawing.Size(87, 29);
             this.b_exp_add.TabIndex = 39;
-            this.b_exp_add.Text = "增加";
+            this.b_exp_add.Text = "增加进数据库";
             this.b_exp_add.UseVisualStyleBackColor = true;
             this.b_exp_add.Click += new System.EventHandler(this.b_exp_add_Click);
             // 
-            // b_exp_upd
-            // 
-            this.b_exp_upd.Location = new System.Drawing.Point(163, 71);
-            this.b_exp_upd.Name = "b_exp_upd";
-            this.b_exp_upd.Size = new System.Drawing.Size(71, 29);
-            this.b_exp_upd.TabIndex = 38;
-            this.b_exp_upd.Text = "更新";
-            this.b_exp_upd.UseVisualStyleBackColor = true;
-            this.b_exp_upd.Click += new System.EventHandler(this.b_exp_upd_Click);
-            // 
             // b_exp_del
             // 
-            this.b_exp_del.Location = new System.Drawing.Point(86, 71);
+            this.b_exp_del.Location = new System.Drawing.Point(154, 91);
             this.b_exp_del.Name = "b_exp_del";
             this.b_exp_del.Size = new System.Drawing.Size(71, 29);
             this.b_exp_del.TabIndex = 37;
@@ -481,11 +500,11 @@
             // 
             // b_exp_sub
             // 
-            this.b_exp_sub.Location = new System.Drawing.Point(7, 71);
+            this.b_exp_sub.Location = new System.Drawing.Point(234, 91);
             this.b_exp_sub.Name = "b_exp_sub";
             this.b_exp_sub.Size = new System.Drawing.Size(73, 29);
             this.b_exp_sub.TabIndex = 36;
-            this.b_exp_sub.Text = "提交";
+            this.b_exp_sub.Text = "提交删除";
             this.b_exp_sub.UseVisualStyleBackColor = true;
             this.b_exp_sub.Click += new System.EventHandler(this.b_exp_sub_Click);
             // 
@@ -513,6 +532,7 @@
             this.b_exp_kind.Name = "b_exp_kind";
             this.b_exp_kind.Size = new System.Drawing.Size(121, 20);
             this.b_exp_kind.TabIndex = 33;
+            this.b_exp_kind.SelectedIndexChanged += new System.EventHandler(this.b_exp_kind_SelectedIndexChanged);
             // 
             // L_b_exp_kind
             // 
@@ -599,12 +619,12 @@
             this.L_b_exp_lic.TabIndex = 21;
             this.L_b_exp_lic.Text = "车牌号";
             // 
-            // textBox3
+            // b_exp_lic
             // 
-            this.textBox3.Location = new System.Drawing.Point(46, 7);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 20;
+            this.b_exp_lic.Location = new System.Drawing.Point(46, 7);
+            this.b_exp_lic.Name = "b_exp_lic";
+            this.b_exp_lic.Size = new System.Drawing.Size(100, 21);
+            this.b_exp_lic.TabIndex = 20;
             // 
             // page_exam
             // 
@@ -639,30 +659,30 @@
             this.page_cc.UseVisualStyleBackColor = true;
             this.page_cc.Click += new System.EventHandler(this.page_cc_Click);
             // 
-            // L_b_inc_ino
+            // L_b_exp_bno_not
             // 
-            this.L_b_inc_ino.AutoSize = true;
-            this.L_b_inc_ino.Location = new System.Drawing.Point(6, 69);
-            this.L_b_inc_ino.Name = "L_b_inc_ino";
-            this.L_b_inc_ino.Size = new System.Drawing.Size(41, 12);
-            this.L_b_inc_ino.TabIndex = 21;
-            this.L_b_inc_ino.Text = "表单号";
+            this.L_b_exp_bno_not.AutoSize = true;
+            this.L_b_exp_bno_not.Location = new System.Drawing.Point(52, 64);
+            this.L_b_exp_bno_not.Name = "L_b_exp_bno_not";
+            this.L_b_exp_bno_not.Size = new System.Drawing.Size(83, 12);
+            this.L_b_exp_bno_not.TabIndex = 42;
+            this.L_b_exp_bno_not.Text = "如:EX00000003";
             // 
-            // b_inc_ino
+            // L_b_exp_bno
             // 
-            this.b_inc_ino.Location = new System.Drawing.Point(53, 66);
-            this.b_inc_ino.Name = "b_inc_ino";
-            this.b_inc_ino.Size = new System.Drawing.Size(88, 21);
-            this.b_inc_ino.TabIndex = 20;
+            this.L_b_exp_bno.AutoSize = true;
+            this.L_b_exp_bno.Location = new System.Drawing.Point(3, 43);
+            this.L_b_exp_bno.Name = "L_b_exp_bno";
+            this.L_b_exp_bno.Size = new System.Drawing.Size(41, 12);
+            this.L_b_exp_bno.TabIndex = 41;
+            this.L_b_exp_bno.Text = "账单号";
             // 
-            // l_inc_ino_note
+            // b_exp_bno
             // 
-            this.l_inc_ino_note.AutoSize = true;
-            this.l_inc_ino_note.Location = new System.Drawing.Point(150, 69);
-            this.l_inc_ino_note.Name = "l_inc_ino_note";
-            this.l_inc_ino_note.Size = new System.Drawing.Size(83, 12);
-            this.l_inc_ino_note.TabIndex = 22;
-            this.l_inc_ino_note.Text = "如:IN00000001";
+            this.b_exp_bno.Location = new System.Drawing.Point(46, 40);
+            this.b_exp_bno.Name = "b_exp_bno";
+            this.b_exp_bno.Size = new System.Drawing.Size(100, 21);
+            this.b_exp_bno.TabIndex = 40;
             // 
             // MainForm
             // 
@@ -735,7 +755,6 @@
         private System.Windows.Forms.Button b_inc_add;
         private System.Windows.Forms.Button b_inc_del;
         private System.Windows.Forms.Button b_exp_add;
-        private System.Windows.Forms.Button b_exp_upd;
         private System.Windows.Forms.Button b_exp_del;
         private System.Windows.Forms.Button b_exp_sub;
         private System.Windows.Forms.RichTextBox b_exp_note;
@@ -751,9 +770,12 @@
         private System.Windows.Forms.ComboBox b_exp_mon;
         private System.Windows.Forms.ComboBox b_exp_year;
         private System.Windows.Forms.Label L_b_exp_lic;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox b_exp_lic;
         private System.Windows.Forms.Label l_inc_ino_note;
         private System.Windows.Forms.Label L_b_inc_ino;
         private System.Windows.Forms.TextBox b_inc_ino;
+        private System.Windows.Forms.Label L_b_exp_bno_not;
+        private System.Windows.Forms.Label L_b_exp_bno;
+        private System.Windows.Forms.TextBox b_exp_bno;
     }
 }
