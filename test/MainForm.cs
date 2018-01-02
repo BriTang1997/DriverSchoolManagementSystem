@@ -17,6 +17,7 @@ namespace test
         private SignForm f1;
         const int panellocax = 7;
         const int panellocay = 14;
+        const int rightbond = 586;
         private string sqlconnect;//这些东西可以直接用。
         private DataSet myset;
         private SqlDataAdapter da;
@@ -81,11 +82,35 @@ namespace test
             b_inc_year.SelectedItem = System.DateTime.Now.Year;
             for (int i = 1; i < 13; i++)
                 b_inc_mon.Items.Add(i);
-            b_inc_year.SelectedItem = System.DateTime.Now.Month;
+            b_inc_mon.SelectedItem = System.DateTime.Now.Month;
             for (int i = 1; i < 31; i++)
                 b_inc_day.Items.Add(i);
             b_inc_day.SelectedItem = System.DateTime.Now.Day;
 
+            for (int i = 2009; i <= 2018; i++)
+                b_exp_year.Items.Add(i);
+            b_exp_year.SelectedItem = System.DateTime.Now.Year;
+            for (int i = 1; i < 13; i++)
+                b_exp_mon.Items.Add(i);
+            b_exp_mon.SelectedItem = System.DateTime.Now.Month;
+            for (int i = 1; i < 31; i++)
+                b_exp_day.Items.Add(i);
+            b_exp_day.SelectedItem = System.DateTime.Now.Day;
+
+            using (conn = new SqlConnection(sqlconnect))
+            {
+                conn.Open();
+                cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "select IKNO from i_kind ";
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    b_inc_kind.Items.Add( dr.GetString(0) );
+                }
+                dr.Close();
+            }
+            
         }
 
 
@@ -98,7 +123,7 @@ namespace test
         * */
         private void Form2_Load(object sender, EventArgs e)
         {
-            label2.Text = f1.name;
+            L_mana.Text = f1.name;
             timer1.Enabled = true;
             enable(f1.power);
             switch (f1.power)
@@ -116,7 +141,7 @@ namespace test
                     sqlconnect = "Data Source = .;Database = DriverSchool;UID = tsy;Pwd = 111";
                     break;
             }
-            conn = new SqlConnection(sqlconnect);
+            
             /*
             I_sex.Items.Add("男");
             I_sex.Items.Add("女");
@@ -184,11 +209,24 @@ namespace test
          */
         private void b_inc_sno_TextChanged(object sender, EventArgs e)
         {
-
+            if(b_inc_sno.Text.Length == 8)
+            using (conn = new SqlConnection(sqlconnect))
+            {
+                conn.Open();
+                string tem = "select SNAME from student where SNO = '" + b_inc_sno.Text + "'";
+                cmd = new SqlCommand(tem, conn);
+                b_inc_sna.Text = (string)cmd.ExecuteScalar();
+            }
         }
         private void b_inc_sna_TextChanged(object sender, EventArgs e)
         {
-
+            using (conn = new SqlConnection(sqlconnect))
+            {
+                conn.Open();
+                string tem = "select SNO from student where SNAME = '" + b_inc_sna.Text + "'";
+                cmd = new SqlCommand(tem, conn);
+                b_inc_sno.Text = (string)cmd.ExecuteScalar();
+            }
         }
         /**
          * 编写人：唐胜洋
@@ -197,12 +235,25 @@ namespace test
          */
         private void b_inc_kind_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            using (conn = new SqlConnection(sqlconnect))
+            {
+                conn.Open();
+                string text;
+                string tem = "select IINTRO from i_kind where IKNO = '" + b_inc_kind.Text + "'";
+                cmd = new SqlCommand(tem, conn);
+                text = (string)cmd.ExecuteScalar();
+                b_inc_note.Text = text;
+            }
         }
-
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  16:28
+         * 功能：收入界面点击函数
+         */
         private void page_income_Click(object sender, EventArgs e)
         {
             string strcmd = "select * from income";
+            conn = new SqlConnection(sqlconnect);
             cmd = new SqlCommand(strcmd, conn);
             da = new SqlDataAdapter();
             da.SelectCommand = cmd;
@@ -218,6 +269,7 @@ namespace test
                 bing.DataMember = "income";
                 bing.Filter = "";
                 b_dataview.DataSource = bing;
+                b_dataview.Width = Math.Min(b_dataview.Columns.Count * 100+50, rightbond);
             }
             catch (SqlException ex)
             {
@@ -225,34 +277,113 @@ namespace test
             }
 
         }
-
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  16:28
+         * 功能：提交响应
+         */
         private void b_inc_sub_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                da.DeleteCommand = myCbd.GetDeleteCommand();
+                int cont = da.Update(myset.Tables["income"]);
+                myset.Tables["income"].AcceptChanges();
+                MessageBox.Show("成功更新了"+cont+"行数据.");
+                myset.Clear();
+                da.Fill(myset, "income");
+                b_dataview.Refresh();
+            }
+            catch (Exception em)
+            {
+                myset.Tables["income"].RejectChanges();
+                MessageBox.Show("提交失败");
+            }
         }
-
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  16:28
+         * 功能：删除响应
+         */
         private void b_inc_del_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("确定要删除所选一行数据？", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                int k = b_dataview.SelectedRows.Count;
+                for(int i = k; i > 0; i--)
+                {
+                    string INO = b_dataview.SelectedRows[i - 1].Cells["INO"].Value.ToString();
+                    DataRow tdr = myset.Tables["income"].Rows.Find(INO);
+                    tdr.Delete();
+                }
+            }
         }
-
-        private void b_inc_upd_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  16:28
+         * 功能：增加记录的响应
+         */
         private void b_inc_add_Click(object sender, EventArgs e)
         {
-
+            if (b_inc_sno.Text.Length < 1 || b_inc_kind.Text.Length < 1 || b_inc_money.Text.Length < 1 || b_inc_ino.Text.Length < 1)
+                return;
+            using (conn = new SqlConnection(sqlconnect))
+            {
+                try
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "exec INSERT_INCOME @sno,@mon,@date,@ope,@ik,@ino";
+                    cmd.Parameters.Add(new SqlParameter("@sno", b_inc_sno.Text));
+                    cmd.Parameters.Add(new SqlParameter("@mon", b_inc_money.Text));
+                    cmd.Parameters.Add(new SqlParameter("@date", b_inc_year.Text + "-" + b_inc_mon.Text + "-" + b_inc_day.Text));
+                    cmd.Parameters.Add(new SqlParameter("@ope", f1.name));
+                    cmd.Parameters.Add(new SqlParameter("@ik", b_inc_kind.Text));
+                    cmd.Parameters.Add(new SqlParameter("@ino", b_inc_ino.Text));
+                    int t = cmd.ExecuteNonQuery();
+                    if (t == 0)
+                        throw new Exception();
+                }
+                catch(Exception em)
+                {
+                    MessageBox.Show("插入失败，请检查输入。");
+                }
+            }
         }
 
 
 
 
-
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  16:28
+         * 功能：点击支出的响应
+         */
         private void page_expend_Click(object sender, EventArgs e)
         {
-
+            string strcmd = "select * from expenditure";
+            conn = new SqlConnection(sqlconnect);
+            cmd = new SqlCommand(strcmd, conn);
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            myCbd = new SqlCommandBuilder(da);
+            myset = new DataSet();
+            bing = new BindingSource();
+            try
+            {
+                da.Fill(myset, "expenditure");
+                DataTable dt = myset.Tables["expenditure"];
+                dt.PrimaryKey = new DataColumn[] { dt.Columns["BNO"] };
+                bing.DataSource = myset;
+                bing.DataMember = "expenditure";
+                bing.Filter = "";
+                b_dataview.DataSource = bing;
+                b_dataview.Width = Math.Min(b_dataview.Columns.Count * 100+50, rightbond);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("操作数据库失败");
+            }
         }
         private void b_exp_sub_Click(object sender, EventArgs e)
         {
@@ -276,27 +407,105 @@ namespace test
 
 
 
-
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  16:28
+         * 功能：点击考试的响应
+         */
         private void page_exam_Click(object sender, EventArgs e)
         {
-
+            string strcmd = "select * from exam";
+            conn = new SqlConnection(sqlconnect);
+            cmd = new SqlCommand(strcmd, conn);
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            myCbd = new SqlCommandBuilder(da);
+            myset = new DataSet();
+            bing = new BindingSource();
+            try
+            {
+                da.Fill(myset, "exam");
+                DataTable dt = myset.Tables["exam"];
+                dt.PrimaryKey = new DataColumn[] { dt.Columns["SNO"],dt.Columns["SJNAME"] };
+                bing.DataSource = myset;
+                bing.DataMember = "exam";
+                bing.Filter = "";
+                b_dataview.DataSource = bing;
+                b_dataview.Width = Math.Min(b_dataview.Columns.Count * 100+50, rightbond);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("操作数据库失败");
+            }
         }
 
 
 
-
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  16:28
+         * 功能：点击学员教练的响应
+         */
         private void page_sc_Click(object sender, EventArgs e)
         {
-
+            string strcmd = "select * from sc";
+            conn = new SqlConnection(sqlconnect);
+            cmd = new SqlCommand(strcmd, conn);
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            myCbd = new SqlCommandBuilder(da);
+            myset = new DataSet();
+            bing = new BindingSource();
+            try
+            {
+                da.Fill(myset, "sc");
+                DataTable dt = myset.Tables["sc"];
+                dt.PrimaryKey = new DataColumn[] { dt.Columns["SNO"],dt.Columns["CNO"], dt.Columns["SJNAME"] };
+                bing.DataSource = myset;
+                bing.DataMember = "sc";
+                bing.Filter = "";
+                b_dataview.DataSource = bing;
+                b_dataview.Width = Math.Min(b_dataview.Columns.Count * 100+50,rightbond);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("操作数据库失败");
+            }
         }
 
 
 
 
-
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  16:28
+         * 功能：点击教练车辆的响应
+         */
         private void page_cc_Click(object sender, EventArgs e)
         {
-
+            string strcmd = "select * from cc";
+            conn = new SqlConnection(sqlconnect);
+            cmd = new SqlCommand(strcmd, conn);
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            myCbd = new SqlCommandBuilder(da);
+            myset = new DataSet();
+            bing = new BindingSource();
+            try
+            {
+                da.Fill(myset, "cc");
+                DataTable dt = myset.Tables["cc"];
+                dt.PrimaryKey = new DataColumn[] { dt.Columns["CNO"], dt.Columns["LIC"] };
+                bing.DataSource = myset;
+                bing.DataMember = "cc";
+                bing.Filter = "";
+                b_dataview.DataSource = bing;
+                b_dataview.Width = Math.Min(b_dataview.Columns.Count * 100+50, rightbond);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("操作数据库失败");
+            }
         }
 
 
