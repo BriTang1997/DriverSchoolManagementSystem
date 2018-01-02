@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.L_mana = new System.Windows.Forms.Label();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.信息更新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,13 +40,12 @@
             this.统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label19 = new System.Windows.Forms.Label();
+            this.L_madein = new System.Windows.Forms.Label();
             this.业务panel = new System.Windows.Forms.Panel();
             this.b_dataview = new System.Windows.Forms.DataGridView();
             this.bussiness_table = new System.Windows.Forms.TabControl();
             this.page_income = new System.Windows.Forms.TabPage();
             this.b_inc_add = new System.Windows.Forms.Button();
-            this.b_inc_upd = new System.Windows.Forms.Button();
             this.b_inc_del = new System.Windows.Forms.Button();
             this.b_inc_sub = new System.Windows.Forms.Button();
             this.b_inc_note = new System.Windows.Forms.RichTextBox();
@@ -66,9 +65,6 @@
             this.L_b_inc_sno = new System.Windows.Forms.Label();
             this.b_inc_sno = new System.Windows.Forms.TextBox();
             this.page_expend = new System.Windows.Forms.TabPage();
-            this.page_exam = new System.Windows.Forms.TabPage();
-            this.page_sc = new System.Windows.Forms.TabPage();
-            this.page_cc = new System.Windows.Forms.TabPage();
             this.b_exp_add = new System.Windows.Forms.Button();
             this.b_exp_upd = new System.Windows.Forms.Button();
             this.b_exp_del = new System.Windows.Forms.Button();
@@ -87,6 +83,12 @@
             this.b_exp_year = new System.Windows.Forms.ComboBox();
             this.L_b_exp_lic = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.page_exam = new System.Windows.Forms.TabPage();
+            this.page_sc = new System.Windows.Forms.TabPage();
+            this.page_cc = new System.Windows.Forms.TabPage();
+            this.L_b_inc_ino = new System.Windows.Forms.Label();
+            this.b_inc_ino = new System.Windows.Forms.TextBox();
+            this.l_inc_ino_note = new System.Windows.Forms.Label();
             this.menu.SuspendLayout();
             this.业务panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.b_dataview)).BeginInit();
@@ -104,14 +106,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "管理员：";
             // 
-            // label2
+            // L_mana
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 420);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.L_mana.AutoSize = true;
+            this.L_mana.Location = new System.Drawing.Point(71, 420);
+            this.L_mana.Name = "L_mana";
+            this.L_mana.Size = new System.Drawing.Size(41, 12);
+            this.L_mana.TabIndex = 1;
+            this.L_mana.Text = "label2";
             // 
             // menu
             // 
@@ -179,14 +181,14 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label19
+            // L_madein
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(233, 420);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(83, 12);
-            this.label19.TabIndex = 8;
-            this.label19.Text = "Made in China";
+            this.L_madein.AutoSize = true;
+            this.L_madein.Location = new System.Drawing.Point(233, 420);
+            this.L_madein.Name = "L_madein";
+            this.L_madein.Size = new System.Drawing.Size(83, 12);
+            this.L_madein.TabIndex = 8;
+            this.L_madein.Text = "Made in China";
             // 
             // 业务panel
             // 
@@ -200,10 +202,10 @@
             // b_dataview
             // 
             this.b_dataview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.b_dataview.Location = new System.Drawing.Point(7, 161);
+            this.b_dataview.Location = new System.Drawing.Point(3, 161);
             this.b_dataview.Name = "b_dataview";
             this.b_dataview.RowTemplate.Height = 23;
-            this.b_dataview.Size = new System.Drawing.Size(597, 225);
+            this.b_dataview.Size = new System.Drawing.Size(586, 225);
             this.b_dataview.TabIndex = 1;
             // 
             // bussiness_table
@@ -221,8 +223,10 @@
             // 
             // page_income
             // 
+            this.page_income.Controls.Add(this.l_inc_ino_note);
+            this.page_income.Controls.Add(this.L_b_inc_ino);
+            this.page_income.Controls.Add(this.b_inc_ino);
             this.page_income.Controls.Add(this.b_inc_add);
-            this.page_income.Controls.Add(this.b_inc_upd);
             this.page_income.Controls.Add(this.b_inc_del);
             this.page_income.Controls.Add(this.b_inc_sub);
             this.page_income.Controls.Add(this.b_inc_note);
@@ -252,27 +256,17 @@
             // 
             // b_inc_add
             // 
-            this.b_inc_add.Location = new System.Drawing.Point(241, 70);
+            this.b_inc_add.Location = new System.Drawing.Point(8, 91);
             this.b_inc_add.Name = "b_inc_add";
-            this.b_inc_add.Size = new System.Drawing.Size(71, 29);
+            this.b_inc_add.Size = new System.Drawing.Size(85, 29);
             this.b_inc_add.TabIndex = 19;
-            this.b_inc_add.Text = "增加";
+            this.b_inc_add.Text = "增加进数据库";
             this.b_inc_add.UseVisualStyleBackColor = true;
             this.b_inc_add.Click += new System.EventHandler(this.b_inc_add_Click);
             // 
-            // b_inc_upd
-            // 
-            this.b_inc_upd.Location = new System.Drawing.Point(164, 70);
-            this.b_inc_upd.Name = "b_inc_upd";
-            this.b_inc_upd.Size = new System.Drawing.Size(71, 29);
-            this.b_inc_upd.TabIndex = 18;
-            this.b_inc_upd.Text = "更新";
-            this.b_inc_upd.UseVisualStyleBackColor = true;
-            this.b_inc_upd.Click += new System.EventHandler(this.b_inc_upd_Click);
-            // 
             // b_inc_del
             // 
-            this.b_inc_del.Location = new System.Drawing.Point(87, 70);
+            this.b_inc_del.Location = new System.Drawing.Point(155, 91);
             this.b_inc_del.Name = "b_inc_del";
             this.b_inc_del.Size = new System.Drawing.Size(71, 29);
             this.b_inc_del.TabIndex = 17;
@@ -282,11 +276,11 @@
             // 
             // b_inc_sub
             // 
-            this.b_inc_sub.Location = new System.Drawing.Point(8, 70);
+            this.b_inc_sub.Location = new System.Drawing.Point(233, 91);
             this.b_inc_sub.Name = "b_inc_sub";
             this.b_inc_sub.Size = new System.Drawing.Size(73, 29);
             this.b_inc_sub.TabIndex = 16;
-            this.b_inc_sub.Text = "提交";
+            this.b_inc_sub.Text = "提交删除";
             this.b_inc_sub.UseVisualStyleBackColor = true;
             this.b_inc_sub.Click += new System.EventHandler(this.b_inc_sub_Click);
             // 
@@ -294,7 +288,7 @@
             // 
             this.b_inc_note.Location = new System.Drawing.Point(314, 39);
             this.b_inc_note.Name = "b_inc_note";
-            this.b_inc_note.Size = new System.Drawing.Size(265, 80);
+            this.b_inc_note.Size = new System.Drawing.Size(265, 81);
             this.b_inc_note.TabIndex = 15;
             this.b_inc_note.Text = "";
             // 
@@ -455,39 +449,6 @@
             this.page_expend.UseVisualStyleBackColor = true;
             this.page_expend.Click += new System.EventHandler(this.page_expend_Click);
             // 
-            // page_exam
-            // 
-            this.page_exam.Location = new System.Drawing.Point(4, 22);
-            this.page_exam.Name = "page_exam";
-            this.page_exam.Padding = new System.Windows.Forms.Padding(3);
-            this.page_exam.Size = new System.Drawing.Size(582, 126);
-            this.page_exam.TabIndex = 2;
-            this.page_exam.Text = "考试";
-            this.page_exam.UseVisualStyleBackColor = true;
-            this.page_exam.Click += new System.EventHandler(this.page_exam_Click);
-            // 
-            // page_sc
-            // 
-            this.page_sc.Location = new System.Drawing.Point(4, 22);
-            this.page_sc.Name = "page_sc";
-            this.page_sc.Padding = new System.Windows.Forms.Padding(3);
-            this.page_sc.Size = new System.Drawing.Size(582, 126);
-            this.page_sc.TabIndex = 3;
-            this.page_sc.Text = "学员教练匹配";
-            this.page_sc.UseVisualStyleBackColor = true;
-            this.page_sc.Click += new System.EventHandler(this.page_sc_Click);
-            // 
-            // page_cc
-            // 
-            this.page_cc.Location = new System.Drawing.Point(4, 22);
-            this.page_cc.Name = "page_cc";
-            this.page_cc.Padding = new System.Windows.Forms.Padding(3);
-            this.page_cc.Size = new System.Drawing.Size(582, 126);
-            this.page_cc.TabIndex = 4;
-            this.page_cc.Text = "教练车辆分配";
-            this.page_cc.UseVisualStyleBackColor = true;
-            this.page_cc.Click += new System.EventHandler(this.page_cc_Click);
-            // 
             // b_exp_add
             // 
             this.b_exp_add.Location = new System.Drawing.Point(240, 71);
@@ -645,16 +606,74 @@
             this.textBox3.Size = new System.Drawing.Size(100, 21);
             this.textBox3.TabIndex = 20;
             // 
+            // page_exam
+            // 
+            this.page_exam.Location = new System.Drawing.Point(4, 22);
+            this.page_exam.Name = "page_exam";
+            this.page_exam.Padding = new System.Windows.Forms.Padding(3);
+            this.page_exam.Size = new System.Drawing.Size(582, 126);
+            this.page_exam.TabIndex = 2;
+            this.page_exam.Text = "考试";
+            this.page_exam.UseVisualStyleBackColor = true;
+            this.page_exam.Click += new System.EventHandler(this.page_exam_Click);
+            // 
+            // page_sc
+            // 
+            this.page_sc.Location = new System.Drawing.Point(4, 22);
+            this.page_sc.Name = "page_sc";
+            this.page_sc.Padding = new System.Windows.Forms.Padding(3);
+            this.page_sc.Size = new System.Drawing.Size(582, 126);
+            this.page_sc.TabIndex = 3;
+            this.page_sc.Text = "学员教练匹配";
+            this.page_sc.UseVisualStyleBackColor = true;
+            this.page_sc.Click += new System.EventHandler(this.page_sc_Click);
+            // 
+            // page_cc
+            // 
+            this.page_cc.Location = new System.Drawing.Point(4, 22);
+            this.page_cc.Name = "page_cc";
+            this.page_cc.Padding = new System.Windows.Forms.Padding(3);
+            this.page_cc.Size = new System.Drawing.Size(582, 126);
+            this.page_cc.TabIndex = 4;
+            this.page_cc.Text = "教练车辆分配";
+            this.page_cc.UseVisualStyleBackColor = true;
+            this.page_cc.Click += new System.EventHandler(this.page_cc_Click);
+            // 
+            // L_b_inc_ino
+            // 
+            this.L_b_inc_ino.AutoSize = true;
+            this.L_b_inc_ino.Location = new System.Drawing.Point(6, 69);
+            this.L_b_inc_ino.Name = "L_b_inc_ino";
+            this.L_b_inc_ino.Size = new System.Drawing.Size(41, 12);
+            this.L_b_inc_ino.TabIndex = 21;
+            this.L_b_inc_ino.Text = "表单号";
+            // 
+            // b_inc_ino
+            // 
+            this.b_inc_ino.Location = new System.Drawing.Point(53, 66);
+            this.b_inc_ino.Name = "b_inc_ino";
+            this.b_inc_ino.Size = new System.Drawing.Size(88, 21);
+            this.b_inc_ino.TabIndex = 20;
+            // 
+            // l_inc_ino_note
+            // 
+            this.l_inc_ino_note.AutoSize = true;
+            this.l_inc_ino_note.Location = new System.Drawing.Point(150, 69);
+            this.l_inc_ino_note.Name = "l_inc_ino_note";
+            this.l_inc_ino_note.Size = new System.Drawing.Size(83, 12);
+            this.l_inc_ino_note.TabIndex = 22;
+            this.l_inc_ino_note.Text = "如:IN00000001";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 441);
             this.Controls.Add(this.业务panel);
-            this.Controls.Add(this.label19);
+            this.Controls.Add(this.L_madein);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.L_mana);
             this.Controls.Add(this.menu);
             this.MainMenuStrip = this.menu;
             this.Name = "MainForm";
@@ -677,7 +696,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label L_mana;
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem 开始ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 信息更新ToolStripMenuItem;
@@ -687,7 +706,7 @@
         private System.Windows.Forms.ToolStripMenuItem 统计ToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label L_madein;
         private System.Windows.Forms.Panel 业务panel;
         private System.Windows.Forms.TabControl bussiness_table;
         private System.Windows.Forms.TabPage page_income;
@@ -714,7 +733,6 @@
         private System.Windows.Forms.Label L_b_inc_kind;
         private System.Windows.Forms.DataGridView b_dataview;
         private System.Windows.Forms.Button b_inc_add;
-        private System.Windows.Forms.Button b_inc_upd;
         private System.Windows.Forms.Button b_inc_del;
         private System.Windows.Forms.Button b_exp_add;
         private System.Windows.Forms.Button b_exp_upd;
@@ -734,5 +752,8 @@
         private System.Windows.Forms.ComboBox b_exp_year;
         private System.Windows.Forms.Label L_b_exp_lic;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label l_inc_ino_note;
+        private System.Windows.Forms.Label L_b_inc_ino;
+        private System.Windows.Forms.TextBox b_inc_ino;
     }
 }

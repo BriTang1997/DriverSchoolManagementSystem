@@ -69,6 +69,7 @@ namespace test
                 {
                     MessageBox.Show("登陆成功！");
                     yes = true;
+                    name = namew;
                     power = Convert.ToInt32(dr["r2"].ToString());
                     Close();
                 }
