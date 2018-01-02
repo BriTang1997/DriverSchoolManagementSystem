@@ -68,6 +68,9 @@
             this.L_b_inc_sno = new System.Windows.Forms.Label();
             this.b_inc_sno = new System.Windows.Forms.TextBox();
             this.page_expend = new System.Windows.Forms.TabPage();
+            this.L_b_exp_bno_not = new System.Windows.Forms.Label();
+            this.L_b_exp_bno = new System.Windows.Forms.Label();
+            this.b_exp_bno = new System.Windows.Forms.TextBox();
             this.b_exp_add = new System.Windows.Forms.Button();
             this.b_exp_del = new System.Windows.Forms.Button();
             this.b_exp_sub = new System.Windows.Forms.Button();
@@ -86,17 +89,33 @@
             this.L_b_exp_lic = new System.Windows.Forms.Label();
             this.b_exp_lic = new System.Windows.Forms.TextBox();
             this.page_exam = new System.Windows.Forms.TabPage();
+            this.b_exa_add = new System.Windows.Forms.Button();
+            this.b_exa_del = new System.Windows.Forms.Button();
+            this.b_exa_sub = new System.Windows.Forms.Button();
+            this.L_b_exa_sna = new System.Windows.Forms.Label();
+            this.b_exa_sna = new System.Windows.Forms.TextBox();
+            this.L_b_exa_sno = new System.Windows.Forms.Label();
+            this.b_exa_sno = new System.Windows.Forms.TextBox();
+            this.b_exa_note = new System.Windows.Forms.RichTextBox();
+            this.b_exa_kind = new System.Windows.Forms.ComboBox();
+            this.L_b_exa_kind = new System.Windows.Forms.Label();
+            this.L_b_exa_gra = new System.Windows.Forms.Label();
+            this.b_exa_gra = new System.Windows.Forms.TextBox();
+            this.L_b_exa_day = new System.Windows.Forms.Label();
+            this.L_b_exa_mon = new System.Windows.Forms.Label();
+            this.L_b_exa_year = new System.Windows.Forms.Label();
+            this.b_exa_day = new System.Windows.Forms.ComboBox();
+            this.b_exa_mon = new System.Windows.Forms.ComboBox();
+            this.b_exa_year = new System.Windows.Forms.ComboBox();
             this.page_sc = new System.Windows.Forms.TabPage();
             this.page_cc = new System.Windows.Forms.TabPage();
-            this.L_b_exp_bno_not = new System.Windows.Forms.Label();
-            this.L_b_exp_bno = new System.Windows.Forms.Label();
-            this.b_exp_bno = new System.Windows.Forms.TextBox();
             this.menu.SuspendLayout();
             this.业务panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.b_dataview)).BeginInit();
             this.bussiness_table.SuspendLayout();
             this.page_income.SuspendLayout();
             this.page_expend.SuspendLayout();
+            this.page_exam.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -478,6 +497,31 @@
             this.page_expend.UseVisualStyleBackColor = true;
             this.page_expend.Click += new System.EventHandler(this.page_expend_Click);
             // 
+            // L_b_exp_bno_not
+            // 
+            this.L_b_exp_bno_not.AutoSize = true;
+            this.L_b_exp_bno_not.Location = new System.Drawing.Point(52, 64);
+            this.L_b_exp_bno_not.Name = "L_b_exp_bno_not";
+            this.L_b_exp_bno_not.Size = new System.Drawing.Size(83, 12);
+            this.L_b_exp_bno_not.TabIndex = 42;
+            this.L_b_exp_bno_not.Text = "如:EX00000003";
+            // 
+            // L_b_exp_bno
+            // 
+            this.L_b_exp_bno.AutoSize = true;
+            this.L_b_exp_bno.Location = new System.Drawing.Point(3, 43);
+            this.L_b_exp_bno.Name = "L_b_exp_bno";
+            this.L_b_exp_bno.Size = new System.Drawing.Size(41, 12);
+            this.L_b_exp_bno.TabIndex = 41;
+            this.L_b_exp_bno.Text = "账单号";
+            // 
+            // b_exp_bno
+            // 
+            this.b_exp_bno.Location = new System.Drawing.Point(46, 40);
+            this.b_exp_bno.Name = "b_exp_bno";
+            this.b_exp_bno.Size = new System.Drawing.Size(100, 21);
+            this.b_exp_bno.TabIndex = 40;
+            // 
             // b_exp_add
             // 
             this.b_exp_add.Location = new System.Drawing.Point(6, 91);
@@ -628,6 +672,24 @@
             // 
             // page_exam
             // 
+            this.page_exam.Controls.Add(this.b_exa_add);
+            this.page_exam.Controls.Add(this.b_exa_del);
+            this.page_exam.Controls.Add(this.b_exa_sub);
+            this.page_exam.Controls.Add(this.L_b_exa_sna);
+            this.page_exam.Controls.Add(this.b_exa_sna);
+            this.page_exam.Controls.Add(this.L_b_exa_sno);
+            this.page_exam.Controls.Add(this.b_exa_sno);
+            this.page_exam.Controls.Add(this.b_exa_note);
+            this.page_exam.Controls.Add(this.b_exa_kind);
+            this.page_exam.Controls.Add(this.L_b_exa_kind);
+            this.page_exam.Controls.Add(this.L_b_exa_gra);
+            this.page_exam.Controls.Add(this.b_exa_gra);
+            this.page_exam.Controls.Add(this.L_b_exa_day);
+            this.page_exam.Controls.Add(this.L_b_exa_mon);
+            this.page_exam.Controls.Add(this.L_b_exa_year);
+            this.page_exam.Controls.Add(this.b_exa_day);
+            this.page_exam.Controls.Add(this.b_exa_mon);
+            this.page_exam.Controls.Add(this.b_exa_year);
             this.page_exam.Location = new System.Drawing.Point(4, 22);
             this.page_exam.Name = "page_exam";
             this.page_exam.Padding = new System.Windows.Forms.Padding(3);
@@ -636,6 +698,163 @@
             this.page_exam.Text = "考试";
             this.page_exam.UseVisualStyleBackColor = true;
             this.page_exam.Click += new System.EventHandler(this.page_exam_Click);
+            // 
+            // b_exa_add
+            // 
+            this.b_exa_add.Location = new System.Drawing.Point(4, 91);
+            this.b_exa_add.Name = "b_exa_add";
+            this.b_exa_add.Size = new System.Drawing.Size(87, 29);
+            this.b_exa_add.TabIndex = 47;
+            this.b_exa_add.Text = "增加进数据库";
+            this.b_exa_add.UseVisualStyleBackColor = true;
+            this.b_exa_add.Click += new System.EventHandler(this.b_exa_add_Click);
+            // 
+            // b_exa_del
+            // 
+            this.b_exa_del.Location = new System.Drawing.Point(152, 91);
+            this.b_exa_del.Name = "b_exa_del";
+            this.b_exa_del.Size = new System.Drawing.Size(71, 29);
+            this.b_exa_del.TabIndex = 46;
+            this.b_exa_del.Text = "删除";
+            this.b_exa_del.UseVisualStyleBackColor = true;
+            this.b_exa_del.Click += new System.EventHandler(this.b_exa_del_Click);
+            // 
+            // b_exa_sub
+            // 
+            this.b_exa_sub.Location = new System.Drawing.Point(232, 91);
+            this.b_exa_sub.Name = "b_exa_sub";
+            this.b_exa_sub.Size = new System.Drawing.Size(73, 29);
+            this.b_exa_sub.TabIndex = 45;
+            this.b_exa_sub.Text = "提交删除";
+            this.b_exa_sub.UseVisualStyleBackColor = true;
+            this.b_exa_sub.Click += new System.EventHandler(this.b_exa_sub_Click);
+            // 
+            // L_b_exa_sna
+            // 
+            this.L_b_exa_sna.AutoSize = true;
+            this.L_b_exa_sna.Location = new System.Drawing.Point(6, 43);
+            this.L_b_exa_sna.Name = "L_b_exa_sna";
+            this.L_b_exa_sna.Size = new System.Drawing.Size(29, 12);
+            this.L_b_exa_sna.TabIndex = 44;
+            this.L_b_exa_sna.Text = "姓名";
+            // 
+            // b_exa_sna
+            // 
+            this.b_exa_sna.Location = new System.Drawing.Point(41, 40);
+            this.b_exa_sna.Name = "b_exa_sna";
+            this.b_exa_sna.Size = new System.Drawing.Size(100, 21);
+            this.b_exa_sna.TabIndex = 43;
+            this.b_exa_sna.TextChanged += new System.EventHandler(this.b_exa_sna_TextChanged);
+            // 
+            // L_b_exa_sno
+            // 
+            this.L_b_exa_sno.AutoSize = true;
+            this.L_b_exa_sno.Location = new System.Drawing.Point(6, 11);
+            this.L_b_exa_sno.Name = "L_b_exa_sno";
+            this.L_b_exa_sno.Size = new System.Drawing.Size(29, 12);
+            this.L_b_exa_sno.TabIndex = 42;
+            this.L_b_exa_sno.Text = "学号";
+            // 
+            // b_exa_sno
+            // 
+            this.b_exa_sno.Location = new System.Drawing.Point(41, 8);
+            this.b_exa_sno.Name = "b_exa_sno";
+            this.b_exa_sno.Size = new System.Drawing.Size(100, 21);
+            this.b_exa_sno.TabIndex = 41;
+            this.b_exa_sno.TextChanged += new System.EventHandler(this.b_exa_sno_TextChanged);
+            // 
+            // b_exa_note
+            // 
+            this.b_exa_note.Location = new System.Drawing.Point(311, 40);
+            this.b_exa_note.Name = "b_exa_note";
+            this.b_exa_note.Size = new System.Drawing.Size(265, 80);
+            this.b_exa_note.TabIndex = 40;
+            this.b_exa_note.Text = "";
+            // 
+            // b_exa_kind
+            // 
+            this.b_exa_kind.FormattingEnabled = true;
+            this.b_exa_kind.Location = new System.Drawing.Point(182, 40);
+            this.b_exa_kind.Name = "b_exa_kind";
+            this.b_exa_kind.Size = new System.Drawing.Size(121, 20);
+            this.b_exa_kind.TabIndex = 39;
+            this.b_exa_kind.SelectedIndexChanged += new System.EventHandler(this.b_exa_kind_SelectedIndexChanged);
+            // 
+            // L_b_exa_kind
+            // 
+            this.L_b_exa_kind.AutoSize = true;
+            this.L_b_exa_kind.Location = new System.Drawing.Point(147, 43);
+            this.L_b_exa_kind.Name = "L_b_exa_kind";
+            this.L_b_exa_kind.Size = new System.Drawing.Size(29, 12);
+            this.L_b_exa_kind.TabIndex = 38;
+            this.L_b_exa_kind.Text = "科目";
+            // 
+            // L_b_exa_gra
+            // 
+            this.L_b_exa_gra.AutoSize = true;
+            this.L_b_exa_gra.Location = new System.Drawing.Point(147, 10);
+            this.L_b_exa_gra.Name = "L_b_exa_gra";
+            this.L_b_exa_gra.Size = new System.Drawing.Size(29, 12);
+            this.L_b_exa_gra.TabIndex = 37;
+            this.L_b_exa_gra.Text = "分数";
+            // 
+            // b_exa_gra
+            // 
+            this.b_exa_gra.Location = new System.Drawing.Point(182, 7);
+            this.b_exa_gra.Name = "b_exa_gra";
+            this.b_exa_gra.Size = new System.Drawing.Size(100, 21);
+            this.b_exa_gra.TabIndex = 36;
+            // 
+            // L_b_exa_day
+            // 
+            this.L_b_exa_day.AutoSize = true;
+            this.L_b_exa_day.Location = new System.Drawing.Point(502, 11);
+            this.L_b_exa_day.Name = "L_b_exa_day";
+            this.L_b_exa_day.Size = new System.Drawing.Size(17, 12);
+            this.L_b_exa_day.TabIndex = 33;
+            this.L_b_exa_day.Text = "日";
+            // 
+            // L_b_exa_mon
+            // 
+            this.L_b_exa_mon.AutoSize = true;
+            this.L_b_exa_mon.Location = new System.Drawing.Point(428, 11);
+            this.L_b_exa_mon.Name = "L_b_exa_mon";
+            this.L_b_exa_mon.Size = new System.Drawing.Size(17, 12);
+            this.L_b_exa_mon.TabIndex = 32;
+            this.L_b_exa_mon.Text = "月";
+            // 
+            // L_b_exa_year
+            // 
+            this.L_b_exa_year.AutoSize = true;
+            this.L_b_exa_year.Location = new System.Drawing.Point(357, 11);
+            this.L_b_exa_year.Name = "L_b_exa_year";
+            this.L_b_exa_year.Size = new System.Drawing.Size(17, 12);
+            this.L_b_exa_year.TabIndex = 31;
+            this.L_b_exa_year.Text = "年";
+            // 
+            // b_exa_day
+            // 
+            this.b_exa_day.FormattingEnabled = true;
+            this.b_exa_day.Location = new System.Drawing.Point(451, 8);
+            this.b_exa_day.Name = "b_exa_day";
+            this.b_exa_day.Size = new System.Drawing.Size(45, 20);
+            this.b_exa_day.TabIndex = 30;
+            // 
+            // b_exa_mon
+            // 
+            this.b_exa_mon.FormattingEnabled = true;
+            this.b_exa_mon.Location = new System.Drawing.Point(377, 8);
+            this.b_exa_mon.Name = "b_exa_mon";
+            this.b_exa_mon.Size = new System.Drawing.Size(45, 20);
+            this.b_exa_mon.TabIndex = 29;
+            // 
+            // b_exa_year
+            // 
+            this.b_exa_year.FormattingEnabled = true;
+            this.b_exa_year.Location = new System.Drawing.Point(306, 8);
+            this.b_exa_year.Name = "b_exa_year";
+            this.b_exa_year.Size = new System.Drawing.Size(45, 20);
+            this.b_exa_year.TabIndex = 28;
             // 
             // page_sc
             // 
@@ -658,31 +877,6 @@
             this.page_cc.Text = "教练车辆分配";
             this.page_cc.UseVisualStyleBackColor = true;
             this.page_cc.Click += new System.EventHandler(this.page_cc_Click);
-            // 
-            // L_b_exp_bno_not
-            // 
-            this.L_b_exp_bno_not.AutoSize = true;
-            this.L_b_exp_bno_not.Location = new System.Drawing.Point(52, 64);
-            this.L_b_exp_bno_not.Name = "L_b_exp_bno_not";
-            this.L_b_exp_bno_not.Size = new System.Drawing.Size(83, 12);
-            this.L_b_exp_bno_not.TabIndex = 42;
-            this.L_b_exp_bno_not.Text = "如:EX00000003";
-            // 
-            // L_b_exp_bno
-            // 
-            this.L_b_exp_bno.AutoSize = true;
-            this.L_b_exp_bno.Location = new System.Drawing.Point(3, 43);
-            this.L_b_exp_bno.Name = "L_b_exp_bno";
-            this.L_b_exp_bno.Size = new System.Drawing.Size(41, 12);
-            this.L_b_exp_bno.TabIndex = 41;
-            this.L_b_exp_bno.Text = "账单号";
-            // 
-            // b_exp_bno
-            // 
-            this.b_exp_bno.Location = new System.Drawing.Point(46, 40);
-            this.b_exp_bno.Name = "b_exp_bno";
-            this.b_exp_bno.Size = new System.Drawing.Size(100, 21);
-            this.b_exp_bno.TabIndex = 40;
             // 
             // MainForm
             // 
@@ -708,6 +902,8 @@
             this.page_income.PerformLayout();
             this.page_expend.ResumeLayout(false);
             this.page_expend.PerformLayout();
+            this.page_exam.ResumeLayout(false);
+            this.page_exam.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -777,5 +973,23 @@
         private System.Windows.Forms.Label L_b_exp_bno_not;
         private System.Windows.Forms.Label L_b_exp_bno;
         private System.Windows.Forms.TextBox b_exp_bno;
+        private System.Windows.Forms.Button b_exa_add;
+        private System.Windows.Forms.Button b_exa_del;
+        private System.Windows.Forms.Button b_exa_sub;
+        private System.Windows.Forms.Label L_b_exa_sna;
+        private System.Windows.Forms.TextBox b_exa_sna;
+        private System.Windows.Forms.Label L_b_exa_sno;
+        private System.Windows.Forms.TextBox b_exa_sno;
+        private System.Windows.Forms.RichTextBox b_exa_note;
+        private System.Windows.Forms.ComboBox b_exa_kind;
+        private System.Windows.Forms.Label L_b_exa_kind;
+        private System.Windows.Forms.Label L_b_exa_gra;
+        private System.Windows.Forms.TextBox b_exa_gra;
+        private System.Windows.Forms.Label L_b_exa_day;
+        private System.Windows.Forms.Label L_b_exa_mon;
+        private System.Windows.Forms.Label L_b_exa_year;
+        private System.Windows.Forms.ComboBox b_exa_day;
+        private System.Windows.Forms.ComboBox b_exa_mon;
+        private System.Windows.Forms.ComboBox b_exa_year;
     }
 }

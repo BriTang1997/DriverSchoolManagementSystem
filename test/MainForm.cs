@@ -97,6 +97,17 @@ namespace test
             for (int i = 1; i < 31; i++)
                 b_exp_day.Items.Add(i);
             b_exp_day.SelectedItem = System.DateTime.Now.Day;
+
+            for (int i = 2009; i <= 2018; i++)
+                b_exa_year.Items.Add(i);
+            b_exa_year.SelectedItem = System.DateTime.Now.Year;
+            for (int i = 1; i < 13; i++)
+                b_exa_mon.Items.Add(i);
+            b_exa_mon.SelectedItem = System.DateTime.Now.Month;
+            for (int i = 1; i < 31; i++)
+                b_exa_day.Items.Add(i);
+            b_exa_day.SelectedItem = System.DateTime.Now.Day;
+
             /*
              * 从数据库中读取下拉菜单
              * 
@@ -118,6 +129,13 @@ namespace test
                 while (dr.Read())
                 {
                     b_exp_kind.Items.Add(dr.GetString(0));
+                }
+                cmd.CommandText = "select SJNAME from subject ";
+                dr.Close();
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    b_exa_kind.Items.Add(dr[0]);
                 }
             }
             
@@ -559,7 +577,143 @@ namespace test
                 MessageBox.Show("操作数据库失败");
             }
         }
-
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  20:28
+         * 功能：下面这两个函数实现输入姓名自动找到学号、输入学号找到姓名
+         */
+        private void b_exa_sno_TextChanged(object sender, EventArgs e)
+        {
+            if (b_exa_sno.Text.Length == 8)
+                using (conn = new SqlConnection(sqlconnect))
+                {
+                    conn.Open();
+                    string tem = "select SNAME from student where SNO = '" + b_exa_sno.Text + "'";
+                    cmd = new SqlCommand(tem, conn);
+                    b_exa_sna.Text = (string)cmd.ExecuteScalar();
+                }
+        }
+        private void b_exa_sna_TextChanged(object sender, EventArgs e)
+        {
+            using (conn = new SqlConnection(sqlconnect))
+            {
+                conn.Open();
+                string tem = "select SNO from student where SNAME = '" + b_exa_sna.Text + "'";
+                cmd = new SqlCommand(tem, conn);
+                b_exa_sno.Text = (string)cmd.ExecuteScalar();
+            }
+        }
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  20:48
+         * 功能：科目选择变化之后介绍的变化
+         */
+        private void b_exa_kind_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (conn = new SqlConnection(sqlconnect))
+            {
+                conn.Open();
+                string text;
+                string tem = "select SINTRO from subject where SJNAME = '" + b_exa_kind.Text + "'";
+                cmd = new SqlCommand(tem, conn);
+                text = (string)cmd.ExecuteScalar();
+                b_exa_note.Text = text;
+            }
+        }
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  20:48
+         * 功能：增加一条考试记录
+         */
+        private void b_exa_add_Click(object sender, EventArgs e)
+        {
+            if (b_exa_sno.Text.Length < 1 || b_exa_kind.Text.Length < 1 || b_exa_gra.Text.Length < 1)
+            {
+                MessageBox.Show("请完善信息!");
+                return;
+            }
+            else if (Regex.IsMatch(b_exa_sno.Text, @"^XY[0-9]{8}\s+$") || Regex.IsMatch(b_exa_sno.Text, @"^XY[0-9]{8}$"))
+            {
+                MessageBox.Show("学号格式错误!");
+                return;
+            }
+            else if (Regex.IsMatch(b_exa_gra.Text, @"[1-9]\d*"))
+            {
+                MessageBox.Show("请输入数字!");
+                return;
+            }
+            else if(Convert.ToInt32(b_exa_gra)<0 || Convert.ToInt32(b_exa_gra) >=100 )
+            {
+                MessageBox.Show("输入数字不合法!");
+                return;
+            }
+            using (conn = new SqlConnection(sqlconnect))
+            {
+                try
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "exec INSERT_EXPENDITURE @sno,@date,@ek,@grade";
+                    cmd.Parameters.Add(new SqlParameter("@sno", b_exa_sno.Text));
+                    cmd.Parameters.Add(new SqlParameter("@grade", b_exa_gra.Text));
+                    cmd.Parameters.Add(new SqlParameter("@date", b_exa_year.Text + "-" + b_exa_mon.Text + "-" + b_exa_day.Text));
+                    cmd.Parameters.Add(new SqlParameter("@ek", b_exa_kind.Text));
+                    int t = cmd.ExecuteNonQuery();
+                    if (t == 0)
+                        throw new Exception();
+                    MessageBox.Show("插入成功！");
+                }
+                catch (Exception em)
+                {
+                    MessageBox.Show("插入失败，请检查输入。");
+                }
+            }
+        }
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  20:48
+         * 功能：删除考试数据的响应
+         */
+        private void b_exa_del_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("确定要删除所选行数据？", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                int k = b_dataview.SelectedRows.Count;
+                for (int i = k; i > 0; i--)
+                {
+                    string SNO = b_dataview.SelectedRows[i - 1].Cells["BNO"].Value.ToString();
+                    string SJ = b_dataview.SelectedRows[i - 1].Cells["SJNAME"].Value.ToString();
+                    //DataRow tdr = myset.Tables["expenditure"].Rows.Find(SNO,SJ);
+                    /*
+                     * 主键！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+                     */
+                    //tdr.Delete();
+                }
+            }
+        }
+        /**
+         * 编写人：唐胜洋
+         * 时间：2018-1-2  20:48
+         * 功能：提交考试记录删除
+         */
+        private void b_exa_sub_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                da.DeleteCommand = myCbd.GetDeleteCommand();
+                int cont = da.Update(myset.Tables["exam"]);
+                myset.Tables["exam"].AcceptChanges();
+                MessageBox.Show("成功更新了" + cont + "行数据.");
+                myset.Clear();
+                da.Fill(myset, "exam");
+                b_dataview.Refresh();
+            }
+            catch (Exception em)
+            {
+                myset.Tables["exam"].RejectChanges();
+                MessageBox.Show("提交失败");
+            }
+        }
 
 
         /**
@@ -628,6 +782,8 @@ namespace test
                 MessageBox.Show("操作数据库失败");
             }
         }
+
+
 
 
 
