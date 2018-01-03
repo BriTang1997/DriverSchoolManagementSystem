@@ -57,27 +57,34 @@ values (@LI,@mon,@dat,@ope,@ek,@in)
 考试：新建，更新，按照时间段查询，按照
 */
 
-CREATE PROCEDURE INSERT_EXAM(@SNO char(10),@dat datetime,@SJ char(8),@GRADE int)
+USE [DriverSchool]
+GO
+/****** Object:  StoredProcedure [dbo].[INSERT_EXAM]    Script Date: 01/03/2018 09:05:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[INSERT_EXAM](@SNO char(10),@dat datetime,@SJ smallint,@GRADE int)
 AS 
-
 BEGIN
 	DECLARE @yes int
-	SELECT int = COUNT(*)
+	SELECT @yes = COUNT(*)
 	FROM exam
 	WHERE SNO = @SNO and SJNAME = @SJ
 	
 	if(@yes = 1)
 	BEGIN
-		INSERT INTO exam(SNO,SJNAME,EDATE,GRADE)
-		values (@SNO,@SJ,@dat,@GRADE)
-	END
-	else
-	BEGIN
 		UPDATE exam
 		SET GRADE = @GRADE , EDATE = @dat
 		WHERE SNO = @SNO and SJNAME = @SJ
 	END
+	else
+	BEGIN
+		INSERT INTO exam(SNO,SJNAME,EDATE,GRADE)
+		values (@SNO,@SJ,@dat,@GRADE)
+	END
 END
+
 
 SELECT *
 FROM exam
@@ -103,7 +110,18 @@ BEGIN
 	)
 	return @in
 END
-
+-----获取某教练当前有有多少学生 
+CREATE FUNCTION [dbo].[GET_COACH_TEACH_NUMBER_NOW] (@cno char(10))
+RETURNS integer
+AS
+BEGIN
+	DECLARE @in int
+	SELECT  @in = COUNT(*)
+	FROM now_sc
+	GROUP BY CNO
+	HAVING CNO = @cno
+	return @in
+END
 ---在学人员
 CREATE VIEW s_atschool
 AS SELECT * FROM student
