@@ -94,6 +94,18 @@ EXEC INSERT_EXAM 'XY000005' ,'2009-9-30',1,22
 
 ----获取教练学生
 
+---女教练
+CREATE VIEW c_woman
+as
+select *
+from coach
+WHERE SEX = '女'
+----男教练
+CREATE VIEW c_woman
+as
+select *
+from coach
+WHERE SEX = '女'
 
 ----获取某教练有多少学生（按照姓名）
 CREATE FUNCTION GET_COACH_TEACH_NUMBER (@cname char(8))
@@ -122,10 +134,64 @@ BEGIN
 	HAVING CNO = @cno
 	return @in
 END
+-----获取某教练当前学生
+CREATE FUNCTION GET_C_S (@cno char(10))
+RETURNS TABLE
+AS
+	return (
+	SELECT  *
+	FROM sc_now
+	WHERE CNO = @cno
+	)
+
+-----获取某教练所有
+CREATE FUNCTION GET_C_S (@cno char(10))
+RETURNS TABLE
+AS
+	return (
+	SELECT  *
+	FROM sc
+	WHERE CNO = @cno
+	)
+
+
 ---在学人员
 CREATE VIEW s_atschool
 AS SELECT * FROM student
 WHERE PROGRESS < 5
+---男学员
+CREATE VIEW s_man
+as
+select *
+from student
+WHERE SEX = '男'
+---女学员
+CREATE VIEW s_woman
+as
+select *
+from student
+WHERE SEX = '女'
+---没交费的
+CREATE VIEW s_unpayed
+as
+select *
+from student
+WHERE pay = 0
+----付钱了的
+CREATE VIEW s_payed
+as
+select *
+from student
+WHERE pay = 1
+---不在校人员
+CREATE VIEW s_not_atschool
+as
+select *
+from student
+EXCEPT
+select *
+from s_atschool
+
 ---有效sc
 CREATE VIEW now_sc
 as
@@ -165,7 +231,7 @@ BEGIN
 	DECLARE @cn int
 	SELECT @cn = COUNT(*)
 	FROM cc WHERE CNO = @CNO and LIC = @LIC
-	if(@cn > 0) BEGIN
+	if(@cn = 0) BEGIN
 		INSERT INTO cc(CNO,LIC)
 		VALUES (@CNO,@LIC) END
 	else
@@ -185,6 +251,19 @@ END
 出账统计 ：	同上
 考试统计 ： 时间，人
 */
+----学生和老师是否匹配
+create function IS_S(@sno char(10),@cno char(10))
+returns int
+as
+begin
+	declare @a int
+	select @a = COUNT(*)
+	from sc
+	where CNO = @cno and SNO = @sno
+	
+	return @a
+end
+
 
 ----
 CREATE FUNCTION GET_EXAM_S (@SNO char(10))
@@ -204,22 +283,6 @@ AS
 		WHERE EDATE >= @st and EDATE <= @en
 	)
 
-CREATE FUNCTION C_S_NOW (@CNO char(10))
-RETURNS TABLE
-AS
-	RETURN(
-		SELECT *
-		FROM now_sc
-		WHERE CNO = @CNO
-	)
-CREATE FUNCTION C_S_ALL (@CNO char(10))
-RETURNS TABLE
-AS
-	RETURN(
-		SELECT *
-		FROM sc
-		WHERE CNO = @CNO
-	)
 ----单人合格率
 CREATE FUNCTION GET_PASS_RATE(@SNO char(10))
 RETURNS FLOAT
@@ -305,7 +368,7 @@ AS
 		FROM income
 		WHERE OPERATOR = @st
 	)
-	CREATE FUNCTION GET_EXPEN_BY_MONEY (@st int,@en int)
+CREATE FUNCTION GET_EXPEN_BY_MONEY (@st int,@en int)
 RETURNS TABLE
 AS
 	RETURN(
