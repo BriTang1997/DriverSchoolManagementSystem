@@ -22,3 +22,15 @@ D:\work\DriverSchool\DriverSchoolManagementSystem\test\obj\Debug\DriverSchool.cs
 D:\work\DriverSchool\DriverSchoolManagementSystem\test\obj\Debug\DriverSchool.csproj.CoreCompileInputs.cache
 D:\work\DriverSchool\DriverSchoolManagementSystem\test\obj\Debug\test.exe
 D:\work\DriverSchool\DriverSchoolManagementSystem\test\obj\Debug\test.pdb
+D:\work\DriverSchool\1-2\test\bin\Debug\test.exe.config
+D:\work\DriverSchool\1-2\test\bin\Debug\test.exe
+D:\work\DriverSchool\1-2\test\bin\Debug\test.pdb
+D:\work\DriverSchool\1-2\test\bin\Debug\IrisSkin2.dll
+D:\work\DriverSchool\1-2\test\obj\Debug\DriverSchool.csprojResolveAssemblyReference.cache
+D:\work\DriverSchool\1-2\test\obj\Debug\test.SignForm.resources
+D:\work\DriverSchool\1-2\test\obj\Debug\test.MainForm.resources
+D:\work\DriverSchool\1-2\test\obj\Debug\test.Properties.Resources.resources
+D:\work\DriverSchool\1-2\test\obj\Debug\DriverSchool.csproj.GenerateResource.Cache
+D:\work\DriverSchool\1-2\test\obj\Debug\DriverSchool.csproj.CoreCompileInputs.cache
+D:\work\DriverSchool\1-2\test\obj\Debug\test.exe
+D:\work\DriverSchool\1-2\test\obj\Debug\test.pdb

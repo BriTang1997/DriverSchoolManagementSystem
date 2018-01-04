@@ -91,6 +91,33 @@ FROM exam
 ---@SNO char(8),@dat datetime,@SJ char(8),@GRADE int)
 EXEC INSERT_EXAM 'XY000005' ,'2009-9-30',1,22 
 
+----获取此分数段学生
+CREATE FUNCTION GET_EXAM_GRADE(@g1 int,@g2 int)
+returns table
+as
+	return(
+		select *
+		from exam
+		where GRADE>=@g1 or GRADE <=@g2
+	)
+--------教练名字模糊找教练号码
+create function CNA_CNO(@cna char(8))
+returns char(10)
+as
+BEGIN
+	DECLARE @asd char(10)
+	SELECT @asd = CNO
+	FROM coach
+	WHERE CNAME like '%'+@cna+'%'
+	return @asd
+END
+	
+	
+----统计考试的视图
+CREATE VIEW exam_static
+AS
+select exam.SNO,SNAME,SJNAME,GRADE,EDATE
+from exam inner join student on exam.SNO = student.SNO
 
 ----获取教练学生
 
@@ -238,10 +265,6 @@ BEGIN
 		PRINT 'repeat.'
 END
 
-
-
-
-
 /*
 统计：
 学生统计 ： 考试记录，缴费记录(按类型，时间，管理员来算)
@@ -288,8 +311,13 @@ CREATE FUNCTION GET_PASS_RATE(@SNO char(10))
 RETURNS FLOAT
 AS
 BEGIN
+	DECLARE @in int
+	SELECT @in = PROGRESS
+	FROM student
+	WHERE SNO = @SNO
+	
 	DECLARE @ans FLOAT
-	SELECT @ans = 4.0/COUNT(*)
+	SELECT @ans = (@in-1)*1.0/COUNT(*)
 	FROM income
 	GROUP BY SNO,IKNO
 	HAVING SNO = @SNO and IKNO = 'ikind001'
@@ -323,7 +351,7 @@ BEGIN
 	DECLARE @ans FLOAT
 	SELECT @ans = SUM(pin)/COUNT(*)
 	FROM (
-		SELECT SNO,dbo.PASS_RATE(SNO) as pin
+		SELECT SNO,dbo.GET_PASS_RATE(SNO) as pin
 		FROM sc
 		GROUP BY SNO
 		HAVING SNO in(
@@ -335,6 +363,19 @@ BEGIN
 	HAVING pin is not null
 	return @ans
 END
+----判断车辆和教练是否匹配
+create function IS_C(@lic char(8),@cno char(10))
+returns int
+as
+begin
+	declare @a int
+	select @a = COUNT(*)
+	from cc
+	where CNO = @cno and LIC = @lic
+	
+	return @a
+end
+
 
 CREATE FUNCTION GET_INCOME_BY_TIME (@st datetime,@en datetime)
 RETURNS TABLE
