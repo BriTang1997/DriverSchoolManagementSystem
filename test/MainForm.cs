@@ -15,10 +15,10 @@ namespace test
     public partial class MainForm : Form
     {
         private SignForm f1;
-        const int panellocax = 7;
-        const int panellocay = 14;
+        const int panellocax = 12;
+        const int panellocay = 28;
         const int rightbond = 586;
-        private string sqlconnect;//这些东西可以直接用。
+        private static string sqlconnect ;//这些东西可以直接用。
         private DataSet myset;
         private SqlDataAdapter da;
         private SqlCommandBuilder myCbd;
@@ -26,9 +26,11 @@ namespace test
         private SqlConnection conn;
         private BindingSource bing;
         /*
-         * 加载时，所有的panel都把左上角固定在(7,14);
+         * 加载时，所有的panel都把左上角固定在(7,28);
          */
         #region 初始化参数设置
+            
+
         public MainForm()
         {
             InitializeComponent();
@@ -136,21 +138,26 @@ namespace test
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-                        b_exa_kind.Items.Add(dr[0]);
-                        b_sc_kind.Items.Add(dr[0]);
+                        b_exa_kind.Items.Add(dr[0].ToString());
+                        b_sc_kind.Items.Add(dr[0].ToString());
                     }
 
                     conn.Close();
 
                 }
             }
-            catch(Exception em)
+            catch (Exception em)
             {
-                MessageBox.Show("初始化查询模块出错！");
+                MessageBox.Show("初始化业务模块出错！");
                 this.Close();
             }
-        }
 
+        }
+        /*  
+        *  编写时间：2018-1-2,20:15
+        *  编写人：唐胜洋
+        *  功能：初始化统计模块的内容
+        * */
         private void statics_init()
         {
             sta_s_sex.Items.Add("男");
@@ -221,7 +228,7 @@ namespace test
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-                        sta_exa_sub.Items.Add(dr.GetString(0));
+                        sta_exa_sub.Items.Add(dr[0].ToString());
                     }
                     dr.Close();
                     cmd.CommandText = "select MNAME from manager ";
@@ -236,7 +243,7 @@ namespace test
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-                        sta_exp_kind.Items.Add(dr.GetString(0));
+                        sta_exp_kind.Items.Add(dr[0].ToString());
                     }
                     conn.Close();
 
@@ -258,6 +265,10 @@ namespace test
         * */
         private void Form2_Load(object sender, EventArgs e)
         {
+            业务panel.Location = new System.Drawing.Point(panellocax, panellocay);
+            统计panel.Location = new System.Drawing.Point(panellocax, panellocay);
+            查询panel.Location = new System.Drawing.Point(panellocax, panellocay);
+            生成报表panel.Location = new System.Drawing.Point(panellocax, panellocay);
             L_mana.Text = f1.name;
             timer1.Enabled = true;
             enable(f1.power);
@@ -276,8 +287,6 @@ namespace test
                     sqlconnect = "Data Source = .;Database = DriverSchool;UID = tsy;Pwd = 111";
                     break;
             }
-            业务panel.Location = new System.Drawing.Point(panellocax, panellocay);
-            统计panel.Location = new System.Drawing.Point(panellocax, panellocay);
             /*
             I_sex.Items.Add("男");
             I_sex.Items.Add("女");
@@ -330,7 +339,9 @@ namespace test
         private void 联系管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             业务panel.Show();
-            统计panel.Show();
+            统计panel.Hide();
+            查询panel.Hide();
+            生成报表panel.Hide();
         }
 
 
@@ -338,6 +349,23 @@ namespace test
         {
             统计panel.Show();
             业务panel.Hide();
+            查询panel.Hide();
+            生成报表panel.Hide();
+        }
+        private void 信息查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            conn = new SqlConnection(sqlconnect);
+            统计panel.Hide();
+            业务panel.Hide();
+            查询panel.Show();
+            生成报表panel.Hide();
+        }
+        private void 打印报表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            统计panel.Hide();
+            业务panel.Hide();
+            查询panel.Hide();
+            生成报表panel.Show();
         }
 
         #endregion
@@ -348,7 +376,977 @@ namespace test
         #endregion
 
         #region 查询响应函数
+        int search_buss_mark = 0; //定义标志 1表示查询sc 2表示查询cc  3表示查询exam
+        /*  
+        *  编写时间：2018年1月2日15:00:22
+        *  编写人：叶聿宽
+        *  功能：隐藏查询学员教练匹配条件。
+        * */
+        private void hide_sear_sc()
+        {
+            cb_sear_sc_cname.Hide();
+            cb_sear_sc_sname.Hide();
+            chb_sear_buss_sc_cname.Hide();
+            chb_sear_buss_sc_sname.Hide();
+        }
+        /*编写时间：2018年1月2日15:03:50
+        *  编写人：叶聿宽
+        *  功能：显示查询学员教练匹配条件。*/
+        private void show_sear_sc()
+        {
+            cb_sear_sc_cname.Show();
+            cb_sear_sc_sname.Show();
+            chb_sear_buss_sc_cname.Show();
+            chb_sear_buss_sc_sname.Show();
+        }
+        /*编写时间：2018年1月2日21:30:03
+        *  编写人：叶聿宽
+        *  功能：显示查询车辆教练匹配条件。*/
+        private void show_sear_cc()
+        {
+            cb_sear_cc_cname.Show();
+            cb_sear_cc_lic.Show();
+            chb_sear_buss_cc_cname.Show();
+            chb_sear_buss_cc_lic.Show();
+        }
+        /*编写时间：2018年1月2日21:30:03
+        *  编写人：叶聿宽
+        *  功能：隐藏查询车辆教练匹配条件。*/
+        private void hide_sear_cc()
+        {
+            cb_sear_cc_cname.Hide();
+            cb_sear_cc_lic.Hide();
+            chb_sear_buss_cc_cname.Hide();
+            chb_sear_buss_cc_lic.Hide();
+        }
+        /*编写时间：2018年1月2日21:32:44
+        *  编写人：叶聿宽
+        *  功能：显示查询成绩条件。*/
+        private void show_sear_exam()
+        {
+            cb_sear_exam_sname.Show();
+            cb_sear_exam_subject.Show();
+        }
+        /*编写时间：2018年1月2日21:34:21
+        *  编写人：叶聿宽
+        *  功能：显示查询成绩条件。*/
+        private void hide_sear_exam()
+        {
+            cb_sear_exam_subject.Hide();
+            cb_sear_exam_sname.Hide();
+        }
+        private void b_sear_sc_Click(object sender, EventArgs e)
+        {
+            conn = new SqlConnection(sqlconnect);
+            l_sear_buss1.Text = "教练名";
+            l_sear_buss2.Text = "学员名";
+            l_sear_buss1.Show();
+            l_sear_buss2.Show();
+            show_sear_sc();
+            hide_sear_cc();
+            hide_sear_exam();
+            search_buss_mark = 1;
+            lv_sear_buss.Clear();
+            lv_sear_buss.Columns.Add("教练名");
+            lv_sear_buss.Columns.Add("学员名");
+            try
+            {
+                string strsql = "select * from cname_sname ";
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                SqlDataReader dr = dbquery.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListViewItem lt = new ListViewItem();
+                    //将数据库数据转变成ListView类型的一行数据
+                    lt.Text = dr["cname"].ToString();
+                    lt.SubItems.Add(dr["sname"].ToString());
+                    lv_sear_buss.Items.Add(lt);
+                }
+                dr.Close();
+                //生成教练姓名下拉单
+                string str1 = "select distinct cname from cname_sname";
+                DataSet myset1 = new DataSet();//建立数据集对象
+                SqlDataAdapter da = new SqlDataAdapter(str1, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                da.Fill(myset1, "cname");//将查询数据填充到数据集的表中
+                cb_sear_sc_cname.DataSource = myset1.Tables["cname"];
+                cb_sear_sc_cname.DisplayMember = "cname";
+                //生成学员姓名下拉单
+                string str2 = "select distinct sname from cname_sname";
+                DataSet myset2 = new DataSet();//建立数据集对象
+                SqlDataAdapter da1 = new SqlDataAdapter(str2, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                da1.Fill(myset2, "sname");//将查询数据填充到数据集的表中
+                cb_sear_sc_sname.DataSource = myset2.Tables["sname"];//将combobox与数据源绑定
+                cb_sear_sc_sname.DisplayMember = "sname";
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+        }
+        private void b_sear_buss_Click(object sender, EventArgs e)
+        {
+            if (search_buss_mark == 1)
+            {
+                lv_sear_buss.Clear();
+                lv_sear_buss.Columns.Add("教练名");
+                lv_sear_buss.Columns.Add("学员名");
+                try
+                {
+                    string strsql = "select *  from cname_sname ";
+                    //根据查询条件构造sql语句
+                    if (chb_sear_buss_sc_cname.Checked == true && chb_sear_buss_sc_sname.Checked == false)
+                        strsql = strsql + "where cname ='" + cb_sear_sc_cname.Text + "'";
+                    if (chb_sear_buss_sc_cname.Checked == true && chb_sear_buss_sc_sname.Checked == true)
+                        strsql = strsql + "where cname ='" + cb_sear_sc_cname.Text + "' and sname='" + cb_sear_sc_sname.Text + "'";
+                    if (chb_sear_buss_sc_cname.Checked == false && chb_sear_buss_sc_sname.Checked == true)
+                        strsql = strsql + "where sname ='" + cb_sear_sc_sname.Text + "'";
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    DataSet myset = new DataSet();//建立数据集对象
+                    SqlDataAdapter da = new SqlDataAdapter(strsql, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                    SqlDataReader dr = dbquery.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ListViewItem lt = new ListViewItem();
+                        //将数据库数据转变成ListView类型的一行数据
+                        lt.Text = dr["cname"].ToString();
+                        lt.SubItems.Add(dr["sname"].ToString());
+                        lv_sear_buss.Items.Add(lt);
+                    }
+                    dr.Close();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+                }
+            }
+            if (search_buss_mark == 2)
+            {
+                lv_sear_buss.Clear();
+                lv_sear_buss.Columns.Add("教练名");
+                lv_sear_buss.Columns.Add("车牌号");
+                try
+                {
+                    string strsql = "select *  from cname_lic ";
+                    //根据查询条件构造sql语句
+                    if (chb_sear_buss_cc_cname.Checked == true && chb_sear_buss_cc_lic.Checked == false)
+                        strsql = strsql + "where cname ='" + cb_sear_cc_cname.Text + "'";
+                    if (chb_sear_buss_cc_cname.Checked == true && chb_sear_buss_cc_lic.Checked == true)
+                        strsql = strsql + "where cname ='" + cb_sear_cc_cname.Text + "' and lic='" + cb_sear_cc_lic.Text + "'";
+                    if (chb_sear_buss_cc_cname.Checked == false && chb_sear_buss_cc_lic.Checked == true)
+                        strsql = strsql + "where lic ='" + cb_sear_cc_lic.Text + "'";
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    DataSet myset = new DataSet();//建立数据集对象
+                    SqlDataAdapter da = new SqlDataAdapter(strsql, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                    SqlDataReader dr = dbquery.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ListViewItem lt = new ListViewItem();
+                        //将数据库数据转变成ListView类型的一行数据
+                        lt.Text = dr["cname"].ToString();
+                        lt.SubItems.Add(dr["lic"].ToString());
+                        lv_sear_buss.Items.Add(lt);
+                    }
+                    dr.Close();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+                }
+            }
+            if (search_buss_mark == 3)
+            {
+                lv_sear_buss.Clear();
+                lv_sear_buss.Columns.Add("学生姓名");
+                lv_sear_buss.Columns.Add("学号");
+                lv_sear_buss.Columns.Add("科目");
+                lv_sear_buss.Columns.Add("成绩");
+                try
+                {
+                    string strsql = "select *  from sname_grade where sname='" + cb_sear_exam_sname.Text + "' ";
+                    if (cb_sear_exam_subject.SelectedIndex != -1)
+                        strsql = strsql + " and sjname=" + (cb_sear_exam_subject.SelectedIndex + 1);
+                    //根据查询条件构造sql语句
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    DataSet myset = new DataSet();//建立数据集对象
+                    SqlDataAdapter da = new SqlDataAdapter(strsql, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                    SqlDataReader dr = dbquery.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ListViewItem lt = new ListViewItem();
+                        //将数据库数据转变成ListView类型的一行数据
+                        lt.Text = dr["sname"].ToString();
+                        lt.SubItems.Add(dr["sno"].ToString());
+                        lt.SubItems.Add(dr["sjname"].ToString());
+                        lt.SubItems.Add(dr["grade"].ToString());
+                        lv_sear_buss.Items.Add(lt);
+                    }
+                    dr.Close();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+                }
+            }
+        }
+        private void b_sear_cc_Click(object sender, EventArgs e)
+        {
+            l_sear_buss1.Text = "教练名";
+            l_sear_buss2.Text = "车牌号";
+            l_sear_buss1.Show();
+            l_sear_buss2.Show();
+            hide_sear_sc();
+            show_sear_cc();
+            hide_sear_exam();
+            search_buss_mark = 2;
+            lv_sear_buss.Clear();
+            lv_sear_buss.Columns.Add("教练名");
+            lv_sear_buss.Columns.Add("车牌号");
+            try
+            {
+                string strsql = "select * from cname_lic ";
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                SqlDataReader dr = dbquery.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListViewItem lt = new ListViewItem();
+                    //将数据库数据转变成ListView类型的一行数据
+                    lt.Text = dr["cname"].ToString();
+                    lt.SubItems.Add(dr["lic"].ToString());
+                    lv_sear_buss.Items.Add(lt);
+                }
+                dr.Close();
+                //生成教练姓名下拉单
+                string str1 = "select distinct cname from cname_lic";
+                DataSet myset1 = new DataSet();//建立数据集对象
+                SqlDataAdapter da = new SqlDataAdapter(str1, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                da.Fill(myset1, "cname");//将查询数据填充到数据集的表中
+                cb_sear_cc_cname.DataSource = myset1.Tables["cname"];
+                cb_sear_cc_cname.DisplayMember = "cname";
+                //生成车牌号下拉单
+                string str2 = "select distinct lic from cname_lic";
+                DataSet myset2 = new DataSet();//建立数据集对象
+                SqlDataAdapter da1 = new SqlDataAdapter(str2, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                da1.Fill(myset2, "lic");//将查询数据填充到数据集的表中
+                cb_sear_cc_lic.DataSource = myset2.Tables["lic"];//将combobox与数据源绑定
+                cb_sear_cc_lic.DisplayMember = "lic";
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+
+        }
+        private void b_sear_exam_Click(object sender, EventArgs e)
+        {
+            l_sear_buss1.Text = "学员名";
+            l_sear_buss2.Text = "科目";
+            l_sear_buss1.Show();
+            l_sear_buss2.Show();
+            hide_sear_sc();
+            hide_sear_cc();
+            show_sear_exam();
+            search_buss_mark = 3;
+            lv_sear_buss.Clear();
+            lv_sear_buss.Columns.Add("学生姓名");
+            lv_sear_buss.Columns.Add("学号");
+            lv_sear_buss.Columns.Add("科目");
+            lv_sear_buss.Columns.Add("成绩");
+            try
+            {
+                string strsql = "select * from sname_grade ";
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                SqlDataReader dr = dbquery.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListViewItem lt = new ListViewItem();
+                    //将数据库数据转变成ListView类型的一行数据
+                    lt.Text = dr["sname"].ToString();
+                    lt.SubItems.Add(dr["sno"].ToString());
+                    lt.SubItems.Add(dr["sjname"].ToString());
+                    lt.SubItems.Add(dr["grade"].ToString());
+                    lv_sear_buss.Items.Add(lt);
+                }
+                dr.Close();
+                //生成教练姓名下拉单
+                string str1 = "select distinct sname from sname_grade";
+                DataSet myset1 = new DataSet();//建立数据集对象
+                SqlDataAdapter da = new SqlDataAdapter(str1, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                da.Fill(myset1, "sname");//将查询数据填充到数据集的表中
+                cb_sear_exam_sname.DataSource = myset1.Tables["sname"];
+                cb_sear_exam_sname.DisplayMember = "sname";
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+
+        }
+        private void b_sear_car_accurate_Click(object sender, EventArgs e)
+        {
+            lv_sear_car.Items.Clear();
+            try
+            {
+                string strsql = "select * from car ";
+                int mark = 0;
+                //根据查询条件构造sql语句
+                if (chb_sear_car_lic.Checked == true)
+                {
+                    mark = 1;
+                    strsql = strsql + " where lic ='" + cb_sear_car_lic.Text + "'";
+                }
+                if (chb_sear_car_color.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and color='" + cb_sear_car_color.Text + "'";
+                    else strsql = strsql + " where color='" + cb_sear_car_color.Text + "'";
+                    mark = 1;
+                }
+                if (chb_sear_car_brand.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and brand='" + cb_sear_car_brand.Text + "'";
+                    else strsql = strsql + " where brand='" + cb_sear_car_brand.Text + "'";
+                    mark = 1;
+                }
+                if (chb_sear_car_buytime.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and buytime between cast('" + dtp_sear_car_buytime_start.Value.ToString() + "' as datetime) and cast('" + dtp_sear_car_buytime_end.Value.ToString() + "' as datetime)";
+                    else strsql = strsql + " where buytime between cast('" + dtp_sear_car_buytime_start.Value.ToString() + "' as datetime) and cast('" + dtp_sear_car_buytime_end.Value.ToString() + "' as datetime)";
+                }
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                SqlDataReader dr = dbquery.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListViewItem lt = new ListViewItem();
+                    //将数据库数据转变成ListView类型的一行数据
+                    lt.Text = dr["lic"].ToString();
+                    lt.SubItems.Add(dr["color"].ToString());
+                    lt.SubItems.Add(dr["mile"].ToString());
+                    lt.SubItems.Add(dr["brand"].ToString());
+                    lt.SubItems.Add(dr["buytime"].ToString());
+                    lv_sear_car.Items.Add(lt);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+        }
+        private void search_tabcontrol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (search_tabcontrol.SelectedTab.Name == "车辆信息查询_tabpage")
+            {
+                try
+                {
+                    //生成车牌号下拉单
+                    string str1 = "select distinct lic from car";
+                    DataSet myset1 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da = new SqlDataAdapter(str1, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da.Fill(myset1, "lic");//将查询数据填充到数据集的表中
+                    cb_sear_car_lic.DataSource = myset1.Tables["lic"];
+                    cb_sear_car_lic.DisplayMember = "lic";
+                    //生成颜色姓名下拉单
+                    string str2 = "select distinct color from car";
+                    DataSet myset2 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da1 = new SqlDataAdapter(str2, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da1.Fill(myset2, "color");//将查询数据填充到数据集的表中
+                    cb_sear_car_color.DataSource = myset2.Tables["color"];//将combobox与数据源绑定
+                    cb_sear_car_color.DisplayMember = "color";
+                    //生成厂商姓名下拉单
+                    string str3 = "select distinct brand from car";
+                    DataSet myset3 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da2 = new SqlDataAdapter(str3, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da2.Fill(myset3, "brand");//将查询数据填充到数据集的表中
+                    cb_sear_car_brand.DataSource = myset3.Tables["brand"];//将combobox与数据源绑定
+                    cb_sear_car_brand.DisplayMember = "brand";
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+                }
+            }
+            if (search_tabcontrol.SelectedTab.Name == "学员信息_tabpage")
+            {
+                try
+                {
+                    //生成学员姓名下拉单
+                    string str1 = "select distinct sname from student";
+                    DataSet myset1 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da = new SqlDataAdapter(str1, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da.Fill(myset1, "sname");//将查询数据填充到数据集的表中
+                    cb_sear_stu_sname.DataSource = myset1.Tables["sname"];
+                    cb_sear_stu_sname.DisplayMember = "sname";
+                    //生成学号下拉单
+                    string str2 = "select distinct sno from student";
+                    DataSet myset2 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da1 = new SqlDataAdapter(str2, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da1.Fill(myset2, "sno");//将查询数据填充到数据集的表中
+                    cb_sear_stu_sno.DataSource = myset2.Tables["sno"];//将combobox与数据源绑定
+                    cb_sear_stu_sno.DisplayMember = "sno";
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+                }
+            }
+            if (search_tabcontrol.SelectedTab.Name == "教练信息_tabpage")
+            {
+                try
+                {
+                    //生成教练姓名下拉单
+                    string str1 = "select distinct cname from coach";
+                    DataSet myset1 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da = new SqlDataAdapter(str1, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da.Fill(myset1, "cname");//将查询数据填充到数据集的表中
+                    cb_sear_coach_cname.DataSource = myset1.Tables["cname"];
+                    cb_sear_coach_cname.DisplayMember = "cname";
+                    //生成教练编号下拉单
+                    string str2 = "select distinct cno from coach";
+                    DataSet myset2 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da1 = new SqlDataAdapter(str2, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da1.Fill(myset2, "cno");//将查询数据填充到数据集的表中
+                    cb_sear_coach_cno.DataSource = myset2.Tables["cno"];//将combobox与数据源绑定
+                    cb_sear_coach_cno.DisplayMember = "cno";
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+                }
+            }
+            if (search_tabcontrol.SelectedTab.Name == "收支信息_tabpage")
+            {
+                try
+                {
+                    //生成账单编号下拉单
+                    string str1 = "select distinct bno from ename_exp";
+                    DataSet myset1 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da = new SqlDataAdapter(str1, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da.Fill(myset1, "bno");//将查询数据填充到数据集的表中
+                    cb_sear_acc_bno.DataSource = myset1.Tables["bno"];
+                    cb_sear_acc_bno.DisplayMember = "bno";
+                    //生成类型下拉单
+                    string str2 = "select distinct ename from ename_exp";
+                    DataSet myset2 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da1 = new SqlDataAdapter(str2, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da1.Fill(myset2, "ename");//将查询数据填充到数据集的表中
+                    cb_sear_acc_ekno.DataSource = myset2.Tables["ename"];//将combobox与数据源绑定
+                    cb_sear_acc_ekno.DisplayMember = "ename";
+                    //生成车牌号下拉单
+                    string str3 = "select distinct lic from ename_exp";
+                    DataSet myset3 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da2 = new SqlDataAdapter(str3, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da2.Fill(myset3, "lic");//将查询数据填充到数据集的表中
+                    cb_sear_acc_lic.DataSource = myset3.Tables["lic"];//将combobox与数据源绑定
+                    cb_sear_acc_lic.DisplayMember = "lic";
+                    //生成操作员下拉单
+                    string str4 = "select distinct operator from ename_exp";
+                    DataSet myset4 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da3 = new SqlDataAdapter(str4, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da3.Fill(myset4, "operator");//将查询数据填充到数据集的表中
+                    cb_sear_acc_oper1.DataSource = myset4.Tables["operator"];//将combobox与数据源绑定
+                    cb_sear_acc_oper1.DisplayMember = "operator";
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+                }
+                try
+                {
+                    //生成账单编号下拉单
+                    string str1 = "select distinct ino from iname_sname_in";
+                    DataSet myset1 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da = new SqlDataAdapter(str1, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da.Fill(myset1, "ino");//将查询数据填充到数据集的表中
+                    cb_sear_acc_ino.DataSource = myset1.Tables["ino"];
+                    cb_sear_acc_ino.DisplayMember = "ino";
+                    //生成类型下拉单
+                    string str2 = "select distinct iname from iname_sname_in";
+                    DataSet myset2 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da1 = new SqlDataAdapter(str2, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da1.Fill(myset2, "iname");//将查询数据填充到数据集的表中
+                    cb_sear_acc_ikno.DataSource = myset2.Tables["iname"];//将combobox与数据源绑定
+                    cb_sear_acc_ikno.DisplayMember = "iname";
+                    //生成学员姓名下拉单
+                    string str3 = "select distinct sname from iname_sname_in";
+                    DataSet myset3 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da2 = new SqlDataAdapter(str3, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da2.Fill(myset3, "sname");//将查询数据填充到数据集的表中
+                    cb_sear_acc_sno.DataSource = myset3.Tables["sname"];//将combobox与数据源绑定
+                    cb_sear_acc_sno.DisplayMember = "sname";
+                    //生成操作员下拉单
+                    string str4 = "select distinct operator from iname_sname_in";
+                    DataSet myset4 = new DataSet();//建立数据集对象
+                    SqlDataAdapter da3 = new SqlDataAdapter(str4, conn);//建立适配器对象,并初始化，执行sql语句，得到查询数据
+                    da3.Fill(myset4, "operator");//将查询数据填充到数据集的表中
+                    cb_sear_acc_oper2.DataSource = myset4.Tables["operator"];//将combobox与数据源绑定
+                    cb_sear_acc_oper2.DisplayMember = "operator";
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+                }
+            }
+        }
+        private void b_sear_car_like_Click(object sender, EventArgs e)
+        {
+            lv_sear_car.Items.Clear();
+            try
+            {
+                string strsql = "select * from car ";
+                int mark = 0;
+                //根据查询条件构造sql语句
+                if (tb_sear_car_lic.Text.Trim() != "")
+                {
+                    mark = 1;
+                    strsql = strsql + " where lic like '%" + tb_sear_car_lic.Text + "%'";
+                }
+                if (tb_sear_car_color.Text.Trim() != "")
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and color like '%" + tb_sear_car_color.Text + "%'";
+                    else strsql = strsql + " where color like '%" + tb_sear_car_color.Text + "%'";
+                    mark = 1;
+                }
+                if (tb_sear_car_brand.Text.Trim() != "")
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and brand like '%" + tb_sear_car_brand.Text + "%'";
+                    else strsql = strsql + " where brand like '%" + tb_sear_car_brand.Text + "%'";
+                    mark = 1;
+                }
+                if (chb_sear_car_buytime.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and buytime between cast('" + dtp_sear_car_buytime_start.Value.ToString() + "' as datetime) and cast('" + dtp_sear_car_buytime_end.Value.ToString() + "' as datetime)";
+                    else strsql = strsql + " where buytime between cast('" + dtp_sear_car_buytime_start.Value.ToString() + "' as datetime) and cast('" + dtp_sear_car_buytime_end.Value.ToString() + "' as datetime)";
+                }
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                SqlDataReader dr = dbquery.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListViewItem lt = new ListViewItem();
+                    //将数据库数据转变成ListView类型的一行数据
+                    lt.Text = dr["lic"].ToString();
+                    lt.SubItems.Add(dr["color"].ToString());
+                    lt.SubItems.Add(dr["mile"].ToString());
+                    lt.SubItems.Add(dr["brand"].ToString());
+                    lt.SubItems.Add(dr["buytime"].ToString());
+                    lv_sear_car.Items.Add(lt);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+        }
+        private void b_sear_stu_accurate_Click(object sender, EventArgs e)
+        {
+            lv_sear_stu.Items.Clear();
+            try
+            {
+                string strsql = "select * from student ";
+                int mark = 0;
+                //根据查询条件构造sql语句
+                if (chb_sear_stu_sname.Checked == true)
+                {
+                    mark = 1;
+                    strsql = strsql + " where sname ='" + cb_sear_stu_sname.Text + "'";
+                }
+                if (chb_sear_stu_sno.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and sno='" + cb_sear_stu_sno.Text + "'";
+                    else strsql = strsql + " where sno='" + cb_sear_stu_sno.Text + "'";
+                    mark = 1;
+                }
+                if (cb_sear_stu_sex.SelectedIndex > 0)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and sex='";
+                    else strsql = strsql + " where sex='";
+
+                    if (cb_sear_stu_sex.SelectedIndex == 1)
+                        strsql = strsql + "男'";
+                    if (cb_sear_stu_sex.SelectedIndex == 2)
+                        strsql = strsql + "女'";
+                    mark = 1;
+                }
+                if (cb_sear_stu_pay.SelectedIndex > 0)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and pay=";
+                    else strsql = strsql + " where pay=";
+
+                    if (cb_sear_stu_pay.SelectedIndex == 1)
+                        strsql = strsql + "1";
+                    if (cb_sear_stu_pay.SelectedIndex == 2)
+                        strsql = strsql + "0";
+                    mark = 1;
+                }
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                SqlDataReader dr = dbquery.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListViewItem lt = new ListViewItem();
+                    //将数据库数据转变成ListView类型的一行数据
+                    lt.Text = dr["sname"].ToString();
+                    lt.SubItems.Add(dr["sno"].ToString());
+                    lt.SubItems.Add(dr["phone"].ToString());
+                    lt.SubItems.Add(dr["pay"].ToString());
+                    lt.SubItems.Add(dr["sex"].ToString());
+                    lt.SubItems.Add(dr["progress"].ToString());
+                    lv_sear_stu.Items.Add(lt);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+        }
+        private void b_sear_stu_like_Click(object sender, EventArgs e)
+        {
+            lv_sear_stu.Items.Clear();
+            try
+            {
+                string strsql = "select * from student ";
+                int mark = 0;
+                //根据查询条件构造sql语句
+                if (tb_sear_stu_sname.Text.Trim() != "")
+                {
+                    mark = 1;
+                    strsql = strsql + " where sname like'%" + tb_sear_stu_sname.Text + "%'";
+                }
+                if (tb_sear_stu_sno.Text.Trim() != "")
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and sno like'%" + tb_sear_stu_sno.Text + "%'";
+                    else strsql = strsql + " where sno like'%" + tb_sear_stu_sno.Text + "%'";
+                    mark = 1;
+                }
+                if (cb_sear_stu_sex.SelectedIndex > 0)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and sex='";
+                    else strsql = strsql + " where sex='";
+
+                    if (cb_sear_stu_sex.SelectedIndex == 1)
+                        strsql = strsql + "男'";
+                    if (cb_sear_stu_sex.SelectedIndex == 2)
+                        strsql = strsql + "女'";
+                    mark = 1;
+                }
+                if (cb_sear_stu_pay.SelectedIndex > 0)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and pay=";
+                    else strsql = strsql + " where pay=";
+
+                    if (cb_sear_stu_pay.SelectedIndex == 1)
+                        strsql = strsql + "1";
+                    if (cb_sear_stu_pay.SelectedIndex == 2)
+                        strsql = strsql + "0";
+                    mark = 1;
+                }
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                SqlDataReader dr = dbquery.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListViewItem lt = new ListViewItem();
+                    //将数据库数据转变成ListView类型的一行数据
+                    lt.Text = dr["sname"].ToString();
+                    lt.SubItems.Add(dr["sno"].ToString());
+                    lt.SubItems.Add(dr["phone"].ToString());
+                    lt.SubItems.Add(dr["pay"].ToString());
+                    lt.SubItems.Add(dr["sex"].ToString());
+                    lt.SubItems.Add(dr["progress"].ToString());
+                    lv_sear_stu.Items.Add(lt);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+        }
+        private void b_sear_coach_accurate_Click(object sender, EventArgs e)
+        {
+            lv_sear_coach.Items.Clear();
+            try
+            {
+                string strsql = "select * from coach ";
+                int mark = 0;
+                //根据查询条件构造sql语句
+                if (chb_sear_coach_cname.Checked == true)
+                {
+                    mark = 1;
+                    strsql = strsql + " where cname ='" + cb_sear_coach_cname.Text + "'";
+                }
+                if (chb_sear_coach_cno.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and cno='" + cb_sear_coach_cno.Text + "'";
+                    else strsql = strsql + " where cno='" + cb_sear_coach_cno.Text + "'";
+                    mark = 1;
+                }
+                if (cb_sear_coach_sex.SelectedIndex > 0)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and sex='";
+                    else strsql = strsql + " where sex='";
+
+                    if (cb_sear_coach_sex.SelectedIndex == 1)
+                        strsql = strsql + "男'";
+                    if (cb_sear_coach_sex.SelectedIndex == 2)
+                        strsql = strsql + "女'";
+                    mark = 1;
+                }
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                SqlDataReader dr = dbquery.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListViewItem lt = new ListViewItem();
+                    //将数据库数据转变成ListView类型的一行数据
+                    lt.Text = dr["cname"].ToString();
+                    lt.SubItems.Add(dr["cno"].ToString());
+                    lt.SubItems.Add(dr["phone"].ToString());
+                    lt.SubItems.Add(dr["sex"].ToString());
+                    lv_sear_coach.Items.Add(lt);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+        }
+        private void b_sear_coach_like_Click(object sender, EventArgs e)
+        {
+            lv_sear_coach.Items.Clear();
+            try
+            {
+                string strsql = "select * from coach ";
+                int mark = 0;
+                //根据查询条件构造sql语句
+                if (tb_sear_coach_cname.Text.Trim() != "")
+                {
+                    mark = 1;
+                    strsql = strsql + " where cname like'%" + tb_sear_coach_cname.Text + "%'";
+                }
+                if (tb_sear_coach_cno.Text.Trim() != "")
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and cno like'%" + tb_sear_coach_cno.Text + "%'";
+                    else strsql = strsql + " where cno like'%" + tb_sear_coach_cno.Text + "%'";
+                    mark = 1;
+                }
+                if (cb_sear_coach_sex.SelectedIndex > 0)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and sex='";
+                    else strsql = strsql + " where sex='";
+
+                    if (cb_sear_coach_sex.SelectedIndex == 1)
+                        strsql = strsql + "男'";
+                    if (cb_sear_coach_sex.SelectedIndex == 2)
+                        strsql = strsql + "女'";
+                    mark = 1;
+                }
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                SqlDataReader dr = dbquery.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListViewItem lt = new ListViewItem();
+                    //将数据库数据转变成ListView类型的一行数据
+                    lt.Text = dr["cname"].ToString();
+                    lt.SubItems.Add(dr["cno"].ToString());
+                    lt.SubItems.Add(dr["phone"].ToString());
+                    lt.SubItems.Add(dr["sex"].ToString());
+                    lv_sear_coach.Items.Add(lt);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+        }
+        private void b_sear_acc_exp_Click(object sender, EventArgs e)
+        {
+            ch_sear_acc_object.Text = "车牌号";
+            lv_sear_acc.Items.Clear();
+            try
+            {
+                string strsql = "select * from ename_exp ";
+                int mark = 0;
+                //根据查询条件构造sql语句
+                if (chb_sear_acc_bno.Checked == true)
+                {
+                    mark = 1;
+                    strsql = strsql + " where bno ='" + cb_sear_acc_bno.Text + "'";
+                }
+                if (chb_sear_acc_ekno.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and ename='" + cb_sear_acc_ekno.Text + "'";
+                    else strsql = strsql + " where ename='" + cb_sear_acc_ekno.Text + "'";
+                    mark = 1;
+                }
+                if (chb_sear_acc_lic.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and lic='" + cb_sear_acc_lic.Text + "'";
+                    else strsql = strsql + " where lic='" + cb_sear_acc_lic.Text + "'";
+                    mark = 1;
+                }
+                if (chb_sear_acc_oper1.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and operator='" + cb_sear_acc_oper1.Text + "'";
+                    else strsql = strsql + " where operator='" + cb_sear_acc_oper1.Text + "'";
+                    mark = 1;
+                }
+                if (chb_sear_acc_edate.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and edate between cast('" + dtp_sear_acc_edate_start.Value.ToString() + "' as datetime) and cast('" + dtp_sear_acc_edate_end.Value.ToString() + "' as datetime)";
+                    else strsql = strsql + " where edate between cast('" + dtp_sear_acc_edate_start.Value.ToString() + "' as datetime) and cast('" + dtp_sear_acc_edate_end.Value.ToString() + "' as datetime)";
+                }
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                SqlDataReader dr = dbquery.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListViewItem lt = new ListViewItem();
+                    //将数据库数据转变成ListView类型的一行数据
+                    lt.Text = dr["bno"].ToString();
+                    lt.SubItems.Add(dr["ename"].ToString());
+                    lt.SubItems.Add(dr["lic"].ToString());
+                    lt.SubItems.Add(dr["cash"].ToString());
+                    lt.SubItems.Add(dr["edate"].ToString());
+                    lt.SubItems.Add(dr["operator"].ToString());
+                    lv_sear_acc.Items.Add(lt);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+        }
+        private void b_sear_acc_in_Click(object sender, EventArgs e)
+        {
+            ch_sear_acc_object.Text = "学员名";
+            lv_sear_acc.Items.Clear();
+            try
+            {
+                string strsql = "select * from iname_sname_in ";
+                int mark = 0;
+                //根据查询条件构造sql语句
+                if (chb_sear_acc_ino.Checked == true)
+                {
+                    mark = 1;
+                    strsql = strsql + " where ino ='" + cb_sear_acc_ino.Text + "'";
+                }
+                if (chb_sear_acc_ikno.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and iname='" + cb_sear_acc_ikno.Text + "'";
+                    else strsql = strsql + " where iname='" + cb_sear_acc_ikno.Text + "'";
+                    mark = 1;
+                }
+                if (chb_sear_acc_sno.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and sname='" + cb_sear_acc_sno.Text + "'";
+                    else strsql = strsql + " where sname='" + cb_sear_acc_sno.Text + "'";
+                    mark = 1;
+                }
+                if (chb_sear_acc_oper2.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and operator='" + cb_sear_acc_oper2.Text + "'";
+                    else strsql = strsql + " where operator='" + cb_sear_acc_oper1.Text + "'";
+                    mark = 1;
+                }
+                if (chb_sear_acc_edate.Checked == true)
+                {
+                    if (mark == 1)
+                        strsql = strsql + " and edate between cast('" + dtp_sear_acc_edate_start.Value.ToString() + "' as datetime) and cast('" + dtp_sear_acc_edate_end.Value.ToString() + "' as datetime)";
+                    else strsql = strsql + " where edate between cast('" + dtp_sear_acc_edate_start.Value.ToString() + "' as datetime) and cast('" + dtp_sear_acc_edate_end.Value.ToString() + "' as datetime)";
+                }
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                SqlCommand dbquery = new SqlCommand(strsql, conn);            //构造sql命令
+                SqlDataReader dr = dbquery.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListViewItem lt = new ListViewItem();
+                    //将数据库数据转变成ListView类型的一行数据
+                    lt.Text = dr["ino"].ToString();
+                    lt.SubItems.Add(dr["iname"].ToString());
+                    lt.SubItems.Add(dr["sname"].ToString());
+                    lt.SubItems.Add(dr["cash"].ToString());
+                    lt.SubItems.Add(dr["edate"].ToString());
+                    lt.SubItems.Add(dr["operator"].ToString());
+                    lv_sear_acc.Items.Add(lt);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+        }
         #endregion
 
 
@@ -1508,7 +2506,7 @@ namespace test
                 return;
             }
             else if( (sta_exa_y1.Text.Length|sta_exa_y2.Text.Length | sta_exa_m2.Text.Length | sta_exa_m2.Text.Length 
-                | sta_exa_d1.Text.Length| sta_exa_d2.Text.Length)==1 && (sta_exa_y1.Text.Length 
+                | sta_exa_d1.Text.Length| sta_exa_d2.Text.Length) >=1 && (sta_exa_y1.Text.Length 
                 & sta_exa_y2.Text.Length & sta_exa_m2.Text.Length & sta_exa_m2.Text.Length 
                 & sta_exa_d1.Text.Length & sta_exa_d2.Text.Length) == 0)
             {
@@ -1657,7 +2655,7 @@ namespace test
                 MessageBox.Show("金额输入不正确.");
                 return;
             }
-            else if (sta_inc_c2.Text.Length > 0 && !Regex.IsMatch(sta_inc_c2.Text, @"^(\d{1,2}|100)$"))
+            else if (sta_inc_c2.Text.Length > 0 && !Regex.IsMatch(sta_inc_c2.Text, @"[1-9]\d*"))
             {
                 MessageBox.Show("金额输入不正确.");
                 return;
@@ -1668,7 +2666,7 @@ namespace test
                 return;
             }
             else if ((sta_inc_y1.Text.Length | sta_inc_y2.Text.Length | sta_inc_m2.Text.Length | sta_inc_m2.Text.Length
-                | sta_inc_d1.Text.Length | sta_inc_d2.Text.Length) == 1 && (sta_inc_y1.Text.Length
+                | sta_inc_d1.Text.Length | sta_inc_d2.Text.Length) >= 1 && (sta_inc_y1.Text.Length
                 & sta_inc_y2.Text.Length & sta_inc_m2.Text.Length & sta_inc_m2.Text.Length
                 & sta_inc_d1.Text.Length & sta_inc_d2.Text.Length) == 0)
             {
@@ -1826,7 +2824,7 @@ namespace test
                 MessageBox.Show("金额输入不正确.");
                 return;
             }
-            else if (sta_exp_c2.Text.Length > 0 && !Regex.IsMatch(sta_exp_c2.Text, @"^(\d{1,2}|100)$"))
+            else if (sta_exp_c2.Text.Length > 0 && !Regex.IsMatch(sta_exp_c2.Text, @"[1-9]\d*"))
             {
                 MessageBox.Show("金额输入不正确.");
                 return;
@@ -1837,7 +2835,7 @@ namespace test
                 return;
             }
             else if ((sta_exp_y1.Text.Length | sta_exp_y2.Text.Length | sta_exp_m2.Text.Length | sta_exp_m2.Text.Length
-                | sta_exp_d1.Text.Length | sta_exp_d2.Text.Length) == 1 && (sta_exp_y1.Text.Length
+                | sta_exp_d1.Text.Length | sta_exp_d2.Text.Length) >= 1 && (sta_exp_y1.Text.Length
                 & sta_exp_y2.Text.Length & sta_exp_m2.Text.Length & sta_exp_m2.Text.Length
                 & sta_exp_d1.Text.Length & sta_exp_d2.Text.Length) == 0)
             {
@@ -1910,5 +2908,278 @@ namespace test
 
         #endregion
 
+        #region 生成报表
+        private void b_table_student_Click(object sender, EventArgs e)
+        {
+            if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
+
+            else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
+            {
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.student out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+                try
+                {
+                    int count = 0;
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    SqlCommand cmd = new SqlCommand(strsql, conn);  //构造sql命令
+                    count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                    conn.Close();
+                    MessageBox.Show("生成成功");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+                }
+            }
+            else MessageBox.Show("不存在该文件");
+
+        }
+
+        private void b_table_coach_Click(object sender, EventArgs e)
+        {
+            if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
+            else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
+            {
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.coach out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+
+                try
+                {
+                    int count = 0;
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    SqlCommand cmd = new SqlCommand(strsql, conn);  //构造sql命令
+                    count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                    conn.Close();
+                    MessageBox.Show("生成成功");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+                }
+            }
+            else MessageBox.Show("不存在该文件");
+        }
+
+        private void b_table_car_Click(object sender, EventArgs e)
+        {
+            if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
+            else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
+            {
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.car out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+
+                try
+                {
+                    int count = 0;
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    SqlCommand cmd = new SqlCommand(strsql, conn);  //构造sql命令
+                    count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                    conn.Close();
+                    MessageBox.Show("生成成功");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+                }
+            }
+            else MessageBox.Show("不存在该文件");
+        }
+
+        private void b_table_sc_Click(object sender, EventArgs e)
+        {
+            if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
+            else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
+            {
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.sc out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+
+                try
+                {
+                    int count = 0;
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    SqlCommand cmd = new SqlCommand(strsql, conn);  //构造sql命令
+                    count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                    conn.Close();
+                    MessageBox.Show("生成成功");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+                }
+            }
+            else MessageBox.Show("不存在该文件");
+        }
+
+        private void b_table_cc_Click(object sender, EventArgs e)
+        {
+            if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
+            else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
+            {
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.cc out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+
+                try
+                {
+                    int count = 0;
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    SqlCommand cmd = new SqlCommand(strsql, conn);  //构造sql命令
+                    count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                    conn.Close();
+                    MessageBox.Show("生成成功");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+                }
+            }
+            else MessageBox.Show("不存在该文件");
+        }
+
+        private void b_table_exp_Click(object sender, EventArgs e)
+        {
+            if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
+            else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
+            {
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.expenditure out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+
+                try
+                {
+                    int count = 0;
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    SqlCommand cmd = new SqlCommand(strsql, conn);  //构造sql命令
+                    count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                    conn.Close();
+                    MessageBox.Show("生成成功");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+                }
+            }
+            else MessageBox.Show("不存在该文件");
+        }
+
+        private void b_table_ekind_Click(object sender, EventArgs e)
+        {
+            if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
+            else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
+            {
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.e_kind out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+
+                try
+                {
+                    int count = 0;
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    SqlCommand cmd = new SqlCommand(strsql, conn);  //构造sql命令
+                    count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                    conn.Close();
+                    MessageBox.Show("生成成功");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+                }
+            }
+            else MessageBox.Show("不存在该文件");
+        }
+
+        private void b_table_income_Click(object sender, EventArgs e)
+        {
+            if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
+            else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
+            {
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.income out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+
+                try
+                {
+                    int count = 0;
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    SqlCommand cmd = new SqlCommand(strsql, conn);  //构造sql命令
+                    count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                    conn.Close();
+                    MessageBox.Show("生成成功");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+                }
+            }
+            else MessageBox.Show("不存在该文件");
+        }
+
+        private void b_table_ikind_Click(object sender, EventArgs e)
+        {
+            if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
+            else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
+            {
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.i_kind out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+
+                try
+                {
+                    int count = 0;
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    SqlCommand cmd = new SqlCommand(strsql, conn);  //构造sql命令
+                    count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                    conn.Close();
+                    MessageBox.Show("生成成功");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+                }
+            }
+            else MessageBox.Show("不存在该文件");
+        }
+
+        private void b_table_grade_Click(object sender, EventArgs e)
+        {
+            if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
+            else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
+            {
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.sname_grade out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+
+                try
+                {
+                    int count = 0;
+                    if (conn.State == ConnectionState.Closed)
+                        conn.Open();
+                    SqlCommand cmd = new SqlCommand(strsql, conn);  //构造sql命令
+                    count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                    conn.Close();
+                    MessageBox.Show("生成成功");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+                }
+            }
+            else MessageBox.Show("不存在该文件");
+        }
+        #endregion
+        
     }
 }

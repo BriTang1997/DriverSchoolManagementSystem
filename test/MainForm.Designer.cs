@@ -261,6 +261,155 @@
             this.sta_exp_lic_cle = new System.Windows.Forms.Button();
             this.sta_exp_lic = new System.Windows.Forms.TextBox();
             this.L_sta_exp_lic = new System.Windows.Forms.Label();
+            this.查询panel = new System.Windows.Forms.Panel();
+            this.search_tabcontrol = new System.Windows.Forms.TabControl();
+            this.业务信息查询_tabpage = new System.Windows.Forms.TabPage();
+            this.l_sear_buss2 = new System.Windows.Forms.Label();
+            this.l_sear_buss1 = new System.Windows.Forms.Label();
+            this.chb_sear_buss_cc_lic = new System.Windows.Forms.CheckBox();
+            this.chb_sear_buss_cc_cname = new System.Windows.Forms.CheckBox();
+            this.chb_sear_buss_sc_sname = new System.Windows.Forms.CheckBox();
+            this.chb_sear_buss_sc_cname = new System.Windows.Forms.CheckBox();
+            this.b_sear_buss = new System.Windows.Forms.Button();
+            this.cb_sear_exam_subject = new System.Windows.Forms.ComboBox();
+            this.cb_sear_exam_sname = new System.Windows.Forms.ComboBox();
+            this.cb_sear_cc_cname = new System.Windows.Forms.ComboBox();
+            this.cb_sear_cc_lic = new System.Windows.Forms.ComboBox();
+            this.cb_sear_sc_sname = new System.Windows.Forms.ComboBox();
+            this.cb_sear_sc_cname = new System.Windows.Forms.ComboBox();
+            this.lv_sear_buss = new System.Windows.Forms.ListView();
+            this.b_sear_exam = new System.Windows.Forms.Button();
+            this.b_sear_cc = new System.Windows.Forms.Button();
+            this.b_sear_sc = new System.Windows.Forms.Button();
+            this.车辆信息查询_tabpage = new System.Windows.Forms.TabPage();
+            this.gb_sear_car_like = new System.Windows.Forms.GroupBox();
+            this.b_sear_car_like = new System.Windows.Forms.Button();
+            this.tb_sear_car_brand = new System.Windows.Forms.TextBox();
+            this.tb_sear_car_color = new System.Windows.Forms.TextBox();
+            this.tb_sear_car_lic = new System.Windows.Forms.TextBox();
+            this.l_sear_car_lic = new System.Windows.Forms.Label();
+            this.gb_sear_car_accurate = new System.Windows.Forms.GroupBox();
+            this.cb_sear_car_lic = new System.Windows.Forms.ComboBox();
+            this.chb_sear_car_brand = new System.Windows.Forms.CheckBox();
+            this.chb_sear_car_color = new System.Windows.Forms.CheckBox();
+            this.chb_sear_car_lic = new System.Windows.Forms.CheckBox();
+            this.cb_sear_car_color = new System.Windows.Forms.ComboBox();
+            this.cb_sear_car_brand = new System.Windows.Forms.ComboBox();
+            this.b_sear_car_accurate = new System.Windows.Forms.Button();
+            this.l_sear_car_color = new System.Windows.Forms.Label();
+            this.chb_sear_car_buytime = new System.Windows.Forms.CheckBox();
+            this.l_sear_car_buytime_end = new System.Windows.Forms.Label();
+            this.l_sear_car_brand = new System.Windows.Forms.Label();
+            this.l_sear_car_buytime_start = new System.Windows.Forms.Label();
+            this.dtp_sear_car_buytime_end = new System.Windows.Forms.DateTimePicker();
+            this.dtp_sear_car_buytime_start = new System.Windows.Forms.DateTimePicker();
+            this.l_sear_car_buytime = new System.Windows.Forms.Label();
+            this.lv_sear_car = new System.Windows.Forms.ListView();
+            this.ch_sear_car_lic = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_car_color = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_car_mile = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_car_brand = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_car_buytime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.学员信息_tabpage = new System.Windows.Forms.TabPage();
+            this.gb_sear_stu_like = new System.Windows.Forms.GroupBox();
+            this.b_sear_stu_like = new System.Windows.Forms.Button();
+            this.tb_sear_stu_sname = new System.Windows.Forms.TextBox();
+            this.tb_sear_stu_sno = new System.Windows.Forms.TextBox();
+            this.gb_sear_stu_accurate = new System.Windows.Forms.GroupBox();
+            this.cb_sear_stu_sno = new System.Windows.Forms.ComboBox();
+            this.cb_sear_stu_sname = new System.Windows.Forms.ComboBox();
+            this.chb_sear_stu_sname = new System.Windows.Forms.CheckBox();
+            this.chb_sear_stu_sno = new System.Windows.Forms.CheckBox();
+            this.b_sear_stu_accurate = new System.Windows.Forms.Button();
+            this.cb_sear_stu_pay = new System.Windows.Forms.ComboBox();
+            this.l_sear_stu_pay = new System.Windows.Forms.Label();
+            this.cb_sear_stu_sex = new System.Windows.Forms.ComboBox();
+            this.lv_sear_stu = new System.Windows.Forms.ListView();
+            this.ch_sear_stu_sname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_stu_sno = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_stu_phone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_stu_pay = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_stu_sex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_stu_progress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.l_sear_stu_sex = new System.Windows.Forms.Label();
+            this.l_sear_stu_sno = new System.Windows.Forms.Label();
+            this.l_sear_stu_sname = new System.Windows.Forms.Label();
+            this.教练信息_tabpage = new System.Windows.Forms.TabPage();
+            this.gb_sear_coach_like = new System.Windows.Forms.GroupBox();
+            this.b_sear_coach_like = new System.Windows.Forms.Button();
+            this.tb_sear_coach_cname = new System.Windows.Forms.TextBox();
+            this.tb_sear_coach_cno = new System.Windows.Forms.TextBox();
+            this.gb_sear_coach_accurate = new System.Windows.Forms.GroupBox();
+            this.cb_sear_coach_cno = new System.Windows.Forms.ComboBox();
+            this.cb_sear_coach_cname = new System.Windows.Forms.ComboBox();
+            this.chb_sear_coach_cname = new System.Windows.Forms.CheckBox();
+            this.chb_sear_coach_cno = new System.Windows.Forms.CheckBox();
+            this.b_sear_coach_accurate = new System.Windows.Forms.Button();
+            this.l_sear_coach_sex = new System.Windows.Forms.Label();
+            this.cb_sear_coach_sex = new System.Windows.Forms.ComboBox();
+            this.l_sear_coach_cno = new System.Windows.Forms.Label();
+            this.l_sear_coach_cname = new System.Windows.Forms.Label();
+            this.lv_sear_coach = new System.Windows.Forms.ListView();
+            this.ch_sear_coach_cname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_coach_cno = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_coach_phone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_coach_sex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.收支信息_tabpage = new System.Windows.Forms.TabPage();
+            this.chb_sear_acc_edate = new System.Windows.Forms.CheckBox();
+            this.l_sear_acc_edate_end = new System.Windows.Forms.Label();
+            this.l_sear_acc_edate_start = new System.Windows.Forms.Label();
+            this.dtp_sear_acc_edate_end = new System.Windows.Forms.DateTimePicker();
+            this.dtp_sear_acc_edate_start = new System.Windows.Forms.DateTimePicker();
+            this.l_sear_acc_edate = new System.Windows.Forms.Label();
+            this.gb_sear_acc_in = new System.Windows.Forms.GroupBox();
+            this.chb_sear_acc_oper2 = new System.Windows.Forms.CheckBox();
+            this.chb_sear_acc_sno = new System.Windows.Forms.CheckBox();
+            this.chb_sear_acc_ikno = new System.Windows.Forms.CheckBox();
+            this.chb_sear_acc_ino = new System.Windows.Forms.CheckBox();
+            this.cb_sear_acc_oper2 = new System.Windows.Forms.ComboBox();
+            this.cb_sear_acc_sno = new System.Windows.Forms.ComboBox();
+            this.cb_sear_acc_ikno = new System.Windows.Forms.ComboBox();
+            this.cb_sear_acc_ino = new System.Windows.Forms.ComboBox();
+            this.b_sear_acc_in = new System.Windows.Forms.Button();
+            this.l_sear_acc_oper2 = new System.Windows.Forms.Label();
+            this.l_sear_acc_sno = new System.Windows.Forms.Label();
+            this.l_sear_acc_ikno = new System.Windows.Forms.Label();
+            this.l_sear_acc_ino = new System.Windows.Forms.Label();
+            this.lv_sear_acc = new System.Windows.Forms.ListView();
+            this.ch_sear_acc_账单号 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_acc_kind = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_acc_object = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_acc_cash = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_acc_date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_sear_acc_oper = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gb_sear_account_exp = new System.Windows.Forms.GroupBox();
+            this.chb_sear_acc_oper1 = new System.Windows.Forms.CheckBox();
+            this.chb_sear_acc_lic = new System.Windows.Forms.CheckBox();
+            this.chb_sear_acc_ekno = new System.Windows.Forms.CheckBox();
+            this.chb_sear_acc_bno = new System.Windows.Forms.CheckBox();
+            this.cb_sear_acc_oper1 = new System.Windows.Forms.ComboBox();
+            this.cb_sear_acc_lic = new System.Windows.Forms.ComboBox();
+            this.cb_sear_acc_ekno = new System.Windows.Forms.ComboBox();
+            this.cb_sear_acc_bno = new System.Windows.Forms.ComboBox();
+            this.b_sear_acc_exp = new System.Windows.Forms.Button();
+            this.l_sear_acc_oper1 = new System.Windows.Forms.Label();
+            this.l_sear_acc_lic = new System.Windows.Forms.Label();
+            this.l_sear_acc_ekno = new System.Windows.Forms.Label();
+            this.l_sear_acc_bno = new System.Windows.Forms.Label();
+            this.b_table_student = new System.Windows.Forms.Button();
+            this.生成报表panel = new System.Windows.Forms.Panel();
+            this.b_table_grade = new System.Windows.Forms.Button();
+            this.b_table_ikind = new System.Windows.Forms.Button();
+            this.b_table_income = new System.Windows.Forms.Button();
+            this.b_table_ekind = new System.Windows.Forms.Button();
+            this.b_table_exp = new System.Windows.Forms.Button();
+            this.b_table_cc = new System.Windows.Forms.Button();
+            this.b_table_sc = new System.Windows.Forms.Button();
+            this.b_table_car = new System.Windows.Forms.Button();
+            this.b_table_coach = new System.Windows.Forms.Button();
+            this.l_table_example = new System.Windows.Forms.Label();
+            this.tb_table_path = new System.Windows.Forms.TextBox();
+            this.l_table_path = new System.Windows.Forms.Label();
             this.menu.SuspendLayout();
             this.业务panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.b_dataview)).BeginInit();
@@ -278,6 +427,22 @@
             this.sta_exa.SuspendLayout();
             this.sta_inc.SuspendLayout();
             this.sta_exp.SuspendLayout();
+            this.查询panel.SuspendLayout();
+            this.search_tabcontrol.SuspendLayout();
+            this.业务信息查询_tabpage.SuspendLayout();
+            this.车辆信息查询_tabpage.SuspendLayout();
+            this.gb_sear_car_like.SuspendLayout();
+            this.gb_sear_car_accurate.SuspendLayout();
+            this.学员信息_tabpage.SuspendLayout();
+            this.gb_sear_stu_like.SuspendLayout();
+            this.gb_sear_stu_accurate.SuspendLayout();
+            this.教练信息_tabpage.SuspendLayout();
+            this.gb_sear_coach_like.SuspendLayout();
+            this.gb_sear_coach_accurate.SuspendLayout();
+            this.收支信息_tabpage.SuspendLayout();
+            this.gb_sear_acc_in.SuspendLayout();
+            this.gb_sear_account_exp.SuspendLayout();
+            this.生成报表panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Bot_mana
@@ -330,6 +495,7 @@
             this.信息查询ToolStripMenuItem.Name = "信息查询ToolStripMenuItem";
             this.信息查询ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.信息查询ToolStripMenuItem.Text = "信息查询";
+            this.信息查询ToolStripMenuItem.Click += new System.EventHandler(this.信息查询ToolStripMenuItem_Click);
             // 
             // 联系管理ToolStripMenuItem
             // 
@@ -343,6 +509,7 @@
             this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
             this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.打印报表ToolStripMenuItem.Text = "打印报表";
+            this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
             // 
             // 统计ToolStripMenuItem
             // 
@@ -378,7 +545,7 @@
             // 
             this.业务panel.Controls.Add(this.b_dataview);
             this.业务panel.Controls.Add(this.bussiness_table);
-            this.业务panel.Location = new System.Drawing.Point(530, 316);
+            this.业务panel.Location = new System.Drawing.Point(533, 315);
             this.业务panel.Name = "业务panel";
             this.业务panel.Size = new System.Drawing.Size(613, 389);
             this.业务panel.TabIndex = 9;
@@ -2535,11 +2702,1447 @@
             this.L_sta_exp_lic.TabIndex = 94;
             this.L_sta_exp_lic.Text = "车牌号";
             // 
+            // 查询panel
+            // 
+            this.查询panel.Controls.Add(this.search_tabcontrol);
+            this.查询panel.Location = new System.Drawing.Point(499, 380);
+            this.查询panel.Name = "查询panel";
+            this.查询panel.Size = new System.Drawing.Size(613, 389);
+            this.查询panel.TabIndex = 10;
+            // 
+            // search_tabcontrol
+            // 
+            this.search_tabcontrol.Controls.Add(this.业务信息查询_tabpage);
+            this.search_tabcontrol.Controls.Add(this.车辆信息查询_tabpage);
+            this.search_tabcontrol.Controls.Add(this.学员信息_tabpage);
+            this.search_tabcontrol.Controls.Add(this.教练信息_tabpage);
+            this.search_tabcontrol.Controls.Add(this.收支信息_tabpage);
+            this.search_tabcontrol.Location = new System.Drawing.Point(3, 6);
+            this.search_tabcontrol.Name = "search_tabcontrol";
+            this.search_tabcontrol.SelectedIndex = 0;
+            this.search_tabcontrol.Size = new System.Drawing.Size(607, 383);
+            this.search_tabcontrol.TabIndex = 0;
+            this.search_tabcontrol.SelectedIndexChanged += new System.EventHandler(this.search_tabcontrol_SelectedIndexChanged);
+            // 
+            // 业务信息查询_tabpage
+            // 
+            this.业务信息查询_tabpage.Controls.Add(this.l_sear_buss2);
+            this.业务信息查询_tabpage.Controls.Add(this.l_sear_buss1);
+            this.业务信息查询_tabpage.Controls.Add(this.chb_sear_buss_cc_lic);
+            this.业务信息查询_tabpage.Controls.Add(this.chb_sear_buss_cc_cname);
+            this.业务信息查询_tabpage.Controls.Add(this.chb_sear_buss_sc_sname);
+            this.业务信息查询_tabpage.Controls.Add(this.chb_sear_buss_sc_cname);
+            this.业务信息查询_tabpage.Controls.Add(this.b_sear_buss);
+            this.业务信息查询_tabpage.Controls.Add(this.cb_sear_exam_subject);
+            this.业务信息查询_tabpage.Controls.Add(this.cb_sear_exam_sname);
+            this.业务信息查询_tabpage.Controls.Add(this.cb_sear_cc_cname);
+            this.业务信息查询_tabpage.Controls.Add(this.cb_sear_cc_lic);
+            this.业务信息查询_tabpage.Controls.Add(this.cb_sear_sc_sname);
+            this.业务信息查询_tabpage.Controls.Add(this.cb_sear_sc_cname);
+            this.业务信息查询_tabpage.Controls.Add(this.lv_sear_buss);
+            this.业务信息查询_tabpage.Controls.Add(this.b_sear_exam);
+            this.业务信息查询_tabpage.Controls.Add(this.b_sear_cc);
+            this.业务信息查询_tabpage.Controls.Add(this.b_sear_sc);
+            this.业务信息查询_tabpage.Location = new System.Drawing.Point(4, 22);
+            this.业务信息查询_tabpage.Name = "业务信息查询_tabpage";
+            this.业务信息查询_tabpage.Padding = new System.Windows.Forms.Padding(3);
+            this.业务信息查询_tabpage.Size = new System.Drawing.Size(599, 357);
+            this.业务信息查询_tabpage.TabIndex = 0;
+            this.业务信息查询_tabpage.Text = "业务信息";
+            this.业务信息查询_tabpage.UseVisualStyleBackColor = true;
+            // 
+            // l_sear_buss2
+            // 
+            this.l_sear_buss2.AutoSize = true;
+            this.l_sear_buss2.Location = new System.Drawing.Point(356, 27);
+            this.l_sear_buss2.Name = "l_sear_buss2";
+            this.l_sear_buss2.Size = new System.Drawing.Size(35, 12);
+            this.l_sear_buss2.TabIndex = 24;
+            this.l_sear_buss2.Text = "条件2";
+            this.l_sear_buss2.Visible = false;
+            // 
+            // l_sear_buss1
+            // 
+            this.l_sear_buss1.AutoSize = true;
+            this.l_sear_buss1.Location = new System.Drawing.Point(214, 27);
+            this.l_sear_buss1.Name = "l_sear_buss1";
+            this.l_sear_buss1.Size = new System.Drawing.Size(35, 12);
+            this.l_sear_buss1.TabIndex = 23;
+            this.l_sear_buss1.Text = "条件1";
+            this.l_sear_buss1.Visible = false;
+            // 
+            // chb_sear_buss_cc_lic
+            // 
+            this.chb_sear_buss_cc_lic.AutoSize = true;
+            this.chb_sear_buss_cc_lic.Location = new System.Drawing.Point(476, 48);
+            this.chb_sear_buss_cc_lic.Name = "chb_sear_buss_cc_lic";
+            this.chb_sear_buss_cc_lic.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_buss_cc_lic.TabIndex = 22;
+            this.chb_sear_buss_cc_lic.UseVisualStyleBackColor = true;
+            this.chb_sear_buss_cc_lic.Visible = false;
+            // 
+            // chb_sear_buss_cc_cname
+            // 
+            this.chb_sear_buss_cc_cname.AutoSize = true;
+            this.chb_sear_buss_cc_cname.Location = new System.Drawing.Point(338, 48);
+            this.chb_sear_buss_cc_cname.Name = "chb_sear_buss_cc_cname";
+            this.chb_sear_buss_cc_cname.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_buss_cc_cname.TabIndex = 21;
+            this.chb_sear_buss_cc_cname.UseVisualStyleBackColor = true;
+            this.chb_sear_buss_cc_cname.Visible = false;
+            // 
+            // chb_sear_buss_sc_sname
+            // 
+            this.chb_sear_buss_sc_sname.AutoSize = true;
+            this.chb_sear_buss_sc_sname.Location = new System.Drawing.Point(476, 48);
+            this.chb_sear_buss_sc_sname.Name = "chb_sear_buss_sc_sname";
+            this.chb_sear_buss_sc_sname.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_buss_sc_sname.TabIndex = 20;
+            this.chb_sear_buss_sc_sname.UseVisualStyleBackColor = true;
+            this.chb_sear_buss_sc_sname.Visible = false;
+            // 
+            // chb_sear_buss_sc_cname
+            // 
+            this.chb_sear_buss_sc_cname.AutoSize = true;
+            this.chb_sear_buss_sc_cname.Location = new System.Drawing.Point(338, 48);
+            this.chb_sear_buss_sc_cname.Name = "chb_sear_buss_sc_cname";
+            this.chb_sear_buss_sc_cname.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_buss_sc_cname.TabIndex = 19;
+            this.chb_sear_buss_sc_cname.UseVisualStyleBackColor = true;
+            this.chb_sear_buss_sc_cname.Visible = false;
+            // 
+            // b_sear_buss
+            // 
+            this.b_sear_buss.Location = new System.Drawing.Point(497, 39);
+            this.b_sear_buss.Name = "b_sear_buss";
+            this.b_sear_buss.Size = new System.Drawing.Size(75, 23);
+            this.b_sear_buss.TabIndex = 18;
+            this.b_sear_buss.Text = "查询";
+            this.b_sear_buss.UseVisualStyleBackColor = true;
+            this.b_sear_buss.Click += new System.EventHandler(this.b_sear_buss_Click);
+            // 
+            // cb_sear_exam_subject
+            // 
+            this.cb_sear_exam_subject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_exam_subject.FormattingEnabled = true;
+            this.cb_sear_exam_subject.Items.AddRange(new object[] {
+            "科目一",
+            "科目二",
+            "科目三",
+            "科目四"});
+            this.cb_sear_exam_subject.Location = new System.Drawing.Point(406, 45);
+            this.cb_sear_exam_subject.Name = "cb_sear_exam_subject";
+            this.cb_sear_exam_subject.Size = new System.Drawing.Size(64, 20);
+            this.cb_sear_exam_subject.TabIndex = 13;
+            this.cb_sear_exam_subject.Visible = false;
+            // 
+            // cb_sear_exam_sname
+            // 
+            this.cb_sear_exam_sname.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_exam_sname.FormattingEnabled = true;
+            this.cb_sear_exam_sname.Location = new System.Drawing.Point(255, 45);
+            this.cb_sear_exam_sname.Name = "cb_sear_exam_sname";
+            this.cb_sear_exam_sname.Size = new System.Drawing.Size(78, 20);
+            this.cb_sear_exam_sname.TabIndex = 11;
+            this.cb_sear_exam_sname.Visible = false;
+            // 
+            // cb_sear_cc_cname
+            // 
+            this.cb_sear_cc_cname.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_cc_cname.FormattingEnabled = true;
+            this.cb_sear_cc_cname.Location = new System.Drawing.Point(250, 45);
+            this.cb_sear_cc_cname.Name = "cb_sear_cc_cname";
+            this.cb_sear_cc_cname.Size = new System.Drawing.Size(82, 20);
+            this.cb_sear_cc_cname.TabIndex = 7;
+            this.cb_sear_cc_cname.Visible = false;
+            // 
+            // cb_sear_cc_lic
+            // 
+            this.cb_sear_cc_lic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_cc_lic.FormattingEnabled = true;
+            this.cb_sear_cc_lic.Location = new System.Drawing.Point(385, 45);
+            this.cb_sear_cc_lic.Name = "cb_sear_cc_lic";
+            this.cb_sear_cc_lic.Size = new System.Drawing.Size(85, 20);
+            this.cb_sear_cc_lic.TabIndex = 6;
+            this.cb_sear_cc_lic.Visible = false;
+            // 
+            // cb_sear_sc_sname
+            // 
+            this.cb_sear_sc_sname.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_sc_sname.FormattingEnabled = true;
+            this.cb_sear_sc_sname.Location = new System.Drawing.Point(389, 46);
+            this.cb_sear_sc_sname.Name = "cb_sear_sc_sname";
+            this.cb_sear_sc_sname.Size = new System.Drawing.Size(81, 20);
+            this.cb_sear_sc_sname.TabIndex = 5;
+            this.cb_sear_sc_sname.Visible = false;
+            // 
+            // cb_sear_sc_cname
+            // 
+            this.cb_sear_sc_cname.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_sc_cname.FormattingEnabled = true;
+            this.cb_sear_sc_cname.Items.AddRange(new object[] {
+            ""});
+            this.cb_sear_sc_cname.Location = new System.Drawing.Point(251, 45);
+            this.cb_sear_sc_cname.Name = "cb_sear_sc_cname";
+            this.cb_sear_sc_cname.Size = new System.Drawing.Size(82, 20);
+            this.cb_sear_sc_cname.TabIndex = 4;
+            this.cb_sear_sc_cname.Visible = false;
+            // 
+            // lv_sear_buss
+            // 
+            this.lv_sear_buss.Location = new System.Drawing.Point(216, 94);
+            this.lv_sear_buss.Name = "lv_sear_buss";
+            this.lv_sear_buss.Size = new System.Drawing.Size(351, 257);
+            this.lv_sear_buss.TabIndex = 3;
+            this.lv_sear_buss.UseCompatibleStateImageBehavior = false;
+            this.lv_sear_buss.View = System.Windows.Forms.View.Details;
+            // 
+            // b_sear_exam
+            // 
+            this.b_sear_exam.Location = new System.Drawing.Point(23, 226);
+            this.b_sear_exam.Name = "b_sear_exam";
+            this.b_sear_exam.Size = new System.Drawing.Size(95, 42);
+            this.b_sear_exam.TabIndex = 2;
+            this.b_sear_exam.Text = "查询考试信息";
+            this.b_sear_exam.UseVisualStyleBackColor = true;
+            this.b_sear_exam.Click += new System.EventHandler(this.b_sear_exam_Click);
+            // 
+            // b_sear_cc
+            // 
+            this.b_sear_cc.Location = new System.Drawing.Point(23, 139);
+            this.b_sear_cc.Name = "b_sear_cc";
+            this.b_sear_cc.Size = new System.Drawing.Size(95, 42);
+            this.b_sear_cc.TabIndex = 1;
+            this.b_sear_cc.Text = "查询教练车辆分配";
+            this.b_sear_cc.UseVisualStyleBackColor = true;
+            this.b_sear_cc.Click += new System.EventHandler(this.b_sear_cc_Click);
+            // 
+            // b_sear_sc
+            // 
+            this.b_sear_sc.Location = new System.Drawing.Point(23, 60);
+            this.b_sear_sc.Name = "b_sear_sc";
+            this.b_sear_sc.Size = new System.Drawing.Size(95, 42);
+            this.b_sear_sc.TabIndex = 0;
+            this.b_sear_sc.Text = "查询教练学员分配";
+            this.b_sear_sc.UseVisualStyleBackColor = true;
+            this.b_sear_sc.Click += new System.EventHandler(this.b_sear_sc_Click);
+            // 
+            // 车辆信息查询_tabpage
+            // 
+            this.车辆信息查询_tabpage.Controls.Add(this.gb_sear_car_like);
+            this.车辆信息查询_tabpage.Controls.Add(this.l_sear_car_lic);
+            this.车辆信息查询_tabpage.Controls.Add(this.gb_sear_car_accurate);
+            this.车辆信息查询_tabpage.Controls.Add(this.l_sear_car_color);
+            this.车辆信息查询_tabpage.Controls.Add(this.chb_sear_car_buytime);
+            this.车辆信息查询_tabpage.Controls.Add(this.l_sear_car_buytime_end);
+            this.车辆信息查询_tabpage.Controls.Add(this.l_sear_car_brand);
+            this.车辆信息查询_tabpage.Controls.Add(this.l_sear_car_buytime_start);
+            this.车辆信息查询_tabpage.Controls.Add(this.dtp_sear_car_buytime_end);
+            this.车辆信息查询_tabpage.Controls.Add(this.dtp_sear_car_buytime_start);
+            this.车辆信息查询_tabpage.Controls.Add(this.l_sear_car_buytime);
+            this.车辆信息查询_tabpage.Controls.Add(this.lv_sear_car);
+            this.车辆信息查询_tabpage.Location = new System.Drawing.Point(4, 22);
+            this.车辆信息查询_tabpage.Name = "车辆信息查询_tabpage";
+            this.车辆信息查询_tabpage.Padding = new System.Windows.Forms.Padding(3);
+            this.车辆信息查询_tabpage.Size = new System.Drawing.Size(599, 357);
+            this.车辆信息查询_tabpage.TabIndex = 1;
+            this.车辆信息查询_tabpage.Text = "车辆信息";
+            this.车辆信息查询_tabpage.UseVisualStyleBackColor = true;
+            // 
+            // gb_sear_car_like
+            // 
+            this.gb_sear_car_like.Controls.Add(this.b_sear_car_like);
+            this.gb_sear_car_like.Controls.Add(this.tb_sear_car_brand);
+            this.gb_sear_car_like.Controls.Add(this.tb_sear_car_color);
+            this.gb_sear_car_like.Controls.Add(this.tb_sear_car_lic);
+            this.gb_sear_car_like.Location = new System.Drawing.Point(217, 9);
+            this.gb_sear_car_like.Name = "gb_sear_car_like";
+            this.gb_sear_car_like.Size = new System.Drawing.Size(144, 138);
+            this.gb_sear_car_like.TabIndex = 18;
+            this.gb_sear_car_like.TabStop = false;
+            this.gb_sear_car_like.Text = "模糊查询";
+            // 
+            // b_sear_car_like
+            // 
+            this.b_sear_car_like.Location = new System.Drawing.Point(19, 109);
+            this.b_sear_car_like.Name = "b_sear_car_like";
+            this.b_sear_car_like.Size = new System.Drawing.Size(75, 23);
+            this.b_sear_car_like.TabIndex = 16;
+            this.b_sear_car_like.Text = "查询";
+            this.b_sear_car_like.UseVisualStyleBackColor = true;
+            this.b_sear_car_like.Click += new System.EventHandler(this.b_sear_car_like_Click);
+            // 
+            // tb_sear_car_brand
+            // 
+            this.tb_sear_car_brand.Location = new System.Drawing.Point(19, 80);
+            this.tb_sear_car_brand.Name = "tb_sear_car_brand";
+            this.tb_sear_car_brand.Size = new System.Drawing.Size(100, 21);
+            this.tb_sear_car_brand.TabIndex = 2;
+            // 
+            // tb_sear_car_color
+            // 
+            this.tb_sear_car_color.Location = new System.Drawing.Point(19, 52);
+            this.tb_sear_car_color.Name = "tb_sear_car_color";
+            this.tb_sear_car_color.Size = new System.Drawing.Size(100, 21);
+            this.tb_sear_car_color.TabIndex = 1;
+            // 
+            // tb_sear_car_lic
+            // 
+            this.tb_sear_car_lic.Location = new System.Drawing.Point(19, 22);
+            this.tb_sear_car_lic.Name = "tb_sear_car_lic";
+            this.tb_sear_car_lic.Size = new System.Drawing.Size(100, 21);
+            this.tb_sear_car_lic.TabIndex = 0;
+            // 
+            // l_sear_car_lic
+            // 
+            this.l_sear_car_lic.AutoSize = true;
+            this.l_sear_car_lic.Location = new System.Drawing.Point(170, 34);
+            this.l_sear_car_lic.Name = "l_sear_car_lic";
+            this.l_sear_car_lic.Size = new System.Drawing.Size(41, 12);
+            this.l_sear_car_lic.TabIndex = 2;
+            this.l_sear_car_lic.Text = "车牌号";
+            // 
+            // gb_sear_car_accurate
+            // 
+            this.gb_sear_car_accurate.Controls.Add(this.cb_sear_car_lic);
+            this.gb_sear_car_accurate.Controls.Add(this.chb_sear_car_brand);
+            this.gb_sear_car_accurate.Controls.Add(this.chb_sear_car_color);
+            this.gb_sear_car_accurate.Controls.Add(this.chb_sear_car_lic);
+            this.gb_sear_car_accurate.Controls.Add(this.cb_sear_car_color);
+            this.gb_sear_car_accurate.Controls.Add(this.cb_sear_car_brand);
+            this.gb_sear_car_accurate.Controls.Add(this.b_sear_car_accurate);
+            this.gb_sear_car_accurate.Location = new System.Drawing.Point(6, 9);
+            this.gb_sear_car_accurate.Name = "gb_sear_car_accurate";
+            this.gb_sear_car_accurate.Size = new System.Drawing.Size(146, 138);
+            this.gb_sear_car_accurate.TabIndex = 17;
+            this.gb_sear_car_accurate.TabStop = false;
+            this.gb_sear_car_accurate.Text = "精确查询";
+            // 
+            // cb_sear_car_lic
+            // 
+            this.cb_sear_car_lic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_car_lic.FormattingEnabled = true;
+            this.cb_sear_car_lic.Location = new System.Drawing.Point(58, 22);
+            this.cb_sear_car_lic.Name = "cb_sear_car_lic";
+            this.cb_sear_car_lic.Size = new System.Drawing.Size(82, 20);
+            this.cb_sear_car_lic.TabIndex = 6;
+            // 
+            // chb_sear_car_brand
+            // 
+            this.chb_sear_car_brand.AutoSize = true;
+            this.chb_sear_car_brand.Location = new System.Drawing.Point(18, 83);
+            this.chb_sear_car_brand.Name = "chb_sear_car_brand";
+            this.chb_sear_car_brand.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_car_brand.TabIndex = 15;
+            this.chb_sear_car_brand.UseVisualStyleBackColor = true;
+            // 
+            // chb_sear_car_color
+            // 
+            this.chb_sear_car_color.AutoSize = true;
+            this.chb_sear_car_color.Location = new System.Drawing.Point(18, 52);
+            this.chb_sear_car_color.Name = "chb_sear_car_color";
+            this.chb_sear_car_color.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_car_color.TabIndex = 14;
+            this.chb_sear_car_color.UseVisualStyleBackColor = true;
+            // 
+            // chb_sear_car_lic
+            // 
+            this.chb_sear_car_lic.AutoSize = true;
+            this.chb_sear_car_lic.Location = new System.Drawing.Point(18, 22);
+            this.chb_sear_car_lic.Name = "chb_sear_car_lic";
+            this.chb_sear_car_lic.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_car_lic.TabIndex = 13;
+            this.chb_sear_car_lic.UseVisualStyleBackColor = true;
+            // 
+            // cb_sear_car_color
+            // 
+            this.cb_sear_car_color.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_car_color.FormattingEnabled = true;
+            this.cb_sear_car_color.Location = new System.Drawing.Point(79, 48);
+            this.cb_sear_car_color.Name = "cb_sear_car_color";
+            this.cb_sear_car_color.Size = new System.Drawing.Size(60, 20);
+            this.cb_sear_car_color.TabIndex = 7;
+            // 
+            // cb_sear_car_brand
+            // 
+            this.cb_sear_car_brand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_car_brand.FormattingEnabled = true;
+            this.cb_sear_car_brand.Location = new System.Drawing.Point(79, 79);
+            this.cb_sear_car_brand.Name = "cb_sear_car_brand";
+            this.cb_sear_car_brand.Size = new System.Drawing.Size(63, 20);
+            this.cb_sear_car_brand.TabIndex = 8;
+            // 
+            // b_sear_car_accurate
+            // 
+            this.b_sear_car_accurate.Location = new System.Drawing.Point(58, 109);
+            this.b_sear_car_accurate.Name = "b_sear_car_accurate";
+            this.b_sear_car_accurate.Size = new System.Drawing.Size(75, 23);
+            this.b_sear_car_accurate.TabIndex = 1;
+            this.b_sear_car_accurate.Text = "查询";
+            this.b_sear_car_accurate.UseVisualStyleBackColor = true;
+            this.b_sear_car_accurate.Click += new System.EventHandler(this.b_sear_car_accurate_Click);
+            // 
+            // l_sear_car_color
+            // 
+            this.l_sear_car_color.AutoSize = true;
+            this.l_sear_car_color.Location = new System.Drawing.Point(170, 61);
+            this.l_sear_car_color.Name = "l_sear_car_color";
+            this.l_sear_car_color.Size = new System.Drawing.Size(29, 12);
+            this.l_sear_car_color.TabIndex = 3;
+            this.l_sear_car_color.Text = "颜色";
+            // 
+            // chb_sear_car_buytime
+            // 
+            this.chb_sear_car_buytime.AutoSize = true;
+            this.chb_sear_car_buytime.Location = new System.Drawing.Point(480, 49);
+            this.chb_sear_car_buytime.Name = "chb_sear_car_buytime";
+            this.chb_sear_car_buytime.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_car_buytime.TabIndex = 16;
+            this.chb_sear_car_buytime.UseVisualStyleBackColor = true;
+            // 
+            // l_sear_car_buytime_end
+            // 
+            this.l_sear_car_buytime_end.AutoSize = true;
+            this.l_sear_car_buytime_end.Location = new System.Drawing.Point(393, 104);
+            this.l_sear_car_buytime_end.Name = "l_sear_car_buytime_end";
+            this.l_sear_car_buytime_end.Size = new System.Drawing.Size(17, 12);
+            this.l_sear_car_buytime_end.TabIndex = 12;
+            this.l_sear_car_buytime_end.Text = "到";
+            // 
+            // l_sear_car_brand
+            // 
+            this.l_sear_car_brand.AutoSize = true;
+            this.l_sear_car_brand.Location = new System.Drawing.Point(170, 91);
+            this.l_sear_car_brand.Name = "l_sear_car_brand";
+            this.l_sear_car_brand.Size = new System.Drawing.Size(29, 12);
+            this.l_sear_car_brand.TabIndex = 4;
+            this.l_sear_car_brand.Text = "厂商";
+            // 
+            // l_sear_car_buytime_start
+            // 
+            this.l_sear_car_buytime_start.AutoSize = true;
+            this.l_sear_car_buytime_start.Location = new System.Drawing.Point(393, 75);
+            this.l_sear_car_buytime_start.Name = "l_sear_car_buytime_start";
+            this.l_sear_car_buytime_start.Size = new System.Drawing.Size(17, 12);
+            this.l_sear_car_buytime_start.TabIndex = 11;
+            this.l_sear_car_buytime_start.Text = "从";
+            // 
+            // dtp_sear_car_buytime_end
+            // 
+            this.dtp_sear_car_buytime_end.Location = new System.Drawing.Point(416, 99);
+            this.dtp_sear_car_buytime_end.Name = "dtp_sear_car_buytime_end";
+            this.dtp_sear_car_buytime_end.Size = new System.Drawing.Size(105, 21);
+            this.dtp_sear_car_buytime_end.TabIndex = 10;
+            // 
+            // dtp_sear_car_buytime_start
+            // 
+            this.dtp_sear_car_buytime_start.Location = new System.Drawing.Point(416, 72);
+            this.dtp_sear_car_buytime_start.Name = "dtp_sear_car_buytime_start";
+            this.dtp_sear_car_buytime_start.Size = new System.Drawing.Size(105, 21);
+            this.dtp_sear_car_buytime_start.TabIndex = 9;
+            // 
+            // l_sear_car_buytime
+            // 
+            this.l_sear_car_buytime.AutoSize = true;
+            this.l_sear_car_buytime.Location = new System.Drawing.Point(413, 49);
+            this.l_sear_car_buytime.Name = "l_sear_car_buytime";
+            this.l_sear_car_buytime.Size = new System.Drawing.Size(53, 12);
+            this.l_sear_car_buytime.TabIndex = 5;
+            this.l_sear_car_buytime.Text = "购买日期";
+            // 
+            // lv_sear_car
+            // 
+            this.lv_sear_car.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ch_sear_car_lic,
+            this.ch_sear_car_color,
+            this.ch_sear_car_mile,
+            this.ch_sear_car_brand,
+            this.ch_sear_car_buytime});
+            this.lv_sear_car.Enabled = false;
+            this.lv_sear_car.Location = new System.Drawing.Point(6, 153);
+            this.lv_sear_car.Name = "lv_sear_car";
+            this.lv_sear_car.Size = new System.Drawing.Size(587, 188);
+            this.lv_sear_car.TabIndex = 0;
+            this.lv_sear_car.UseCompatibleStateImageBehavior = false;
+            this.lv_sear_car.View = System.Windows.Forms.View.Details;
+            // 
+            // ch_sear_car_lic
+            // 
+            this.ch_sear_car_lic.Text = "车牌号";
+            // 
+            // ch_sear_car_color
+            // 
+            this.ch_sear_car_color.Text = "颜色";
+            this.ch_sear_car_color.Width = 84;
+            // 
+            // ch_sear_car_mile
+            // 
+            this.ch_sear_car_mile.Text = "里程";
+            this.ch_sear_car_mile.Width = 93;
+            // 
+            // ch_sear_car_brand
+            // 
+            this.ch_sear_car_brand.Text = "厂商";
+            this.ch_sear_car_brand.Width = 153;
+            // 
+            // ch_sear_car_buytime
+            // 
+            this.ch_sear_car_buytime.Text = "购买日期";
+            this.ch_sear_car_buytime.Width = 100;
+            // 
+            // 学员信息_tabpage
+            // 
+            this.学员信息_tabpage.Controls.Add(this.gb_sear_stu_like);
+            this.学员信息_tabpage.Controls.Add(this.gb_sear_stu_accurate);
+            this.学员信息_tabpage.Controls.Add(this.cb_sear_stu_pay);
+            this.学员信息_tabpage.Controls.Add(this.l_sear_stu_pay);
+            this.学员信息_tabpage.Controls.Add(this.cb_sear_stu_sex);
+            this.学员信息_tabpage.Controls.Add(this.lv_sear_stu);
+            this.学员信息_tabpage.Controls.Add(this.l_sear_stu_sex);
+            this.学员信息_tabpage.Controls.Add(this.l_sear_stu_sno);
+            this.学员信息_tabpage.Controls.Add(this.l_sear_stu_sname);
+            this.学员信息_tabpage.Location = new System.Drawing.Point(4, 22);
+            this.学员信息_tabpage.Name = "学员信息_tabpage";
+            this.学员信息_tabpage.Size = new System.Drawing.Size(599, 357);
+            this.学员信息_tabpage.TabIndex = 2;
+            this.学员信息_tabpage.Text = "学员信息";
+            this.学员信息_tabpage.UseVisualStyleBackColor = true;
+            // 
+            // gb_sear_stu_like
+            // 
+            this.gb_sear_stu_like.Controls.Add(this.b_sear_stu_like);
+            this.gb_sear_stu_like.Controls.Add(this.tb_sear_stu_sname);
+            this.gb_sear_stu_like.Controls.Add(this.tb_sear_stu_sno);
+            this.gb_sear_stu_like.Location = new System.Drawing.Point(260, 6);
+            this.gb_sear_stu_like.Name = "gb_sear_stu_like";
+            this.gb_sear_stu_like.Size = new System.Drawing.Size(145, 121);
+            this.gb_sear_stu_like.TabIndex = 21;
+            this.gb_sear_stu_like.TabStop = false;
+            this.gb_sear_stu_like.Text = "模糊查询";
+            // 
+            // b_sear_stu_like
+            // 
+            this.b_sear_stu_like.Location = new System.Drawing.Point(27, 92);
+            this.b_sear_stu_like.Name = "b_sear_stu_like";
+            this.b_sear_stu_like.Size = new System.Drawing.Size(75, 23);
+            this.b_sear_stu_like.TabIndex = 15;
+            this.b_sear_stu_like.Text = "查询";
+            this.b_sear_stu_like.UseVisualStyleBackColor = true;
+            this.b_sear_stu_like.Click += new System.EventHandler(this.b_sear_stu_like_Click);
+            // 
+            // tb_sear_stu_sname
+            // 
+            this.tb_sear_stu_sname.Location = new System.Drawing.Point(27, 22);
+            this.tb_sear_stu_sname.Name = "tb_sear_stu_sname";
+            this.tb_sear_stu_sname.Size = new System.Drawing.Size(100, 21);
+            this.tb_sear_stu_sname.TabIndex = 6;
+            // 
+            // tb_sear_stu_sno
+            // 
+            this.tb_sear_stu_sno.Location = new System.Drawing.Point(27, 59);
+            this.tb_sear_stu_sno.Name = "tb_sear_stu_sno";
+            this.tb_sear_stu_sno.Size = new System.Drawing.Size(100, 21);
+            this.tb_sear_stu_sno.TabIndex = 7;
+            // 
+            // gb_sear_stu_accurate
+            // 
+            this.gb_sear_stu_accurate.Controls.Add(this.cb_sear_stu_sno);
+            this.gb_sear_stu_accurate.Controls.Add(this.cb_sear_stu_sname);
+            this.gb_sear_stu_accurate.Controls.Add(this.chb_sear_stu_sname);
+            this.gb_sear_stu_accurate.Controls.Add(this.chb_sear_stu_sno);
+            this.gb_sear_stu_accurate.Controls.Add(this.b_sear_stu_accurate);
+            this.gb_sear_stu_accurate.Location = new System.Drawing.Point(39, 3);
+            this.gb_sear_stu_accurate.Name = "gb_sear_stu_accurate";
+            this.gb_sear_stu_accurate.Size = new System.Drawing.Size(145, 121);
+            this.gb_sear_stu_accurate.TabIndex = 20;
+            this.gb_sear_stu_accurate.TabStop = false;
+            this.gb_sear_stu_accurate.Text = "精确查询";
+            // 
+            // cb_sear_stu_sno
+            // 
+            this.cb_sear_stu_sno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_stu_sno.FormattingEnabled = true;
+            this.cb_sear_stu_sno.Location = new System.Drawing.Point(33, 62);
+            this.cb_sear_stu_sno.Name = "cb_sear_stu_sno";
+            this.cb_sear_stu_sno.Size = new System.Drawing.Size(103, 20);
+            this.cb_sear_stu_sno.TabIndex = 4;
+            // 
+            // cb_sear_stu_sname
+            // 
+            this.cb_sear_stu_sname.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_stu_sname.FormattingEnabled = true;
+            this.cb_sear_stu_sname.Location = new System.Drawing.Point(33, 25);
+            this.cb_sear_stu_sname.Name = "cb_sear_stu_sname";
+            this.cb_sear_stu_sname.Size = new System.Drawing.Size(103, 20);
+            this.cb_sear_stu_sname.TabIndex = 3;
+            // 
+            // chb_sear_stu_sname
+            // 
+            this.chb_sear_stu_sname.AutoSize = true;
+            this.chb_sear_stu_sname.Location = new System.Drawing.Point(12, 28);
+            this.chb_sear_stu_sname.Name = "chb_sear_stu_sname";
+            this.chb_sear_stu_sname.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_stu_sname.TabIndex = 10;
+            this.chb_sear_stu_sname.UseVisualStyleBackColor = true;
+            // 
+            // chb_sear_stu_sno
+            // 
+            this.chb_sear_stu_sno.AutoSize = true;
+            this.chb_sear_stu_sno.Location = new System.Drawing.Point(12, 65);
+            this.chb_sear_stu_sno.Name = "chb_sear_stu_sno";
+            this.chb_sear_stu_sno.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_stu_sno.TabIndex = 11;
+            this.chb_sear_stu_sno.UseVisualStyleBackColor = true;
+            // 
+            // b_sear_stu_accurate
+            // 
+            this.b_sear_stu_accurate.Location = new System.Drawing.Point(46, 88);
+            this.b_sear_stu_accurate.Name = "b_sear_stu_accurate";
+            this.b_sear_stu_accurate.Size = new System.Drawing.Size(75, 23);
+            this.b_sear_stu_accurate.TabIndex = 14;
+            this.b_sear_stu_accurate.Text = "查询";
+            this.b_sear_stu_accurate.UseVisualStyleBackColor = true;
+            this.b_sear_stu_accurate.Click += new System.EventHandler(this.b_sear_stu_accurate_Click);
+            // 
+            // cb_sear_stu_pay
+            // 
+            this.cb_sear_stu_pay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_stu_pay.FormattingEnabled = true;
+            this.cb_sear_stu_pay.Items.AddRange(new object[] {
+            "不详",
+            "是",
+            "否"});
+            this.cb_sear_stu_pay.Location = new System.Drawing.Point(468, 96);
+            this.cb_sear_stu_pay.Name = "cb_sear_stu_pay";
+            this.cb_sear_stu_pay.Size = new System.Drawing.Size(62, 20);
+            this.cb_sear_stu_pay.TabIndex = 19;
+            // 
+            // l_sear_stu_pay
+            // 
+            this.l_sear_stu_pay.AutoSize = true;
+            this.l_sear_stu_pay.Location = new System.Drawing.Point(427, 96);
+            this.l_sear_stu_pay.Name = "l_sear_stu_pay";
+            this.l_sear_stu_pay.Size = new System.Drawing.Size(29, 12);
+            this.l_sear_stu_pay.TabIndex = 18;
+            this.l_sear_stu_pay.Text = "缴费";
+            // 
+            // cb_sear_stu_sex
+            // 
+            this.cb_sear_stu_sex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_stu_sex.FormattingEnabled = true;
+            this.cb_sear_stu_sex.Items.AddRange(new object[] {
+            "不详",
+            "男",
+            "女"});
+            this.cb_sear_stu_sex.Location = new System.Drawing.Point(468, 60);
+            this.cb_sear_stu_sex.Name = "cb_sear_stu_sex";
+            this.cb_sear_stu_sex.Size = new System.Drawing.Size(62, 20);
+            this.cb_sear_stu_sex.TabIndex = 17;
+            // 
+            // lv_sear_stu
+            // 
+            this.lv_sear_stu.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ch_sear_stu_sname,
+            this.ch_sear_stu_sno,
+            this.ch_sear_stu_phone,
+            this.ch_sear_stu_pay,
+            this.ch_sear_stu_sex,
+            this.ch_sear_stu_progress});
+            this.lv_sear_stu.Location = new System.Drawing.Point(6, 136);
+            this.lv_sear_stu.Name = "lv_sear_stu";
+            this.lv_sear_stu.Size = new System.Drawing.Size(593, 204);
+            this.lv_sear_stu.TabIndex = 16;
+            this.lv_sear_stu.UseCompatibleStateImageBehavior = false;
+            this.lv_sear_stu.View = System.Windows.Forms.View.Details;
+            // 
+            // ch_sear_stu_sname
+            // 
+            this.ch_sear_stu_sname.Text = "学员名字";
+            this.ch_sear_stu_sname.Width = 94;
+            // 
+            // ch_sear_stu_sno
+            // 
+            this.ch_sear_stu_sno.Text = "学号";
+            this.ch_sear_stu_sno.Width = 88;
+            // 
+            // ch_sear_stu_phone
+            // 
+            this.ch_sear_stu_phone.Text = "电话号码";
+            this.ch_sear_stu_phone.Width = 120;
+            // 
+            // ch_sear_stu_pay
+            // 
+            this.ch_sear_stu_pay.Text = "缴费";
+            this.ch_sear_stu_pay.Width = 41;
+            // 
+            // ch_sear_stu_sex
+            // 
+            this.ch_sear_stu_sex.Text = "性别";
+            this.ch_sear_stu_sex.Width = 37;
+            // 
+            // ch_sear_stu_progress
+            // 
+            this.ch_sear_stu_progress.Text = "科目";
+            this.ch_sear_stu_progress.Width = 39;
+            // 
+            // l_sear_stu_sex
+            // 
+            this.l_sear_stu_sex.AutoSize = true;
+            this.l_sear_stu_sex.Location = new System.Drawing.Point(427, 63);
+            this.l_sear_stu_sex.Name = "l_sear_stu_sex";
+            this.l_sear_stu_sex.Size = new System.Drawing.Size(29, 12);
+            this.l_sear_stu_sex.TabIndex = 2;
+            this.l_sear_stu_sex.Text = "性别";
+            // 
+            // l_sear_stu_sno
+            // 
+            this.l_sear_stu_sno.AutoSize = true;
+            this.l_sear_stu_sno.Location = new System.Drawing.Point(190, 60);
+            this.l_sear_stu_sno.Name = "l_sear_stu_sno";
+            this.l_sear_stu_sno.Size = new System.Drawing.Size(29, 12);
+            this.l_sear_stu_sno.TabIndex = 1;
+            this.l_sear_stu_sno.Text = "学号";
+            // 
+            // l_sear_stu_sname
+            // 
+            this.l_sear_stu_sname.AutoSize = true;
+            this.l_sear_stu_sname.Location = new System.Drawing.Point(190, 21);
+            this.l_sear_stu_sname.Name = "l_sear_stu_sname";
+            this.l_sear_stu_sname.Size = new System.Drawing.Size(53, 12);
+            this.l_sear_stu_sname.TabIndex = 0;
+            this.l_sear_stu_sname.Text = "学生姓名";
+            // 
+            // 教练信息_tabpage
+            // 
+            this.教练信息_tabpage.Controls.Add(this.gb_sear_coach_like);
+            this.教练信息_tabpage.Controls.Add(this.gb_sear_coach_accurate);
+            this.教练信息_tabpage.Controls.Add(this.l_sear_coach_sex);
+            this.教练信息_tabpage.Controls.Add(this.cb_sear_coach_sex);
+            this.教练信息_tabpage.Controls.Add(this.l_sear_coach_cno);
+            this.教练信息_tabpage.Controls.Add(this.l_sear_coach_cname);
+            this.教练信息_tabpage.Controls.Add(this.lv_sear_coach);
+            this.教练信息_tabpage.Location = new System.Drawing.Point(4, 22);
+            this.教练信息_tabpage.Name = "教练信息_tabpage";
+            this.教练信息_tabpage.Size = new System.Drawing.Size(599, 357);
+            this.教练信息_tabpage.TabIndex = 4;
+            this.教练信息_tabpage.Text = "教练信息";
+            this.教练信息_tabpage.UseVisualStyleBackColor = true;
+            // 
+            // gb_sear_coach_like
+            // 
+            this.gb_sear_coach_like.Controls.Add(this.b_sear_coach_like);
+            this.gb_sear_coach_like.Controls.Add(this.tb_sear_coach_cname);
+            this.gb_sear_coach_like.Controls.Add(this.tb_sear_coach_cno);
+            this.gb_sear_coach_like.Location = new System.Drawing.Point(237, 5);
+            this.gb_sear_coach_like.Name = "gb_sear_coach_like";
+            this.gb_sear_coach_like.Size = new System.Drawing.Size(145, 137);
+            this.gb_sear_coach_like.TabIndex = 22;
+            this.gb_sear_coach_like.TabStop = false;
+            this.gb_sear_coach_like.Text = "模糊查询";
+            // 
+            // b_sear_coach_like
+            // 
+            this.b_sear_coach_like.Location = new System.Drawing.Point(50, 98);
+            this.b_sear_coach_like.Name = "b_sear_coach_like";
+            this.b_sear_coach_like.Size = new System.Drawing.Size(65, 23);
+            this.b_sear_coach_like.TabIndex = 10;
+            this.b_sear_coach_like.Text = "查询";
+            this.b_sear_coach_like.UseVisualStyleBackColor = true;
+            this.b_sear_coach_like.Click += new System.EventHandler(this.b_sear_coach_like_Click);
+            // 
+            // tb_sear_coach_cname
+            // 
+            this.tb_sear_coach_cname.Location = new System.Drawing.Point(27, 19);
+            this.tb_sear_coach_cname.Name = "tb_sear_coach_cname";
+            this.tb_sear_coach_cname.Size = new System.Drawing.Size(100, 21);
+            this.tb_sear_coach_cname.TabIndex = 7;
+            // 
+            // tb_sear_coach_cno
+            // 
+            this.tb_sear_coach_cno.Location = new System.Drawing.Point(27, 63);
+            this.tb_sear_coach_cno.Name = "tb_sear_coach_cno";
+            this.tb_sear_coach_cno.Size = new System.Drawing.Size(100, 21);
+            this.tb_sear_coach_cno.TabIndex = 8;
+            // 
+            // gb_sear_coach_accurate
+            // 
+            this.gb_sear_coach_accurate.Controls.Add(this.cb_sear_coach_cno);
+            this.gb_sear_coach_accurate.Controls.Add(this.cb_sear_coach_cname);
+            this.gb_sear_coach_accurate.Controls.Add(this.chb_sear_coach_cname);
+            this.gb_sear_coach_accurate.Controls.Add(this.chb_sear_coach_cno);
+            this.gb_sear_coach_accurate.Controls.Add(this.b_sear_coach_accurate);
+            this.gb_sear_coach_accurate.Location = new System.Drawing.Point(27, 5);
+            this.gb_sear_coach_accurate.Name = "gb_sear_coach_accurate";
+            this.gb_sear_coach_accurate.Size = new System.Drawing.Size(145, 137);
+            this.gb_sear_coach_accurate.TabIndex = 21;
+            this.gb_sear_coach_accurate.TabStop = false;
+            this.gb_sear_coach_accurate.Text = "精确查询";
+            // 
+            // cb_sear_coach_cno
+            // 
+            this.cb_sear_coach_cno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_coach_cno.FormattingEnabled = true;
+            this.cb_sear_coach_cno.Location = new System.Drawing.Point(25, 66);
+            this.cb_sear_coach_cno.Name = "cb_sear_coach_cno";
+            this.cb_sear_coach_cno.Size = new System.Drawing.Size(99, 20);
+            this.cb_sear_coach_cno.TabIndex = 4;
+            // 
+            // cb_sear_coach_cname
+            // 
+            this.cb_sear_coach_cname.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_coach_cname.FormattingEnabled = true;
+            this.cb_sear_coach_cname.Location = new System.Drawing.Point(25, 20);
+            this.cb_sear_coach_cname.Name = "cb_sear_coach_cname";
+            this.cb_sear_coach_cname.Size = new System.Drawing.Size(99, 20);
+            this.cb_sear_coach_cname.TabIndex = 3;
+            // 
+            // chb_sear_coach_cname
+            // 
+            this.chb_sear_coach_cname.AutoSize = true;
+            this.chb_sear_coach_cname.Location = new System.Drawing.Point(4, 23);
+            this.chb_sear_coach_cname.Name = "chb_sear_coach_cname";
+            this.chb_sear_coach_cname.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_coach_cname.TabIndex = 5;
+            this.chb_sear_coach_cname.UseVisualStyleBackColor = true;
+            // 
+            // chb_sear_coach_cno
+            // 
+            this.chb_sear_coach_cno.AutoSize = true;
+            this.chb_sear_coach_cno.Location = new System.Drawing.Point(4, 66);
+            this.chb_sear_coach_cno.Name = "chb_sear_coach_cno";
+            this.chb_sear_coach_cno.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_coach_cno.TabIndex = 6;
+            this.chb_sear_coach_cno.UseVisualStyleBackColor = true;
+            // 
+            // b_sear_coach_accurate
+            // 
+            this.b_sear_coach_accurate.Location = new System.Drawing.Point(42, 95);
+            this.b_sear_coach_accurate.Name = "b_sear_coach_accurate";
+            this.b_sear_coach_accurate.Size = new System.Drawing.Size(65, 23);
+            this.b_sear_coach_accurate.TabIndex = 9;
+            this.b_sear_coach_accurate.Text = "查询";
+            this.b_sear_coach_accurate.UseVisualStyleBackColor = true;
+            this.b_sear_coach_accurate.Click += new System.EventHandler(this.b_sear_coach_accurate_Click);
+            // 
+            // l_sear_coach_sex
+            // 
+            this.l_sear_coach_sex.AutoSize = true;
+            this.l_sear_coach_sex.Location = new System.Drawing.Point(394, 57);
+            this.l_sear_coach_sex.Name = "l_sear_coach_sex";
+            this.l_sear_coach_sex.Size = new System.Drawing.Size(29, 12);
+            this.l_sear_coach_sex.TabIndex = 12;
+            this.l_sear_coach_sex.Text = "性别";
+            // 
+            // cb_sear_coach_sex
+            // 
+            this.cb_sear_coach_sex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_coach_sex.FormattingEnabled = true;
+            this.cb_sear_coach_sex.Items.AddRange(new object[] {
+            "不详",
+            "男",
+            "女"});
+            this.cb_sear_coach_sex.Location = new System.Drawing.Point(429, 54);
+            this.cb_sear_coach_sex.Name = "cb_sear_coach_sex";
+            this.cb_sear_coach_sex.Size = new System.Drawing.Size(56, 20);
+            this.cb_sear_coach_sex.TabIndex = 11;
+            // 
+            // l_sear_coach_cno
+            // 
+            this.l_sear_coach_cno.AutoSize = true;
+            this.l_sear_coach_cno.Location = new System.Drawing.Point(178, 70);
+            this.l_sear_coach_cno.Name = "l_sear_coach_cno";
+            this.l_sear_coach_cno.Size = new System.Drawing.Size(53, 12);
+            this.l_sear_coach_cno.TabIndex = 2;
+            this.l_sear_coach_cno.Text = "教练编号";
+            // 
+            // l_sear_coach_cname
+            // 
+            this.l_sear_coach_cname.AutoSize = true;
+            this.l_sear_coach_cname.Location = new System.Drawing.Point(178, 24);
+            this.l_sear_coach_cname.Name = "l_sear_coach_cname";
+            this.l_sear_coach_cname.Size = new System.Drawing.Size(53, 12);
+            this.l_sear_coach_cname.TabIndex = 1;
+            this.l_sear_coach_cname.Text = "教练姓名";
+            // 
+            // lv_sear_coach
+            // 
+            this.lv_sear_coach.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ch_sear_coach_cname,
+            this.ch_sear_coach_cno,
+            this.ch_sear_coach_phone,
+            this.ch_sear_coach_sex});
+            this.lv_sear_coach.Location = new System.Drawing.Point(16, 164);
+            this.lv_sear_coach.Name = "lv_sear_coach";
+            this.lv_sear_coach.Size = new System.Drawing.Size(560, 190);
+            this.lv_sear_coach.TabIndex = 0;
+            this.lv_sear_coach.UseCompatibleStateImageBehavior = false;
+            this.lv_sear_coach.View = System.Windows.Forms.View.Details;
+            // 
+            // ch_sear_coach_cname
+            // 
+            this.ch_sear_coach_cname.Text = "教练姓名";
+            this.ch_sear_coach_cname.Width = 90;
+            // 
+            // ch_sear_coach_cno
+            // 
+            this.ch_sear_coach_cno.Text = "教练编号";
+            this.ch_sear_coach_cno.Width = 110;
+            // 
+            // ch_sear_coach_phone
+            // 
+            this.ch_sear_coach_phone.Text = "电话号码";
+            this.ch_sear_coach_phone.Width = 140;
+            // 
+            // ch_sear_coach_sex
+            // 
+            this.ch_sear_coach_sex.Text = "性别";
+            this.ch_sear_coach_sex.Width = 51;
+            // 
+            // 收支信息_tabpage
+            // 
+            this.收支信息_tabpage.Controls.Add(this.chb_sear_acc_edate);
+            this.收支信息_tabpage.Controls.Add(this.l_sear_acc_edate_end);
+            this.收支信息_tabpage.Controls.Add(this.l_sear_acc_edate_start);
+            this.收支信息_tabpage.Controls.Add(this.dtp_sear_acc_edate_end);
+            this.收支信息_tabpage.Controls.Add(this.dtp_sear_acc_edate_start);
+            this.收支信息_tabpage.Controls.Add(this.l_sear_acc_edate);
+            this.收支信息_tabpage.Controls.Add(this.gb_sear_acc_in);
+            this.收支信息_tabpage.Controls.Add(this.lv_sear_acc);
+            this.收支信息_tabpage.Controls.Add(this.gb_sear_account_exp);
+            this.收支信息_tabpage.Location = new System.Drawing.Point(4, 22);
+            this.收支信息_tabpage.Name = "收支信息_tabpage";
+            this.收支信息_tabpage.Size = new System.Drawing.Size(599, 357);
+            this.收支信息_tabpage.TabIndex = 3;
+            this.收支信息_tabpage.Text = "收支信息";
+            this.收支信息_tabpage.UseVisualStyleBackColor = true;
+            // 
+            // chb_sear_acc_edate
+            // 
+            this.chb_sear_acc_edate.AutoSize = true;
+            this.chb_sear_acc_edate.Location = new System.Drawing.Point(516, 107);
+            this.chb_sear_acc_edate.Name = "chb_sear_acc_edate";
+            this.chb_sear_acc_edate.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_acc_edate.TabIndex = 22;
+            this.chb_sear_acc_edate.UseVisualStyleBackColor = true;
+            // 
+            // l_sear_acc_edate_end
+            // 
+            this.l_sear_acc_edate_end.AutoSize = true;
+            this.l_sear_acc_edate_end.Location = new System.Drawing.Point(429, 162);
+            this.l_sear_acc_edate_end.Name = "l_sear_acc_edate_end";
+            this.l_sear_acc_edate_end.Size = new System.Drawing.Size(17, 12);
+            this.l_sear_acc_edate_end.TabIndex = 21;
+            this.l_sear_acc_edate_end.Text = "到";
+            // 
+            // l_sear_acc_edate_start
+            // 
+            this.l_sear_acc_edate_start.AutoSize = true;
+            this.l_sear_acc_edate_start.Location = new System.Drawing.Point(429, 133);
+            this.l_sear_acc_edate_start.Name = "l_sear_acc_edate_start";
+            this.l_sear_acc_edate_start.Size = new System.Drawing.Size(17, 12);
+            this.l_sear_acc_edate_start.TabIndex = 20;
+            this.l_sear_acc_edate_start.Text = "从";
+            // 
+            // dtp_sear_acc_edate_end
+            // 
+            this.dtp_sear_acc_edate_end.Location = new System.Drawing.Point(452, 157);
+            this.dtp_sear_acc_edate_end.Name = "dtp_sear_acc_edate_end";
+            this.dtp_sear_acc_edate_end.Size = new System.Drawing.Size(105, 21);
+            this.dtp_sear_acc_edate_end.TabIndex = 19;
+            // 
+            // dtp_sear_acc_edate_start
+            // 
+            this.dtp_sear_acc_edate_start.Location = new System.Drawing.Point(452, 130);
+            this.dtp_sear_acc_edate_start.Name = "dtp_sear_acc_edate_start";
+            this.dtp_sear_acc_edate_start.Size = new System.Drawing.Size(105, 21);
+            this.dtp_sear_acc_edate_start.TabIndex = 18;
+            // 
+            // l_sear_acc_edate
+            // 
+            this.l_sear_acc_edate.AutoSize = true;
+            this.l_sear_acc_edate.Location = new System.Drawing.Point(449, 107);
+            this.l_sear_acc_edate.Name = "l_sear_acc_edate";
+            this.l_sear_acc_edate.Size = new System.Drawing.Size(53, 12);
+            this.l_sear_acc_edate.TabIndex = 17;
+            this.l_sear_acc_edate.Text = "账单日期";
+            // 
+            // gb_sear_acc_in
+            // 
+            this.gb_sear_acc_in.Controls.Add(this.chb_sear_acc_oper2);
+            this.gb_sear_acc_in.Controls.Add(this.chb_sear_acc_sno);
+            this.gb_sear_acc_in.Controls.Add(this.chb_sear_acc_ikno);
+            this.gb_sear_acc_in.Controls.Add(this.chb_sear_acc_ino);
+            this.gb_sear_acc_in.Controls.Add(this.cb_sear_acc_oper2);
+            this.gb_sear_acc_in.Controls.Add(this.cb_sear_acc_sno);
+            this.gb_sear_acc_in.Controls.Add(this.cb_sear_acc_ikno);
+            this.gb_sear_acc_in.Controls.Add(this.cb_sear_acc_ino);
+            this.gb_sear_acc_in.Controls.Add(this.b_sear_acc_in);
+            this.gb_sear_acc_in.Controls.Add(this.l_sear_acc_oper2);
+            this.gb_sear_acc_in.Controls.Add(this.l_sear_acc_sno);
+            this.gb_sear_acc_in.Controls.Add(this.l_sear_acc_ikno);
+            this.gb_sear_acc_in.Controls.Add(this.l_sear_acc_ino);
+            this.gb_sear_acc_in.Location = new System.Drawing.Point(227, 24);
+            this.gb_sear_acc_in.Name = "gb_sear_acc_in";
+            this.gb_sear_acc_in.Size = new System.Drawing.Size(194, 200);
+            this.gb_sear_acc_in.TabIndex = 13;
+            this.gb_sear_acc_in.TabStop = false;
+            this.gb_sear_acc_in.Text = "收入";
+            // 
+            // chb_sear_acc_oper2
+            // 
+            this.chb_sear_acc_oper2.AutoSize = true;
+            this.chb_sear_acc_oper2.Location = new System.Drawing.Point(169, 131);
+            this.chb_sear_acc_oper2.Name = "chb_sear_acc_oper2";
+            this.chb_sear_acc_oper2.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_acc_oper2.TabIndex = 12;
+            this.chb_sear_acc_oper2.UseVisualStyleBackColor = true;
+            // 
+            // chb_sear_acc_sno
+            // 
+            this.chb_sear_acc_sno.AutoSize = true;
+            this.chb_sear_acc_sno.Location = new System.Drawing.Point(169, 97);
+            this.chb_sear_acc_sno.Name = "chb_sear_acc_sno";
+            this.chb_sear_acc_sno.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_acc_sno.TabIndex = 11;
+            this.chb_sear_acc_sno.UseVisualStyleBackColor = true;
+            // 
+            // chb_sear_acc_ikno
+            // 
+            this.chb_sear_acc_ikno.AutoSize = true;
+            this.chb_sear_acc_ikno.Location = new System.Drawing.Point(169, 62);
+            this.chb_sear_acc_ikno.Name = "chb_sear_acc_ikno";
+            this.chb_sear_acc_ikno.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_acc_ikno.TabIndex = 10;
+            this.chb_sear_acc_ikno.UseVisualStyleBackColor = true;
+            // 
+            // chb_sear_acc_ino
+            // 
+            this.chb_sear_acc_ino.AutoSize = true;
+            this.chb_sear_acc_ino.Location = new System.Drawing.Point(170, 24);
+            this.chb_sear_acc_ino.Name = "chb_sear_acc_ino";
+            this.chb_sear_acc_ino.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_acc_ino.TabIndex = 9;
+            this.chb_sear_acc_ino.UseVisualStyleBackColor = true;
+            // 
+            // cb_sear_acc_oper2
+            // 
+            this.cb_sear_acc_oper2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_acc_oper2.FormattingEnabled = true;
+            this.cb_sear_acc_oper2.Location = new System.Drawing.Point(66, 131);
+            this.cb_sear_acc_oper2.Name = "cb_sear_acc_oper2";
+            this.cb_sear_acc_oper2.Size = new System.Drawing.Size(97, 20);
+            this.cb_sear_acc_oper2.TabIndex = 8;
+            // 
+            // cb_sear_acc_sno
+            // 
+            this.cb_sear_acc_sno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_acc_sno.FormattingEnabled = true;
+            this.cb_sear_acc_sno.Location = new System.Drawing.Point(66, 91);
+            this.cb_sear_acc_sno.Name = "cb_sear_acc_sno";
+            this.cb_sear_acc_sno.Size = new System.Drawing.Size(97, 20);
+            this.cb_sear_acc_sno.TabIndex = 7;
+            // 
+            // cb_sear_acc_ikno
+            // 
+            this.cb_sear_acc_ikno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_acc_ikno.FormattingEnabled = true;
+            this.cb_sear_acc_ikno.Location = new System.Drawing.Point(66, 56);
+            this.cb_sear_acc_ikno.Name = "cb_sear_acc_ikno";
+            this.cb_sear_acc_ikno.Size = new System.Drawing.Size(97, 20);
+            this.cb_sear_acc_ikno.TabIndex = 6;
+            // 
+            // cb_sear_acc_ino
+            // 
+            this.cb_sear_acc_ino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_acc_ino.FormattingEnabled = true;
+            this.cb_sear_acc_ino.Location = new System.Drawing.Point(66, 23);
+            this.cb_sear_acc_ino.Name = "cb_sear_acc_ino";
+            this.cb_sear_acc_ino.Size = new System.Drawing.Size(97, 20);
+            this.cb_sear_acc_ino.TabIndex = 5;
+            // 
+            // b_sear_acc_in
+            // 
+            this.b_sear_acc_in.Location = new System.Drawing.Point(88, 162);
+            this.b_sear_acc_in.Name = "b_sear_acc_in";
+            this.b_sear_acc_in.Size = new System.Drawing.Size(75, 23);
+            this.b_sear_acc_in.TabIndex = 4;
+            this.b_sear_acc_in.Text = "查询";
+            this.b_sear_acc_in.UseVisualStyleBackColor = true;
+            this.b_sear_acc_in.Click += new System.EventHandler(this.b_sear_acc_in_Click);
+            // 
+            // l_sear_acc_oper2
+            // 
+            this.l_sear_acc_oper2.AutoSize = true;
+            this.l_sear_acc_oper2.Location = new System.Drawing.Point(13, 131);
+            this.l_sear_acc_oper2.Name = "l_sear_acc_oper2";
+            this.l_sear_acc_oper2.Size = new System.Drawing.Size(41, 12);
+            this.l_sear_acc_oper2.TabIndex = 3;
+            this.l_sear_acc_oper2.Text = "操作员";
+            // 
+            // l_sear_acc_sno
+            // 
+            this.l_sear_acc_sno.AutoSize = true;
+            this.l_sear_acc_sno.Location = new System.Drawing.Point(13, 91);
+            this.l_sear_acc_sno.Name = "l_sear_acc_sno";
+            this.l_sear_acc_sno.Size = new System.Drawing.Size(41, 12);
+            this.l_sear_acc_sno.TabIndex = 2;
+            this.l_sear_acc_sno.Text = "学员名";
+            // 
+            // l_sear_acc_ikno
+            // 
+            this.l_sear_acc_ikno.AutoSize = true;
+            this.l_sear_acc_ikno.Location = new System.Drawing.Point(6, 60);
+            this.l_sear_acc_ikno.Name = "l_sear_acc_ikno";
+            this.l_sear_acc_ikno.Size = new System.Drawing.Size(53, 12);
+            this.l_sear_acc_ikno.TabIndex = 1;
+            this.l_sear_acc_ikno.Text = "收入类别";
+            // 
+            // l_sear_acc_ino
+            // 
+            this.l_sear_acc_ino.AutoSize = true;
+            this.l_sear_acc_ino.Location = new System.Drawing.Point(7, 30);
+            this.l_sear_acc_ino.Name = "l_sear_acc_ino";
+            this.l_sear_acc_ino.Size = new System.Drawing.Size(53, 12);
+            this.l_sear_acc_ino.TabIndex = 0;
+            this.l_sear_acc_ino.Text = "账单编号";
+            // 
+            // lv_sear_acc
+            // 
+            this.lv_sear_acc.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ch_sear_acc_账单号,
+            this.ch_sear_acc_kind,
+            this.ch_sear_acc_object,
+            this.ch_sear_acc_cash,
+            this.ch_sear_acc_date,
+            this.ch_sear_acc_oper});
+            this.lv_sear_acc.Location = new System.Drawing.Point(14, 225);
+            this.lv_sear_acc.Name = "lv_sear_acc";
+            this.lv_sear_acc.Size = new System.Drawing.Size(582, 129);
+            this.lv_sear_acc.TabIndex = 1;
+            this.lv_sear_acc.UseCompatibleStateImageBehavior = false;
+            this.lv_sear_acc.View = System.Windows.Forms.View.Details;
+            // 
+            // ch_sear_acc_账单号
+            // 
+            this.ch_sear_acc_账单号.Text = "账单号";
+            this.ch_sear_acc_账单号.Width = 129;
+            // 
+            // ch_sear_acc_kind
+            // 
+            this.ch_sear_acc_kind.Text = "类型";
+            // 
+            // ch_sear_acc_object
+            // 
+            this.ch_sear_acc_object.Text = "对象";
+            this.ch_sear_acc_object.Width = 68;
+            // 
+            // ch_sear_acc_cash
+            // 
+            this.ch_sear_acc_cash.Text = "金额";
+            this.ch_sear_acc_cash.Width = 67;
+            // 
+            // ch_sear_acc_date
+            // 
+            this.ch_sear_acc_date.Text = "日期";
+            this.ch_sear_acc_date.Width = 130;
+            // 
+            // ch_sear_acc_oper
+            // 
+            this.ch_sear_acc_oper.Text = "操作员";
+            this.ch_sear_acc_oper.Width = 104;
+            // 
+            // gb_sear_account_exp
+            // 
+            this.gb_sear_account_exp.Controls.Add(this.chb_sear_acc_oper1);
+            this.gb_sear_account_exp.Controls.Add(this.chb_sear_acc_lic);
+            this.gb_sear_account_exp.Controls.Add(this.chb_sear_acc_ekno);
+            this.gb_sear_account_exp.Controls.Add(this.chb_sear_acc_bno);
+            this.gb_sear_account_exp.Controls.Add(this.cb_sear_acc_oper1);
+            this.gb_sear_account_exp.Controls.Add(this.cb_sear_acc_lic);
+            this.gb_sear_account_exp.Controls.Add(this.cb_sear_acc_ekno);
+            this.gb_sear_account_exp.Controls.Add(this.cb_sear_acc_bno);
+            this.gb_sear_account_exp.Controls.Add(this.b_sear_acc_exp);
+            this.gb_sear_account_exp.Controls.Add(this.l_sear_acc_oper1);
+            this.gb_sear_account_exp.Controls.Add(this.l_sear_acc_lic);
+            this.gb_sear_account_exp.Controls.Add(this.l_sear_acc_ekno);
+            this.gb_sear_account_exp.Controls.Add(this.l_sear_acc_bno);
+            this.gb_sear_account_exp.Location = new System.Drawing.Point(27, 19);
+            this.gb_sear_account_exp.Name = "gb_sear_account_exp";
+            this.gb_sear_account_exp.Size = new System.Drawing.Size(194, 200);
+            this.gb_sear_account_exp.TabIndex = 0;
+            this.gb_sear_account_exp.TabStop = false;
+            this.gb_sear_account_exp.Text = "消耗";
+            // 
+            // chb_sear_acc_oper1
+            // 
+            this.chb_sear_acc_oper1.AutoSize = true;
+            this.chb_sear_acc_oper1.Location = new System.Drawing.Point(169, 131);
+            this.chb_sear_acc_oper1.Name = "chb_sear_acc_oper1";
+            this.chb_sear_acc_oper1.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_acc_oper1.TabIndex = 12;
+            this.chb_sear_acc_oper1.UseVisualStyleBackColor = true;
+            // 
+            // chb_sear_acc_lic
+            // 
+            this.chb_sear_acc_lic.AutoSize = true;
+            this.chb_sear_acc_lic.Location = new System.Drawing.Point(169, 97);
+            this.chb_sear_acc_lic.Name = "chb_sear_acc_lic";
+            this.chb_sear_acc_lic.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_acc_lic.TabIndex = 11;
+            this.chb_sear_acc_lic.UseVisualStyleBackColor = true;
+            // 
+            // chb_sear_acc_ekno
+            // 
+            this.chb_sear_acc_ekno.AutoSize = true;
+            this.chb_sear_acc_ekno.Location = new System.Drawing.Point(169, 62);
+            this.chb_sear_acc_ekno.Name = "chb_sear_acc_ekno";
+            this.chb_sear_acc_ekno.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_acc_ekno.TabIndex = 10;
+            this.chb_sear_acc_ekno.UseVisualStyleBackColor = true;
+            // 
+            // chb_sear_acc_bno
+            // 
+            this.chb_sear_acc_bno.AutoSize = true;
+            this.chb_sear_acc_bno.Location = new System.Drawing.Point(170, 24);
+            this.chb_sear_acc_bno.Name = "chb_sear_acc_bno";
+            this.chb_sear_acc_bno.Size = new System.Drawing.Size(15, 14);
+            this.chb_sear_acc_bno.TabIndex = 9;
+            this.chb_sear_acc_bno.UseVisualStyleBackColor = true;
+            // 
+            // cb_sear_acc_oper1
+            // 
+            this.cb_sear_acc_oper1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_acc_oper1.FormattingEnabled = true;
+            this.cb_sear_acc_oper1.Location = new System.Drawing.Point(66, 131);
+            this.cb_sear_acc_oper1.Name = "cb_sear_acc_oper1";
+            this.cb_sear_acc_oper1.Size = new System.Drawing.Size(97, 20);
+            this.cb_sear_acc_oper1.TabIndex = 8;
+            // 
+            // cb_sear_acc_lic
+            // 
+            this.cb_sear_acc_lic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_acc_lic.FormattingEnabled = true;
+            this.cb_sear_acc_lic.Location = new System.Drawing.Point(66, 91);
+            this.cb_sear_acc_lic.Name = "cb_sear_acc_lic";
+            this.cb_sear_acc_lic.Size = new System.Drawing.Size(97, 20);
+            this.cb_sear_acc_lic.TabIndex = 7;
+            // 
+            // cb_sear_acc_ekno
+            // 
+            this.cb_sear_acc_ekno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_acc_ekno.FormattingEnabled = true;
+            this.cb_sear_acc_ekno.Location = new System.Drawing.Point(66, 56);
+            this.cb_sear_acc_ekno.Name = "cb_sear_acc_ekno";
+            this.cb_sear_acc_ekno.Size = new System.Drawing.Size(97, 20);
+            this.cb_sear_acc_ekno.TabIndex = 6;
+            // 
+            // cb_sear_acc_bno
+            // 
+            this.cb_sear_acc_bno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_sear_acc_bno.FormattingEnabled = true;
+            this.cb_sear_acc_bno.Location = new System.Drawing.Point(66, 23);
+            this.cb_sear_acc_bno.Name = "cb_sear_acc_bno";
+            this.cb_sear_acc_bno.Size = new System.Drawing.Size(97, 20);
+            this.cb_sear_acc_bno.TabIndex = 5;
+            // 
+            // b_sear_acc_exp
+            // 
+            this.b_sear_acc_exp.Location = new System.Drawing.Point(88, 162);
+            this.b_sear_acc_exp.Name = "b_sear_acc_exp";
+            this.b_sear_acc_exp.Size = new System.Drawing.Size(75, 23);
+            this.b_sear_acc_exp.TabIndex = 4;
+            this.b_sear_acc_exp.Text = "查询";
+            this.b_sear_acc_exp.UseVisualStyleBackColor = true;
+            this.b_sear_acc_exp.Click += new System.EventHandler(this.b_sear_acc_exp_Click);
+            // 
+            // l_sear_acc_oper1
+            // 
+            this.l_sear_acc_oper1.AutoSize = true;
+            this.l_sear_acc_oper1.Location = new System.Drawing.Point(13, 131);
+            this.l_sear_acc_oper1.Name = "l_sear_acc_oper1";
+            this.l_sear_acc_oper1.Size = new System.Drawing.Size(41, 12);
+            this.l_sear_acc_oper1.TabIndex = 3;
+            this.l_sear_acc_oper1.Text = "操作员";
+            // 
+            // l_sear_acc_lic
+            // 
+            this.l_sear_acc_lic.AutoSize = true;
+            this.l_sear_acc_lic.Location = new System.Drawing.Point(13, 91);
+            this.l_sear_acc_lic.Name = "l_sear_acc_lic";
+            this.l_sear_acc_lic.Size = new System.Drawing.Size(41, 12);
+            this.l_sear_acc_lic.TabIndex = 2;
+            this.l_sear_acc_lic.Text = "车牌号";
+            // 
+            // l_sear_acc_ekno
+            // 
+            this.l_sear_acc_ekno.AutoSize = true;
+            this.l_sear_acc_ekno.Location = new System.Drawing.Point(6, 60);
+            this.l_sear_acc_ekno.Name = "l_sear_acc_ekno";
+            this.l_sear_acc_ekno.Size = new System.Drawing.Size(53, 12);
+            this.l_sear_acc_ekno.TabIndex = 1;
+            this.l_sear_acc_ekno.Text = "消耗类别";
+            // 
+            // l_sear_acc_bno
+            // 
+            this.l_sear_acc_bno.AutoSize = true;
+            this.l_sear_acc_bno.Location = new System.Drawing.Point(7, 30);
+            this.l_sear_acc_bno.Name = "l_sear_acc_bno";
+            this.l_sear_acc_bno.Size = new System.Drawing.Size(53, 12);
+            this.l_sear_acc_bno.TabIndex = 0;
+            this.l_sear_acc_bno.Text = "账单编号";
+            // 
+            // b_table_student
+            // 
+            this.b_table_student.Location = new System.Drawing.Point(34, 101);
+            this.b_table_student.Name = "b_table_student";
+            this.b_table_student.Size = new System.Drawing.Size(75, 39);
+            this.b_table_student.TabIndex = 11;
+            this.b_table_student.Text = "学员表";
+            this.b_table_student.UseVisualStyleBackColor = true;
+            this.b_table_student.Click += new System.EventHandler(this.b_table_student_Click);
+            // 
+            // 生成报表panel
+            // 
+            this.生成报表panel.Controls.Add(this.b_table_grade);
+            this.生成报表panel.Controls.Add(this.b_table_ikind);
+            this.生成报表panel.Controls.Add(this.b_table_income);
+            this.生成报表panel.Controls.Add(this.b_table_ekind);
+            this.生成报表panel.Controls.Add(this.b_table_exp);
+            this.生成报表panel.Controls.Add(this.b_table_cc);
+            this.生成报表panel.Controls.Add(this.b_table_sc);
+            this.生成报表panel.Controls.Add(this.b_table_car);
+            this.生成报表panel.Controls.Add(this.b_table_coach);
+            this.生成报表panel.Controls.Add(this.l_table_example);
+            this.生成报表panel.Controls.Add(this.tb_table_path);
+            this.生成报表panel.Controls.Add(this.l_table_path);
+            this.生成报表panel.Controls.Add(this.b_table_student);
+            this.生成报表panel.Location = new System.Drawing.Point(617, 247);
+            this.生成报表panel.Name = "生成报表panel";
+            this.生成报表panel.Size = new System.Drawing.Size(613, 383);
+            this.生成报表panel.TabIndex = 12;
+            // 
+            // b_table_grade
+            // 
+            this.b_table_grade.Location = new System.Drawing.Point(420, 177);
+            this.b_table_grade.Name = "b_table_grade";
+            this.b_table_grade.Size = new System.Drawing.Size(75, 39);
+            this.b_table_grade.TabIndex = 23;
+            this.b_table_grade.Text = "成绩";
+            this.b_table_grade.UseVisualStyleBackColor = true;
+            this.b_table_grade.Click += new System.EventHandler(this.b_table_grade_Click);
+            // 
+            // b_table_ikind
+            // 
+            this.b_table_ikind.Location = new System.Drawing.Point(314, 177);
+            this.b_table_ikind.Name = "b_table_ikind";
+            this.b_table_ikind.Size = new System.Drawing.Size(75, 39);
+            this.b_table_ikind.TabIndex = 22;
+            this.b_table_ikind.Text = "收入类型";
+            this.b_table_ikind.UseVisualStyleBackColor = true;
+            this.b_table_ikind.Click += new System.EventHandler(this.b_table_ikind_Click);
+            // 
+            // b_table_income
+            // 
+            this.b_table_income.Location = new System.Drawing.Point(229, 177);
+            this.b_table_income.Name = "b_table_income";
+            this.b_table_income.Size = new System.Drawing.Size(75, 39);
+            this.b_table_income.TabIndex = 21;
+            this.b_table_income.Text = "收入表";
+            this.b_table_income.UseVisualStyleBackColor = true;
+            this.b_table_income.Click += new System.EventHandler(this.b_table_income_Click);
+            // 
+            // b_table_ekind
+            // 
+            this.b_table_ekind.Location = new System.Drawing.Point(134, 177);
+            this.b_table_ekind.Name = "b_table_ekind";
+            this.b_table_ekind.Size = new System.Drawing.Size(75, 39);
+            this.b_table_ekind.TabIndex = 20;
+            this.b_table_ekind.Text = "消耗种类";
+            this.b_table_ekind.UseVisualStyleBackColor = true;
+            this.b_table_ekind.Click += new System.EventHandler(this.b_table_ekind_Click);
+            // 
+            // b_table_exp
+            // 
+            this.b_table_exp.Location = new System.Drawing.Point(34, 177);
+            this.b_table_exp.Name = "b_table_exp";
+            this.b_table_exp.Size = new System.Drawing.Size(75, 39);
+            this.b_table_exp.TabIndex = 19;
+            this.b_table_exp.Text = "消耗表";
+            this.b_table_exp.UseVisualStyleBackColor = true;
+            this.b_table_exp.Click += new System.EventHandler(this.b_table_exp_Click);
+            // 
+            // b_table_cc
+            // 
+            this.b_table_cc.Location = new System.Drawing.Point(436, 102);
+            this.b_table_cc.Name = "b_table_cc";
+            this.b_table_cc.Size = new System.Drawing.Size(116, 39);
+            this.b_table_cc.TabIndex = 18;
+            this.b_table_cc.Text = "教练车辆匹配表";
+            this.b_table_cc.UseVisualStyleBackColor = true;
+            this.b_table_cc.Click += new System.EventHandler(this.b_table_cc_Click);
+            // 
+            // b_table_sc
+            // 
+            this.b_table_sc.Location = new System.Drawing.Point(314, 102);
+            this.b_table_sc.Name = "b_table_sc";
+            this.b_table_sc.Size = new System.Drawing.Size(116, 39);
+            this.b_table_sc.TabIndex = 17;
+            this.b_table_sc.Text = "教练学员匹配表";
+            this.b_table_sc.UseVisualStyleBackColor = true;
+            this.b_table_sc.Click += new System.EventHandler(this.b_table_sc_Click);
+            // 
+            // b_table_car
+            // 
+            this.b_table_car.Location = new System.Drawing.Point(229, 102);
+            this.b_table_car.Name = "b_table_car";
+            this.b_table_car.Size = new System.Drawing.Size(75, 39);
+            this.b_table_car.TabIndex = 16;
+            this.b_table_car.Text = "车辆表";
+            this.b_table_car.UseVisualStyleBackColor = true;
+            this.b_table_car.Click += new System.EventHandler(this.b_table_car_Click);
+            // 
+            // b_table_coach
+            // 
+            this.b_table_coach.Location = new System.Drawing.Point(134, 101);
+            this.b_table_coach.Name = "b_table_coach";
+            this.b_table_coach.Size = new System.Drawing.Size(75, 39);
+            this.b_table_coach.TabIndex = 15;
+            this.b_table_coach.Text = "教练表";
+            this.b_table_coach.UseVisualStyleBackColor = true;
+            this.b_table_coach.Click += new System.EventHandler(this.b_table_coach_Click);
+            // 
+            // l_table_example
+            // 
+            this.l_table_example.AutoSize = true;
+            this.l_table_example.Location = new System.Drawing.Point(428, 46);
+            this.l_table_example.Name = "l_table_example";
+            this.l_table_example.Size = new System.Drawing.Size(101, 12);
+            this.l_table_example.TabIndex = 14;
+            this.l_table_example.Text = "如：c:/test.xlsx";
+            // 
+            // tb_table_path
+            // 
+            this.tb_table_path.Location = new System.Drawing.Point(113, 43);
+            this.tb_table_path.Name = "tb_table_path";
+            this.tb_table_path.Size = new System.Drawing.Size(309, 21);
+            this.tb_table_path.TabIndex = 13;
+            // 
+            // l_table_path
+            // 
+            this.l_table_path.AutoSize = true;
+            this.l_table_path.Location = new System.Drawing.Point(21, 46);
+            this.l_table_path.Name = "l_table_path";
+            this.l_table_path.Size = new System.Drawing.Size(71, 12);
+            this.l_table_path.TabIndex = 12;
+            this.l_table_path.Text = "请输入目录:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 441);
+            this.Controls.Add(this.生成报表panel);
+            this.Controls.Add(this.查询panel);
             this.Controls.Add(this.统计panel);
             this.Controls.Add(this.业务panel);
             this.Controls.Add(this.L_madein);
@@ -2579,6 +4182,36 @@
             this.sta_inc.PerformLayout();
             this.sta_exp.ResumeLayout(false);
             this.sta_exp.PerformLayout();
+            this.查询panel.ResumeLayout(false);
+            this.search_tabcontrol.ResumeLayout(false);
+            this.业务信息查询_tabpage.ResumeLayout(false);
+            this.业务信息查询_tabpage.PerformLayout();
+            this.车辆信息查询_tabpage.ResumeLayout(false);
+            this.车辆信息查询_tabpage.PerformLayout();
+            this.gb_sear_car_like.ResumeLayout(false);
+            this.gb_sear_car_like.PerformLayout();
+            this.gb_sear_car_accurate.ResumeLayout(false);
+            this.gb_sear_car_accurate.PerformLayout();
+            this.学员信息_tabpage.ResumeLayout(false);
+            this.学员信息_tabpage.PerformLayout();
+            this.gb_sear_stu_like.ResumeLayout(false);
+            this.gb_sear_stu_like.PerformLayout();
+            this.gb_sear_stu_accurate.ResumeLayout(false);
+            this.gb_sear_stu_accurate.PerformLayout();
+            this.教练信息_tabpage.ResumeLayout(false);
+            this.教练信息_tabpage.PerformLayout();
+            this.gb_sear_coach_like.ResumeLayout(false);
+            this.gb_sear_coach_like.PerformLayout();
+            this.gb_sear_coach_accurate.ResumeLayout(false);
+            this.gb_sear_coach_accurate.PerformLayout();
+            this.收支信息_tabpage.ResumeLayout(false);
+            this.收支信息_tabpage.PerformLayout();
+            this.gb_sear_acc_in.ResumeLayout(false);
+            this.gb_sear_acc_in.PerformLayout();
+            this.gb_sear_account_exp.ResumeLayout(false);
+            this.gb_sear_account_exp.PerformLayout();
+            this.生成报表panel.ResumeLayout(false);
+            this.生成报表panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2818,5 +4451,154 @@
         private System.Windows.Forms.Button L_sta_s_cna_clear;
         private System.Windows.Forms.TextBox sta_s_cna;
         private System.Windows.Forms.Label L_sta_s_cna;
+        private System.Windows.Forms.Panel 查询panel;
+        private System.Windows.Forms.TabControl search_tabcontrol;
+        private System.Windows.Forms.TabPage 业务信息查询_tabpage;
+        private System.Windows.Forms.TabPage 车辆信息查询_tabpage;
+        private System.Windows.Forms.TabPage 学员信息_tabpage;
+        private System.Windows.Forms.ComboBox cb_sear_sc_sname;
+        private System.Windows.Forms.ComboBox cb_sear_sc_cname;
+        private System.Windows.Forms.ListView lv_sear_buss;
+        private System.Windows.Forms.Button b_sear_exam;
+        private System.Windows.Forms.Button b_sear_cc;
+        private System.Windows.Forms.Button b_sear_sc;
+        private System.Windows.Forms.ComboBox cb_sear_cc_cname;
+        private System.Windows.Forms.ComboBox cb_sear_cc_lic;
+        private System.Windows.Forms.ComboBox cb_sear_exam_subject;
+        private System.Windows.Forms.ComboBox cb_sear_exam_sname;
+        private System.Windows.Forms.Button b_sear_buss;
+        private System.Windows.Forms.CheckBox chb_sear_buss_sc_sname;
+        private System.Windows.Forms.CheckBox chb_sear_buss_sc_cname;
+        private System.Windows.Forms.CheckBox chb_sear_buss_cc_cname;
+        private System.Windows.Forms.CheckBox chb_sear_buss_cc_lic;
+        private System.Windows.Forms.Label l_sear_buss2;
+        private System.Windows.Forms.Label l_sear_buss1;
+        private System.Windows.Forms.TabPage 收支信息_tabpage;
+        private System.Windows.Forms.ListView lv_sear_car;
+        private System.Windows.Forms.ColumnHeader ch_sear_car_lic;
+        private System.Windows.Forms.ColumnHeader ch_sear_car_color;
+        private System.Windows.Forms.ColumnHeader ch_sear_car_mile;
+        private System.Windows.Forms.ColumnHeader ch_sear_car_brand;
+        private System.Windows.Forms.ColumnHeader ch_sear_car_buytime;
+        private System.Windows.Forms.Button b_sear_car_accurate;
+        private System.Windows.Forms.ComboBox cb_sear_car_brand;
+        private System.Windows.Forms.ComboBox cb_sear_car_color;
+        private System.Windows.Forms.ComboBox cb_sear_car_lic;
+        private System.Windows.Forms.Label l_sear_car_buytime;
+        private System.Windows.Forms.Label l_sear_car_brand;
+        private System.Windows.Forms.Label l_sear_car_color;
+        private System.Windows.Forms.Label l_sear_car_lic;
+        private System.Windows.Forms.DateTimePicker dtp_sear_car_buytime_start;
+        private System.Windows.Forms.Label l_sear_car_buytime_end;
+        private System.Windows.Forms.Label l_sear_car_buytime_start;
+        private System.Windows.Forms.DateTimePicker dtp_sear_car_buytime_end;
+        private System.Windows.Forms.CheckBox chb_sear_car_buytime;
+        private System.Windows.Forms.CheckBox chb_sear_car_brand;
+        private System.Windows.Forms.CheckBox chb_sear_car_color;
+        private System.Windows.Forms.CheckBox chb_sear_car_lic;
+        private System.Windows.Forms.GroupBox gb_sear_car_like;
+        private System.Windows.Forms.Button b_sear_car_like;
+        private System.Windows.Forms.TextBox tb_sear_car_brand;
+        private System.Windows.Forms.TextBox tb_sear_car_color;
+        private System.Windows.Forms.TextBox tb_sear_car_lic;
+        private System.Windows.Forms.GroupBox gb_sear_car_accurate;
+        private System.Windows.Forms.TabPage 教练信息_tabpage;
+        private System.Windows.Forms.ListView lv_sear_stu;
+        private System.Windows.Forms.ColumnHeader ch_sear_stu_sname;
+        private System.Windows.Forms.ColumnHeader ch_sear_stu_sno;
+        private System.Windows.Forms.ColumnHeader ch_sear_stu_phone;
+        private System.Windows.Forms.ColumnHeader ch_sear_stu_pay;
+        private System.Windows.Forms.ColumnHeader ch_sear_stu_sex;
+        private System.Windows.Forms.ColumnHeader ch_sear_stu_progress;
+        private System.Windows.Forms.Button b_sear_stu_like;
+        private System.Windows.Forms.Button b_sear_stu_accurate;
+        private System.Windows.Forms.CheckBox chb_sear_stu_sno;
+        private System.Windows.Forms.CheckBox chb_sear_stu_sname;
+        private System.Windows.Forms.TextBox tb_sear_stu_sno;
+        private System.Windows.Forms.TextBox tb_sear_stu_sname;
+        private System.Windows.Forms.ComboBox cb_sear_stu_sno;
+        private System.Windows.Forms.ComboBox cb_sear_stu_sname;
+        private System.Windows.Forms.Label l_sear_stu_sex;
+        private System.Windows.Forms.Label l_sear_stu_sno;
+        private System.Windows.Forms.Label l_sear_stu_sname;
+        private System.Windows.Forms.ComboBox cb_sear_stu_sex;
+        private System.Windows.Forms.ComboBox cb_sear_stu_pay;
+        private System.Windows.Forms.Label l_sear_stu_pay;
+        private System.Windows.Forms.GroupBox gb_sear_stu_accurate;
+        private System.Windows.Forms.GroupBox gb_sear_stu_like;
+        private System.Windows.Forms.Label l_sear_coach_sex;
+        private System.Windows.Forms.ComboBox cb_sear_coach_sex;
+        private System.Windows.Forms.Button b_sear_coach_like;
+        private System.Windows.Forms.Button b_sear_coach_accurate;
+        private System.Windows.Forms.TextBox tb_sear_coach_cno;
+        private System.Windows.Forms.TextBox tb_sear_coach_cname;
+        private System.Windows.Forms.CheckBox chb_sear_coach_cno;
+        private System.Windows.Forms.CheckBox chb_sear_coach_cname;
+        private System.Windows.Forms.ComboBox cb_sear_coach_cno;
+        private System.Windows.Forms.ComboBox cb_sear_coach_cname;
+        private System.Windows.Forms.Label l_sear_coach_cno;
+        private System.Windows.Forms.Label l_sear_coach_cname;
+        private System.Windows.Forms.ListView lv_sear_coach;
+        private System.Windows.Forms.ColumnHeader ch_sear_coach_cname;
+        private System.Windows.Forms.ColumnHeader ch_sear_coach_cno;
+        private System.Windows.Forms.ColumnHeader ch_sear_coach_phone;
+        private System.Windows.Forms.ColumnHeader ch_sear_coach_sex;
+        private System.Windows.Forms.GroupBox gb_sear_coach_like;
+        private System.Windows.Forms.GroupBox gb_sear_coach_accurate;
+        private System.Windows.Forms.ListView lv_sear_acc;
+        private System.Windows.Forms.ColumnHeader ch_sear_acc_账单号;
+        private System.Windows.Forms.ColumnHeader ch_sear_acc_kind;
+        private System.Windows.Forms.ColumnHeader ch_sear_acc_object;
+        private System.Windows.Forms.ColumnHeader ch_sear_acc_cash;
+        private System.Windows.Forms.ColumnHeader ch_sear_acc_date;
+        private System.Windows.Forms.ColumnHeader ch_sear_acc_oper;
+        private System.Windows.Forms.GroupBox gb_sear_account_exp;
+        private System.Windows.Forms.CheckBox chb_sear_acc_oper1;
+        private System.Windows.Forms.CheckBox chb_sear_acc_lic;
+        private System.Windows.Forms.CheckBox chb_sear_acc_ekno;
+        private System.Windows.Forms.CheckBox chb_sear_acc_bno;
+        private System.Windows.Forms.ComboBox cb_sear_acc_oper1;
+        private System.Windows.Forms.ComboBox cb_sear_acc_lic;
+        private System.Windows.Forms.ComboBox cb_sear_acc_ekno;
+        private System.Windows.Forms.ComboBox cb_sear_acc_bno;
+        private System.Windows.Forms.Button b_sear_acc_exp;
+        private System.Windows.Forms.Label l_sear_acc_oper1;
+        private System.Windows.Forms.Label l_sear_acc_lic;
+        private System.Windows.Forms.Label l_sear_acc_ekno;
+        private System.Windows.Forms.Label l_sear_acc_bno;
+        private System.Windows.Forms.GroupBox gb_sear_acc_in;
+        private System.Windows.Forms.CheckBox chb_sear_acc_oper2;
+        private System.Windows.Forms.CheckBox chb_sear_acc_sno;
+        private System.Windows.Forms.CheckBox chb_sear_acc_ikno;
+        private System.Windows.Forms.CheckBox chb_sear_acc_ino;
+        private System.Windows.Forms.ComboBox cb_sear_acc_oper2;
+        private System.Windows.Forms.ComboBox cb_sear_acc_sno;
+        private System.Windows.Forms.ComboBox cb_sear_acc_ikno;
+        private System.Windows.Forms.ComboBox cb_sear_acc_ino;
+        private System.Windows.Forms.Button b_sear_acc_in;
+        private System.Windows.Forms.Label l_sear_acc_oper2;
+        private System.Windows.Forms.Label l_sear_acc_sno;
+        private System.Windows.Forms.Label l_sear_acc_ikno;
+        private System.Windows.Forms.Label l_sear_acc_ino;
+        private System.Windows.Forms.CheckBox chb_sear_acc_edate;
+        private System.Windows.Forms.Label l_sear_acc_edate_end;
+        private System.Windows.Forms.Label l_sear_acc_edate_start;
+        private System.Windows.Forms.DateTimePicker dtp_sear_acc_edate_end;
+        private System.Windows.Forms.DateTimePicker dtp_sear_acc_edate_start;
+        private System.Windows.Forms.Label l_sear_acc_edate;
+        private System.Windows.Forms.Button b_table_student;
+        private System.Windows.Forms.Panel 生成报表panel;
+        private System.Windows.Forms.TextBox tb_table_path;
+        private System.Windows.Forms.Label l_table_path;
+        private System.Windows.Forms.Label l_table_example;
+        private System.Windows.Forms.Button b_table_ikind;
+        private System.Windows.Forms.Button b_table_income;
+        private System.Windows.Forms.Button b_table_ekind;
+        private System.Windows.Forms.Button b_table_exp;
+        private System.Windows.Forms.Button b_table_cc;
+        private System.Windows.Forms.Button b_table_sc;
+        private System.Windows.Forms.Button b_table_car;
+        private System.Windows.Forms.Button b_table_coach;
+        private System.Windows.Forms.Button b_table_grade;
     }
 }

@@ -1,24 +1,35 @@
-CREATE PROCEDURE GET_INCOME_NUMBER
-AS 
-SELECT COUNT(*)
-FROM income
+--创建视图cname_sname 包含教练姓名和学员姓名
+create view cname_sname
+as
+	select (select sname from student where SNO=sc.SNO) as sname, 
+			(select cname from coach where cNO=sc.cNO) as cname
+	from sc
 
-CREATE PROCEDURE INSERT_INCOME(@sn char(10),@mon int,@dat datetime,@ope char(8),@ik char(8),@in char(10))
-AS 
-INSERT INTO income(SNO,CASH,EDATE,OPERATOR,IKNO,INO)
-values (@sn,@mon,@dat,@ope,@ik,@in)
 
-CREATE PROCEDURE INSERT_EXPENDITURE(@LI char(8),@mon int,@dat datetime,@ope char(8),@ek char(8),@in char(10))
-AS 
-INSERT INTO expenditure(LIC,CASH,EDATE,OPERATOR,EKNO,BNO)
-values (@LI,@mon,@dat,@ope,@ek,@in)
+--创建视图cname_lic 包含教练姓名和学员姓名
+create view cname_lic
+as
+	select (select lic from car where lic=cc.LIC) as lic, 
+			(select cname from coach where cNO=cc.cNO) as cname
+	from cc
 
-CREATE PROCEDURE INSERT_EXAM(@SNO char(8),@dat datetime,@SJ char(8),@GRADE int)
-AS 
-INSERT INTO exam(SNO,SJNAME,EDATE,GRADE)
-values (@SNO,@SJ,@dat,@GRADE)
-
-SELECT *
-FROM exam
----@SNO char(8),@dat datetime,@SJ char(8),@GRADE int)
-EXEC INSERT_EXAM 'XY000005' ,'2009-9-30',1,22 
+--创建视图sname_grade 包含学员姓名和成绩相关信息的视图
+create view sname_grade
+as
+	select (select sname from student where sno=exam.SNO) as sname, 
+			SNO,SJNAME,grade
+	from exam
+	
+--创建视图ename_exp 包含消耗名称和消耗相关信息的视图
+create view ename_exp
+as 
+	select (select ename from e_kind where ekno=expenditure.ekno) as ename,
+		cash,bno,lic,edate,operator
+	from expenditure
+--创建视图iname_sname_in 包含学员名称和收入名称和收入相关信息的视图
+create view iname_sname_in
+as 
+	select (select iname from i_kind where ikno=income.ikno) as iname,
+			(select sname from student where sno=income.sno) as sname,
+		cash,ino,sno,edate,operator
+	from income
