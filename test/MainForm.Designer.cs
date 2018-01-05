@@ -125,8 +125,6 @@
             this.L_b_sc_sno = new System.Windows.Forms.Label();
             this.b_sc_sno = new System.Windows.Forms.TextBox();
             this.page_cc = new System.Windows.Forms.TabPage();
-<<<<<<< HEAD
-=======
             this.b_cc_add = new System.Windows.Forms.Button();
             this.b_cc_del = new System.Windows.Forms.Button();
             this.b_cc_sub = new System.Windows.Forms.Button();
@@ -263,7 +261,6 @@
             this.sta_exp_lic_cle = new System.Windows.Forms.Button();
             this.sta_exp_lic = new System.Windows.Forms.TextBox();
             this.L_sta_exp_lic = new System.Windows.Forms.Label();
->>>>>>> tsy
             this.menu.SuspendLayout();
             this.业务panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.b_dataview)).BeginInit();
@@ -271,8 +268,6 @@
             this.page_income.SuspendLayout();
             this.page_expend.SuspendLayout();
             this.page_exam.SuspendLayout();
-<<<<<<< HEAD
-=======
             this.page_sc.SuspendLayout();
             this.page_cc.SuspendLayout();
             this.统计panel.SuspendLayout();
@@ -283,7 +278,6 @@
             this.sta_exa.SuspendLayout();
             this.sta_inc.SuspendLayout();
             this.sta_exp.SuspendLayout();
->>>>>>> tsy
             this.SuspendLayout();
             // 
             // Bot_mana
@@ -1214,8 +1208,6 @@
             this.page_cc.UseVisualStyleBackColor = true;
             this.page_cc.Click += new System.EventHandler(this.page_cc_Click);
             // 
-<<<<<<< HEAD
-=======
             // b_cc_add
             // 
             this.b_cc_add.Location = new System.Drawing.Point(6, 82);
@@ -2543,7 +2535,6 @@
             this.L_sta_exp_lic.TabIndex = 94;
             this.L_sta_exp_lic.Text = "车牌号";
             // 
->>>>>>> tsy
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2571,8 +2562,6 @@
             this.page_expend.PerformLayout();
             this.page_exam.ResumeLayout(false);
             this.page_exam.PerformLayout();
-<<<<<<< HEAD
-=======
             this.page_sc.ResumeLayout(false);
             this.page_sc.PerformLayout();
             this.page_cc.ResumeLayout(false);
@@ -2590,7 +2579,6 @@
             this.sta_inc.PerformLayout();
             this.sta_exp.ResumeLayout(false);
             this.sta_exp.PerformLayout();
->>>>>>> tsy
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2678,8 +2666,6 @@
         private System.Windows.Forms.ComboBox b_exa_day;
         private System.Windows.Forms.ComboBox b_exa_mon;
         private System.Windows.Forms.ComboBox b_exa_year;
-<<<<<<< HEAD
-=======
         private System.Windows.Forms.Button b_sc_add;
         private System.Windows.Forms.Button b_sc_del;
         private System.Windows.Forms.Button b_sc_sub;
@@ -2832,6 +2818,5 @@
         private System.Windows.Forms.Button L_sta_s_cna_clear;
         private System.Windows.Forms.TextBox sta_s_cna;
         private System.Windows.Forms.Label L_sta_s_cna;
->>>>>>> tsy
     }
 }

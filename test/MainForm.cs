@@ -102,21 +102,9 @@ namespace test
             b_exp_year.SelectedItem = System.DateTime.Now.Year;
             b_exp_mon.SelectedItem = System.DateTime.Now.Month;
             b_exp_day.SelectedItem = System.DateTime.Now.Day;
-<<<<<<< HEAD
-
-            for (int i = 2009; i <= 2018; i++)
-                b_exa_year.Items.Add(i);
-            b_exa_year.SelectedItem = System.DateTime.Now.Year;
-            for (int i = 1; i < 13; i++)
-                b_exa_mon.Items.Add(i);
-            b_exa_mon.SelectedItem = System.DateTime.Now.Month;
-            for (int i = 1; i < 31; i++)
-                b_exa_day.Items.Add(i);
-=======
             
             b_exa_year.SelectedItem = System.DateTime.Now.Year;
             b_exa_mon.SelectedItem = System.DateTime.Now.Month;
->>>>>>> tsy
             b_exa_day.SelectedItem = System.DateTime.Now.Day;
 
             /*
@@ -252,13 +240,6 @@ namespace test
                     }
                     conn.Close();
 
-                }
-                cmd.CommandText = "select SJNAME from subject ";
-                dr.Close();
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    b_exa_kind.Items.Add(dr[0]);
                 }
             }
             catch(Exception em)
@@ -776,10 +757,7 @@ namespace test
                     string tem = "select SNAME from student where SNO = '" + b_exa_sno.Text + "'";
                     cmd = new SqlCommand(tem, conn);
                     b_exa_sna.Text = (string)cmd.ExecuteScalar();
-<<<<<<< HEAD
-=======
                     conn.Close();
->>>>>>> tsy
                 }
         }
         private void b_exa_sna_TextChanged(object sender, EventArgs e)
@@ -790,10 +768,7 @@ namespace test
                 string tem = "select SNO from student where SNAME = '" + b_exa_sna.Text + "'";
                 cmd = new SqlCommand(tem, conn);
                 b_exa_sno.Text = (string)cmd.ExecuteScalar();
-<<<<<<< HEAD
-=======
                 conn.Close();
->>>>>>> tsy
             }
         }
         /**
@@ -811,10 +786,7 @@ namespace test
                 cmd = new SqlCommand(tem, conn);
                 text = (string)cmd.ExecuteScalar();
                 b_exa_note.Text = text;
-<<<<<<< HEAD
-=======
                 conn.Close();
->>>>>>> tsy
             }
         }
         /**
@@ -829,29 +801,17 @@ namespace test
                 MessageBox.Show("请完善信息!");
                 return;
             }
-<<<<<<< HEAD
-            else if (Regex.IsMatch(b_exa_sno.Text, @"^XY[0-9]{8}\s+$") || Regex.IsMatch(b_exa_sno.Text, @"^XY[0-9]{8}$"))
-=======
             else if (!Regex.IsMatch(b_exa_sno.Text, @"^XY[0-9]{6}\s+$") && !Regex.IsMatch(b_exa_sno.Text, @"^XY[0-9]{6}$"))
->>>>>>> tsy
             {
                 MessageBox.Show("学号格式错误!");
                 return;
             }
-<<<<<<< HEAD
-            else if (Regex.IsMatch(b_exa_gra.Text, @"[1-9]\d*"))
-=======
             else if (!Regex.IsMatch(b_exa_gra.Text, @"[1-9]\d*"))
->>>>>>> tsy
             {
                 MessageBox.Show("请输入数字!");
                 return;
             }
-<<<<<<< HEAD
-            else if(Convert.ToInt32(b_exa_gra)<0 || Convert.ToInt32(b_exa_gra) >=100 )
-=======
             else if(Convert.ToInt32(b_exa_gra.Text)<0 || Convert.ToInt32(b_exa_gra.Text) >=100 )
->>>>>>> tsy
             {
                 MessageBox.Show("输入数字不合法!");
                 return;
@@ -862,17 +822,6 @@ namespace test
                 {
                     conn.Open();
                     cmd.Connection = conn;
-<<<<<<< HEAD
-                    cmd.CommandText = "exec INSERT_EXPENDITURE @sno,@date,@ek,@grade";
-                    cmd.Parameters.Add(new SqlParameter("@sno", b_exa_sno.Text));
-                    cmd.Parameters.Add(new SqlParameter("@grade", b_exa_gra.Text));
-                    cmd.Parameters.Add(new SqlParameter("@date", b_exa_year.Text + "-" + b_exa_mon.Text + "-" + b_exa_day.Text));
-                    cmd.Parameters.Add(new SqlParameter("@ek", b_exa_kind.Text));
-                    int t = cmd.ExecuteNonQuery();
-                    if (t == 0)
-                        throw new Exception();
-                    MessageBox.Show("插入成功！");
-=======
                     cmd.CommandText = "exec INSERT_EXAM @sno,@date,@ek,@grade";
                     cmd.Parameters.Add(new SqlParameter("@sno", b_exa_sno.Text));
                     cmd.Parameters.Add(new SqlParameter("@grade", Convert.ToInt32(b_exa_gra.Text)));
@@ -883,7 +832,6 @@ namespace test
                         throw new Exception();
                     MessageBox.Show("插入成功！");
                     conn.Close();
->>>>>>> tsy
                 }
                 catch (Exception em)
                 {
@@ -903,20 +851,10 @@ namespace test
                 int k = b_dataview.SelectedRows.Count;
                 for (int i = k; i > 0; i--)
                 {
-<<<<<<< HEAD
-                    string SNO = b_dataview.SelectedRows[i - 1].Cells["BNO"].Value.ToString();
-                    string SJ = b_dataview.SelectedRows[i - 1].Cells["SJNAME"].Value.ToString();
-                    //DataRow tdr = myset.Tables["expenditure"].Rows.Find(SNO,SJ);
-                    /*
-                     * 主键！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-                     */
-                    //tdr.Delete();
-=======
                     string[] aaa = { b_dataview.SelectedRows[i - 1].Cells["SNO"].Value.ToString(),
                         b_dataview.SelectedRows[i - 1].Cells["SJNAME"].Value.ToString()};
                     DataRow tdr = myset.Tables["exam"].Rows.Find(aaa);
                     tdr.Delete();
->>>>>>> tsy
                 }
             }
         }
@@ -943,12 +881,9 @@ namespace test
                 MessageBox.Show("提交失败");
             }
         }
-<<<<<<< HEAD
-=======
 
       
 
->>>>>>> tsy
 
 
         /**
@@ -1154,9 +1089,6 @@ namespace test
 
 
 
-<<<<<<< HEAD
-
-=======
         /**
          * 编写人：唐胜洋
          * 时间：2018-1-2  16:28
@@ -1300,7 +1232,6 @@ namespace test
                 MessageBox.Show("提交失败");
             }
         }
->>>>>>> tsy
 
 
         #endregion
