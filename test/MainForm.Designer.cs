@@ -545,7 +545,7 @@
             // 
             this.业务panel.Controls.Add(this.b_dataview);
             this.业务panel.Controls.Add(this.bussiness_table);
-            this.业务panel.Location = new System.Drawing.Point(533, 315);
+            this.业务panel.Location = new System.Drawing.Point(496, 330);
             this.业务panel.Name = "业务panel";
             this.业务panel.Size = new System.Drawing.Size(613, 389);
             this.业务panel.TabIndex = 9;
@@ -1460,7 +1460,7 @@
             this.统计panel.Controls.Add(this.sta_pic);
             this.统计panel.Controls.Add(this.sta_see);
             this.统计panel.Controls.Add(this.sta_table);
-            this.统计panel.Location = new System.Drawing.Point(578, 271);
+            this.统计panel.Location = new System.Drawing.Point(549, 287);
             this.统计panel.Name = "统计panel";
             this.统计panel.Size = new System.Drawing.Size(618, 389);
             this.统计panel.TabIndex = 10;
@@ -4451,6 +4451,7 @@
         private System.Windows.Forms.Button L_sta_s_cna_clear;
         private System.Windows.Forms.TextBox sta_s_cna;
         private System.Windows.Forms.Label L_sta_s_cna;
+
         private System.Windows.Forms.Panel 查询panel;
         private System.Windows.Forms.TabControl search_tabcontrol;
         private System.Windows.Forms.TabPage 业务信息查询_tabpage;

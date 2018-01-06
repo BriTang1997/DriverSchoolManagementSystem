@@ -2311,7 +2311,7 @@ namespace test
                     }
                     if (sta_s_cna.Text.Length > 0)
                     {
-                        sql += "and CON = dbo.SNA_SNO(@cna) ";
+                        sql += "and SNO in ( SELECT SNO from dbo.get_c_s(@cna) ) ";
                         cmd.Parameters.Add(new SqlParameter("@cna", sta_s_cna.Text));
                     }
                     if (sta_s_pay.Text.Length > 0)
@@ -2662,7 +2662,7 @@ namespace test
             }
             else if ((sta_inc_c2.Text.Length ^ sta_inc_c1.Text.Length) == 1)
             {
-                MessageBox.Show("请输入分数完整范围.");
+                MessageBox.Show("请输入金额完整范围.");
                 return;
             }
             else if ((sta_inc_y1.Text.Length | sta_inc_y2.Text.Length | sta_inc_m2.Text.Length | sta_inc_m2.Text.Length
