@@ -28,7 +28,7 @@ namespace test
         /*
          * 加载时，所有的panel都把左上角固定在(7,28);
          */
-        #region 初始化参数设置
+    #region 初始化参数设置
             
 
         public MainForm()
@@ -41,6 +41,11 @@ namespace test
             f1 = f;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             InitializeComponent();
+            add_student_sex_comboBox.SelectedIndex = 0;
+            add_student_pay_comboBox.SelectedIndex = 0;
+            add_coach_sex_comboBox.SelectedIndex = 0;
+            linkLabel1.BackColor = Color.Transparent;
+            linkLabel2.BackColor = Color.Transparent;
         }
         
 
@@ -55,12 +60,13 @@ namespace test
             if (p == 1)         //后勤
             {
                 menu.Items[4].Enabled = false;
-                menu.Items[5].Enabled = false;
+                menu.Items[3].Enabled = false;
                 sqlconnect += "UID = n1;Pwd = 111";
             }
             else if (p == 2)    //运营
             {
                 sqlconnect += "UID = n2;Pwd = 111";
+                menu.Items[5].Enabled = false;
             }
             else if (p == 3)    //财务
             {
@@ -79,6 +85,51 @@ namespace test
         *  功能：初始化业务模块的内容
         *  更新：1-2，内容：支出模块初始化。
         * */
+        private void bussiness_kind_init()
+        {
+            try
+            {
+                using (conn = new SqlConnection(sqlconnect))
+                {
+                    conn.Open();
+                    cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "select IKNO from i_kind ";
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    b_inc_kind.Items.Clear();
+                    while (dr.Read())
+                    {
+                        b_inc_kind.Items.Add(dr.GetString(0));
+                    }
+                    cmd.CommandText = "select EKNO from e_kind ";
+                    dr.Close();
+                    dr = cmd.ExecuteReader();
+                    b_exp_kind.Items.Clear();
+                    while (dr.Read())
+                    {
+                        b_exp_kind.Items.Add(dr.GetString(0));
+                    }
+                    cmd.CommandText = "select SJNAME from subject ";
+                    dr.Close();
+                    dr = cmd.ExecuteReader();
+                    b_exa_kind.Items.Clear();
+                    while (dr.Read())
+                    {
+                        b_exa_kind.Items.Add(dr[0].ToString());
+                        b_sc_kind.Items.Add(dr[0].ToString());
+                    }
+
+                    conn.Close();
+
+                }
+            }
+            catch (Exception em)
+            {
+                MessageBox.Show("初始化业务模块出错！");
+                this.Close();
+            }
+        }
+
         private void bussiness_init() {
             for (int i = 2009; i <= 2018; i++) {
                 b_inc_year.Items.Add(i);
@@ -108,11 +159,16 @@ namespace test
             b_exa_year.SelectedItem = System.DateTime.Now.Year;
             b_exa_mon.SelectedItem = System.DateTime.Now.Month;
             b_exa_day.SelectedItem = System.DateTime.Now.Day;
+            
 
-            /*
-             * 从数据库中读取下拉菜单
-             * 
-             */
+        }
+        /*  
+        *  编写时间：2018-1-8,20:15
+        *  编写人：唐胜洋
+        *  功能：初始化统计模块的内容
+        * */
+        private void sta_kind_init()
+        {
             try
             {
                 using (conn = new SqlConnection(sqlconnect))
@@ -120,38 +176,56 @@ namespace test
                     conn.Open();
                     cmd = new SqlCommand();
                     cmd.Connection = conn;
-                    cmd.CommandText = "select IKNO from i_kind ";
+                    cmd.CommandText = "select LIC from car ";
                     SqlDataReader dr = cmd.ExecuteReader();
+                    sta_c_lic.Items.Clear();
                     while (dr.Read())
                     {
-                        b_inc_kind.Items.Add(dr.GetString(0));
+                        sta_c_lic.Items.Add(dr.GetString(0));
                     }
-                    cmd.CommandText = "select EKNO from e_kind ";
                     dr.Close();
+                    cmd.CommandText = "select IKNO from i_kind ";
                     dr = cmd.ExecuteReader();
+                    sta_inc_kind.Items.Clear();
                     while (dr.Read())
                     {
-                        b_exp_kind.Items.Add(dr.GetString(0));
+                        sta_inc_kind.Items.Add(dr.GetString(0));
                     }
+                    dr.Close();
                     cmd.CommandText = "select SJNAME from subject ";
-                    dr.Close();
                     dr = cmd.ExecuteReader();
+                    sta_exa_sub.Items.Clear();
                     while (dr.Read())
                     {
-                        b_exa_kind.Items.Add(dr[0].ToString());
-                        b_sc_kind.Items.Add(dr[0].ToString());
+                        sta_exa_sub.Items.Add(dr[0].ToString());
                     }
-
+                    dr.Close();
+                    cmd.CommandText = "select MNAME from manager ";
+                    dr = cmd.ExecuteReader();
+                    sta_inc_man.Items.Clear();
+                    sta_exp_man.Items.Clear();
+                    while (dr.Read())
+                    {
+                        sta_inc_man.Items.Add(dr.GetString(0));
+                        sta_exp_man.Items.Add(dr.GetString(0));
+                    }
+                    dr.Close();
+                    cmd.CommandText = "select EKNO from expenditure ";
+                    dr = cmd.ExecuteReader();
+                    sta_exp_kind.Items.Clear();
+                    while (dr.Read())
+                    {
+                        sta_exp_kind.Items.Add(dr[0].ToString());
+                    }
                     conn.Close();
 
                 }
             }
             catch (Exception em)
             {
-                MessageBox.Show("初始化业务模块出错！");
+                MessageBox.Show("初始化统计模块出错！");
                 this.Close();
             }
-
         }
         /*  
         *  编写时间：2018-1-2,20:15
@@ -203,59 +277,82 @@ namespace test
                 sta_exp_d1.Items.Add(i);
                 sta_exp_d2.Items.Add(i);
             }
-            try
-            {
-                using (conn = new SqlConnection(sqlconnect))
-                {
-                    conn.Open();
-                    cmd = new SqlCommand();
-                    cmd.Connection = conn;
-                    cmd.CommandText = "select LIC from car ";
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        sta_c_lic.Items.Add(dr.GetString(0));
-                    }
-                    dr.Close();
-                    cmd.CommandText = "select IKNO from i_kind ";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        sta_inc_kind.Items.Add(dr.GetString(0));
-                    }
-                    dr.Close();
-                    cmd.CommandText = "select SJNAME from subject ";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        sta_exa_sub.Items.Add(dr[0].ToString());
-                    }
-                    dr.Close();
-                    cmd.CommandText = "select MNAME from manager ";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        sta_inc_man.Items.Add(dr.GetString(0));
-                        sta_exp_man.Items.Add(dr.GetString(0));
-                    }
-                    dr.Close();
-                    cmd.CommandText = "select EKNO from expenditure ";
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        sta_exp_kind.Items.Add(dr[0].ToString());
-                    }
-                    conn.Close();
-
-                }
-            }
-            catch(Exception em)
-            {
-                MessageBox.Show("初始化统计模块出错！");
-                this.Close();
-            }
         }
 
+        /*
+         * 编写时间：2018年1月3日16:20:48
+         * 编写人：罗礼鹏
+         * 功能：填充下拉框的内容
+         */
+        private void init_xiala()
+        {
+            SqlConnection con = new SqlConnection(sqlconnect);
+            string str_coach = "select cno from coach";
+            string str_student = "select sno from student";
+            string str_car = "select lic from car";
+            string str_test = "select SJNAME from subject";
+            string str_expense = "select ekno from e_kind";
+            string str_pay = "select ikno from i_kind";
+            SqlCommand sqlcom_coach = new SqlCommand(str_coach, con);
+            SqlCommand sqlcom_student = new SqlCommand(str_student, con);
+            SqlCommand sqlcom_car = new SqlCommand(str_car, con);
+            SqlCommand sqlcom_test = new SqlCommand(str_test, con);
+            SqlCommand sqlcom_expense = new SqlCommand(str_expense, con);
+            SqlCommand sqlcom_pay = new SqlCommand(str_pay, con);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da_coach = new SqlDataAdapter(sqlcom_coach);
+            SqlDataAdapter da_student = new SqlDataAdapter(sqlcom_student);
+            SqlDataAdapter da_car = new SqlDataAdapter(sqlcom_car);
+            SqlDataAdapter da_test = new SqlDataAdapter(sqlcom_test);
+            SqlDataAdapter da_expense = new SqlDataAdapter(sqlcom_expense);
+            SqlDataAdapter da_pay = new SqlDataAdapter(sqlcom_pay);
+            da_coach.Fill(ds, "coach");
+            da_student.Fill(ds, "student");
+            da_car.Fill(ds, "car");
+            da_test.Fill(ds, "test");
+            da_expense.Fill(ds, "expense");
+            da_pay.Fill(ds, "pay");
+            int j_coach = ds.Tables["coach"].Rows.Count;
+            int j_student = ds.Tables["student"].Rows.Count;
+            int j_car = ds.Tables["car"].Rows.Count;
+            int j_test = ds.Tables["test"].Rows.Count;
+            int j_expense = ds.Tables["expense"].Rows.Count;
+            int j_pay = ds.Tables["pay"].Rows.Count;
+            for (int i = 0; i < j_coach; i++)
+            {
+                up_coach_cno_comboBox.Items.Add(ds.Tables["coach"].Rows[i][0].ToString());
+                delete_coach_cno_comboBox.Items.Add(ds.Tables["coach"].Rows[i][0].ToString());
+            }
+            for (int i = 0; i < j_student; i++)
+            {
+                up_student_sno_comboBox.Items.Add(ds.Tables["student"].Rows[i][0].ToString());
+                delete_student_sno_comboBox.Items.Add(ds.Tables["student"].Rows[i][0].ToString());
+            }
+            for (int i = 0; i < j_car; i++)
+            {
+                up_car_cp_comboBox.Items.Add(ds.Tables["car"].Rows[i][0].ToString());
+                delete_car_cp_comboBox.Items.Add(ds.Tables["car"].Rows[i][0].ToString());
+            }
+            for (int i = 0; i < j_test; i++)
+            {
+                up_test_tno_comboBox.Items.Add(ds.Tables["test"].Rows[i][0].ToString());
+                delete_test_tno_comboBox.Items.Add(ds.Tables["test"].Rows[i][0].ToString());
+                up_student_jd_comboBox.Items.Add(ds.Tables["test"].Rows[i][0].ToString());
+                add_student_jd_comboBox.Items.Add(ds.Tables["test"].Rows[i][0].ToString());
+
+            }
+            for (int i = 0; i < j_expense; i++)
+            {
+                up_expense_eno_comboBox.Items.Add(ds.Tables["expense"].Rows[i][0].ToString());
+                delete_expense_eno_comboBox.Items.Add(ds.Tables["expense"].Rows[i][0].ToString());
+            }
+            for (int i = 0; i < j_pay; i++)
+            {
+                up_pay_pno_comboBox.Items.Add(ds.Tables["pay"].Rows[i][0].ToString());
+                delete_pay_pno_comboBox.Items.Add(ds.Tables["pay"].Rows[i][0].ToString());
+            }
+            con.Close();
+        }
         /*  
         *  编写时间：2017-12-30,14:54
         *  编写人：唐胜洋
@@ -269,8 +366,11 @@ namespace test
             统计panel.Location = new System.Drawing.Point(panellocax, panellocay);
             查询panel.Location = new System.Drawing.Point(panellocax, panellocay);
             生成报表panel.Location = new System.Drawing.Point(panellocax, panellocay);
+            信息更新_panel.Location = new System.Drawing.Point(panellocax, panellocay);
+            开始_panel.Location = new System.Drawing.Point(0, panellocay);
             L_mana.Text = f1.name;
             timer1.Enabled = true;
+            label6.BackColor = Color.Transparent;
             enable(f1.power);
             switch (f1.power)
             {
@@ -287,16 +387,7 @@ namespace test
                     sqlconnect = "Data Source = .;Database = DriverSchool;UID = tsy;Pwd = 111";
                     break;
             }
-            /*
-            I_sex.Items.Add("男");
-            I_sex.Items.Add("女");
-            I_缴费.Items.Add("已缴费");
-            I_缴费.Items.Add("未缴费");
-            updatepanel.Location = new System.Drawing.Point(panellocax, panellocay);
-            querypanel.Location = new System.Drawing.Point(panellocax, panellocay);
-            pipeipanel.Location = new System.Drawing.Point(panellocax, panellocay);
-            一开始把所有panel统一设置左上角即可。编辑的时候放在不挡路的地方。
-            */
+            init_xiala();
             bussiness_init();
             statics_init();
         }
@@ -317,14 +408,18 @@ namespace test
 
         #endregion
 
-        #region 菜单响应相关
-        /*
-        private void 信息更新ToolStripMenuItem_Click(object sender, EventArgs e)
+    #region 菜单响应相关
+        
+        private void 开始ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            hide();
-            updatepanel.Show();
+            信息更新_panel.Hide();
+            业务panel.Hide();
+            统计panel.Hide();
+            查询panel.Hide();
+            开始_panel.Show();
+            生成报表panel.Hide();
         }
-
+        /*
         private void 信息查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             hide();
@@ -342,6 +437,9 @@ namespace test
             统计panel.Hide();
             查询panel.Hide();
             生成报表panel.Hide();
+            信息更新_panel.Hide();
+            开始_panel.Hide();
+            bussiness_kind_init();
         }
 
 
@@ -351,6 +449,9 @@ namespace test
             业务panel.Hide();
             查询panel.Hide();
             生成报表panel.Hide();
+            信息更新_panel.Hide();
+            开始_panel.Hide();
+            sta_kind_init();
         }
         private void 信息查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -359,6 +460,8 @@ namespace test
             业务panel.Hide();
             查询panel.Show();
             生成报表panel.Hide();
+            信息更新_panel.Hide();
+            开始_panel.Hide();
         }
         private void 打印报表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -366,16 +469,1116 @@ namespace test
             业务panel.Hide();
             查询panel.Hide();
             生成报表panel.Show();
+            信息更新_panel.Hide();
+            开始_panel.Hide();
         }
 
+        private void 信息更新ToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            信息更新_panel.Show();
+            业务panel.Hide();
+            统计panel.Hide();
+            查询panel.Hide();
+            开始_panel.Hide();
+            生成报表panel.Hide();
+            label6.BackColor = Color.Transparent;
+        }
+
+        private void up_test_tabPage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 开始ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            信息更新_panel.Hide();
+            业务panel.Hide();
+            统计panel.Hide();
+            查询panel.Hide();
+            开始_panel.Show();
+            生成报表panel.Hide();
+        }
         #endregion
 
-        #region 信息更新
+    #region 信息更新
+        /*
+         * 编写时间：2018年1月1日14:11:16
+         * 编写人：罗礼鹏
+         * 功能：判断新增对象是查询数据库中是否已经存在了。
+         */
+        public bool havingsameno(string no, int mark)
+        {
 
+            using (SqlConnection conn1 = new SqlConnection(sqlconnect))
+            {
+                conn1.Open();
+                int count = 0;
+                string tempno = no;
+                string strsql = null;
+                if (mark == 1)
+                {
+                    strsql = "select count(*) from coach ";
+                    strsql += "where cno='" + no + "'";
+                }
+                else if (mark == 2)
+                {
+                    strsql = "select count(*) from car ";
+                    strsql += "where lic='" + no + "'";
+                }
+                else if (mark == 4)
+                {
+                    strsql = "select count(*) from subject ";
+                    strsql += "where sjname='" + no + "'";
+                }
+                else if (mark == 5)
+                {
+                    strsql = "select count(*) from e_kind ";
+                    strsql += "where ekno='" + no + "'";
+                }
+                else if (mark == 6)
+                {
+                    strsql = "select count(*) from i_kind ";
+                    strsql += "where ikno='" + no + "'";
+                }
+                else if (mark == 3)
+                {
+                    strsql = "select count(*) from student ";
+                    strsql += "where sno='" + no + "'";
+                }
+                SqlCommand cmd = new SqlCommand(strsql, conn1);  //构造sql命令
+                count = (int)cmd.ExecuteScalar();//执行该命令，返回数据表中第一行，第一列的结果，即汇总结果,当只需读取一个统计数据时，用此方法
+                conn1.Close();
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+        /*
+         * 编写时间：2018年1月1日15:20:16
+         * 编写人：罗礼鹏
+         * 功能：根据编号查询所有信息并显示在文本框里
+         */
+        public void show_attribute(string no, int mark)
+        {
+            if (mark == 0)
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconnect))
+                {
+                    sqlcon.Open();
+                    String strsql = "select brand,color,mile,buytime from car where lic='" + no + "'";
+                    SqlCommand command = new SqlCommand(strsql, sqlcon);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        up_car_cs_textBox.Text = reader["brand"].ToString();
+                        up_car_ys_textBox.Text = reader["color"].ToString();
+                        up_car_lc_textBox.Text = reader["mile"].ToString();
+                        DateTime dt = DateTime.Parse(reader["buytime"].ToString());
+                        up_car_dateTimePicker.Value = dt;
+                    }
+                    sqlcon.Close();
+                }
+            }
+            else if (mark == 1)
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconnect))
+                {
+                    sqlcon.Open();
+                    String strsql = "select sname,phone,pay,sex,progress from student where sno='" + no + "'";
+                    SqlCommand command = new SqlCommand(strsql, sqlcon);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        up_student_name_textBox.Text = reader["sname"].ToString();
+                        up_student_phone_textBox.Text = reader["phone"].ToString();
+                        up_student_pay_comboBox.Text = reader["pay"].ToString();
+                        up_student_sex_comboBox.Text = reader["sex"].ToString();
+                        up_student_jd_comboBox.Text = reader["progress"].ToString();
 
+                    }
+                    sqlcon.Close();
+                }
+
+            }
+            else if (mark == 2)
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconnect))
+                {
+                    sqlcon.Open();
+                    String strsql = "select cname,sex,phone from coach where cno='" + no + "'";
+                    SqlCommand command = new SqlCommand(strsql, sqlcon);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        up_coach_name_textBox.Text = reader["cname"].ToString();
+                        up_coach_sex_comboBox.Text = reader["sex"].ToString();
+                        up_coach_phone_textBox.Text = reader["phone"].ToString();
+                    }
+                    sqlcon.Close();
+                }
+            }
+            else if (mark == 3)
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconnect))
+                {
+                    sqlcon.Open();
+                    String strsql = "select sjname,place,sintro from subject where sjname='" + no + "'";
+                    SqlCommand command = new SqlCommand(strsql, sqlcon);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        up_test_name_textBox.Text = reader["place"].ToString();
+                        up_test_sm_textBox.Text = reader["sintro"].ToString();
+                    }
+                    sqlcon.Close();
+                }
+            }
+            else if (mark == 4)
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconnect))
+                {
+                    sqlcon.Open();
+                    String strsql = "select ename,eintro from e_kind where ekno='" + no + "'";
+                    SqlCommand command = new SqlCommand(strsql, sqlcon);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        up_expense_name_textBox.Text = reader["ename"].ToString();
+                        up_expense_sm_textBox.Text = reader["eintro"].ToString();
+                    }
+                    sqlcon.Close();
+                }
+            }
+            else if (mark == 5)
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconnect))
+                {
+                    sqlcon.Open();
+                    String strsql = "select iname,iintro from i_kind where ikno='" + no + "'";
+                    SqlCommand command = new SqlCommand(strsql, sqlcon);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        up_pay_name_textBox.Text = reader["iname"].ToString();
+                        up_pay_sm_textBox.Text = reader["iintro"].ToString();
+                    }
+                    sqlcon.Close();
+                }
+            }
+        }
+        /*
+         * 编写时间：2018年1月2日14:20:56
+         * 编写人：罗礼鹏
+         * 功能：根据删除编号对应显示相关信息反馈给用户。
+ */
+        public void show_delete_attribute(string no, int mark)
+        {
+            if (mark == 1)
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconnect))
+                {
+                    sqlcon.Open();
+                    String strsql = "select sname from student where sno='" + no + "'";
+                    SqlCommand command = new SqlCommand(strsql, sqlcon);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        delete_student_name_textBox.Text = reader["sname"].ToString();
+                    }
+                    sqlcon.Close();
+                }
+
+            }
+            else if (mark == 2)
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconnect))
+                {
+                    sqlcon.Open();
+                    String strsql = "select cname from coach where cno='" + no + "'";
+                    SqlCommand command = new SqlCommand(strsql, sqlcon);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        delete_coach_name_textBox.Text = reader["cname"].ToString();
+                    }
+                    sqlcon.Close();
+                }
+            }
+            else if (mark == 3)
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconnect))
+                {
+                    sqlcon.Open();
+                    String strsql = "select sjname,place,sintro from subject where sjname='" + no + "'";
+                    SqlCommand command = new SqlCommand(strsql, sqlcon);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        delete_test_name_textBox.Text = reader["place"].ToString();
+                        delete_test_sm_textBox.Text = reader["sintro"].ToString();
+                    }
+                    sqlcon.Close();
+                }
+            }
+            else if (mark == 4)
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconnect))
+                {
+                    sqlcon.Open();
+                    String strsql = "select ename,eintro from e_kind where ekno='" + no + "'";
+                    SqlCommand command = new SqlCommand(strsql, sqlcon);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        delete_expense_name_textBox.Text = reader["ename"].ToString();
+                        delete_expense_sm_textBox.Text = reader["eintro"].ToString();
+                    }
+                    sqlcon.Close();
+                }
+            }
+            else if (mark == 5)
+            {
+                using (SqlConnection sqlcon = new SqlConnection(sqlconnect))
+                {
+                    sqlcon.Open();
+                    String strsql = "select iname,iintro from i_kind where ikno='" + no + "'";
+                    SqlCommand command = new SqlCommand(strsql, sqlcon);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        delete_pay_name_textBox.Text = reader["iname"].ToString();
+                        delete_pay_sm_textBox.Text = reader["iintro"].ToString();
+                    }
+                    sqlcon.Close();
+                }
+            }
+        }
+        /*
+         * 编写时间：2018年1月3日13:16:28
+         * 编写人：罗礼鹏
+         * 功能：新增和删除对象时更新下拉框里的内容
+         */
+        private void up_xiala(int a)
+        {
+            SqlConnection con = new SqlConnection(sqlconnect);
+            con.Open();
+            if (a == 0)
+            {
+                delete_car_cp_comboBox.Items.Clear();
+                string str_car = "select lic from car";
+                SqlCommand sqlcom_car = new SqlCommand(str_car, con);
+                DataSet ds = new DataSet();
+                SqlDataAdapter da_car = new SqlDataAdapter(sqlcom_car);
+                da_car.Fill(ds, "car");
+                int j_car = ds.Tables["car"].Rows.Count;
+                up_car_cp_comboBox.Items.Clear();
+                for (int i = 0; i < j_car; i++)
+                {
+                    up_car_cp_comboBox.Items.Add(ds.Tables["car"].Rows[i][0].ToString());
+                    delete_car_cp_comboBox.Items.Add(ds.Tables["car"].Rows[i][0].ToString());
+                }
+                ds.Clear();
+            }
+            else if (a == 1)
+            {
+                delete_student_sno_comboBox.Items.Clear();
+                string str_student = "select sno from student";
+                SqlCommand sqlcom_student = new SqlCommand(str_student, con);
+                DataSet ds = new DataSet();
+                SqlDataAdapter da_student = new SqlDataAdapter(sqlcom_student);
+                da_student.Fill(ds, "student");
+                int j_student = ds.Tables["student"].Rows.Count;
+                up_student_sno_comboBox.Items.Clear();
+                for (int i = 0; i < j_student; i++)
+                {
+                    up_student_sno_comboBox.Items.Add(ds.Tables["student"].Rows[i][0].ToString());
+                    delete_student_sno_comboBox.Items.Add(ds.Tables["student"].Rows[i][0].ToString());
+                }
+                ds.Clear();
+            }
+            else if (a == 2)
+            {
+                delete_coach_cno_comboBox.Items.Clear();
+                string str_coach = "select cno from coach";
+                SqlCommand sqlcom_coach = new SqlCommand(str_coach, con);
+                DataSet ds = new DataSet();
+                SqlDataAdapter da_coach = new SqlDataAdapter(sqlcom_coach);
+                da_coach.Fill(ds, "coach");
+                int j_coach = ds.Tables["coach"].Rows.Count;
+                up_coach_cno_comboBox.Items.Clear();
+                for (int i = 0; i < j_coach; i++)
+                {
+                    up_coach_cno_comboBox.Items.Add(ds.Tables["coach"].Rows[i][0].ToString());
+                    delete_coach_cno_comboBox.Items.Add(ds.Tables["coach"].Rows[i][0].ToString());
+                }
+                ds.Clear();
+            }
+            else if (a == 3)
+            {
+                delete_test_tno_comboBox.Items.Clear();
+                string str_test = "select sjname from subject";
+                SqlCommand sqlcom_test = new SqlCommand(str_test, con);
+                DataSet ds = new DataSet();
+                SqlDataAdapter da_test = new SqlDataAdapter(sqlcom_test);
+                da_test.Fill(ds, "test");
+                int j_student = ds.Tables["test"].Rows.Count;
+                up_test_tno_comboBox.Items.Clear();
+                for (int i = 0; i < j_student; i++)
+                {
+                    up_test_tno_comboBox.Items.Add(ds.Tables["test"].Rows[i][0].ToString());
+                    delete_test_tno_comboBox.Items.Add(ds.Tables["test"].Rows[i][0].ToString());
+                }
+                ds.Clear();
+            }
+            else if (a == 4)
+            {
+                delete_expense_eno_comboBox.Items.Clear();
+                string str_expense = "select ekno from e_kind";
+                SqlCommand sqlcom_expense = new SqlCommand(str_expense, con);
+                DataSet ds = new DataSet();
+                SqlDataAdapter da_expense = new SqlDataAdapter(sqlcom_expense);
+                da_expense.Fill(ds, "expense");
+                int j_expense = ds.Tables["expense"].Rows.Count;
+                up_expense_eno_comboBox.Items.Clear();
+                for (int i = 0; i < j_expense; i++)
+                {
+                    up_expense_eno_comboBox.Items.Add(ds.Tables["expense"].Rows[i][0].ToString());
+                    delete_expense_eno_comboBox.Items.Add(ds.Tables["expense"].Rows[i][0].ToString());
+                }
+                ds.Clear();
+            }
+            else if (a == 5)
+            {
+                delete_pay_pno_comboBox.Items.Clear();
+                string str_pay = "select ikno from i_kind";
+                SqlCommand sqlcom_pay = new SqlCommand(str_pay, con);
+                DataSet ds = new DataSet();
+                SqlDataAdapter da_pay = new SqlDataAdapter(sqlcom_pay);
+                da_pay.Fill(ds, "pay");
+                int j_pay = ds.Tables["pay"].Rows.Count;
+                up_pay_pno_comboBox.Items.Clear();
+                for (int i = 0; i < j_pay; i++)
+                {
+                    up_pay_pno_comboBox.Items.Add(ds.Tables["pay"].Rows[i][0].ToString());
+                    delete_pay_pno_comboBox.Items.Add(ds.Tables["pay"].Rows[i][0].ToString());
+                }
+                ds.Clear();
+            }
+        }
+        
+        private void add_car_button_Click(object sender, EventArgs e)
+        {
+
+            if (add_car_cp_textbox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的车牌号不能为空");
+                add_car_cp_textbox.Focus();
+                return;
+            }
+
+            if (add_car_cp_textbox.Text.Trim().Length != 7)
+            {
+                MessageBox.Show("添加的车牌号必须为7位");
+                add_car_cp_textbox.Focus();
+                return;
+            }
+            if (havingsameno(add_car_cp_textbox.Text.Trim(), 2))
+            {
+                MessageBox.Show("添加的车牌号已经存在");
+                add_car_cp_textbox.Focus();
+                return;
+            }
+
+            if (add_car_cs_textbox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的厂商不能为空");
+                add_car_cs_textbox.Focus();
+                return;
+            }
+
+            if (add_car_ys_textbox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的颜色不能为空");
+                add_car_ys_textbox.Focus();
+                return;
+            }
+            if (add_car_lc_textBox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的里程数不能为空");
+                add_car_lc_textBox.Focus();
+                return;
+            }
+            float mile;
+            if (!float.TryParse(add_car_lc_textBox.Text.Trim(), out mile))
+            {
+                MessageBox.Show("添加的里程数只能是数字");
+                add_car_lc_textBox.Focus();
+                return;
+            }
+            try
+            {
+                int count = 0;
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                string strsql = "insert into car(lic,brand,color,mile,buytime) values('";
+                strsql += add_car_cp_textbox.Text.Trim() + "','" + add_car_cs_textbox.Text.Trim() + "','" + add_car_ys_textbox.Text.Trim() + "','" + add_car_lc_textBox.Text.Trim() + "','" + add_car_dateTimePicker.Text + "')";
+                SqlCommand cmd = new SqlCommand(strsql,con);  //构造sql命令
+                count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                con.Close();
+                add_car_cp_textbox.Text = "";
+                add_car_cs_textbox.Text = "";
+                add_car_ys_textbox.Text = "";
+                add_car_lc_textBox.Text = "";
+                add_car_dateTimePicker.Value = DateTime.Now;
+                up_xiala(0);
+                MessageBox.Show("成功插入数据" + count + "行");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+            }
+        }
+        private void up_test_hq_button_Click(object sender, EventArgs e)
+        {
+            String s = up_test_tno_comboBox.Text.Trim();
+            show_attribute(s, 3);
+        }
+        private void delete_expense_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                String sql = "delete e_kind where ekno='" + delete_expense_eno_comboBox.Text.Trim() + "'";
+                SqlCommand sqlcom = new SqlCommand(sql, con);
+                int count = 0;
+                count = (int)sqlcom.ExecuteNonQuery();
+                con.Close();
+                up_xiala(4);
+                delete_expense_eno_comboBox.Text = null;
+                delete_expense_name_textBox.Text = null;
+                delete_expense_sm_textBox.Text = null;
+                MessageBox.Show("删除支出类型成功");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "删除支出类型失败");
+            }
+        }
+        private void add_student_button_Click(object sender, EventArgs e)
+        {
+            if (add_student_sno_textbox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的学员号不能为空");
+                add_car_cp_textbox.Focus();
+                return;
+            }
+
+            if (add_student_sno_textbox.Text.Trim().Length != 8)
+            {
+                MessageBox.Show("添加的学员号必须为8位");
+                add_student_sno_textbox.Focus();
+                return;
+            }
+            if (havingsameno(add_student_sno_textbox.Text.Trim(), 3))
+            {
+                MessageBox.Show("添加的学员已经存在");
+                add_student_sno_textbox.Focus();
+                return;
+            }
+
+            if (add_student_phone_textbox.Text.Trim() == "")
+            {
+                MessageBox.Show("电话号码不能为空");
+                add_student_phone_textbox.Focus();
+                return;
+            }
+
+            float phone;
+            if (!float.TryParse(add_student_phone_textbox.Text.Trim(), out phone))
+            {
+                MessageBox.Show("添加的电话只能是数字");
+                add_student_phone_textbox.Focus();
+                return;
+            }
+
+            try
+            {
+                int count = 0;
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                string strsql = "insert into student(sno,sname,phone,pay,sex,progress) values('";
+                strsql += add_student_sno_textbox.Text.Trim() + "','" + add_student_name_textbox.Text.Trim() + "','" + add_student_phone_textbox.Text.Trim() + "','" + add_student_pay_comboBox.Text.Trim() + "','" + add_student_sex_comboBox.Text.Trim() + "','" + add_student_jd_comboBox.Text.Trim() + "')";
+                SqlCommand cmd = new SqlCommand(strsql, con);  //构造sql命令
+                count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                con.Close();
+                add_student_sno_textbox.Text = "";
+                add_student_name_textbox.Text = "";
+                add_student_phone_textbox.Text = "";
+                add_student_pay_comboBox.Text = "";
+                add_student_sex_comboBox.Text = "";
+                add_student_jd_comboBox.Text = "";
+                up_xiala(1);
+                MessageBox.Show("成功插入数据" + count + "行");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+            }
+        }
+
+        private void add_coach_button_Click(object sender, EventArgs e)
+        {
+
+            if (add_coach_cno_textBox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的教练编号不能为空");
+                add_coach_cno_textBox.Focus();
+                return;
+            }
+
+            if (add_coach_cno_textBox.Text.Trim().Length != 8)
+            {
+                MessageBox.Show("添加的教练必须为8位");
+                add_coach_cno_textBox.Focus();
+                return;
+            }
+            if (havingsameno(add_coach_cno_textBox.Text.Trim(), 1))
+            {
+                MessageBox.Show("添加的教练号已经存在");
+                add_coach_cno_textBox.Focus();
+                return;
+            }
+
+            if (add_coach_cno_textBox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的教练名字不能为空");
+                add_coach_cno_textBox.Focus();
+                return;
+            }
+
+            if (add_coach_cno_textBox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的电话不能为空");
+                add_coach_cno_textBox.Focus();
+                return;
+            }
+            float phone;
+            if (!float.TryParse(add_coach_phone_textBox.Text.Trim(), out phone))
+            {
+                MessageBox.Show("添加的电话只能是数字");
+                add_coach_phone_textBox.Focus();
+                return;
+            }
+
+            try
+            {
+                int count = 0;
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                string strsql = "insert into coach(cno,cname,sex,phone) values('";
+                strsql += add_coach_cno_textBox.Text.Trim() + "','" + add_coach_name_textBox.Text.Trim() + "','" + add_coach_sex_comboBox.Text.Trim() + "','" + add_coach_phone_textBox.Text.Trim() + "')";
+                SqlCommand cmd = new SqlCommand(strsql, con);  //构造sql命令
+                count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                con.Close();
+                add_coach_cno_textBox.Text = null;
+                add_coach_name_textBox.Text = null;
+                add_coach_sex_comboBox.Text = null;
+                add_coach_phone_textBox.Text = null;
+                up_xiala(2);
+                MessageBox.Show("成功插入数据" + count + "行");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+            }
+        }
+
+        private void add_test_button_Click(object sender, EventArgs e)
+        {
+
+            if (add_test_tno_textBox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的考试类别编号不能为空");
+                add_test_tno_textBox.Focus();
+                return;
+            }
+            if (havingsameno(add_test_tno_textBox.Text.Trim(), 4))
+            {
+                MessageBox.Show("添加的考试类别已经存在");
+                add_test_tno_textBox.Focus();
+                return;
+            }
+            try
+            {
+                int count = 0;
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                string strsql = "insert into subject(sjname,place,sintro) values('";
+                strsql += add_test_tno_textBox.Text.Trim() + "','" + add_test_name_textBox.Text.Trim() + "','" + add_test_sm_textBox.Text.Trim() + "')";
+                SqlCommand cmd = new SqlCommand(strsql, con);  //构造sql命令
+                count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                con.Close();
+                add_test_tno_textBox.Text = "";
+                add_test_name_textBox.Text = null;
+                add_test_sm_textBox.Text = null;
+                up_xiala(3);
+                MessageBox.Show("成功插入数据" + count + "行");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+            }
+        }
+
+        private void add_expense_button_Click(object sender, EventArgs e)
+        {
+            if (add_expense_eno_textBox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的支出种类编号不能为空");
+                add_expense_eno_textBox.Focus();
+                return;
+            }
+            if (havingsameno(add_expense_eno_textBox.Text.Trim(), 5))
+            {
+                MessageBox.Show("添加的支出种类已经存在");
+                add_expense_eno_textBox.Focus();
+                return;
+            }
+            if (add_expense_name_textBox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的支出种类名字不能为空");
+                add_expense_eno_textBox.Focus();
+                return;
+            }
+            try
+            {
+                int count = 0;
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                string strsql = "insert into e_kind(ekno,ename,eintro) values('";
+                strsql += add_expense_eno_textBox.Text.Trim() + "','" + add_expense_name_textBox.Text.Trim() + "','" + add_test_sm_textBox.Text.Trim() + "')";
+                SqlCommand cmd = new SqlCommand(strsql, con);  //构造sql命令
+                count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                con.Close();
+                add_expense_eno_textBox.Text = "";
+                add_expense_name_textBox.Text = null;
+                add_expense_sm_textBox.Text = null;
+                up_xiala(4);
+                MessageBox.Show("成功插入数据" + count + "行");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+            }
+        }
+
+        private void add_pay_button_Click(object sender, EventArgs e)
+        {
+            if (add_pay_pno_textBox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的缴费种类编号不能为空");
+                add_pay_pno_textBox.Focus();
+                return;
+            }
+            if (havingsameno(add_pay_pno_textBox.Text.Trim(), 6))
+            {
+                MessageBox.Show("添加的缴费种类已经存在");
+                add_pay_pno_textBox.Focus();
+                return;
+            }
+            if (add_pay_name_textBox.Text.Trim() == "")
+            {
+                MessageBox.Show("添加的缴费种类名字不能为空");
+                add_pay_name_textBox.Focus();
+                return;
+            }
+            try
+            {
+                int count = 0;
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                string strsql = "insert into i_kind(ikno,iname,iintro) values('";
+                strsql += add_pay_pno_textBox.Text.Trim() + "','" + add_pay_name_textBox.Text.Trim() + "','" + add_pay_sm_textBox.Text.Trim() + "')";
+                SqlCommand cmd = new SqlCommand(strsql, con);  //构造sql命令
+                count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
+                con.Close();
+                add_pay_pno_textBox.Text = "";
+                add_pay_name_textBox.Text = "";
+                add_pay_sm_textBox.Text = "";
+                up_xiala(5);
+                MessageBox.Show("成功插入数据" + count + "行");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+            }
+        }
+
+        private void add_student_sex_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void up_student_tabPage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void up_car_hq_button_Click(object sender, EventArgs e)
+        {
+            String s = up_car_cp_comboBox.Text.Trim();
+            show_attribute(s, 0);
+        }
+
+        private void up_car_xg_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int count = 0;
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                String sql = "update car set brand='" + up_car_cs_textBox.Text.Trim() + "',color='" + up_car_ys_textBox.Text.Trim() + "',mile='" + up_car_lc_textBox.Text.Trim() + "',buytime='" + up_car_dateTimePicker.Value + "'where lic='" + up_car_cp_comboBox.Text.Trim() + "'";
+                SqlCommand sqlcom = new SqlCommand(sql, con);
+                count = (int)sqlcom.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("成功修改教练数据");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+            }
+
+        }
+
+        private void up_student_hq_button_Click(object sender, EventArgs e)
+        {
+            String s = up_student_sno_comboBox.Text.Trim();
+            show_attribute(s, 1);
+        }
+
+        private void up_coach_hq_button_Click(object sender, EventArgs e)
+        {
+            String s = up_coach_cno_comboBox.Text.Trim();
+            show_attribute(s, 2);
+        }
+
+        private void up_expense_hq_button_Click(object sender, EventArgs e)
+        {
+            String s = up_expense_eno_comboBox.Text.Trim();
+            show_attribute(s, 4);
+        }
+
+        private void up_pay_hq_button_Click(object sender, EventArgs e)
+        {
+            String s = up_pay_pno_comboBox.Text.Trim();
+            show_attribute(s, 5);
+        }
+
+        private void up_car_qx_button_Click(object sender, EventArgs e)
+        {
+            up_car_cp_comboBox.Text = "";
+            up_car_cs_textBox.Text = "";
+            up_car_ys_textBox.Text = "";
+            up_car_lc_textBox.Text = "";
+            up_car_dateTimePicker.Value = DateTime.Now;
+        }
+
+        private void up_student_qx_button_Click(object sender, EventArgs e)
+        {
+            up_student_sno_comboBox.Text = "";
+            up_student_name_textBox.Text = "";
+            up_student_phone_textBox.Text = "";
+            up_student_pay_comboBox.Text = "";
+            up_student_sex_comboBox.Text = "";
+            up_student_jd_comboBox.Text = "";
+        }
+
+        private void up_coach_qx_button_Click(object sender, EventArgs e)
+        {
+            up_coach_cno_comboBox.Text = "";
+            up_coach_name_textBox.Text = null;
+            up_coach_sex_comboBox.Text = null;
+            up_coach_phone_textBox.Text = null;
+        }
+
+        private void up_test_qx_button_Click(object sender, EventArgs e)
+        {
+            up_test_tno_comboBox.Text = "";
+            up_test_name_textBox.Text = null;
+            up_test_sm_textBox.Text = null;
+        }
+
+        private void up_expense_qx_button_Click(object sender, EventArgs e)
+        {
+            up_expense_eno_comboBox.Text = "";
+            up_expense_name_textBox.Text = null;
+            up_expense_sm_textBox.Text = null;
+        }
+
+        private void up_pay_qx_button_Click(object sender, EventArgs e)
+        {
+            up_pay_pno_comboBox.Text = "";
+            up_pay_name_textBox.Text = "";
+            up_pay_sm_textBox.Text = "";
+        }
+
+        private void up_student_xg_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                String sql = "update student set sname='" + up_student_name_textBox.Text.Trim() + "',phone='" + up_student_phone_textBox.Text.Trim() + "',sex='" + up_student_sex_comboBox.Text.Trim() + "',pay='" + up_student_pay_comboBox.Text.Trim() + "',progress='" + up_student_jd_comboBox.Text.Trim() + "' where sno='" + up_student_sno_comboBox.Text.Trim() + "'";
+                SqlCommand sqlcom = new SqlCommand(sql, con);
+                int count = 0;
+                count = (int)sqlcom.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("成功修改学员数据");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+            }
+        }
+
+        private void up_coach_xg_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                String sql = "update coach set cname='" + up_coach_name_textBox.Text.Trim() + "',phone='" + up_coach_phone_textBox.Text.Trim() + "',sex='" + up_coach_sex_comboBox.Text.Trim() + "' where cno='" + up_coach_cno_comboBox.Text.Trim() + "'";
+                SqlCommand sqlcom = new SqlCommand(sql, con);
+                int count = 0;
+                count = (int)sqlcom.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("成功修改教练数据");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+
+            }
+        }
+
+        private void up_test_xg_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                String sql = "update subject set place='" + up_test_name_textBox.Text.Trim() + "',sintro='" + up_test_sm_textBox.Text.Trim() + "' where sjname='" + up_test_tno_comboBox.Text.Trim() + "'";
+                SqlCommand sqlcom = new SqlCommand(sql, con);
+                int count = 0;
+                count = (int)sqlcom.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("成功修改科目数据");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+        }
+
+        private void up_expense_xg_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                String sql = "update e_kind set ename='" + up_expense_name_textBox.Text.Trim() + "',eintro='" + up_expense_sm_textBox.Text.Trim() + "' where ekno='" + up_expense_eno_comboBox.Text.Trim() + "'";
+                SqlCommand sqlcom = new SqlCommand(sql, con);
+                int count = 0;
+                count = (int)sqlcom.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("成功修改支出数据");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+        }
+
+        private void up_pay_xg_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                String sql = "update i_kind set iname='" + up_pay_name_textBox.Text.Trim() + "',iintro='" + up_pay_sm_textBox.Text.Trim() + "' where ikno='" + up_pay_pno_comboBox.Text.Trim() + "'";
+                SqlCommand sqlcom = new SqlCommand(sql, con);
+                int count = 0;
+                count = (int)sqlcom.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("成功修改缴费数据");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+            }
+        }
+
+        private void delete_car_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                String sql = "delete car where lic='" + delete_car_cp_comboBox.Text.Trim() + "'";
+                SqlCommand sqlcom = new SqlCommand(sql, conn);
+                int count = 0;
+                count = (int)sqlcom.ExecuteNonQuery();
+                conn.Close();
+                delete_car_cp_comboBox.Text = null;
+                delete_car_cp_comboBox.Items.Clear();
+                conn.Open();
+                delete_car_cp_comboBox.Text = null;
+                up_xiala(0);
+                MessageBox.Show("删除车辆成功");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "删除车辆成功");
+            }
+
+        }
+
+        private void delete_student_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                String sql = "delete student where sno='" + delete_student_sno_comboBox.Text.Trim() + "'";
+                SqlCommand sqlcom = new SqlCommand(sql, con);
+                int count = 0;
+                count = (int)sqlcom.ExecuteNonQuery();
+                con.Close();
+                up_xiala(1);
+                delete_student_sno_comboBox.Text = null;
+                delete_student_name_textBox.Text = null;
+                MessageBox.Show("删除学员成功");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "删除学员失败");
+            }
+        }
+
+        private void delete_student_sno_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String s = delete_student_sno_comboBox.Text.Trim();
+            show_delete_attribute(s, 1);
+        }
+
+        private void delete_coach_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                String sql = "delete coach where cno='" + delete_coach_cno_comboBox.Text.Trim() + "'";
+                SqlCommand sqlcom = new SqlCommand(sql, con);
+                int count = 0;
+                count = (int)sqlcom.ExecuteNonQuery();
+                con.Close();
+                up_xiala(2);
+                delete_coach_cno_comboBox.Text = null;
+                delete_coach_name_textBox.Text = null;
+                MessageBox.Show("删除教练成功");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "删除教练失败");
+            }
+        }
+
+        private void delete_test__button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                String sql = "delete subject where sjname='" + delete_test_tno_comboBox.Text.Trim() + "'";
+                SqlCommand sqlcom = new SqlCommand(sql, con);
+                int count = 0;
+                count = (int)sqlcom.ExecuteNonQuery();
+                con.Close();
+                up_xiala(3);
+                delete_test_tno_comboBox.Text = null;
+                delete_test_name_textBox.Text = null;
+                delete_test_sm_textBox.Text = null;
+                MessageBox.Show("删除科目成功");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "删除科目失败");
+            }
+        }
+        private void delete_pay_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(sqlconnect);
+                con.Open();
+                String sql = "delete i_kind where ikno='" + delete_pay_pno_comboBox.Text.Trim() + "'";
+                SqlCommand sqlcom = new SqlCommand(sql, con);
+                int count = 0;
+                count = (int)sqlcom.ExecuteNonQuery();
+                con.Close();
+                up_xiala(5);
+                delete_pay_pno_comboBox.Text = null;
+                delete_pay_name_textBox.Text = null;
+                delete_pay_sm_textBox.Text = null;
+                MessageBox.Show("删除缴费类型成功");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "删除缴费类型失败");
+            }
+        }
+        private void delete_test_tno_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String s = delete_test_tno_comboBox.Text.Trim();
+            show_delete_attribute(s, 3);
+        }
+        private void delete_coach_cno_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String s = delete_coach_cno_comboBox.Text.Trim();
+            show_delete_attribute(s, 2);
+        }
+
+        private void delete_expense_eno_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String s = delete_expense_eno_comboBox.Text.Trim();
+            show_delete_attribute(s, 4);
+        }
+        private void delete_pay_pno_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String s = delete_pay_pno_comboBox.Text.Trim();
+            show_delete_attribute(s, 5);
+        }
         #endregion
 
-        #region 查询响应函数
+    #region 查询响应函数
         int search_buss_mark = 0; //定义标志 1表示查询sc 2表示查询cc  3表示查询exam
         /*  
         *  编写时间：2018年1月2日15:00:22
@@ -1350,7 +2553,7 @@ namespace test
         #endregion
 
 
-        #region 业务
+    #region 业务
         /**
          * 编写人：唐胜洋
          * 时间：2018-1-1  20:28
@@ -2234,7 +3437,7 @@ namespace test
 
         #endregion
 
-        #region 统计
+    #region 统计
 
         /*
          * 下面五个函数对应着统计学员模块的五个删除
@@ -2311,7 +3514,7 @@ namespace test
                     }
                     if (sta_s_cna.Text.Length > 0)
                     {
-                        sql += "and SNO in ( SELECT SNO from dbo.get_c_s(@cna) ) ";
+                        sql += "and SNO = dbo.SNA_SNO(@cna) ";
                         cmd.Parameters.Add(new SqlParameter("@cna", sta_s_cna.Text));
                     }
                     if (sta_s_pay.Text.Length > 0)
@@ -2352,7 +3555,7 @@ namespace test
                 }
                 catch(Exception em)
                 {
-                    MessageBox.Show("出错啦");
+                    MessageBox.Show(em.Message);
                 }
             }
             
@@ -2441,7 +3644,7 @@ namespace test
                 }
                 catch (Exception em)
                 {
-                    MessageBox.Show("出错啦");
+                    MessageBox.Show(em.Message);
                 }
             }
         }
@@ -2565,7 +3768,7 @@ namespace test
                 }
                 catch (Exception em)
                 {
-                    MessageBox.Show("出错啦");
+                    MessageBox.Show(em.Message);
                 }
             }
         }
@@ -2662,7 +3865,7 @@ namespace test
             }
             else if ((sta_inc_c2.Text.Length ^ sta_inc_c1.Text.Length) == 1)
             {
-                MessageBox.Show("请输入金额完整范围.");
+                MessageBox.Show("请输入分数完整范围.");
                 return;
             }
             else if ((sta_inc_y1.Text.Length | sta_inc_y2.Text.Length | sta_inc_m2.Text.Length | sta_inc_m2.Text.Length
@@ -2731,7 +3934,7 @@ namespace test
                 }
                 catch (Exception em)
                 {
-                    MessageBox.Show("出错啦");
+                    MessageBox.Show(em.Message);
                 }
             }
         }
@@ -2900,7 +4103,7 @@ namespace test
                 }
                 catch (Exception em)
                 {
-                    MessageBox.Show("出错啦");
+                    MessageBox.Show(em.Message);
                 }
             }
         }
@@ -2908,7 +4111,7 @@ namespace test
 
         #endregion
 
-        #region 生成报表
+    #region 生成报表
         private void b_table_student_Click(object sender, EventArgs e)
         {
             if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
@@ -3180,6 +4383,7 @@ namespace test
             else MessageBox.Show("不存在该文件");
         }
         #endregion
+        
         
     }
 }

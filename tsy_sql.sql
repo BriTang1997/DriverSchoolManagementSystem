@@ -161,7 +161,6 @@ BEGIN
 	HAVING CNO = @cno
 	return @in
 END
-<<<<<<< HEAD
 =======
 -----获取某教练当前学生
 CREATE FUNCTION GET_C_S (@cno char(10))
@@ -183,8 +182,6 @@ AS
 	WHERE CNO = @cno
 	)
 
-
->>>>>>> tsy
 ---在学人员
 CREATE VIEW s_atschool
 AS SELECT * FROM student

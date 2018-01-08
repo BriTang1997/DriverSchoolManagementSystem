@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Bot_mana = new System.Windows.Forms.Label();
             this.L_mana = new System.Windows.Forms.Label();
             this.menu = new System.Windows.Forms.MenuStrip();
@@ -134,6 +135,186 @@
             this.b_cc_cna = new System.Windows.Forms.TextBox();
             this.L_b_cc_cno = new System.Windows.Forms.Label();
             this.b_cc_cno = new System.Windows.Forms.TextBox();
+            this.信息更新_panel = new System.Windows.Forms.Panel();
+            this.xxgx_tabControl = new System.Windows.Forms.TabControl();
+            this.up_car_tabPage = new System.Windows.Forms.TabPage();
+            this.delete_car_gb = new System.Windows.Forms.GroupBox();
+            this.delete_car_cp_comboBox = new System.Windows.Forms.ComboBox();
+            this.delete_car_button = new System.Windows.Forms.Button();
+            this.delete_car_cp = new System.Windows.Forms.Label();
+            this.up_car_gb = new System.Windows.Forms.GroupBox();
+            this.up_car_qx_button = new System.Windows.Forms.Button();
+            this.up_car_hq_button = new System.Windows.Forms.Button();
+            this.up_car_cp_comboBox = new System.Windows.Forms.ComboBox();
+            this.up_car_xg_button = new System.Windows.Forms.Button();
+            this.up_car_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.up_car_lc_textBox = new System.Windows.Forms.TextBox();
+            this.up_car_ys_textBox = new System.Windows.Forms.TextBox();
+            this.up_car_cs_textBox = new System.Windows.Forms.TextBox();
+            this.up_car_buytime = new System.Windows.Forms.Label();
+            this.up_car_lc = new System.Windows.Forms.Label();
+            this.up_car_ys = new System.Windows.Forms.Label();
+            this.up_car_cs = new System.Windows.Forms.Label();
+            this.up_car_cp = new System.Windows.Forms.Label();
+            this.add_car_gb = new System.Windows.Forms.GroupBox();
+            this.add_car_button = new System.Windows.Forms.Button();
+            this.add_car_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.add_car_cs_textbox = new System.Windows.Forms.TextBox();
+            this.add_car_lc_textBox = new System.Windows.Forms.TextBox();
+            this.add_car_ys_textbox = new System.Windows.Forms.TextBox();
+            this.add_car_buytime = new System.Windows.Forms.Label();
+            this.add_car_lc = new System.Windows.Forms.Label();
+            this.add_car_ys = new System.Windows.Forms.Label();
+            this.add_car_cs = new System.Windows.Forms.Label();
+            this.add_car_cp = new System.Windows.Forms.Label();
+            this.add_car_cp_textbox = new System.Windows.Forms.TextBox();
+            this.up_student_tabPage = new System.Windows.Forms.TabPage();
+            this.delete_student_gb = new System.Windows.Forms.GroupBox();
+            this.delete_student_sno_comboBox = new System.Windows.Forms.ComboBox();
+            this.delete_student_button = new System.Windows.Forms.Button();
+            this.delete_student_name_textBox = new System.Windows.Forms.TextBox();
+            this.delete_student_name = new System.Windows.Forms.Label();
+            this.delete_student_sno = new System.Windows.Forms.Label();
+            this.up_studnet_gb = new System.Windows.Forms.GroupBox();
+            this.up_student_sex_comboBox = new System.Windows.Forms.ComboBox();
+            this.up_student_sex = new System.Windows.Forms.Label();
+            this.up_student_jd_comboBox = new System.Windows.Forms.ComboBox();
+            this.up_student_jd = new System.Windows.Forms.Label();
+            this.up_student_pay_comboBox = new System.Windows.Forms.ComboBox();
+            this.up_student_sno_comboBox = new System.Windows.Forms.ComboBox();
+            this.up_student_qx_button = new System.Windows.Forms.Button();
+            this.up_student_hq_button = new System.Windows.Forms.Button();
+            this.up_student_xg_button = new System.Windows.Forms.Button();
+            this.up_student_name_textBox = new System.Windows.Forms.TextBox();
+            this.up_student_phone_textBox = new System.Windows.Forms.TextBox();
+            this.up_student_pay = new System.Windows.Forms.Label();
+            this.up_student_phone = new System.Windows.Forms.Label();
+            this.up_student_name = new System.Windows.Forms.Label();
+            this.up_student_sno = new System.Windows.Forms.Label();
+            this.add_student_gb = new System.Windows.Forms.GroupBox();
+            this.add_student_jd_comboBox = new System.Windows.Forms.ComboBox();
+            this.add_student_jd = new System.Windows.Forms.Label();
+            this.add_student_pay_comboBox = new System.Windows.Forms.ComboBox();
+            this.add_student_pay = new System.Windows.Forms.Label();
+            this.add_student_sex_comboBox = new System.Windows.Forms.ComboBox();
+            this.add_student_phone = new System.Windows.Forms.Label();
+            this.add_student_button = new System.Windows.Forms.Button();
+            this.add_student_sno_textbox = new System.Windows.Forms.TextBox();
+            this.add_student_phone_textbox = new System.Windows.Forms.TextBox();
+            this.add_student_sex = new System.Windows.Forms.Label();
+            this.add_student_sno = new System.Windows.Forms.Label();
+            this.add_student_name = new System.Windows.Forms.Label();
+            this.add_student_name_textbox = new System.Windows.Forms.TextBox();
+            this.up__coach_tabPage = new System.Windows.Forms.TabPage();
+            this.delete_coach_gb = new System.Windows.Forms.GroupBox();
+            this.delete_coach_cno_comboBox = new System.Windows.Forms.ComboBox();
+            this.delete_coach_button = new System.Windows.Forms.Button();
+            this.delete_coach_name_textBox = new System.Windows.Forms.TextBox();
+            this.delete_coach_name = new System.Windows.Forms.Label();
+            this.delete_coach_cno = new System.Windows.Forms.Label();
+            this.add_coach_gb = new System.Windows.Forms.GroupBox();
+            this.add_coach_sex_comboBox = new System.Windows.Forms.ComboBox();
+            this.add_coach_phone_textBox = new System.Windows.Forms.TextBox();
+            this.add_coach_phone = new System.Windows.Forms.Label();
+            this.add_coach_button = new System.Windows.Forms.Button();
+            this.add_coach_name_textBox = new System.Windows.Forms.TextBox();
+            this.add_coach_sex = new System.Windows.Forms.Label();
+            this.add_coach_name = new System.Windows.Forms.Label();
+            this.add_coach_cno = new System.Windows.Forms.Label();
+            this.add_coach_cno_textBox = new System.Windows.Forms.TextBox();
+            this.up_coach_gb = new System.Windows.Forms.GroupBox();
+            this.up_coach_sex_comboBox = new System.Windows.Forms.ComboBox();
+            this.up_coach_phone = new System.Windows.Forms.Label();
+            this.up_coach_cno_comboBox = new System.Windows.Forms.ComboBox();
+            this.up_coach_qx_button = new System.Windows.Forms.Button();
+            this.up_coach_hq_button = new System.Windows.Forms.Button();
+            this.up_coach_xg_button = new System.Windows.Forms.Button();
+            this.up_coach_name_textBox = new System.Windows.Forms.TextBox();
+            this.up_coach_phone_textBox = new System.Windows.Forms.TextBox();
+            this.up_coach_sex = new System.Windows.Forms.Label();
+            this.up_coach_name = new System.Windows.Forms.Label();
+            this.up_coach_cno = new System.Windows.Forms.Label();
+            this.up_test_tabPage = new System.Windows.Forms.TabPage();
+            this.delete_test_gb = new System.Windows.Forms.GroupBox();
+            this.delete_test_tno_comboBox = new System.Windows.Forms.ComboBox();
+            this.delete_test__button = new System.Windows.Forms.Button();
+            this.delete_test_name_textBox = new System.Windows.Forms.TextBox();
+            this.delete_test_sm_textBox = new System.Windows.Forms.TextBox();
+            this.delete_test_sm = new System.Windows.Forms.Label();
+            this.delete_test_name = new System.Windows.Forms.Label();
+            this.delete_test_tno = new System.Windows.Forms.Label();
+            this.up_test_gb = new System.Windows.Forms.GroupBox();
+            this.up_test_tno_comboBox = new System.Windows.Forms.ComboBox();
+            this.up_test_xg_button = new System.Windows.Forms.Button();
+            this.up_test_qx_button = new System.Windows.Forms.Button();
+            this.up_test_hq_button = new System.Windows.Forms.Button();
+            this.up_test_name_textBox = new System.Windows.Forms.TextBox();
+            this.up_test_sm_textBox = new System.Windows.Forms.TextBox();
+            this.up_test_sm = new System.Windows.Forms.Label();
+            this.up_test_name = new System.Windows.Forms.Label();
+            this.up_test_tno = new System.Windows.Forms.Label();
+            this.add_test_gb = new System.Windows.Forms.GroupBox();
+            this.add_test_button = new System.Windows.Forms.Button();
+            this.add_test_name_textBox = new System.Windows.Forms.TextBox();
+            this.add_test_sm_textBox = new System.Windows.Forms.TextBox();
+            this.add_test_sm = new System.Windows.Forms.Label();
+            this.add_test_name = new System.Windows.Forms.Label();
+            this.add_test_tno = new System.Windows.Forms.Label();
+            this.add_test_tno_textBox = new System.Windows.Forms.TextBox();
+            this.up__expense_tabPage = new System.Windows.Forms.TabPage();
+            this.delete_expense_gb = new System.Windows.Forms.GroupBox();
+            this.delete_expense_sm_textBox = new System.Windows.Forms.TextBox();
+            this.delete_expense_sm = new System.Windows.Forms.Label();
+            this.delete_expense_eno_comboBox = new System.Windows.Forms.ComboBox();
+            this.delete_expense_button = new System.Windows.Forms.Button();
+            this.delete_expense_name_textBox = new System.Windows.Forms.TextBox();
+            this.delete_expense_name = new System.Windows.Forms.Label();
+            this.delete_expense_eno = new System.Windows.Forms.Label();
+            this.up_expense_gb = new System.Windows.Forms.GroupBox();
+            this.up_expense_eno_comboBox = new System.Windows.Forms.ComboBox();
+            this.up_expense_xg_button = new System.Windows.Forms.Button();
+            this.up_expense_qx_button = new System.Windows.Forms.Button();
+            this.up_expense_hq_button = new System.Windows.Forms.Button();
+            this.up_expense_name_textBox = new System.Windows.Forms.TextBox();
+            this.up_expense_sm_textBox = new System.Windows.Forms.TextBox();
+            this.up_expense_sm = new System.Windows.Forms.Label();
+            this.up_expense_name = new System.Windows.Forms.Label();
+            this.up_expense_eno = new System.Windows.Forms.Label();
+            this.add_expense_gb = new System.Windows.Forms.GroupBox();
+            this.add_expense_button = new System.Windows.Forms.Button();
+            this.add_expense_name_textBox = new System.Windows.Forms.TextBox();
+            this.add_expense_sm_textBox = new System.Windows.Forms.TextBox();
+            this.add_expense_sm = new System.Windows.Forms.Label();
+            this.add_expense_name = new System.Windows.Forms.Label();
+            this.add_expense_eno = new System.Windows.Forms.Label();
+            this.add_expense_eno_textBox = new System.Windows.Forms.TextBox();
+            this.up_pay_tabPage = new System.Windows.Forms.TabPage();
+            this.delete_pay_gb = new System.Windows.Forms.GroupBox();
+            this.delete_pay_pno_comboBox = new System.Windows.Forms.ComboBox();
+            this.delete_pay_button = new System.Windows.Forms.Button();
+            this.delete_pay_name_textBox = new System.Windows.Forms.TextBox();
+            this.delete_pay_sm_textBox = new System.Windows.Forms.TextBox();
+            this.delete_pay_sm = new System.Windows.Forms.Label();
+            this.delete_pay_name = new System.Windows.Forms.Label();
+            this.delete_pay_pno = new System.Windows.Forms.Label();
+            this.up_pay_gb = new System.Windows.Forms.GroupBox();
+            this.up_pay_pno_comboBox = new System.Windows.Forms.ComboBox();
+            this.up_pay_xg_button = new System.Windows.Forms.Button();
+            this.up_pay_qx_button = new System.Windows.Forms.Button();
+            this.up_pay_hq_button = new System.Windows.Forms.Button();
+            this.up_pay_name_textBox = new System.Windows.Forms.TextBox();
+            this.up_pay_sm_textBox = new System.Windows.Forms.TextBox();
+            this.up_pay_sm = new System.Windows.Forms.Label();
+            this.up_pay_name = new System.Windows.Forms.Label();
+            this.up_pay_pno = new System.Windows.Forms.Label();
+            this.add_pay_gb = new System.Windows.Forms.GroupBox();
+            this.add_pay_button = new System.Windows.Forms.Button();
+            this.add_pay_name_textBox = new System.Windows.Forms.TextBox();
+            this.add_pay_sm_textBox = new System.Windows.Forms.TextBox();
+            this.add_pay_sm = new System.Windows.Forms.Label();
+            this.add_pay_name = new System.Windows.Forms.Label();
+            this.add_pay_pno = new System.Windows.Forms.Label();
+            this.add_pay_pno_textBox = new System.Windows.Forms.TextBox();
             this.统计panel = new System.Windows.Forms.Panel();
             this.sta_pic = new System.Windows.Forms.PictureBox();
             this.sta_see = new System.Windows.Forms.ListView();
@@ -410,6 +591,10 @@
             this.l_table_example = new System.Windows.Forms.Label();
             this.tb_table_path = new System.Windows.Forms.TextBox();
             this.l_table_path = new System.Windows.Forms.Label();
+            this.开始_panel = new System.Windows.Forms.Panel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label6 = new System.Windows.Forms.Label();
             this.menu.SuspendLayout();
             this.业务panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.b_dataview)).BeginInit();
@@ -419,6 +604,32 @@
             this.page_exam.SuspendLayout();
             this.page_sc.SuspendLayout();
             this.page_cc.SuspendLayout();
+            this.信息更新_panel.SuspendLayout();
+            this.xxgx_tabControl.SuspendLayout();
+            this.up_car_tabPage.SuspendLayout();
+            this.delete_car_gb.SuspendLayout();
+            this.up_car_gb.SuspendLayout();
+            this.add_car_gb.SuspendLayout();
+            this.up_student_tabPage.SuspendLayout();
+            this.delete_student_gb.SuspendLayout();
+            this.up_studnet_gb.SuspendLayout();
+            this.add_student_gb.SuspendLayout();
+            this.up__coach_tabPage.SuspendLayout();
+            this.delete_coach_gb.SuspendLayout();
+            this.add_coach_gb.SuspendLayout();
+            this.up_coach_gb.SuspendLayout();
+            this.up_test_tabPage.SuspendLayout();
+            this.delete_test_gb.SuspendLayout();
+            this.up_test_gb.SuspendLayout();
+            this.add_test_gb.SuspendLayout();
+            this.up__expense_tabPage.SuspendLayout();
+            this.delete_expense_gb.SuspendLayout();
+            this.up_expense_gb.SuspendLayout();
+            this.add_expense_gb.SuspendLayout();
+            this.up_pay_tabPage.SuspendLayout();
+            this.delete_pay_gb.SuspendLayout();
+            this.up_pay_gb.SuspendLayout();
+            this.add_pay_gb.SuspendLayout();
             this.统计panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sta_pic)).BeginInit();
             this.sta_table.SuspendLayout();
@@ -443,6 +654,7 @@
             this.gb_sear_acc_in.SuspendLayout();
             this.gb_sear_account_exp.SuspendLayout();
             this.生成报表panel.SuspendLayout();
+            this.开始_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Bot_mana
@@ -483,12 +695,14 @@
             this.开始ToolStripMenuItem.Name = "开始ToolStripMenuItem";
             this.开始ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.开始ToolStripMenuItem.Text = "开始";
+            this.开始ToolStripMenuItem.Click += new System.EventHandler(this.开始ToolStripMenuItem_Click_1);
             // 
             // 信息更新ToolStripMenuItem
             // 
             this.信息更新ToolStripMenuItem.Name = "信息更新ToolStripMenuItem";
             this.信息更新ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.信息更新ToolStripMenuItem.Text = "信息更新";
+            this.信息更新ToolStripMenuItem.Click += new System.EventHandler(this.信息更新ToolStripMenuItem_Click_1);
             // 
             // 信息查询ToolStripMenuItem
             // 
@@ -545,7 +759,7 @@
             // 
             this.业务panel.Controls.Add(this.b_dataview);
             this.业务panel.Controls.Add(this.bussiness_table);
-            this.业务panel.Location = new System.Drawing.Point(496, 330);
+            this.业务panel.Location = new System.Drawing.Point(235, 312);
             this.业务panel.Name = "业务panel";
             this.业务panel.Size = new System.Drawing.Size(613, 389);
             this.业务panel.TabIndex = 9;
@@ -1455,12 +1669,1766 @@
             this.b_cc_cno.TabIndex = 53;
             this.b_cc_cno.TextChanged += new System.EventHandler(this.b_cc_cno_TextChanged);
             // 
+            // 信息更新_panel
+            // 
+            this.信息更新_panel.Controls.Add(this.xxgx_tabControl);
+            this.信息更新_panel.Location = new System.Drawing.Point(181, 336);
+            this.信息更新_panel.Name = "信息更新_panel";
+            this.信息更新_panel.Size = new System.Drawing.Size(613, 389);
+            this.信息更新_panel.TabIndex = 13;
+            // 
+            // xxgx_tabControl
+            // 
+            this.xxgx_tabControl.Controls.Add(this.up_car_tabPage);
+            this.xxgx_tabControl.Controls.Add(this.up_student_tabPage);
+            this.xxgx_tabControl.Controls.Add(this.up__coach_tabPage);
+            this.xxgx_tabControl.Controls.Add(this.up_test_tabPage);
+            this.xxgx_tabControl.Controls.Add(this.up__expense_tabPage);
+            this.xxgx_tabControl.Controls.Add(this.up_pay_tabPage);
+            this.xxgx_tabControl.Location = new System.Drawing.Point(3, 2);
+            this.xxgx_tabControl.Name = "xxgx_tabControl";
+            this.xxgx_tabControl.SelectedIndex = 0;
+            this.xxgx_tabControl.Size = new System.Drawing.Size(608, 385);
+            this.xxgx_tabControl.TabIndex = 10;
+            // 
+            // up_car_tabPage
+            // 
+            this.up_car_tabPage.Controls.Add(this.delete_car_gb);
+            this.up_car_tabPage.Controls.Add(this.up_car_gb);
+            this.up_car_tabPage.Controls.Add(this.add_car_gb);
+            this.up_car_tabPage.Location = new System.Drawing.Point(4, 22);
+            this.up_car_tabPage.Name = "up_car_tabPage";
+            this.up_car_tabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.up_car_tabPage.Size = new System.Drawing.Size(600, 359);
+            this.up_car_tabPage.TabIndex = 0;
+            this.up_car_tabPage.Text = "更新车辆信息";
+            this.up_car_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // delete_car_gb
+            // 
+            this.delete_car_gb.Controls.Add(this.delete_car_cp_comboBox);
+            this.delete_car_gb.Controls.Add(this.delete_car_button);
+            this.delete_car_gb.Controls.Add(this.delete_car_cp);
+            this.delete_car_gb.Location = new System.Drawing.Point(407, 28);
+            this.delete_car_gb.Name = "delete_car_gb";
+            this.delete_car_gb.Size = new System.Drawing.Size(174, 313);
+            this.delete_car_gb.TabIndex = 6;
+            this.delete_car_gb.TabStop = false;
+            this.delete_car_gb.Text = "删除车辆";
+            // 
+            // delete_car_cp_comboBox
+            // 
+            this.delete_car_cp_comboBox.FormattingEnabled = true;
+            this.delete_car_cp_comboBox.Location = new System.Drawing.Point(68, 73);
+            this.delete_car_cp_comboBox.Name = "delete_car_cp_comboBox";
+            this.delete_car_cp_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.delete_car_cp_comboBox.TabIndex = 15;
+            // 
+            // delete_car_button
+            // 
+            this.delete_car_button.Location = new System.Drawing.Point(68, 139);
+            this.delete_car_button.Name = "delete_car_button";
+            this.delete_car_button.Size = new System.Drawing.Size(75, 23);
+            this.delete_car_button.TabIndex = 13;
+            this.delete_car_button.Text = "删除车辆";
+            this.delete_car_button.UseVisualStyleBackColor = true;
+            this.delete_car_button.Click += new System.EventHandler(this.delete_car_button_Click);
+            // 
+            // delete_car_cp
+            // 
+            this.delete_car_cp.AutoSize = true;
+            this.delete_car_cp.Location = new System.Drawing.Point(6, 76);
+            this.delete_car_cp.Name = "delete_car_cp";
+            this.delete_car_cp.Size = new System.Drawing.Size(41, 12);
+            this.delete_car_cp.TabIndex = 1;
+            this.delete_car_cp.Text = "车牌号";
+            // 
+            // up_car_gb
+            // 
+            this.up_car_gb.Controls.Add(this.up_car_qx_button);
+            this.up_car_gb.Controls.Add(this.up_car_hq_button);
+            this.up_car_gb.Controls.Add(this.up_car_cp_comboBox);
+            this.up_car_gb.Controls.Add(this.up_car_xg_button);
+            this.up_car_gb.Controls.Add(this.up_car_dateTimePicker);
+            this.up_car_gb.Controls.Add(this.up_car_lc_textBox);
+            this.up_car_gb.Controls.Add(this.up_car_ys_textBox);
+            this.up_car_gb.Controls.Add(this.up_car_cs_textBox);
+            this.up_car_gb.Controls.Add(this.up_car_buytime);
+            this.up_car_gb.Controls.Add(this.up_car_lc);
+            this.up_car_gb.Controls.Add(this.up_car_ys);
+            this.up_car_gb.Controls.Add(this.up_car_cs);
+            this.up_car_gb.Controls.Add(this.up_car_cp);
+            this.up_car_gb.Location = new System.Drawing.Point(218, 20);
+            this.up_car_gb.Name = "up_car_gb";
+            this.up_car_gb.Size = new System.Drawing.Size(171, 321);
+            this.up_car_gb.TabIndex = 1;
+            this.up_car_gb.TabStop = false;
+            this.up_car_gb.Text = "修改车辆";
+            // 
+            // up_car_qx_button
+            // 
+            this.up_car_qx_button.Location = new System.Drawing.Point(90, 243);
+            this.up_car_qx_button.Name = "up_car_qx_button";
+            this.up_car_qx_button.Size = new System.Drawing.Size(75, 23);
+            this.up_car_qx_button.TabIndex = 17;
+            this.up_car_qx_button.Text = "取消";
+            this.up_car_qx_button.UseVisualStyleBackColor = true;
+            this.up_car_qx_button.Click += new System.EventHandler(this.up_car_qx_button_Click);
+            // 
+            // up_car_hq_button
+            // 
+            this.up_car_hq_button.Location = new System.Drawing.Point(6, 243);
+            this.up_car_hq_button.Name = "up_car_hq_button";
+            this.up_car_hq_button.Size = new System.Drawing.Size(75, 23);
+            this.up_car_hq_button.TabIndex = 16;
+            this.up_car_hq_button.Text = "获取车辆";
+            this.up_car_hq_button.UseVisualStyleBackColor = true;
+            this.up_car_hq_button.Click += new System.EventHandler(this.up_car_hq_button_Click);
+            // 
+            // up_car_cp_comboBox
+            // 
+            this.up_car_cp_comboBox.FormattingEnabled = true;
+            this.up_car_cp_comboBox.Location = new System.Drawing.Point(68, 36);
+            this.up_car_cp_comboBox.Name = "up_car_cp_comboBox";
+            this.up_car_cp_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.up_car_cp_comboBox.TabIndex = 15;
+            // 
+            // up_car_xg_button
+            // 
+            this.up_car_xg_button.Location = new System.Drawing.Point(49, 285);
+            this.up_car_xg_button.Name = "up_car_xg_button";
+            this.up_car_xg_button.Size = new System.Drawing.Size(75, 23);
+            this.up_car_xg_button.TabIndex = 12;
+            this.up_car_xg_button.Text = "修改车辆";
+            this.up_car_xg_button.UseVisualStyleBackColor = true;
+            this.up_car_xg_button.Click += new System.EventHandler(this.up_car_xg_button_Click);
+            // 
+            // up_car_dateTimePicker
+            // 
+            this.up_car_dateTimePicker.CustomFormat = "";
+            this.up_car_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.up_car_dateTimePicker.Location = new System.Drawing.Point(69, 196);
+            this.up_car_dateTimePicker.Name = "up_car_dateTimePicker";
+            this.up_car_dateTimePicker.Size = new System.Drawing.Size(90, 21);
+            this.up_car_dateTimePicker.TabIndex = 11;
+            // 
+            // up_car_lc_textBox
+            // 
+            this.up_car_lc_textBox.Location = new System.Drawing.Point(69, 158);
+            this.up_car_lc_textBox.Name = "up_car_lc_textBox";
+            this.up_car_lc_textBox.Size = new System.Drawing.Size(89, 21);
+            this.up_car_lc_textBox.TabIndex = 8;
+            // 
+            // up_car_ys_textBox
+            // 
+            this.up_car_ys_textBox.Location = new System.Drawing.Point(69, 117);
+            this.up_car_ys_textBox.Name = "up_car_ys_textBox";
+            this.up_car_ys_textBox.Size = new System.Drawing.Size(89, 21);
+            this.up_car_ys_textBox.TabIndex = 7;
+            // 
+            // up_car_cs_textBox
+            // 
+            this.up_car_cs_textBox.Location = new System.Drawing.Point(69, 76);
+            this.up_car_cs_textBox.Name = "up_car_cs_textBox";
+            this.up_car_cs_textBox.Size = new System.Drawing.Size(89, 21);
+            this.up_car_cs_textBox.TabIndex = 6;
+            // 
+            // up_car_buytime
+            // 
+            this.up_car_buytime.AutoSize = true;
+            this.up_car_buytime.Location = new System.Drawing.Point(6, 202);
+            this.up_car_buytime.Name = "up_car_buytime";
+            this.up_car_buytime.Size = new System.Drawing.Size(53, 12);
+            this.up_car_buytime.TabIndex = 5;
+            this.up_car_buytime.Text = "购买日期";
+            // 
+            // up_car_lc
+            // 
+            this.up_car_lc.AutoSize = true;
+            this.up_car_lc.Location = new System.Drawing.Point(6, 161);
+            this.up_car_lc.Name = "up_car_lc";
+            this.up_car_lc.Size = new System.Drawing.Size(29, 12);
+            this.up_car_lc.TabIndex = 4;
+            this.up_car_lc.Text = "里程";
+            // 
+            // up_car_ys
+            // 
+            this.up_car_ys.AutoSize = true;
+            this.up_car_ys.Location = new System.Drawing.Point(6, 120);
+            this.up_car_ys.Name = "up_car_ys";
+            this.up_car_ys.Size = new System.Drawing.Size(29, 12);
+            this.up_car_ys.TabIndex = 3;
+            this.up_car_ys.Text = "颜色";
+            // 
+            // up_car_cs
+            // 
+            this.up_car_cs.AutoSize = true;
+            this.up_car_cs.Location = new System.Drawing.Point(6, 76);
+            this.up_car_cs.Name = "up_car_cs";
+            this.up_car_cs.Size = new System.Drawing.Size(29, 12);
+            this.up_car_cs.TabIndex = 2;
+            this.up_car_cs.Text = "厂商";
+            // 
+            // up_car_cp
+            // 
+            this.up_car_cp.AutoSize = true;
+            this.up_car_cp.Location = new System.Drawing.Point(6, 39);
+            this.up_car_cp.Name = "up_car_cp";
+            this.up_car_cp.Size = new System.Drawing.Size(41, 12);
+            this.up_car_cp.TabIndex = 1;
+            this.up_car_cp.Text = "车牌号";
+            // 
+            // add_car_gb
+            // 
+            this.add_car_gb.Controls.Add(this.add_car_button);
+            this.add_car_gb.Controls.Add(this.add_car_dateTimePicker);
+            this.add_car_gb.Controls.Add(this.add_car_cs_textbox);
+            this.add_car_gb.Controls.Add(this.add_car_lc_textBox);
+            this.add_car_gb.Controls.Add(this.add_car_ys_textbox);
+            this.add_car_gb.Controls.Add(this.add_car_buytime);
+            this.add_car_gb.Controls.Add(this.add_car_lc);
+            this.add_car_gb.Controls.Add(this.add_car_ys);
+            this.add_car_gb.Controls.Add(this.add_car_cs);
+            this.add_car_gb.Controls.Add(this.add_car_cp);
+            this.add_car_gb.Controls.Add(this.add_car_cp_textbox);
+            this.add_car_gb.Location = new System.Drawing.Point(19, 20);
+            this.add_car_gb.Name = "add_car_gb";
+            this.add_car_gb.Size = new System.Drawing.Size(174, 321);
+            this.add_car_gb.TabIndex = 0;
+            this.add_car_gb.TabStop = false;
+            this.add_car_gb.Text = "添加车辆";
+            // 
+            // add_car_button
+            // 
+            this.add_car_button.Location = new System.Drawing.Point(38, 243);
+            this.add_car_button.Name = "add_car_button";
+            this.add_car_button.Size = new System.Drawing.Size(75, 23);
+            this.add_car_button.TabIndex = 11;
+            this.add_car_button.Text = "新增车辆";
+            this.add_car_button.UseVisualStyleBackColor = true;
+            this.add_car_button.Click += new System.EventHandler(this.add_car_button_Click);
+            // 
+            // add_car_dateTimePicker
+            // 
+            this.add_car_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.add_car_dateTimePicker.Location = new System.Drawing.Point(69, 196);
+            this.add_car_dateTimePicker.Name = "add_car_dateTimePicker";
+            this.add_car_dateTimePicker.Size = new System.Drawing.Size(90, 21);
+            this.add_car_dateTimePicker.TabIndex = 10;
+            // 
+            // add_car_cs_textbox
+            // 
+            this.add_car_cs_textbox.Location = new System.Drawing.Point(69, 76);
+            this.add_car_cs_textbox.Name = "add_car_cs_textbox";
+            this.add_car_cs_textbox.Size = new System.Drawing.Size(90, 21);
+            this.add_car_cs_textbox.TabIndex = 8;
+            // 
+            // add_car_lc_textBox
+            // 
+            this.add_car_lc_textBox.Location = new System.Drawing.Point(69, 152);
+            this.add_car_lc_textBox.Name = "add_car_lc_textBox";
+            this.add_car_lc_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_car_lc_textBox.TabIndex = 7;
+            // 
+            // add_car_ys_textbox
+            // 
+            this.add_car_ys_textbox.Location = new System.Drawing.Point(69, 111);
+            this.add_car_ys_textbox.Name = "add_car_ys_textbox";
+            this.add_car_ys_textbox.Size = new System.Drawing.Size(90, 21);
+            this.add_car_ys_textbox.TabIndex = 6;
+            // 
+            // add_car_buytime
+            // 
+            this.add_car_buytime.AutoSize = true;
+            this.add_car_buytime.Location = new System.Drawing.Point(6, 202);
+            this.add_car_buytime.Name = "add_car_buytime";
+            this.add_car_buytime.Size = new System.Drawing.Size(53, 12);
+            this.add_car_buytime.TabIndex = 5;
+            this.add_car_buytime.Text = "购买日期";
+            // 
+            // add_car_lc
+            // 
+            this.add_car_lc.AutoSize = true;
+            this.add_car_lc.Location = new System.Drawing.Point(6, 161);
+            this.add_car_lc.Name = "add_car_lc";
+            this.add_car_lc.Size = new System.Drawing.Size(29, 12);
+            this.add_car_lc.TabIndex = 4;
+            this.add_car_lc.Text = "里程";
+            // 
+            // add_car_ys
+            // 
+            this.add_car_ys.AutoSize = true;
+            this.add_car_ys.Location = new System.Drawing.Point(6, 120);
+            this.add_car_ys.Name = "add_car_ys";
+            this.add_car_ys.Size = new System.Drawing.Size(29, 12);
+            this.add_car_ys.TabIndex = 3;
+            this.add_car_ys.Text = "颜色";
+            // 
+            // add_car_cs
+            // 
+            this.add_car_cs.AutoSize = true;
+            this.add_car_cs.Location = new System.Drawing.Point(6, 76);
+            this.add_car_cs.Name = "add_car_cs";
+            this.add_car_cs.Size = new System.Drawing.Size(29, 12);
+            this.add_car_cs.TabIndex = 2;
+            this.add_car_cs.Text = "厂商";
+            // 
+            // add_car_cp
+            // 
+            this.add_car_cp.AutoSize = true;
+            this.add_car_cp.Location = new System.Drawing.Point(6, 39);
+            this.add_car_cp.Name = "add_car_cp";
+            this.add_car_cp.Size = new System.Drawing.Size(41, 12);
+            this.add_car_cp.TabIndex = 1;
+            this.add_car_cp.Text = "车牌号";
+            // 
+            // add_car_cp_textbox
+            // 
+            this.add_car_cp_textbox.Location = new System.Drawing.Point(69, 36);
+            this.add_car_cp_textbox.Name = "add_car_cp_textbox";
+            this.add_car_cp_textbox.Size = new System.Drawing.Size(90, 21);
+            this.add_car_cp_textbox.TabIndex = 0;
+            // 
+            // up_student_tabPage
+            // 
+            this.up_student_tabPage.Controls.Add(this.delete_student_gb);
+            this.up_student_tabPage.Controls.Add(this.up_studnet_gb);
+            this.up_student_tabPage.Controls.Add(this.add_student_gb);
+            this.up_student_tabPage.Location = new System.Drawing.Point(4, 22);
+            this.up_student_tabPage.Name = "up_student_tabPage";
+            this.up_student_tabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.up_student_tabPage.Size = new System.Drawing.Size(600, 359);
+            this.up_student_tabPage.TabIndex = 1;
+            this.up_student_tabPage.Text = "更新学员信息";
+            this.up_student_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // delete_student_gb
+            // 
+            this.delete_student_gb.Controls.Add(this.delete_student_sno_comboBox);
+            this.delete_student_gb.Controls.Add(this.delete_student_button);
+            this.delete_student_gb.Controls.Add(this.delete_student_name_textBox);
+            this.delete_student_gb.Controls.Add(this.delete_student_name);
+            this.delete_student_gb.Controls.Add(this.delete_student_sno);
+            this.delete_student_gb.Location = new System.Drawing.Point(428, 24);
+            this.delete_student_gb.Name = "delete_student_gb";
+            this.delete_student_gb.Size = new System.Drawing.Size(174, 329);
+            this.delete_student_gb.TabIndex = 12;
+            this.delete_student_gb.TabStop = false;
+            this.delete_student_gb.Text = "删除学员";
+            // 
+            // delete_student_sno_comboBox
+            // 
+            this.delete_student_sno_comboBox.FormattingEnabled = true;
+            this.delete_student_sno_comboBox.Location = new System.Drawing.Point(69, 36);
+            this.delete_student_sno_comboBox.Name = "delete_student_sno_comboBox";
+            this.delete_student_sno_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.delete_student_sno_comboBox.TabIndex = 15;
+            this.delete_student_sno_comboBox.SelectedIndexChanged += new System.EventHandler(this.delete_student_sno_comboBox_SelectedIndexChanged);
+            // 
+            // delete_student_button
+            // 
+            this.delete_student_button.Location = new System.Drawing.Point(44, 149);
+            this.delete_student_button.Name = "delete_student_button";
+            this.delete_student_button.Size = new System.Drawing.Size(75, 23);
+            this.delete_student_button.TabIndex = 11;
+            this.delete_student_button.Text = "删除学员";
+            this.delete_student_button.UseVisualStyleBackColor = true;
+            this.delete_student_button.Click += new System.EventHandler(this.delete_student_button_Click);
+            // 
+            // delete_student_name_textBox
+            // 
+            this.delete_student_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.delete_student_name_textBox.Name = "delete_student_name_textBox";
+            this.delete_student_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.delete_student_name_textBox.TabIndex = 8;
+            // 
+            // delete_student_name
+            // 
+            this.delete_student_name.AutoSize = true;
+            this.delete_student_name.Location = new System.Drawing.Point(6, 76);
+            this.delete_student_name.Name = "delete_student_name";
+            this.delete_student_name.Size = new System.Drawing.Size(29, 12);
+            this.delete_student_name.TabIndex = 2;
+            this.delete_student_name.Text = "姓名";
+            // 
+            // delete_student_sno
+            // 
+            this.delete_student_sno.AutoSize = true;
+            this.delete_student_sno.Location = new System.Drawing.Point(6, 39);
+            this.delete_student_sno.Name = "delete_student_sno";
+            this.delete_student_sno.Size = new System.Drawing.Size(53, 12);
+            this.delete_student_sno.TabIndex = 1;
+            this.delete_student_sno.Text = "学员编号";
+            // 
+            // up_studnet_gb
+            // 
+            this.up_studnet_gb.Controls.Add(this.up_student_sex_comboBox);
+            this.up_studnet_gb.Controls.Add(this.up_student_sex);
+            this.up_studnet_gb.Controls.Add(this.up_student_jd_comboBox);
+            this.up_studnet_gb.Controls.Add(this.up_student_jd);
+            this.up_studnet_gb.Controls.Add(this.up_student_pay_comboBox);
+            this.up_studnet_gb.Controls.Add(this.up_student_sno_comboBox);
+            this.up_studnet_gb.Controls.Add(this.up_student_qx_button);
+            this.up_studnet_gb.Controls.Add(this.up_student_hq_button);
+            this.up_studnet_gb.Controls.Add(this.up_student_xg_button);
+            this.up_studnet_gb.Controls.Add(this.up_student_name_textBox);
+            this.up_studnet_gb.Controls.Add(this.up_student_phone_textBox);
+            this.up_studnet_gb.Controls.Add(this.up_student_pay);
+            this.up_studnet_gb.Controls.Add(this.up_student_phone);
+            this.up_studnet_gb.Controls.Add(this.up_student_name);
+            this.up_studnet_gb.Controls.Add(this.up_student_sno);
+            this.up_studnet_gb.Location = new System.Drawing.Point(218, 24);
+            this.up_studnet_gb.Name = "up_studnet_gb";
+            this.up_studnet_gb.Size = new System.Drawing.Size(183, 333);
+            this.up_studnet_gb.TabIndex = 2;
+            this.up_studnet_gb.TabStop = false;
+            this.up_studnet_gb.Text = "修改学员";
+            // 
+            // up_student_sex_comboBox
+            // 
+            this.up_student_sex_comboBox.FormattingEnabled = true;
+            this.up_student_sex_comboBox.Items.AddRange(new object[] {
+            "男",
+            "女"});
+            this.up_student_sex_comboBox.Location = new System.Drawing.Point(69, 120);
+            this.up_student_sex_comboBox.Name = "up_student_sex_comboBox";
+            this.up_student_sex_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.up_student_sex_comboBox.TabIndex = 20;
+            // 
+            // up_student_sex
+            // 
+            this.up_student_sex.AutoSize = true;
+            this.up_student_sex.Location = new System.Drawing.Point(6, 120);
+            this.up_student_sex.Name = "up_student_sex";
+            this.up_student_sex.Size = new System.Drawing.Size(29, 12);
+            this.up_student_sex.TabIndex = 19;
+            this.up_student_sex.Text = "性别";
+            // 
+            // up_student_jd_comboBox
+            // 
+            this.up_student_jd_comboBox.FormattingEnabled = true;
+            this.up_student_jd_comboBox.Location = new System.Drawing.Point(69, 234);
+            this.up_student_jd_comboBox.Name = "up_student_jd_comboBox";
+            this.up_student_jd_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.up_student_jd_comboBox.TabIndex = 18;
+            // 
+            // up_student_jd
+            // 
+            this.up_student_jd.AutoSize = true;
+            this.up_student_jd.Location = new System.Drawing.Point(6, 237);
+            this.up_student_jd.Name = "up_student_jd";
+            this.up_student_jd.Size = new System.Drawing.Size(29, 12);
+            this.up_student_jd.TabIndex = 17;
+            this.up_student_jd.Text = "进度";
+            // 
+            // up_student_pay_comboBox
+            // 
+            this.up_student_pay_comboBox.FormattingEnabled = true;
+            this.up_student_pay_comboBox.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.up_student_pay_comboBox.Location = new System.Drawing.Point(69, 199);
+            this.up_student_pay_comboBox.Name = "up_student_pay_comboBox";
+            this.up_student_pay_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.up_student_pay_comboBox.TabIndex = 16;
+            // 
+            // up_student_sno_comboBox
+            // 
+            this.up_student_sno_comboBox.FormattingEnabled = true;
+            this.up_student_sno_comboBox.Location = new System.Drawing.Point(69, 37);
+            this.up_student_sno_comboBox.Name = "up_student_sno_comboBox";
+            this.up_student_sno_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.up_student_sno_comboBox.TabIndex = 15;
+            // 
+            // up_student_qx_button
+            // 
+            this.up_student_qx_button.Location = new System.Drawing.Point(102, 275);
+            this.up_student_qx_button.Name = "up_student_qx_button";
+            this.up_student_qx_button.Size = new System.Drawing.Size(75, 23);
+            this.up_student_qx_button.TabIndex = 13;
+            this.up_student_qx_button.Text = "取消";
+            this.up_student_qx_button.UseVisualStyleBackColor = true;
+            this.up_student_qx_button.Click += new System.EventHandler(this.up_student_qx_button_Click);
+            // 
+            // up_student_hq_button
+            // 
+            this.up_student_hq_button.Location = new System.Drawing.Point(0, 275);
+            this.up_student_hq_button.Name = "up_student_hq_button";
+            this.up_student_hq_button.Size = new System.Drawing.Size(75, 23);
+            this.up_student_hq_button.TabIndex = 12;
+            this.up_student_hq_button.Text = "获取学员";
+            this.up_student_hq_button.UseVisualStyleBackColor = true;
+            this.up_student_hq_button.Click += new System.EventHandler(this.up_student_hq_button_Click);
+            // 
+            // up_student_xg_button
+            // 
+            this.up_student_xg_button.Location = new System.Drawing.Point(46, 304);
+            this.up_student_xg_button.Name = "up_student_xg_button";
+            this.up_student_xg_button.Size = new System.Drawing.Size(75, 23);
+            this.up_student_xg_button.TabIndex = 11;
+            this.up_student_xg_button.Text = "修改学员";
+            this.up_student_xg_button.UseVisualStyleBackColor = true;
+            this.up_student_xg_button.Click += new System.EventHandler(this.up_student_xg_button_Click);
+            // 
+            // up_student_name_textBox
+            // 
+            this.up_student_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.up_student_name_textBox.Name = "up_student_name_textBox";
+            this.up_student_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.up_student_name_textBox.TabIndex = 8;
+            // 
+            // up_student_phone_textBox
+            // 
+            this.up_student_phone_textBox.Location = new System.Drawing.Point(69, 157);
+            this.up_student_phone_textBox.Name = "up_student_phone_textBox";
+            this.up_student_phone_textBox.Size = new System.Drawing.Size(90, 21);
+            this.up_student_phone_textBox.TabIndex = 6;
+            // 
+            // up_student_pay
+            // 
+            this.up_student_pay.AutoSize = true;
+            this.up_student_pay.Location = new System.Drawing.Point(6, 202);
+            this.up_student_pay.Name = "up_student_pay";
+            this.up_student_pay.Size = new System.Drawing.Size(53, 12);
+            this.up_student_pay.TabIndex = 4;
+            this.up_student_pay.Text = "缴费情况";
+            // 
+            // up_student_phone
+            // 
+            this.up_student_phone.AutoSize = true;
+            this.up_student_phone.Location = new System.Drawing.Point(6, 166);
+            this.up_student_phone.Name = "up_student_phone";
+            this.up_student_phone.Size = new System.Drawing.Size(53, 12);
+            this.up_student_phone.TabIndex = 3;
+            this.up_student_phone.Text = "联系方式";
+            // 
+            // up_student_name
+            // 
+            this.up_student_name.AutoSize = true;
+            this.up_student_name.Location = new System.Drawing.Point(6, 76);
+            this.up_student_name.Name = "up_student_name";
+            this.up_student_name.Size = new System.Drawing.Size(29, 12);
+            this.up_student_name.TabIndex = 2;
+            this.up_student_name.Text = "姓名";
+            // 
+            // up_student_sno
+            // 
+            this.up_student_sno.AutoSize = true;
+            this.up_student_sno.Location = new System.Drawing.Point(6, 39);
+            this.up_student_sno.Name = "up_student_sno";
+            this.up_student_sno.Size = new System.Drawing.Size(53, 12);
+            this.up_student_sno.TabIndex = 1;
+            this.up_student_sno.Text = "学员编号";
+            // 
+            // add_student_gb
+            // 
+            this.add_student_gb.Controls.Add(this.add_student_jd_comboBox);
+            this.add_student_gb.Controls.Add(this.add_student_jd);
+            this.add_student_gb.Controls.Add(this.add_student_pay_comboBox);
+            this.add_student_gb.Controls.Add(this.add_student_pay);
+            this.add_student_gb.Controls.Add(this.add_student_sex_comboBox);
+            this.add_student_gb.Controls.Add(this.add_student_phone);
+            this.add_student_gb.Controls.Add(this.add_student_button);
+            this.add_student_gb.Controls.Add(this.add_student_sno_textbox);
+            this.add_student_gb.Controls.Add(this.add_student_phone_textbox);
+            this.add_student_gb.Controls.Add(this.add_student_sex);
+            this.add_student_gb.Controls.Add(this.add_student_sno);
+            this.add_student_gb.Controls.Add(this.add_student_name);
+            this.add_student_gb.Controls.Add(this.add_student_name_textbox);
+            this.add_student_gb.Location = new System.Drawing.Point(20, 24);
+            this.add_student_gb.Name = "add_student_gb";
+            this.add_student_gb.Size = new System.Drawing.Size(170, 333);
+            this.add_student_gb.TabIndex = 1;
+            this.add_student_gb.TabStop = false;
+            this.add_student_gb.Text = "添加学员";
+            // 
+            // add_student_jd_comboBox
+            // 
+            this.add_student_jd_comboBox.FormattingEnabled = true;
+            this.add_student_jd_comboBox.Location = new System.Drawing.Point(69, 231);
+            this.add_student_jd_comboBox.Name = "add_student_jd_comboBox";
+            this.add_student_jd_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.add_student_jd_comboBox.TabIndex = 25;
+            // 
+            // add_student_jd
+            // 
+            this.add_student_jd.AutoSize = true;
+            this.add_student_jd.Location = new System.Drawing.Point(6, 234);
+            this.add_student_jd.Name = "add_student_jd";
+            this.add_student_jd.Size = new System.Drawing.Size(29, 12);
+            this.add_student_jd.TabIndex = 24;
+            this.add_student_jd.Text = "进度";
+            // 
+            // add_student_pay_comboBox
+            // 
+            this.add_student_pay_comboBox.FormattingEnabled = true;
+            this.add_student_pay_comboBox.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.add_student_pay_comboBox.Location = new System.Drawing.Point(69, 196);
+            this.add_student_pay_comboBox.Name = "add_student_pay_comboBox";
+            this.add_student_pay_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.add_student_pay_comboBox.TabIndex = 23;
+            // 
+            // add_student_pay
+            // 
+            this.add_student_pay.AutoSize = true;
+            this.add_student_pay.Location = new System.Drawing.Point(6, 199);
+            this.add_student_pay.Name = "add_student_pay";
+            this.add_student_pay.Size = new System.Drawing.Size(53, 12);
+            this.add_student_pay.TabIndex = 22;
+            this.add_student_pay.Text = "缴费情况";
+            // 
+            // add_student_sex_comboBox
+            // 
+            this.add_student_sex_comboBox.FormattingEnabled = true;
+            this.add_student_sex_comboBox.Items.AddRange(new object[] {
+            "男",
+            "女"});
+            this.add_student_sex_comboBox.Location = new System.Drawing.Point(69, 117);
+            this.add_student_sex_comboBox.Name = "add_student_sex_comboBox";
+            this.add_student_sex_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.add_student_sex_comboBox.TabIndex = 21;
+            // 
+            // add_student_phone
+            // 
+            this.add_student_phone.AutoSize = true;
+            this.add_student_phone.Location = new System.Drawing.Point(6, 160);
+            this.add_student_phone.Name = "add_student_phone";
+            this.add_student_phone.Size = new System.Drawing.Size(53, 12);
+            this.add_student_phone.TabIndex = 15;
+            this.add_student_phone.Text = "联系方式";
+            // 
+            // add_student_button
+            // 
+            this.add_student_button.Location = new System.Drawing.Point(35, 286);
+            this.add_student_button.Name = "add_student_button";
+            this.add_student_button.Size = new System.Drawing.Size(75, 23);
+            this.add_student_button.TabIndex = 14;
+            this.add_student_button.Text = "新增学员";
+            this.add_student_button.UseVisualStyleBackColor = true;
+            this.add_student_button.Click += new System.EventHandler(this.add_student_button_Click);
+            // 
+            // add_student_sno_textbox
+            // 
+            this.add_student_sno_textbox.Location = new System.Drawing.Point(69, 76);
+            this.add_student_sno_textbox.Name = "add_student_sno_textbox";
+            this.add_student_sno_textbox.Size = new System.Drawing.Size(90, 21);
+            this.add_student_sno_textbox.TabIndex = 8;
+            // 
+            // add_student_phone_textbox
+            // 
+            this.add_student_phone_textbox.Location = new System.Drawing.Point(69, 151);
+            this.add_student_phone_textbox.Name = "add_student_phone_textbox";
+            this.add_student_phone_textbox.Size = new System.Drawing.Size(90, 21);
+            this.add_student_phone_textbox.TabIndex = 6;
+            // 
+            // add_student_sex
+            // 
+            this.add_student_sex.AutoSize = true;
+            this.add_student_sex.Location = new System.Drawing.Point(6, 120);
+            this.add_student_sex.Name = "add_student_sex";
+            this.add_student_sex.Size = new System.Drawing.Size(29, 12);
+            this.add_student_sex.TabIndex = 3;
+            this.add_student_sex.Text = "性别";
+            // 
+            // add_student_sno
+            // 
+            this.add_student_sno.AutoSize = true;
+            this.add_student_sno.Location = new System.Drawing.Point(6, 76);
+            this.add_student_sno.Name = "add_student_sno";
+            this.add_student_sno.Size = new System.Drawing.Size(53, 12);
+            this.add_student_sno.TabIndex = 2;
+            this.add_student_sno.Text = "学员编号";
+            // 
+            // add_student_name
+            // 
+            this.add_student_name.AutoSize = true;
+            this.add_student_name.Location = new System.Drawing.Point(6, 39);
+            this.add_student_name.Name = "add_student_name";
+            this.add_student_name.Size = new System.Drawing.Size(29, 12);
+            this.add_student_name.TabIndex = 1;
+            this.add_student_name.Text = "姓名";
+            // 
+            // add_student_name_textbox
+            // 
+            this.add_student_name_textbox.Location = new System.Drawing.Point(69, 36);
+            this.add_student_name_textbox.Name = "add_student_name_textbox";
+            this.add_student_name_textbox.Size = new System.Drawing.Size(90, 21);
+            this.add_student_name_textbox.TabIndex = 0;
+            // 
+            // up__coach_tabPage
+            // 
+            this.up__coach_tabPage.Controls.Add(this.delete_coach_gb);
+            this.up__coach_tabPage.Controls.Add(this.add_coach_gb);
+            this.up__coach_tabPage.Controls.Add(this.up_coach_gb);
+            this.up__coach_tabPage.Location = new System.Drawing.Point(4, 22);
+            this.up__coach_tabPage.Name = "up__coach_tabPage";
+            this.up__coach_tabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.up__coach_tabPage.Size = new System.Drawing.Size(600, 359);
+            this.up__coach_tabPage.TabIndex = 2;
+            this.up__coach_tabPage.Text = "更新教练信息";
+            this.up__coach_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // delete_coach_gb
+            // 
+            this.delete_coach_gb.Controls.Add(this.delete_coach_cno_comboBox);
+            this.delete_coach_gb.Controls.Add(this.delete_coach_button);
+            this.delete_coach_gb.Controls.Add(this.delete_coach_name_textBox);
+            this.delete_coach_gb.Controls.Add(this.delete_coach_name);
+            this.delete_coach_gb.Controls.Add(this.delete_coach_cno);
+            this.delete_coach_gb.Location = new System.Drawing.Point(421, 29);
+            this.delete_coach_gb.Name = "delete_coach_gb";
+            this.delete_coach_gb.Size = new System.Drawing.Size(174, 272);
+            this.delete_coach_gb.TabIndex = 14;
+            this.delete_coach_gb.TabStop = false;
+            this.delete_coach_gb.Text = "删除教练";
+            // 
+            // delete_coach_cno_comboBox
+            // 
+            this.delete_coach_cno_comboBox.FormattingEnabled = true;
+            this.delete_coach_cno_comboBox.Location = new System.Drawing.Point(69, 36);
+            this.delete_coach_cno_comboBox.Name = "delete_coach_cno_comboBox";
+            this.delete_coach_cno_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.delete_coach_cno_comboBox.TabIndex = 15;
+            this.delete_coach_cno_comboBox.SelectedIndexChanged += new System.EventHandler(this.delete_coach_cno_comboBox_SelectedIndexChanged);
+            // 
+            // delete_coach_button
+            // 
+            this.delete_coach_button.Location = new System.Drawing.Point(50, 133);
+            this.delete_coach_button.Name = "delete_coach_button";
+            this.delete_coach_button.Size = new System.Drawing.Size(75, 23);
+            this.delete_coach_button.TabIndex = 14;
+            this.delete_coach_button.Text = "删除教练";
+            this.delete_coach_button.UseVisualStyleBackColor = true;
+            this.delete_coach_button.Click += new System.EventHandler(this.delete_coach_button_Click);
+            // 
+            // delete_coach_name_textBox
+            // 
+            this.delete_coach_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.delete_coach_name_textBox.Name = "delete_coach_name_textBox";
+            this.delete_coach_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.delete_coach_name_textBox.TabIndex = 8;
+            // 
+            // delete_coach_name
+            // 
+            this.delete_coach_name.AutoSize = true;
+            this.delete_coach_name.Location = new System.Drawing.Point(6, 76);
+            this.delete_coach_name.Name = "delete_coach_name";
+            this.delete_coach_name.Size = new System.Drawing.Size(29, 12);
+            this.delete_coach_name.TabIndex = 2;
+            this.delete_coach_name.Text = "姓名";
+            // 
+            // delete_coach_cno
+            // 
+            this.delete_coach_cno.AutoSize = true;
+            this.delete_coach_cno.Location = new System.Drawing.Point(6, 39);
+            this.delete_coach_cno.Name = "delete_coach_cno";
+            this.delete_coach_cno.Size = new System.Drawing.Size(53, 12);
+            this.delete_coach_cno.TabIndex = 1;
+            this.delete_coach_cno.Text = "教练编号";
+            // 
+            // add_coach_gb
+            // 
+            this.add_coach_gb.Controls.Add(this.add_coach_sex_comboBox);
+            this.add_coach_gb.Controls.Add(this.add_coach_phone_textBox);
+            this.add_coach_gb.Controls.Add(this.add_coach_phone);
+            this.add_coach_gb.Controls.Add(this.add_coach_button);
+            this.add_coach_gb.Controls.Add(this.add_coach_name_textBox);
+            this.add_coach_gb.Controls.Add(this.add_coach_sex);
+            this.add_coach_gb.Controls.Add(this.add_coach_name);
+            this.add_coach_gb.Controls.Add(this.add_coach_cno);
+            this.add_coach_gb.Controls.Add(this.add_coach_cno_textBox);
+            this.add_coach_gb.Location = new System.Drawing.Point(19, 29);
+            this.add_coach_gb.Name = "add_coach_gb";
+            this.add_coach_gb.Size = new System.Drawing.Size(174, 272);
+            this.add_coach_gb.TabIndex = 14;
+            this.add_coach_gb.TabStop = false;
+            this.add_coach_gb.Text = "新增教练";
+            // 
+            // add_coach_sex_comboBox
+            // 
+            this.add_coach_sex_comboBox.Items.AddRange(new object[] {
+            "男",
+            "女"});
+            this.add_coach_sex_comboBox.Location = new System.Drawing.Point(69, 120);
+            this.add_coach_sex_comboBox.Name = "add_coach_sex_comboBox";
+            this.add_coach_sex_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.add_coach_sex_comboBox.TabIndex = 18;
+            // 
+            // add_coach_phone_textBox
+            // 
+            this.add_coach_phone_textBox.Location = new System.Drawing.Point(69, 161);
+            this.add_coach_phone_textBox.Name = "add_coach_phone_textBox";
+            this.add_coach_phone_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_coach_phone_textBox.TabIndex = 13;
+            // 
+            // add_coach_phone
+            // 
+            this.add_coach_phone.AutoSize = true;
+            this.add_coach_phone.Location = new System.Drawing.Point(6, 166);
+            this.add_coach_phone.Name = "add_coach_phone";
+            this.add_coach_phone.Size = new System.Drawing.Size(53, 12);
+            this.add_coach_phone.TabIndex = 12;
+            this.add_coach_phone.Text = "联系方式";
+            // 
+            // add_coach_button
+            // 
+            this.add_coach_button.Location = new System.Drawing.Point(35, 202);
+            this.add_coach_button.Name = "add_coach_button";
+            this.add_coach_button.Size = new System.Drawing.Size(75, 23);
+            this.add_coach_button.TabIndex = 11;
+            this.add_coach_button.Text = "新增教练";
+            this.add_coach_button.UseVisualStyleBackColor = true;
+            this.add_coach_button.Click += new System.EventHandler(this.add_coach_button_Click);
+            // 
+            // add_coach_name_textBox
+            // 
+            this.add_coach_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.add_coach_name_textBox.Name = "add_coach_name_textBox";
+            this.add_coach_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_coach_name_textBox.TabIndex = 8;
+            // 
+            // add_coach_sex
+            // 
+            this.add_coach_sex.AutoSize = true;
+            this.add_coach_sex.Location = new System.Drawing.Point(6, 120);
+            this.add_coach_sex.Name = "add_coach_sex";
+            this.add_coach_sex.Size = new System.Drawing.Size(29, 12);
+            this.add_coach_sex.TabIndex = 3;
+            this.add_coach_sex.Text = "性别";
+            // 
+            // add_coach_name
+            // 
+            this.add_coach_name.AutoSize = true;
+            this.add_coach_name.Location = new System.Drawing.Point(6, 76);
+            this.add_coach_name.Name = "add_coach_name";
+            this.add_coach_name.Size = new System.Drawing.Size(29, 12);
+            this.add_coach_name.TabIndex = 2;
+            this.add_coach_name.Text = "姓名";
+            // 
+            // add_coach_cno
+            // 
+            this.add_coach_cno.AutoSize = true;
+            this.add_coach_cno.Location = new System.Drawing.Point(6, 39);
+            this.add_coach_cno.Name = "add_coach_cno";
+            this.add_coach_cno.Size = new System.Drawing.Size(53, 12);
+            this.add_coach_cno.TabIndex = 1;
+            this.add_coach_cno.Text = "教练编号";
+            // 
+            // add_coach_cno_textBox
+            // 
+            this.add_coach_cno_textBox.Location = new System.Drawing.Point(69, 36);
+            this.add_coach_cno_textBox.Name = "add_coach_cno_textBox";
+            this.add_coach_cno_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_coach_cno_textBox.TabIndex = 0;
+            // 
+            // up_coach_gb
+            // 
+            this.up_coach_gb.Controls.Add(this.up_coach_sex_comboBox);
+            this.up_coach_gb.Controls.Add(this.up_coach_phone);
+            this.up_coach_gb.Controls.Add(this.up_coach_cno_comboBox);
+            this.up_coach_gb.Controls.Add(this.up_coach_qx_button);
+            this.up_coach_gb.Controls.Add(this.up_coach_hq_button);
+            this.up_coach_gb.Controls.Add(this.up_coach_xg_button);
+            this.up_coach_gb.Controls.Add(this.up_coach_name_textBox);
+            this.up_coach_gb.Controls.Add(this.up_coach_phone_textBox);
+            this.up_coach_gb.Controls.Add(this.up_coach_sex);
+            this.up_coach_gb.Controls.Add(this.up_coach_name);
+            this.up_coach_gb.Controls.Add(this.up_coach_cno);
+            this.up_coach_gb.Location = new System.Drawing.Point(231, 29);
+            this.up_coach_gb.Name = "up_coach_gb";
+            this.up_coach_gb.Size = new System.Drawing.Size(174, 272);
+            this.up_coach_gb.TabIndex = 3;
+            this.up_coach_gb.TabStop = false;
+            this.up_coach_gb.Text = "修改教练";
+            // 
+            // up_coach_sex_comboBox
+            // 
+            this.up_coach_sex_comboBox.FormattingEnabled = true;
+            this.up_coach_sex_comboBox.Items.AddRange(new object[] {
+            "男",
+            "女"});
+            this.up_coach_sex_comboBox.Location = new System.Drawing.Point(69, 117);
+            this.up_coach_sex_comboBox.Name = "up_coach_sex_comboBox";
+            this.up_coach_sex_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.up_coach_sex_comboBox.TabIndex = 17;
+            // 
+            // up_coach_phone
+            // 
+            this.up_coach_phone.AutoSize = true;
+            this.up_coach_phone.Location = new System.Drawing.Point(6, 161);
+            this.up_coach_phone.Name = "up_coach_phone";
+            this.up_coach_phone.Size = new System.Drawing.Size(53, 12);
+            this.up_coach_phone.TabIndex = 16;
+            this.up_coach_phone.Text = "联系方式";
+            // 
+            // up_coach_cno_comboBox
+            // 
+            this.up_coach_cno_comboBox.FormattingEnabled = true;
+            this.up_coach_cno_comboBox.Location = new System.Drawing.Point(69, 36);
+            this.up_coach_cno_comboBox.Name = "up_coach_cno_comboBox";
+            this.up_coach_cno_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.up_coach_cno_comboBox.TabIndex = 15;
+            // 
+            // up_coach_qx_button
+            // 
+            this.up_coach_qx_button.Location = new System.Drawing.Point(93, 193);
+            this.up_coach_qx_button.Name = "up_coach_qx_button";
+            this.up_coach_qx_button.Size = new System.Drawing.Size(75, 23);
+            this.up_coach_qx_button.TabIndex = 13;
+            this.up_coach_qx_button.Text = "取消";
+            this.up_coach_qx_button.UseVisualStyleBackColor = true;
+            this.up_coach_qx_button.Click += new System.EventHandler(this.up_coach_qx_button_Click);
+            // 
+            // up_coach_hq_button
+            // 
+            this.up_coach_hq_button.Location = new System.Drawing.Point(0, 193);
+            this.up_coach_hq_button.Name = "up_coach_hq_button";
+            this.up_coach_hq_button.Size = new System.Drawing.Size(75, 23);
+            this.up_coach_hq_button.TabIndex = 12;
+            this.up_coach_hq_button.Text = "获取教练";
+            this.up_coach_hq_button.UseVisualStyleBackColor = true;
+            this.up_coach_hq_button.Click += new System.EventHandler(this.up_coach_hq_button_Click);
+            // 
+            // up_coach_xg_button
+            // 
+            this.up_coach_xg_button.Location = new System.Drawing.Point(46, 232);
+            this.up_coach_xg_button.Name = "up_coach_xg_button";
+            this.up_coach_xg_button.Size = new System.Drawing.Size(75, 23);
+            this.up_coach_xg_button.TabIndex = 11;
+            this.up_coach_xg_button.Text = "修改教练";
+            this.up_coach_xg_button.UseVisualStyleBackColor = true;
+            this.up_coach_xg_button.Click += new System.EventHandler(this.up_coach_xg_button_Click);
+            // 
+            // up_coach_name_textBox
+            // 
+            this.up_coach_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.up_coach_name_textBox.Name = "up_coach_name_textBox";
+            this.up_coach_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.up_coach_name_textBox.TabIndex = 8;
+            // 
+            // up_coach_phone_textBox
+            // 
+            this.up_coach_phone_textBox.Location = new System.Drawing.Point(69, 157);
+            this.up_coach_phone_textBox.Name = "up_coach_phone_textBox";
+            this.up_coach_phone_textBox.Size = new System.Drawing.Size(90, 21);
+            this.up_coach_phone_textBox.TabIndex = 6;
+            // 
+            // up_coach_sex
+            // 
+            this.up_coach_sex.AutoSize = true;
+            this.up_coach_sex.Location = new System.Drawing.Point(6, 120);
+            this.up_coach_sex.Name = "up_coach_sex";
+            this.up_coach_sex.Size = new System.Drawing.Size(29, 12);
+            this.up_coach_sex.TabIndex = 3;
+            this.up_coach_sex.Text = "性别";
+            // 
+            // up_coach_name
+            // 
+            this.up_coach_name.AutoSize = true;
+            this.up_coach_name.Location = new System.Drawing.Point(6, 76);
+            this.up_coach_name.Name = "up_coach_name";
+            this.up_coach_name.Size = new System.Drawing.Size(29, 12);
+            this.up_coach_name.TabIndex = 2;
+            this.up_coach_name.Text = "姓名";
+            // 
+            // up_coach_cno
+            // 
+            this.up_coach_cno.AutoSize = true;
+            this.up_coach_cno.Location = new System.Drawing.Point(6, 39);
+            this.up_coach_cno.Name = "up_coach_cno";
+            this.up_coach_cno.Size = new System.Drawing.Size(53, 12);
+            this.up_coach_cno.TabIndex = 1;
+            this.up_coach_cno.Text = "教练编号";
+            // 
+            // up_test_tabPage
+            // 
+            this.up_test_tabPage.Controls.Add(this.delete_test_gb);
+            this.up_test_tabPage.Controls.Add(this.up_test_gb);
+            this.up_test_tabPage.Controls.Add(this.add_test_gb);
+            this.up_test_tabPage.Location = new System.Drawing.Point(4, 22);
+            this.up_test_tabPage.Name = "up_test_tabPage";
+            this.up_test_tabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.up_test_tabPage.Size = new System.Drawing.Size(600, 359);
+            this.up_test_tabPage.TabIndex = 3;
+            this.up_test_tabPage.Text = "更新考试信息";
+            this.up_test_tabPage.UseVisualStyleBackColor = true;
+            this.up_test_tabPage.Click += new System.EventHandler(this.up_test_tabPage_Click);
+            // 
+            // delete_test_gb
+            // 
+            this.delete_test_gb.Controls.Add(this.delete_test_tno_comboBox);
+            this.delete_test_gb.Controls.Add(this.delete_test__button);
+            this.delete_test_gb.Controls.Add(this.delete_test_name_textBox);
+            this.delete_test_gb.Controls.Add(this.delete_test_sm_textBox);
+            this.delete_test_gb.Controls.Add(this.delete_test_sm);
+            this.delete_test_gb.Controls.Add(this.delete_test_name);
+            this.delete_test_gb.Controls.Add(this.delete_test_tno);
+            this.delete_test_gb.Location = new System.Drawing.Point(419, 20);
+            this.delete_test_gb.Name = "delete_test_gb";
+            this.delete_test_gb.Size = new System.Drawing.Size(174, 272);
+            this.delete_test_gb.TabIndex = 16;
+            this.delete_test_gb.TabStop = false;
+            this.delete_test_gb.Text = "删除考试类别";
+            // 
+            // delete_test_tno_comboBox
+            // 
+            this.delete_test_tno_comboBox.FormattingEnabled = true;
+            this.delete_test_tno_comboBox.Location = new System.Drawing.Point(69, 39);
+            this.delete_test_tno_comboBox.Name = "delete_test_tno_comboBox";
+            this.delete_test_tno_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.delete_test_tno_comboBox.TabIndex = 15;
+            this.delete_test_tno_comboBox.SelectedIndexChanged += new System.EventHandler(this.delete_test_tno_comboBox_SelectedIndexChanged);
+            // 
+            // delete_test__button
+            // 
+            this.delete_test__button.Location = new System.Drawing.Point(47, 161);
+            this.delete_test__button.Name = "delete_test__button";
+            this.delete_test__button.Size = new System.Drawing.Size(75, 23);
+            this.delete_test__button.TabIndex = 11;
+            this.delete_test__button.Text = "删除类别";
+            this.delete_test__button.UseVisualStyleBackColor = true;
+            this.delete_test__button.Click += new System.EventHandler(this.delete_test__button_Click);
+            // 
+            // delete_test_name_textBox
+            // 
+            this.delete_test_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.delete_test_name_textBox.Name = "delete_test_name_textBox";
+            this.delete_test_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.delete_test_name_textBox.TabIndex = 8;
+            // 
+            // delete_test_sm_textBox
+            // 
+            this.delete_test_sm_textBox.Location = new System.Drawing.Point(69, 111);
+            this.delete_test_sm_textBox.Name = "delete_test_sm_textBox";
+            this.delete_test_sm_textBox.Size = new System.Drawing.Size(90, 21);
+            this.delete_test_sm_textBox.TabIndex = 6;
+            // 
+            // delete_test_sm
+            // 
+            this.delete_test_sm.AutoSize = true;
+            this.delete_test_sm.Location = new System.Drawing.Point(6, 120);
+            this.delete_test_sm.Name = "delete_test_sm";
+            this.delete_test_sm.Size = new System.Drawing.Size(29, 12);
+            this.delete_test_sm.TabIndex = 3;
+            this.delete_test_sm.Text = "说明";
+            // 
+            // delete_test_name
+            // 
+            this.delete_test_name.AutoSize = true;
+            this.delete_test_name.Location = new System.Drawing.Point(6, 76);
+            this.delete_test_name.Name = "delete_test_name";
+            this.delete_test_name.Size = new System.Drawing.Size(29, 12);
+            this.delete_test_name.TabIndex = 2;
+            this.delete_test_name.Text = "名称";
+            // 
+            // delete_test_tno
+            // 
+            this.delete_test_tno.AutoSize = true;
+            this.delete_test_tno.Location = new System.Drawing.Point(6, 39);
+            this.delete_test_tno.Name = "delete_test_tno";
+            this.delete_test_tno.Size = new System.Drawing.Size(41, 12);
+            this.delete_test_tno.TabIndex = 1;
+            this.delete_test_tno.Text = "科目号";
+            // 
+            // up_test_gb
+            // 
+            this.up_test_gb.Controls.Add(this.up_test_tno_comboBox);
+            this.up_test_gb.Controls.Add(this.up_test_xg_button);
+            this.up_test_gb.Controls.Add(this.up_test_qx_button);
+            this.up_test_gb.Controls.Add(this.up_test_hq_button);
+            this.up_test_gb.Controls.Add(this.up_test_name_textBox);
+            this.up_test_gb.Controls.Add(this.up_test_sm_textBox);
+            this.up_test_gb.Controls.Add(this.up_test_sm);
+            this.up_test_gb.Controls.Add(this.up_test_name);
+            this.up_test_gb.Controls.Add(this.up_test_tno);
+            this.up_test_gb.Location = new System.Drawing.Point(216, 20);
+            this.up_test_gb.Name = "up_test_gb";
+            this.up_test_gb.Size = new System.Drawing.Size(174, 272);
+            this.up_test_gb.TabIndex = 16;
+            this.up_test_gb.TabStop = false;
+            this.up_test_gb.Text = "修改考试类别";
+            // 
+            // up_test_tno_comboBox
+            // 
+            this.up_test_tno_comboBox.FormattingEnabled = true;
+            this.up_test_tno_comboBox.Location = new System.Drawing.Point(69, 39);
+            this.up_test_tno_comboBox.Name = "up_test_tno_comboBox";
+            this.up_test_tno_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.up_test_tno_comboBox.TabIndex = 14;
+            // 
+            // up_test_xg_button
+            // 
+            this.up_test_xg_button.Location = new System.Drawing.Point(38, 208);
+            this.up_test_xg_button.Name = "up_test_xg_button";
+            this.up_test_xg_button.Size = new System.Drawing.Size(92, 23);
+            this.up_test_xg_button.TabIndex = 13;
+            this.up_test_xg_button.Text = "修改类别信息";
+            this.up_test_xg_button.UseVisualStyleBackColor = true;
+            this.up_test_xg_button.Click += new System.EventHandler(this.up_test_xg_button_Click);
+            // 
+            // up_test_qx_button
+            // 
+            this.up_test_qx_button.Location = new System.Drawing.Point(99, 161);
+            this.up_test_qx_button.Name = "up_test_qx_button";
+            this.up_test_qx_button.Size = new System.Drawing.Size(75, 23);
+            this.up_test_qx_button.TabIndex = 12;
+            this.up_test_qx_button.Text = "取消";
+            this.up_test_qx_button.UseVisualStyleBackColor = true;
+            this.up_test_qx_button.Click += new System.EventHandler(this.up_test_qx_button_Click);
+            // 
+            // up_test_hq_button
+            // 
+            this.up_test_hq_button.Location = new System.Drawing.Point(0, 161);
+            this.up_test_hq_button.Name = "up_test_hq_button";
+            this.up_test_hq_button.Size = new System.Drawing.Size(90, 23);
+            this.up_test_hq_button.TabIndex = 11;
+            this.up_test_hq_button.Text = "获取类别信息";
+            this.up_test_hq_button.UseVisualStyleBackColor = true;
+            this.up_test_hq_button.Click += new System.EventHandler(this.up_test_hq_button_Click);
+            // 
+            // up_test_name_textBox
+            // 
+            this.up_test_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.up_test_name_textBox.Name = "up_test_name_textBox";
+            this.up_test_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.up_test_name_textBox.TabIndex = 8;
+            // 
+            // up_test_sm_textBox
+            // 
+            this.up_test_sm_textBox.Location = new System.Drawing.Point(69, 111);
+            this.up_test_sm_textBox.Name = "up_test_sm_textBox";
+            this.up_test_sm_textBox.Size = new System.Drawing.Size(90, 21);
+            this.up_test_sm_textBox.TabIndex = 6;
+            // 
+            // up_test_sm
+            // 
+            this.up_test_sm.AutoSize = true;
+            this.up_test_sm.Location = new System.Drawing.Point(6, 120);
+            this.up_test_sm.Name = "up_test_sm";
+            this.up_test_sm.Size = new System.Drawing.Size(29, 12);
+            this.up_test_sm.TabIndex = 3;
+            this.up_test_sm.Text = "说明";
+            // 
+            // up_test_name
+            // 
+            this.up_test_name.AutoSize = true;
+            this.up_test_name.Location = new System.Drawing.Point(6, 76);
+            this.up_test_name.Name = "up_test_name";
+            this.up_test_name.Size = new System.Drawing.Size(29, 12);
+            this.up_test_name.TabIndex = 2;
+            this.up_test_name.Text = "名称";
+            // 
+            // up_test_tno
+            // 
+            this.up_test_tno.AutoSize = true;
+            this.up_test_tno.Location = new System.Drawing.Point(6, 39);
+            this.up_test_tno.Name = "up_test_tno";
+            this.up_test_tno.Size = new System.Drawing.Size(41, 12);
+            this.up_test_tno.TabIndex = 1;
+            this.up_test_tno.Text = "科目号";
+            // 
+            // add_test_gb
+            // 
+            this.add_test_gb.Controls.Add(this.add_test_button);
+            this.add_test_gb.Controls.Add(this.add_test_name_textBox);
+            this.add_test_gb.Controls.Add(this.add_test_sm_textBox);
+            this.add_test_gb.Controls.Add(this.add_test_sm);
+            this.add_test_gb.Controls.Add(this.add_test_name);
+            this.add_test_gb.Controls.Add(this.add_test_tno);
+            this.add_test_gb.Controls.Add(this.add_test_tno_textBox);
+            this.add_test_gb.Location = new System.Drawing.Point(19, 20);
+            this.add_test_gb.Name = "add_test_gb";
+            this.add_test_gb.Size = new System.Drawing.Size(174, 272);
+            this.add_test_gb.TabIndex = 15;
+            this.add_test_gb.TabStop = false;
+            this.add_test_gb.Text = "新增考试类别";
+            // 
+            // add_test_button
+            // 
+            this.add_test_button.Location = new System.Drawing.Point(37, 161);
+            this.add_test_button.Name = "add_test_button";
+            this.add_test_button.Size = new System.Drawing.Size(90, 23);
+            this.add_test_button.TabIndex = 11;
+            this.add_test_button.Text = "新增类别种类";
+            this.add_test_button.UseVisualStyleBackColor = true;
+            this.add_test_button.Click += new System.EventHandler(this.add_test_button_Click);
+            // 
+            // add_test_name_textBox
+            // 
+            this.add_test_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.add_test_name_textBox.Name = "add_test_name_textBox";
+            this.add_test_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_test_name_textBox.TabIndex = 8;
+            // 
+            // add_test_sm_textBox
+            // 
+            this.add_test_sm_textBox.Location = new System.Drawing.Point(69, 111);
+            this.add_test_sm_textBox.Name = "add_test_sm_textBox";
+            this.add_test_sm_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_test_sm_textBox.TabIndex = 6;
+            // 
+            // add_test_sm
+            // 
+            this.add_test_sm.AutoSize = true;
+            this.add_test_sm.Location = new System.Drawing.Point(6, 120);
+            this.add_test_sm.Name = "add_test_sm";
+            this.add_test_sm.Size = new System.Drawing.Size(29, 12);
+            this.add_test_sm.TabIndex = 3;
+            this.add_test_sm.Text = "说明";
+            // 
+            // add_test_name
+            // 
+            this.add_test_name.AutoSize = true;
+            this.add_test_name.Location = new System.Drawing.Point(6, 76);
+            this.add_test_name.Name = "add_test_name";
+            this.add_test_name.Size = new System.Drawing.Size(29, 12);
+            this.add_test_name.TabIndex = 2;
+            this.add_test_name.Text = "名称";
+            // 
+            // add_test_tno
+            // 
+            this.add_test_tno.AutoSize = true;
+            this.add_test_tno.Location = new System.Drawing.Point(6, 39);
+            this.add_test_tno.Name = "add_test_tno";
+            this.add_test_tno.Size = new System.Drawing.Size(41, 12);
+            this.add_test_tno.TabIndex = 1;
+            this.add_test_tno.Text = "科目号";
+            // 
+            // add_test_tno_textBox
+            // 
+            this.add_test_tno_textBox.Location = new System.Drawing.Point(69, 36);
+            this.add_test_tno_textBox.Name = "add_test_tno_textBox";
+            this.add_test_tno_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_test_tno_textBox.TabIndex = 0;
+            // 
+            // up__expense_tabPage
+            // 
+            this.up__expense_tabPage.Controls.Add(this.delete_expense_gb);
+            this.up__expense_tabPage.Controls.Add(this.up_expense_gb);
+            this.up__expense_tabPage.Controls.Add(this.add_expense_gb);
+            this.up__expense_tabPage.Location = new System.Drawing.Point(4, 22);
+            this.up__expense_tabPage.Name = "up__expense_tabPage";
+            this.up__expense_tabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.up__expense_tabPage.Size = new System.Drawing.Size(600, 359);
+            this.up__expense_tabPage.TabIndex = 4;
+            this.up__expense_tabPage.Text = "更新支出种类";
+            this.up__expense_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // delete_expense_gb
+            // 
+            this.delete_expense_gb.Controls.Add(this.delete_expense_sm_textBox);
+            this.delete_expense_gb.Controls.Add(this.delete_expense_sm);
+            this.delete_expense_gb.Controls.Add(this.delete_expense_eno_comboBox);
+            this.delete_expense_gb.Controls.Add(this.delete_expense_button);
+            this.delete_expense_gb.Controls.Add(this.delete_expense_name_textBox);
+            this.delete_expense_gb.Controls.Add(this.delete_expense_name);
+            this.delete_expense_gb.Controls.Add(this.delete_expense_eno);
+            this.delete_expense_gb.Location = new System.Drawing.Point(422, 21);
+            this.delete_expense_gb.Name = "delete_expense_gb";
+            this.delete_expense_gb.Size = new System.Drawing.Size(174, 272);
+            this.delete_expense_gb.TabIndex = 19;
+            this.delete_expense_gb.TabStop = false;
+            this.delete_expense_gb.Text = "删除支出种类";
+            // 
+            // delete_expense_sm_textBox
+            // 
+            this.delete_expense_sm_textBox.Location = new System.Drawing.Point(69, 111);
+            this.delete_expense_sm_textBox.Name = "delete_expense_sm_textBox";
+            this.delete_expense_sm_textBox.Size = new System.Drawing.Size(90, 21);
+            this.delete_expense_sm_textBox.TabIndex = 17;
+            // 
+            // delete_expense_sm
+            // 
+            this.delete_expense_sm.AutoSize = true;
+            this.delete_expense_sm.Location = new System.Drawing.Point(6, 114);
+            this.delete_expense_sm.Name = "delete_expense_sm";
+            this.delete_expense_sm.Size = new System.Drawing.Size(29, 12);
+            this.delete_expense_sm.TabIndex = 16;
+            this.delete_expense_sm.Text = "说明";
+            // 
+            // delete_expense_eno_comboBox
+            // 
+            this.delete_expense_eno_comboBox.FormattingEnabled = true;
+            this.delete_expense_eno_comboBox.Location = new System.Drawing.Point(69, 39);
+            this.delete_expense_eno_comboBox.Name = "delete_expense_eno_comboBox";
+            this.delete_expense_eno_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.delete_expense_eno_comboBox.TabIndex = 15;
+            this.delete_expense_eno_comboBox.SelectedIndexChanged += new System.EventHandler(this.delete_expense_eno_comboBox_SelectedIndexChanged);
+            // 
+            // delete_expense_button
+            // 
+            this.delete_expense_button.Location = new System.Drawing.Point(47, 161);
+            this.delete_expense_button.Name = "delete_expense_button";
+            this.delete_expense_button.Size = new System.Drawing.Size(75, 23);
+            this.delete_expense_button.TabIndex = 11;
+            this.delete_expense_button.Text = "删除种类";
+            this.delete_expense_button.UseVisualStyleBackColor = true;
+            this.delete_expense_button.Click += new System.EventHandler(this.delete_expense_button_Click);
+            // 
+            // delete_expense_name_textBox
+            // 
+            this.delete_expense_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.delete_expense_name_textBox.Name = "delete_expense_name_textBox";
+            this.delete_expense_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.delete_expense_name_textBox.TabIndex = 8;
+            // 
+            // delete_expense_name
+            // 
+            this.delete_expense_name.AutoSize = true;
+            this.delete_expense_name.Location = new System.Drawing.Point(6, 76);
+            this.delete_expense_name.Name = "delete_expense_name";
+            this.delete_expense_name.Size = new System.Drawing.Size(29, 12);
+            this.delete_expense_name.TabIndex = 2;
+            this.delete_expense_name.Text = "名称";
+            // 
+            // delete_expense_eno
+            // 
+            this.delete_expense_eno.AutoSize = true;
+            this.delete_expense_eno.Location = new System.Drawing.Point(6, 39);
+            this.delete_expense_eno.Name = "delete_expense_eno";
+            this.delete_expense_eno.Size = new System.Drawing.Size(53, 12);
+            this.delete_expense_eno.TabIndex = 1;
+            this.delete_expense_eno.Text = "种类编号";
+            // 
+            // up_expense_gb
+            // 
+            this.up_expense_gb.Controls.Add(this.up_expense_eno_comboBox);
+            this.up_expense_gb.Controls.Add(this.up_expense_xg_button);
+            this.up_expense_gb.Controls.Add(this.up_expense_qx_button);
+            this.up_expense_gb.Controls.Add(this.up_expense_hq_button);
+            this.up_expense_gb.Controls.Add(this.up_expense_name_textBox);
+            this.up_expense_gb.Controls.Add(this.up_expense_sm_textBox);
+            this.up_expense_gb.Controls.Add(this.up_expense_sm);
+            this.up_expense_gb.Controls.Add(this.up_expense_name);
+            this.up_expense_gb.Controls.Add(this.up_expense_eno);
+            this.up_expense_gb.Location = new System.Drawing.Point(219, 21);
+            this.up_expense_gb.Name = "up_expense_gb";
+            this.up_expense_gb.Size = new System.Drawing.Size(174, 272);
+            this.up_expense_gb.TabIndex = 18;
+            this.up_expense_gb.TabStop = false;
+            this.up_expense_gb.Text = "修改支出种类";
+            // 
+            // up_expense_eno_comboBox
+            // 
+            this.up_expense_eno_comboBox.FormattingEnabled = true;
+            this.up_expense_eno_comboBox.Location = new System.Drawing.Point(69, 39);
+            this.up_expense_eno_comboBox.Name = "up_expense_eno_comboBox";
+            this.up_expense_eno_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.up_expense_eno_comboBox.TabIndex = 14;
+            // 
+            // up_expense_xg_button
+            // 
+            this.up_expense_xg_button.Location = new System.Drawing.Point(38, 208);
+            this.up_expense_xg_button.Name = "up_expense_xg_button";
+            this.up_expense_xg_button.Size = new System.Drawing.Size(92, 23);
+            this.up_expense_xg_button.TabIndex = 13;
+            this.up_expense_xg_button.Text = "修改种类信息";
+            this.up_expense_xg_button.UseVisualStyleBackColor = true;
+            this.up_expense_xg_button.Click += new System.EventHandler(this.up_expense_xg_button_Click);
+            // 
+            // up_expense_qx_button
+            // 
+            this.up_expense_qx_button.Location = new System.Drawing.Point(99, 161);
+            this.up_expense_qx_button.Name = "up_expense_qx_button";
+            this.up_expense_qx_button.Size = new System.Drawing.Size(75, 23);
+            this.up_expense_qx_button.TabIndex = 12;
+            this.up_expense_qx_button.Text = "取消";
+            this.up_expense_qx_button.UseVisualStyleBackColor = true;
+            this.up_expense_qx_button.Click += new System.EventHandler(this.up_expense_qx_button_Click);
+            // 
+            // up_expense_hq_button
+            // 
+            this.up_expense_hq_button.Location = new System.Drawing.Point(0, 161);
+            this.up_expense_hq_button.Name = "up_expense_hq_button";
+            this.up_expense_hq_button.Size = new System.Drawing.Size(90, 23);
+            this.up_expense_hq_button.TabIndex = 11;
+            this.up_expense_hq_button.Text = "获取种类信息";
+            this.up_expense_hq_button.UseVisualStyleBackColor = true;
+            this.up_expense_hq_button.Click += new System.EventHandler(this.up_expense_hq_button_Click);
+            // 
+            // up_expense_name_textBox
+            // 
+            this.up_expense_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.up_expense_name_textBox.Name = "up_expense_name_textBox";
+            this.up_expense_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.up_expense_name_textBox.TabIndex = 8;
+            // 
+            // up_expense_sm_textBox
+            // 
+            this.up_expense_sm_textBox.Location = new System.Drawing.Point(69, 111);
+            this.up_expense_sm_textBox.Name = "up_expense_sm_textBox";
+            this.up_expense_sm_textBox.Size = new System.Drawing.Size(90, 21);
+            this.up_expense_sm_textBox.TabIndex = 6;
+            // 
+            // up_expense_sm
+            // 
+            this.up_expense_sm.AutoSize = true;
+            this.up_expense_sm.Location = new System.Drawing.Point(6, 120);
+            this.up_expense_sm.Name = "up_expense_sm";
+            this.up_expense_sm.Size = new System.Drawing.Size(29, 12);
+            this.up_expense_sm.TabIndex = 3;
+            this.up_expense_sm.Text = "说明";
+            // 
+            // up_expense_name
+            // 
+            this.up_expense_name.AutoSize = true;
+            this.up_expense_name.Location = new System.Drawing.Point(6, 76);
+            this.up_expense_name.Name = "up_expense_name";
+            this.up_expense_name.Size = new System.Drawing.Size(29, 12);
+            this.up_expense_name.TabIndex = 2;
+            this.up_expense_name.Text = "名称";
+            // 
+            // up_expense_eno
+            // 
+            this.up_expense_eno.AutoSize = true;
+            this.up_expense_eno.Location = new System.Drawing.Point(6, 39);
+            this.up_expense_eno.Name = "up_expense_eno";
+            this.up_expense_eno.Size = new System.Drawing.Size(53, 12);
+            this.up_expense_eno.TabIndex = 1;
+            this.up_expense_eno.Text = "种类编号";
+            // 
+            // add_expense_gb
+            // 
+            this.add_expense_gb.Controls.Add(this.add_expense_button);
+            this.add_expense_gb.Controls.Add(this.add_expense_name_textBox);
+            this.add_expense_gb.Controls.Add(this.add_expense_sm_textBox);
+            this.add_expense_gb.Controls.Add(this.add_expense_sm);
+            this.add_expense_gb.Controls.Add(this.add_expense_name);
+            this.add_expense_gb.Controls.Add(this.add_expense_eno);
+            this.add_expense_gb.Controls.Add(this.add_expense_eno_textBox);
+            this.add_expense_gb.Location = new System.Drawing.Point(22, 21);
+            this.add_expense_gb.Name = "add_expense_gb";
+            this.add_expense_gb.Size = new System.Drawing.Size(174, 272);
+            this.add_expense_gb.TabIndex = 17;
+            this.add_expense_gb.TabStop = false;
+            this.add_expense_gb.Text = "新增支出种类";
+            // 
+            // add_expense_button
+            // 
+            this.add_expense_button.Location = new System.Drawing.Point(37, 161);
+            this.add_expense_button.Name = "add_expense_button";
+            this.add_expense_button.Size = new System.Drawing.Size(90, 23);
+            this.add_expense_button.TabIndex = 11;
+            this.add_expense_button.Text = "新增支出种类";
+            this.add_expense_button.UseVisualStyleBackColor = true;
+            this.add_expense_button.Click += new System.EventHandler(this.add_expense_button_Click);
+            // 
+            // add_expense_name_textBox
+            // 
+            this.add_expense_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.add_expense_name_textBox.Name = "add_expense_name_textBox";
+            this.add_expense_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_expense_name_textBox.TabIndex = 8;
+            // 
+            // add_expense_sm_textBox
+            // 
+            this.add_expense_sm_textBox.Location = new System.Drawing.Point(69, 111);
+            this.add_expense_sm_textBox.Name = "add_expense_sm_textBox";
+            this.add_expense_sm_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_expense_sm_textBox.TabIndex = 6;
+            // 
+            // add_expense_sm
+            // 
+            this.add_expense_sm.AutoSize = true;
+            this.add_expense_sm.Location = new System.Drawing.Point(6, 120);
+            this.add_expense_sm.Name = "add_expense_sm";
+            this.add_expense_sm.Size = new System.Drawing.Size(29, 12);
+            this.add_expense_sm.TabIndex = 3;
+            this.add_expense_sm.Text = "说明";
+            // 
+            // add_expense_name
+            // 
+            this.add_expense_name.AutoSize = true;
+            this.add_expense_name.Location = new System.Drawing.Point(6, 76);
+            this.add_expense_name.Name = "add_expense_name";
+            this.add_expense_name.Size = new System.Drawing.Size(29, 12);
+            this.add_expense_name.TabIndex = 2;
+            this.add_expense_name.Text = "名称";
+            // 
+            // add_expense_eno
+            // 
+            this.add_expense_eno.AutoSize = true;
+            this.add_expense_eno.Location = new System.Drawing.Point(6, 39);
+            this.add_expense_eno.Name = "add_expense_eno";
+            this.add_expense_eno.Size = new System.Drawing.Size(53, 12);
+            this.add_expense_eno.TabIndex = 1;
+            this.add_expense_eno.Text = "种类编号";
+            // 
+            // add_expense_eno_textBox
+            // 
+            this.add_expense_eno_textBox.Location = new System.Drawing.Point(69, 36);
+            this.add_expense_eno_textBox.Name = "add_expense_eno_textBox";
+            this.add_expense_eno_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_expense_eno_textBox.TabIndex = 0;
+            // 
+            // up_pay_tabPage
+            // 
+            this.up_pay_tabPage.Controls.Add(this.delete_pay_gb);
+            this.up_pay_tabPage.Controls.Add(this.up_pay_gb);
+            this.up_pay_tabPage.Controls.Add(this.add_pay_gb);
+            this.up_pay_tabPage.Location = new System.Drawing.Point(4, 22);
+            this.up_pay_tabPage.Name = "up_pay_tabPage";
+            this.up_pay_tabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.up_pay_tabPage.Size = new System.Drawing.Size(600, 359);
+            this.up_pay_tabPage.TabIndex = 5;
+            this.up_pay_tabPage.Text = "更新缴费信息";
+            this.up_pay_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // delete_pay_gb
+            // 
+            this.delete_pay_gb.Controls.Add(this.delete_pay_pno_comboBox);
+            this.delete_pay_gb.Controls.Add(this.delete_pay_button);
+            this.delete_pay_gb.Controls.Add(this.delete_pay_name_textBox);
+            this.delete_pay_gb.Controls.Add(this.delete_pay_sm_textBox);
+            this.delete_pay_gb.Controls.Add(this.delete_pay_sm);
+            this.delete_pay_gb.Controls.Add(this.delete_pay_name);
+            this.delete_pay_gb.Controls.Add(this.delete_pay_pno);
+            this.delete_pay_gb.Location = new System.Drawing.Point(419, 25);
+            this.delete_pay_gb.Name = "delete_pay_gb";
+            this.delete_pay_gb.Size = new System.Drawing.Size(174, 272);
+            this.delete_pay_gb.TabIndex = 22;
+            this.delete_pay_gb.TabStop = false;
+            this.delete_pay_gb.Text = "删除缴费种类";
+            // 
+            // delete_pay_pno_comboBox
+            // 
+            this.delete_pay_pno_comboBox.FormattingEnabled = true;
+            this.delete_pay_pno_comboBox.Location = new System.Drawing.Point(69, 39);
+            this.delete_pay_pno_comboBox.Name = "delete_pay_pno_comboBox";
+            this.delete_pay_pno_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.delete_pay_pno_comboBox.TabIndex = 15;
+            this.delete_pay_pno_comboBox.SelectedIndexChanged += new System.EventHandler(this.delete_pay_pno_comboBox_SelectedIndexChanged);
+            // 
+            // delete_pay_button
+            // 
+            this.delete_pay_button.Location = new System.Drawing.Point(47, 161);
+            this.delete_pay_button.Name = "delete_pay_button";
+            this.delete_pay_button.Size = new System.Drawing.Size(75, 23);
+            this.delete_pay_button.TabIndex = 11;
+            this.delete_pay_button.Text = "删除种类";
+            this.delete_pay_button.UseVisualStyleBackColor = true;
+            this.delete_pay_button.Click += new System.EventHandler(this.delete_pay_button_Click);
+            // 
+            // delete_pay_name_textBox
+            // 
+            this.delete_pay_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.delete_pay_name_textBox.Name = "delete_pay_name_textBox";
+            this.delete_pay_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.delete_pay_name_textBox.TabIndex = 8;
+            // 
+            // delete_pay_sm_textBox
+            // 
+            this.delete_pay_sm_textBox.Location = new System.Drawing.Point(69, 111);
+            this.delete_pay_sm_textBox.Name = "delete_pay_sm_textBox";
+            this.delete_pay_sm_textBox.Size = new System.Drawing.Size(90, 21);
+            this.delete_pay_sm_textBox.TabIndex = 6;
+            // 
+            // delete_pay_sm
+            // 
+            this.delete_pay_sm.AutoSize = true;
+            this.delete_pay_sm.Location = new System.Drawing.Point(6, 120);
+            this.delete_pay_sm.Name = "delete_pay_sm";
+            this.delete_pay_sm.Size = new System.Drawing.Size(29, 12);
+            this.delete_pay_sm.TabIndex = 3;
+            this.delete_pay_sm.Text = "说明";
+            // 
+            // delete_pay_name
+            // 
+            this.delete_pay_name.AutoSize = true;
+            this.delete_pay_name.Location = new System.Drawing.Point(6, 76);
+            this.delete_pay_name.Name = "delete_pay_name";
+            this.delete_pay_name.Size = new System.Drawing.Size(29, 12);
+            this.delete_pay_name.TabIndex = 2;
+            this.delete_pay_name.Text = "名称";
+            // 
+            // delete_pay_pno
+            // 
+            this.delete_pay_pno.AutoSize = true;
+            this.delete_pay_pno.Location = new System.Drawing.Point(6, 39);
+            this.delete_pay_pno.Name = "delete_pay_pno";
+            this.delete_pay_pno.Size = new System.Drawing.Size(53, 12);
+            this.delete_pay_pno.TabIndex = 1;
+            this.delete_pay_pno.Text = "种类编号";
+            // 
+            // up_pay_gb
+            // 
+            this.up_pay_gb.Controls.Add(this.up_pay_pno_comboBox);
+            this.up_pay_gb.Controls.Add(this.up_pay_xg_button);
+            this.up_pay_gb.Controls.Add(this.up_pay_qx_button);
+            this.up_pay_gb.Controls.Add(this.up_pay_hq_button);
+            this.up_pay_gb.Controls.Add(this.up_pay_name_textBox);
+            this.up_pay_gb.Controls.Add(this.up_pay_sm_textBox);
+            this.up_pay_gb.Controls.Add(this.up_pay_sm);
+            this.up_pay_gb.Controls.Add(this.up_pay_name);
+            this.up_pay_gb.Controls.Add(this.up_pay_pno);
+            this.up_pay_gb.Location = new System.Drawing.Point(216, 25);
+            this.up_pay_gb.Name = "up_pay_gb";
+            this.up_pay_gb.Size = new System.Drawing.Size(174, 272);
+            this.up_pay_gb.TabIndex = 21;
+            this.up_pay_gb.TabStop = false;
+            this.up_pay_gb.Text = "修改缴费种类";
+            // 
+            // up_pay_pno_comboBox
+            // 
+            this.up_pay_pno_comboBox.FormattingEnabled = true;
+            this.up_pay_pno_comboBox.Location = new System.Drawing.Point(69, 39);
+            this.up_pay_pno_comboBox.Name = "up_pay_pno_comboBox";
+            this.up_pay_pno_comboBox.Size = new System.Drawing.Size(90, 20);
+            this.up_pay_pno_comboBox.TabIndex = 14;
+            // 
+            // up_pay_xg_button
+            // 
+            this.up_pay_xg_button.Location = new System.Drawing.Point(38, 208);
+            this.up_pay_xg_button.Name = "up_pay_xg_button";
+            this.up_pay_xg_button.Size = new System.Drawing.Size(92, 23);
+            this.up_pay_xg_button.TabIndex = 13;
+            this.up_pay_xg_button.Text = "修改种类信息";
+            this.up_pay_xg_button.UseVisualStyleBackColor = true;
+            this.up_pay_xg_button.Click += new System.EventHandler(this.up_pay_xg_button_Click);
+            // 
+            // up_pay_qx_button
+            // 
+            this.up_pay_qx_button.Location = new System.Drawing.Point(99, 161);
+            this.up_pay_qx_button.Name = "up_pay_qx_button";
+            this.up_pay_qx_button.Size = new System.Drawing.Size(75, 23);
+            this.up_pay_qx_button.TabIndex = 12;
+            this.up_pay_qx_button.Text = "取消";
+            this.up_pay_qx_button.UseVisualStyleBackColor = true;
+            this.up_pay_qx_button.Click += new System.EventHandler(this.up_pay_qx_button_Click);
+            // 
+            // up_pay_hq_button
+            // 
+            this.up_pay_hq_button.Location = new System.Drawing.Point(0, 161);
+            this.up_pay_hq_button.Name = "up_pay_hq_button";
+            this.up_pay_hq_button.Size = new System.Drawing.Size(90, 23);
+            this.up_pay_hq_button.TabIndex = 11;
+            this.up_pay_hq_button.Text = "获取种类信息";
+            this.up_pay_hq_button.UseVisualStyleBackColor = true;
+            this.up_pay_hq_button.Click += new System.EventHandler(this.up_pay_hq_button_Click);
+            // 
+            // up_pay_name_textBox
+            // 
+            this.up_pay_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.up_pay_name_textBox.Name = "up_pay_name_textBox";
+            this.up_pay_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.up_pay_name_textBox.TabIndex = 8;
+            // 
+            // up_pay_sm_textBox
+            // 
+            this.up_pay_sm_textBox.Location = new System.Drawing.Point(69, 111);
+            this.up_pay_sm_textBox.Name = "up_pay_sm_textBox";
+            this.up_pay_sm_textBox.Size = new System.Drawing.Size(90, 21);
+            this.up_pay_sm_textBox.TabIndex = 6;
+            // 
+            // up_pay_sm
+            // 
+            this.up_pay_sm.AutoSize = true;
+            this.up_pay_sm.Location = new System.Drawing.Point(6, 120);
+            this.up_pay_sm.Name = "up_pay_sm";
+            this.up_pay_sm.Size = new System.Drawing.Size(29, 12);
+            this.up_pay_sm.TabIndex = 3;
+            this.up_pay_sm.Text = "说明";
+            // 
+            // up_pay_name
+            // 
+            this.up_pay_name.AutoSize = true;
+            this.up_pay_name.Location = new System.Drawing.Point(6, 76);
+            this.up_pay_name.Name = "up_pay_name";
+            this.up_pay_name.Size = new System.Drawing.Size(29, 12);
+            this.up_pay_name.TabIndex = 2;
+            this.up_pay_name.Text = "名称";
+            // 
+            // up_pay_pno
+            // 
+            this.up_pay_pno.AutoSize = true;
+            this.up_pay_pno.Location = new System.Drawing.Point(6, 39);
+            this.up_pay_pno.Name = "up_pay_pno";
+            this.up_pay_pno.Size = new System.Drawing.Size(53, 12);
+            this.up_pay_pno.TabIndex = 1;
+            this.up_pay_pno.Text = "种类编号";
+            // 
+            // add_pay_gb
+            // 
+            this.add_pay_gb.Controls.Add(this.add_pay_button);
+            this.add_pay_gb.Controls.Add(this.add_pay_name_textBox);
+            this.add_pay_gb.Controls.Add(this.add_pay_sm_textBox);
+            this.add_pay_gb.Controls.Add(this.add_pay_sm);
+            this.add_pay_gb.Controls.Add(this.add_pay_name);
+            this.add_pay_gb.Controls.Add(this.add_pay_pno);
+            this.add_pay_gb.Controls.Add(this.add_pay_pno_textBox);
+            this.add_pay_gb.Location = new System.Drawing.Point(19, 25);
+            this.add_pay_gb.Name = "add_pay_gb";
+            this.add_pay_gb.Size = new System.Drawing.Size(174, 272);
+            this.add_pay_gb.TabIndex = 20;
+            this.add_pay_gb.TabStop = false;
+            this.add_pay_gb.Text = "新增缴费种类";
+            // 
+            // add_pay_button
+            // 
+            this.add_pay_button.Location = new System.Drawing.Point(37, 161);
+            this.add_pay_button.Name = "add_pay_button";
+            this.add_pay_button.Size = new System.Drawing.Size(90, 23);
+            this.add_pay_button.TabIndex = 11;
+            this.add_pay_button.Text = "新增支出种类";
+            this.add_pay_button.UseVisualStyleBackColor = true;
+            this.add_pay_button.Click += new System.EventHandler(this.add_pay_button_Click);
+            // 
+            // add_pay_name_textBox
+            // 
+            this.add_pay_name_textBox.Location = new System.Drawing.Point(69, 76);
+            this.add_pay_name_textBox.Name = "add_pay_name_textBox";
+            this.add_pay_name_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_pay_name_textBox.TabIndex = 8;
+            // 
+            // add_pay_sm_textBox
+            // 
+            this.add_pay_sm_textBox.Location = new System.Drawing.Point(69, 111);
+            this.add_pay_sm_textBox.Name = "add_pay_sm_textBox";
+            this.add_pay_sm_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_pay_sm_textBox.TabIndex = 6;
+            // 
+            // add_pay_sm
+            // 
+            this.add_pay_sm.AutoSize = true;
+            this.add_pay_sm.Location = new System.Drawing.Point(6, 120);
+            this.add_pay_sm.Name = "add_pay_sm";
+            this.add_pay_sm.Size = new System.Drawing.Size(29, 12);
+            this.add_pay_sm.TabIndex = 3;
+            this.add_pay_sm.Text = "说明";
+            // 
+            // add_pay_name
+            // 
+            this.add_pay_name.AutoSize = true;
+            this.add_pay_name.Location = new System.Drawing.Point(6, 76);
+            this.add_pay_name.Name = "add_pay_name";
+            this.add_pay_name.Size = new System.Drawing.Size(29, 12);
+            this.add_pay_name.TabIndex = 2;
+            this.add_pay_name.Text = "名称";
+            // 
+            // add_pay_pno
+            // 
+            this.add_pay_pno.AutoSize = true;
+            this.add_pay_pno.Location = new System.Drawing.Point(6, 39);
+            this.add_pay_pno.Name = "add_pay_pno";
+            this.add_pay_pno.Size = new System.Drawing.Size(53, 12);
+            this.add_pay_pno.TabIndex = 1;
+            this.add_pay_pno.Text = "种类编号";
+            // 
+            // add_pay_pno_textBox
+            // 
+            this.add_pay_pno_textBox.Location = new System.Drawing.Point(69, 36);
+            this.add_pay_pno_textBox.Name = "add_pay_pno_textBox";
+            this.add_pay_pno_textBox.Size = new System.Drawing.Size(90, 21);
+            this.add_pay_pno_textBox.TabIndex = 0;
+            // 
             // 统计panel
             // 
             this.统计panel.Controls.Add(this.sta_pic);
             this.统计panel.Controls.Add(this.sta_see);
             this.统计panel.Controls.Add(this.sta_table);
-            this.统计panel.Location = new System.Drawing.Point(549, 287);
+            this.统计panel.Location = new System.Drawing.Point(399, 254);
             this.统计panel.Name = "统计panel";
             this.统计panel.Size = new System.Drawing.Size(618, 389);
             this.统计panel.TabIndex = 10;
@@ -2705,7 +4673,7 @@
             // 查询panel
             // 
             this.查询panel.Controls.Add(this.search_tabcontrol);
-            this.查询panel.Location = new System.Drawing.Point(499, 380);
+            this.查询panel.Location = new System.Drawing.Point(630, 87);
             this.查询panel.Name = "查询panel";
             this.查询panel.Size = new System.Drawing.Size(613, 389);
             this.查询panel.TabIndex = 10;
@@ -4016,7 +5984,7 @@
             this.生成报表panel.Controls.Add(this.tb_table_path);
             this.生成报表panel.Controls.Add(this.l_table_path);
             this.生成报表panel.Controls.Add(this.b_table_student);
-            this.生成报表panel.Location = new System.Drawing.Point(617, 247);
+            this.生成报表panel.Location = new System.Drawing.Point(603, 198);
             this.生成报表panel.Name = "生成报表panel";
             this.生成报表panel.Size = new System.Drawing.Size(613, 383);
             this.生成报表panel.TabIndex = 12;
@@ -4136,13 +6104,62 @@
             this.l_table_path.TabIndex = 12;
             this.l_table_path.Text = "请输入目录:";
             // 
+            // 开始_panel
+            // 
+            this.开始_panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("开始_panel.BackgroundImage")));
+            this.开始_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.开始_panel.Controls.Add(this.linkLabel2);
+            this.开始_panel.Controls.Add(this.linkLabel1);
+            this.开始_panel.Controls.Add(this.label6);
+            this.开始_panel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.开始_panel.Location = new System.Drawing.Point(491, 244);
+            this.开始_panel.Name = "开始_panel";
+            this.开始_panel.Size = new System.Drawing.Size(637, 430);
+            this.开始_panel.TabIndex = 13;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.LinkColor = System.Drawing.Color.Red;
+            this.linkLabel2.Location = new System.Drawing.Point(405, 367);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(218, 21);
+            this.linkLabel2.TabIndex = 15;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "最终解释权归河海大学所有！";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkColor = System.Drawing.Color.Red;
+            this.linkLabel1.Location = new System.Drawing.Point(24, 371);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(189, 21);
+            this.linkLabel1.TabIndex = 14;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "联系我们：15061119357";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(155, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(307, 39);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "欢迎来到河海大学驾校";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 441);
+            this.Controls.Add(this.开始_panel);
             this.Controls.Add(this.生成报表panel);
             this.Controls.Add(this.查询panel);
+            this.Controls.Add(this.信息更新_panel);
             this.Controls.Add(this.统计panel);
             this.Controls.Add(this.业务panel);
             this.Controls.Add(this.L_madein);
@@ -4169,6 +6186,50 @@
             this.page_sc.PerformLayout();
             this.page_cc.ResumeLayout(false);
             this.page_cc.PerformLayout();
+            this.信息更新_panel.ResumeLayout(false);
+            this.xxgx_tabControl.ResumeLayout(false);
+            this.up_car_tabPage.ResumeLayout(false);
+            this.delete_car_gb.ResumeLayout(false);
+            this.delete_car_gb.PerformLayout();
+            this.up_car_gb.ResumeLayout(false);
+            this.up_car_gb.PerformLayout();
+            this.add_car_gb.ResumeLayout(false);
+            this.add_car_gb.PerformLayout();
+            this.up_student_tabPage.ResumeLayout(false);
+            this.delete_student_gb.ResumeLayout(false);
+            this.delete_student_gb.PerformLayout();
+            this.up_studnet_gb.ResumeLayout(false);
+            this.up_studnet_gb.PerformLayout();
+            this.add_student_gb.ResumeLayout(false);
+            this.add_student_gb.PerformLayout();
+            this.up__coach_tabPage.ResumeLayout(false);
+            this.delete_coach_gb.ResumeLayout(false);
+            this.delete_coach_gb.PerformLayout();
+            this.add_coach_gb.ResumeLayout(false);
+            this.add_coach_gb.PerformLayout();
+            this.up_coach_gb.ResumeLayout(false);
+            this.up_coach_gb.PerformLayout();
+            this.up_test_tabPage.ResumeLayout(false);
+            this.delete_test_gb.ResumeLayout(false);
+            this.delete_test_gb.PerformLayout();
+            this.up_test_gb.ResumeLayout(false);
+            this.up_test_gb.PerformLayout();
+            this.add_test_gb.ResumeLayout(false);
+            this.add_test_gb.PerformLayout();
+            this.up__expense_tabPage.ResumeLayout(false);
+            this.delete_expense_gb.ResumeLayout(false);
+            this.delete_expense_gb.PerformLayout();
+            this.up_expense_gb.ResumeLayout(false);
+            this.up_expense_gb.PerformLayout();
+            this.add_expense_gb.ResumeLayout(false);
+            this.add_expense_gb.PerformLayout();
+            this.up_pay_tabPage.ResumeLayout(false);
+            this.delete_pay_gb.ResumeLayout(false);
+            this.delete_pay_gb.PerformLayout();
+            this.up_pay_gb.ResumeLayout(false);
+            this.up_pay_gb.PerformLayout();
+            this.add_pay_gb.ResumeLayout(false);
+            this.add_pay_gb.PerformLayout();
             this.统计panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sta_pic)).EndInit();
             this.sta_table.ResumeLayout(false);
@@ -4212,6 +6273,8 @@
             this.gb_sear_account_exp.PerformLayout();
             this.生成报表panel.ResumeLayout(false);
             this.生成报表panel.PerformLayout();
+            this.开始_panel.ResumeLayout(false);
+            this.开始_panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4451,7 +6514,6 @@
         private System.Windows.Forms.Button L_sta_s_cna_clear;
         private System.Windows.Forms.TextBox sta_s_cna;
         private System.Windows.Forms.Label L_sta_s_cna;
-
         private System.Windows.Forms.Panel 查询panel;
         private System.Windows.Forms.TabControl search_tabcontrol;
         private System.Windows.Forms.TabPage 业务信息查询_tabpage;
@@ -4601,5 +6663,189 @@
         private System.Windows.Forms.Button b_table_car;
         private System.Windows.Forms.Button b_table_coach;
         private System.Windows.Forms.Button b_table_grade;
+        private System.Windows.Forms.Panel 信息更新_panel;
+        private System.Windows.Forms.TabControl xxgx_tabControl;
+        private System.Windows.Forms.TabPage up_car_tabPage;
+        private System.Windows.Forms.GroupBox delete_car_gb;
+        private System.Windows.Forms.ComboBox delete_car_cp_comboBox;
+        private System.Windows.Forms.Button delete_car_button;
+        private System.Windows.Forms.Label delete_car_cp;
+        private System.Windows.Forms.GroupBox up_car_gb;
+        private System.Windows.Forms.Button up_car_qx_button;
+        private System.Windows.Forms.Button up_car_hq_button;
+        private System.Windows.Forms.ComboBox up_car_cp_comboBox;
+        private System.Windows.Forms.Button up_car_xg_button;
+        private System.Windows.Forms.DateTimePicker up_car_dateTimePicker;
+        private System.Windows.Forms.TextBox up_car_lc_textBox;
+        private System.Windows.Forms.TextBox up_car_ys_textBox;
+        private System.Windows.Forms.TextBox up_car_cs_textBox;
+        private System.Windows.Forms.Label up_car_buytime;
+        private System.Windows.Forms.Label up_car_lc;
+        private System.Windows.Forms.Label up_car_ys;
+        private System.Windows.Forms.Label up_car_cs;
+        private System.Windows.Forms.Label up_car_cp;
+        private System.Windows.Forms.GroupBox add_car_gb;
+        private System.Windows.Forms.Button add_car_button;
+        private System.Windows.Forms.DateTimePicker add_car_dateTimePicker;
+        private System.Windows.Forms.TextBox add_car_cs_textbox;
+        private System.Windows.Forms.TextBox add_car_lc_textBox;
+        private System.Windows.Forms.TextBox add_car_ys_textbox;
+        private System.Windows.Forms.Label add_car_buytime;
+        private System.Windows.Forms.Label add_car_lc;
+        private System.Windows.Forms.Label add_car_ys;
+        private System.Windows.Forms.Label add_car_cs;
+        private System.Windows.Forms.Label add_car_cp;
+        private System.Windows.Forms.TextBox add_car_cp_textbox;
+        private System.Windows.Forms.TabPage up_student_tabPage;
+        private System.Windows.Forms.GroupBox delete_student_gb;
+        private System.Windows.Forms.ComboBox delete_student_sno_comboBox;
+        private System.Windows.Forms.Button delete_student_button;
+        private System.Windows.Forms.TextBox delete_student_name_textBox;
+        private System.Windows.Forms.Label delete_student_name;
+        private System.Windows.Forms.Label delete_student_sno;
+        private System.Windows.Forms.GroupBox up_studnet_gb;
+        private System.Windows.Forms.ComboBox up_student_sex_comboBox;
+        private System.Windows.Forms.Label up_student_sex;
+        private System.Windows.Forms.ComboBox up_student_jd_comboBox;
+        private System.Windows.Forms.Label up_student_jd;
+        private System.Windows.Forms.ComboBox up_student_pay_comboBox;
+        private System.Windows.Forms.ComboBox up_student_sno_comboBox;
+        private System.Windows.Forms.Button up_student_qx_button;
+        private System.Windows.Forms.Button up_student_hq_button;
+        private System.Windows.Forms.Button up_student_xg_button;
+        private System.Windows.Forms.TextBox up_student_name_textBox;
+        private System.Windows.Forms.TextBox up_student_phone_textBox;
+        private System.Windows.Forms.Label up_student_pay;
+        private System.Windows.Forms.Label up_student_phone;
+        private System.Windows.Forms.Label up_student_name;
+        private System.Windows.Forms.Label up_student_sno;
+        private System.Windows.Forms.GroupBox add_student_gb;
+        private System.Windows.Forms.ComboBox add_student_jd_comboBox;
+        private System.Windows.Forms.Label add_student_jd;
+        private System.Windows.Forms.ComboBox add_student_pay_comboBox;
+        private System.Windows.Forms.Label add_student_pay;
+        private System.Windows.Forms.ComboBox add_student_sex_comboBox;
+        private System.Windows.Forms.Label add_student_phone;
+        private System.Windows.Forms.Button add_student_button;
+        private System.Windows.Forms.TextBox add_student_sno_textbox;
+        private System.Windows.Forms.TextBox add_student_phone_textbox;
+        private System.Windows.Forms.Label add_student_sex;
+        private System.Windows.Forms.Label add_student_sno;
+        private System.Windows.Forms.Label add_student_name;
+        private System.Windows.Forms.TextBox add_student_name_textbox;
+        private System.Windows.Forms.TabPage up__coach_tabPage;
+        private System.Windows.Forms.GroupBox delete_coach_gb;
+        private System.Windows.Forms.ComboBox delete_coach_cno_comboBox;
+        private System.Windows.Forms.Button delete_coach_button;
+        private System.Windows.Forms.TextBox delete_coach_name_textBox;
+        private System.Windows.Forms.Label delete_coach_name;
+        private System.Windows.Forms.Label delete_coach_cno;
+        private System.Windows.Forms.GroupBox add_coach_gb;
+        private System.Windows.Forms.ComboBox add_coach_sex_comboBox;
+        private System.Windows.Forms.TextBox add_coach_phone_textBox;
+        private System.Windows.Forms.Label add_coach_phone;
+        private System.Windows.Forms.Button add_coach_button;
+        private System.Windows.Forms.TextBox add_coach_name_textBox;
+        private System.Windows.Forms.Label add_coach_sex;
+        private System.Windows.Forms.Label add_coach_name;
+        private System.Windows.Forms.Label add_coach_cno;
+        private System.Windows.Forms.TextBox add_coach_cno_textBox;
+        private System.Windows.Forms.GroupBox up_coach_gb;
+        private System.Windows.Forms.ComboBox up_coach_sex_comboBox;
+        private System.Windows.Forms.Label up_coach_phone;
+        private System.Windows.Forms.ComboBox up_coach_cno_comboBox;
+        private System.Windows.Forms.Button up_coach_qx_button;
+        private System.Windows.Forms.Button up_coach_hq_button;
+        private System.Windows.Forms.Button up_coach_xg_button;
+        private System.Windows.Forms.TextBox up_coach_name_textBox;
+        private System.Windows.Forms.TextBox up_coach_phone_textBox;
+        private System.Windows.Forms.Label up_coach_sex;
+        private System.Windows.Forms.Label up_coach_name;
+        private System.Windows.Forms.Label up_coach_cno;
+        private System.Windows.Forms.TabPage up_test_tabPage;
+        private System.Windows.Forms.GroupBox delete_test_gb;
+        private System.Windows.Forms.ComboBox delete_test_tno_comboBox;
+        private System.Windows.Forms.Button delete_test__button;
+        private System.Windows.Forms.TextBox delete_test_name_textBox;
+        private System.Windows.Forms.TextBox delete_test_sm_textBox;
+        private System.Windows.Forms.Label delete_test_sm;
+        private System.Windows.Forms.Label delete_test_name;
+        private System.Windows.Forms.Label delete_test_tno;
+        private System.Windows.Forms.GroupBox up_test_gb;
+        private System.Windows.Forms.ComboBox up_test_tno_comboBox;
+        private System.Windows.Forms.Button up_test_xg_button;
+        private System.Windows.Forms.Button up_test_qx_button;
+        private System.Windows.Forms.Button up_test_hq_button;
+        private System.Windows.Forms.TextBox up_test_name_textBox;
+        private System.Windows.Forms.TextBox up_test_sm_textBox;
+        private System.Windows.Forms.Label up_test_sm;
+        private System.Windows.Forms.Label up_test_name;
+        private System.Windows.Forms.Label up_test_tno;
+        private System.Windows.Forms.GroupBox add_test_gb;
+        private System.Windows.Forms.Button add_test_button;
+        private System.Windows.Forms.TextBox add_test_name_textBox;
+        private System.Windows.Forms.TextBox add_test_sm_textBox;
+        private System.Windows.Forms.Label add_test_sm;
+        private System.Windows.Forms.Label add_test_name;
+        private System.Windows.Forms.Label add_test_tno;
+        private System.Windows.Forms.TextBox add_test_tno_textBox;
+        private System.Windows.Forms.TabPage up__expense_tabPage;
+        private System.Windows.Forms.GroupBox delete_expense_gb;
+        private System.Windows.Forms.TextBox delete_expense_sm_textBox;
+        private System.Windows.Forms.Label delete_expense_sm;
+        private System.Windows.Forms.ComboBox delete_expense_eno_comboBox;
+        private System.Windows.Forms.Button delete_expense_button;
+        private System.Windows.Forms.TextBox delete_expense_name_textBox;
+        private System.Windows.Forms.Label delete_expense_name;
+        private System.Windows.Forms.Label delete_expense_eno;
+        private System.Windows.Forms.GroupBox up_expense_gb;
+        private System.Windows.Forms.ComboBox up_expense_eno_comboBox;
+        private System.Windows.Forms.Button up_expense_xg_button;
+        private System.Windows.Forms.Button up_expense_qx_button;
+        private System.Windows.Forms.Button up_expense_hq_button;
+        private System.Windows.Forms.TextBox up_expense_name_textBox;
+        private System.Windows.Forms.TextBox up_expense_sm_textBox;
+        private System.Windows.Forms.Label up_expense_sm;
+        private System.Windows.Forms.Label up_expense_name;
+        private System.Windows.Forms.Label up_expense_eno;
+        private System.Windows.Forms.GroupBox add_expense_gb;
+        private System.Windows.Forms.Button add_expense_button;
+        private System.Windows.Forms.TextBox add_expense_name_textBox;
+        private System.Windows.Forms.TextBox add_expense_sm_textBox;
+        private System.Windows.Forms.Label add_expense_sm;
+        private System.Windows.Forms.Label add_expense_name;
+        private System.Windows.Forms.Label add_expense_eno;
+        private System.Windows.Forms.TextBox add_expense_eno_textBox;
+        private System.Windows.Forms.TabPage up_pay_tabPage;
+        private System.Windows.Forms.GroupBox delete_pay_gb;
+        private System.Windows.Forms.ComboBox delete_pay_pno_comboBox;
+        private System.Windows.Forms.Button delete_pay_button;
+        private System.Windows.Forms.TextBox delete_pay_name_textBox;
+        private System.Windows.Forms.TextBox delete_pay_sm_textBox;
+        private System.Windows.Forms.Label delete_pay_sm;
+        private System.Windows.Forms.Label delete_pay_name;
+        private System.Windows.Forms.Label delete_pay_pno;
+        private System.Windows.Forms.GroupBox up_pay_gb;
+        private System.Windows.Forms.ComboBox up_pay_pno_comboBox;
+        private System.Windows.Forms.Button up_pay_xg_button;
+        private System.Windows.Forms.Button up_pay_qx_button;
+        private System.Windows.Forms.Button up_pay_hq_button;
+        private System.Windows.Forms.TextBox up_pay_name_textBox;
+        private System.Windows.Forms.TextBox up_pay_sm_textBox;
+        private System.Windows.Forms.Label up_pay_sm;
+        private System.Windows.Forms.Label up_pay_name;
+        private System.Windows.Forms.Label up_pay_pno;
+        private System.Windows.Forms.GroupBox add_pay_gb;
+        private System.Windows.Forms.Button add_pay_button;
+        private System.Windows.Forms.TextBox add_pay_name_textBox;
+        private System.Windows.Forms.TextBox add_pay_sm_textBox;
+        private System.Windows.Forms.Label add_pay_sm;
+        private System.Windows.Forms.Label add_pay_name;
+        private System.Windows.Forms.Label add_pay_pno;
+        private System.Windows.Forms.TextBox add_pay_pno_textBox;
+        private System.Windows.Forms.Panel 开始_panel;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }
