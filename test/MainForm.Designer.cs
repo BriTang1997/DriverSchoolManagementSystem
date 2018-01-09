@@ -759,7 +759,7 @@
             // 
             this.业务panel.Controls.Add(this.b_dataview);
             this.业务panel.Controls.Add(this.bussiness_table);
-            this.业务panel.Location = new System.Drawing.Point(235, 312);
+            this.业务panel.Location = new System.Drawing.Point(107, 66);
             this.业务panel.Name = "业务panel";
             this.业务panel.Size = new System.Drawing.Size(613, 389);
             this.业务panel.TabIndex = 9;
@@ -870,7 +870,7 @@
             this.b_inc_sub.Name = "b_inc_sub";
             this.b_inc_sub.Size = new System.Drawing.Size(73, 29);
             this.b_inc_sub.TabIndex = 16;
-            this.b_inc_sub.Text = "提交删除";
+            this.b_inc_sub.Text = "提交";
             this.b_inc_sub.UseVisualStyleBackColor = true;
             this.b_inc_sub.Click += new System.EventHandler(this.b_inc_sub_Click);
             // 
@@ -1092,7 +1092,7 @@
             this.b_exp_sub.Name = "b_exp_sub";
             this.b_exp_sub.Size = new System.Drawing.Size(73, 29);
             this.b_exp_sub.TabIndex = 36;
-            this.b_exp_sub.Text = "提交删除";
+            this.b_exp_sub.Text = "提交";
             this.b_exp_sub.UseVisualStyleBackColor = true;
             this.b_exp_sub.Click += new System.EventHandler(this.b_exp_sub_Click);
             // 
@@ -1269,7 +1269,7 @@
             this.b_exa_sub.Name = "b_exa_sub";
             this.b_exa_sub.Size = new System.Drawing.Size(73, 29);
             this.b_exa_sub.TabIndex = 45;
-            this.b_exa_sub.Text = "提交删除";
+            this.b_exa_sub.Text = "提交";
             this.b_exa_sub.UseVisualStyleBackColor = true;
             this.b_exa_sub.Click += new System.EventHandler(this.b_exa_sub_Click);
             // 
@@ -1471,7 +1471,7 @@
             this.b_sc_sub.Name = "b_sc_sub";
             this.b_sc_sub.Size = new System.Drawing.Size(73, 29);
             this.b_sc_sub.TabIndex = 56;
-            this.b_sc_sub.Text = "提交删除";
+            this.b_sc_sub.Text = "提交";
             this.b_sc_sub.UseVisualStyleBackColor = true;
             this.b_sc_sub.Click += new System.EventHandler(this.b_sc_sub_Click);
             // 
@@ -1615,7 +1615,7 @@
             this.b_cc_sub.Name = "b_cc_sub";
             this.b_cc_sub.Size = new System.Drawing.Size(73, 29);
             this.b_cc_sub.TabIndex = 59;
-            this.b_cc_sub.Text = "提交删除";
+            this.b_cc_sub.Text = "提交";
             this.b_cc_sub.UseVisualStyleBackColor = true;
             this.b_cc_sub.Click += new System.EventHandler(this.b_cc_sub_Click);
             // 
@@ -1672,7 +1672,7 @@
             // 信息更新_panel
             // 
             this.信息更新_panel.Controls.Add(this.xxgx_tabControl);
-            this.信息更新_panel.Location = new System.Drawing.Point(181, 336);
+            this.信息更新_panel.Location = new System.Drawing.Point(272, 375);
             this.信息更新_panel.Name = "信息更新_panel";
             this.信息更新_panel.Size = new System.Drawing.Size(613, 389);
             this.信息更新_panel.TabIndex = 13;
@@ -3428,7 +3428,7 @@
             this.统计panel.Controls.Add(this.sta_pic);
             this.统计panel.Controls.Add(this.sta_see);
             this.统计panel.Controls.Add(this.sta_table);
-            this.统计panel.Location = new System.Drawing.Point(399, 254);
+            this.统计panel.Location = new System.Drawing.Point(556, 157);
             this.统计panel.Name = "统计panel";
             this.统计panel.Size = new System.Drawing.Size(618, 389);
             this.统计panel.TabIndex = 10;
@@ -5984,7 +5984,7 @@
             this.生成报表panel.Controls.Add(this.tb_table_path);
             this.生成报表panel.Controls.Add(this.l_table_path);
             this.生成报表panel.Controls.Add(this.b_table_student);
-            this.生成报表panel.Location = new System.Drawing.Point(603, 198);
+            this.生成报表panel.Location = new System.Drawing.Point(613, 133);
             this.生成报表panel.Name = "生成报表panel";
             this.生成报表panel.Size = new System.Drawing.Size(613, 383);
             this.生成报表panel.TabIndex = 12;
@@ -6112,9 +6112,9 @@
             this.开始_panel.Controls.Add(this.linkLabel1);
             this.开始_panel.Controls.Add(this.label6);
             this.开始_panel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.开始_panel.Location = new System.Drawing.Point(491, 244);
+            this.开始_panel.Location = new System.Drawing.Point(167, 302);
             this.开始_panel.Name = "开始_panel";
-            this.开始_panel.Size = new System.Drawing.Size(637, 430);
+            this.开始_panel.Size = new System.Drawing.Size(637, 420);
             this.开始_panel.TabIndex = 13;
             // 
             // linkLabel2

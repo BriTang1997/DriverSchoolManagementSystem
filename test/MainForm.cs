@@ -18,7 +18,7 @@ namespace test
         const int panellocax = 12;
         const int panellocay = 28;
         const int rightbond = 586;
-        private static string sqlconnect ;//这些东西可以直接用。
+        private static string sqlconnect;//这些东西可以直接用。
         private DataSet myset;
         private SqlDataAdapter da;
         private SqlCommandBuilder myCbd;
@@ -28,8 +28,8 @@ namespace test
         /*
          * 加载时，所有的panel都把左上角固定在(7,28);
          */
-    #region 初始化参数设置
-            
+        #region 初始化参数设置
+
 
         public MainForm()
         {
@@ -47,7 +47,7 @@ namespace test
             linkLabel1.BackColor = Color.Transparent;
             linkLabel2.BackColor = Color.Transparent;
         }
-        
+
 
         /*  
         *  编写时间：2017-12-30,15:54
@@ -113,6 +113,7 @@ namespace test
                     dr.Close();
                     dr = cmd.ExecuteReader();
                     b_exa_kind.Items.Clear();
+                    b_sc_kind.Items.Clear();
                     while (dr.Read())
                     {
                         b_exa_kind.Items.Add(dr[0].ToString());
@@ -151,15 +152,15 @@ namespace test
             b_inc_year.SelectedItem = System.DateTime.Now.Year;
             b_inc_mon.SelectedItem = System.DateTime.Now.Month;
             b_inc_day.SelectedItem = System.DateTime.Now.Day;
-            
+
             b_exp_year.SelectedItem = System.DateTime.Now.Year;
             b_exp_mon.SelectedItem = System.DateTime.Now.Month;
             b_exp_day.SelectedItem = System.DateTime.Now.Day;
-            
+
             b_exa_year.SelectedItem = System.DateTime.Now.Year;
             b_exa_mon.SelectedItem = System.DateTime.Now.Month;
             b_exa_day.SelectedItem = System.DateTime.Now.Day;
-            
+
 
         }
         /*  
@@ -210,7 +211,7 @@ namespace test
                         sta_exp_man.Items.Add(dr.GetString(0));
                     }
                     dr.Close();
-                    cmd.CommandText = "select EKNO from expenditure ";
+                    cmd.CommandText = "select EKNO from e_kind ";
                     dr = cmd.ExecuteReader();
                     sta_exp_kind.Items.Clear();
                     while (dr.Read())
@@ -409,7 +410,7 @@ namespace test
         #endregion
 
     #region 菜单响应相关
-        
+
         private void 开始ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             信息更新_panel.Hide();
@@ -465,6 +466,7 @@ namespace test
         }
         private void 打印报表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            conn = new SqlConnection(sqlconnect);
             统计panel.Hide();
             业务panel.Hide();
             查询panel.Hide();
@@ -868,7 +870,7 @@ namespace test
                 ds.Clear();
             }
         }
-        
+
         private void add_car_button_Click(object sender, EventArgs e)
         {
 
@@ -925,7 +927,7 @@ namespace test
                 con.Open();
                 string strsql = "insert into car(lic,brand,color,mile,buytime) values('";
                 strsql += add_car_cp_textbox.Text.Trim() + "','" + add_car_cs_textbox.Text.Trim() + "','" + add_car_ys_textbox.Text.Trim() + "','" + add_car_lc_textBox.Text.Trim() + "','" + add_car_dateTimePicker.Text + "')";
-                SqlCommand cmd = new SqlCommand(strsql,con);  //构造sql命令
+                SqlCommand cmd = new SqlCommand(strsql, con);  //构造sql命令
                 count = (int)cmd.ExecuteNonQuery();//执行该命令，插入一行数据
                 con.Close();
                 add_car_cp_textbox.Text = "";
@@ -2561,15 +2563,15 @@ namespace test
          */
         private void b_inc_sno_TextChanged(object sender, EventArgs e)
         {
-            if(b_inc_sno.Text.Length == 8)
-            using (conn = new SqlConnection(sqlconnect))
-            {
-                conn.Open();
-                string tem = "select SNAME from student where SNO = '" + b_inc_sno.Text + "'";
-                cmd = new SqlCommand(tem, conn);
-                b_inc_sna.Text = (string)cmd.ExecuteScalar();
-                conn.Close();
-            }
+            if (b_inc_sno.Text.Length == 8)
+                using (conn = new SqlConnection(sqlconnect))
+                {
+                    conn.Open();
+                    string tem = "select SNAME from student where SNO = '" + b_inc_sno.Text + "'";
+                    cmd = new SqlCommand(tem, conn);
+                    b_inc_sna.Text = (string)cmd.ExecuteScalar();
+                    conn.Close();
+                }
         }
         private void b_inc_sna_TextChanged(object sender, EventArgs e)
         {
@@ -2613,6 +2615,57 @@ namespace test
             b_inc_kind.Text = "";
             b_inc_ino.Text = "";
         }
+        /**
+         * 编写人 唐胜洋
+         * 时间2018-1-9
+         * 功能：把datagridview的头变成中文
+         * */
+        private string Translate(string a) {
+            string b = "";
+            switch (a)
+            {
+                case "SNO": b = "学号";break;
+                case "SNAME": b = "姓名"; break;
+                case "PHONE": b = "电话"; break;
+                case "PROGRESS": b = "进度"; break;
+                case "SEX": b = "性别"; break;
+                case "PAY": b = "缴费状态"; break;
+                case "CNO": b = "工号"; break;
+                case "CNAME": b = "姓名"; break;
+                case "LIC": b = "车牌号"; break;
+                case "COLOR": b = "颜色"; break;
+                case "MILE": b = "里程"; break;
+                case "BRAND": b = "品牌"; break;
+                case "BUYTIME": b = "购买时间"; break;
+                case "SJNAME": b = "科目"; break;
+                case "GRADE": b = "成绩"; break;
+                case "EDATE": b = "时间"; break;
+                case "PLACE": b = "地点"; break;
+                case "BNO": b = "账单号"; break;
+                case "EKNO": b = "类型编号"; break;
+                case "CASH": b = "金额"; break;
+                case "OPERATOR": b = "操作者"; break;
+                case "ENAME": b = "支出名"; break;
+                case "EINTRO": b = "介绍"; break;
+                case "INO": b = "账单号"; break;
+                case "IKNO": b = "类型编号"; break;
+                case "INAME": b = "收入名"; break;
+                case "IINTRO": b = "介绍"; break;
+                case "SINTRO": b = "介绍"; break;
+            }
+
+            return b;
+        }
+
+         private void etoc()
+        {
+            int len = b_dataview.Columns.Count;
+            for(int i = 0; i < len; i++)
+            {
+                b_dataview.Columns[i].HeaderText = Translate(b_dataview.Columns[i].HeaderText);
+            }
+        }
+
 
         /**
          * 编写人：唐胜洋
@@ -2638,7 +2691,7 @@ namespace test
                 bing.DataSource = myset;
                 bing.DataMember = "income";
                 bing.Filter = "";
-                b_dataview.DataSource = bing;
+                b_dataview.DataSource = bing;etoc();
                 b_dataview.Width = Math.Min(b_dataview.Columns.Count * 100+50, rightbond);
             }
             catch (SqlException ex)
@@ -2778,7 +2831,7 @@ namespace test
                 bing.DataSource = myset;
                 bing.DataMember = "expenditure";
                 bing.Filter = "";
-                b_dataview.DataSource = bing;
+                b_dataview.DataSource = bing;etoc();
                 b_dataview.Width = Math.Min(b_dataview.Columns.Count * 100+50, rightbond);
             }
             catch (SqlException ex)
@@ -2936,7 +2989,7 @@ namespace test
                 bing.DataSource = myset;
                 bing.DataMember = "exam";
                 bing.Filter = "";
-                b_dataview.DataSource = bing;
+                b_dataview.DataSource = bing;etoc();
                 b_dataview.Width = Math.Min(b_dataview.Columns.Count * 100+50, rightbond);
             }
             catch (SqlException ex)
@@ -3110,7 +3163,7 @@ namespace test
                 bing.DataSource = myset;
                 bing.DataMember = "sc";
                 bing.Filter = "";
-                b_dataview.DataSource = bing;
+                b_dataview.DataSource = bing;etoc();
                 b_dataview.Width = Math.Min(b_dataview.Columns.Count * 100+50,rightbond);
             }
             catch (SqlException ex)
@@ -3313,7 +3366,7 @@ namespace test
                 bing.DataSource = myset;
                 bing.DataMember = "cc";
                 bing.Filter = "";
-                b_dataview.DataSource = bing;
+                b_dataview.DataSource = bing;etoc();
                 b_dataview.Width = Math.Min(b_dataview.Columns.Count * 100 + 50, rightbond);
             }
             catch (SqlException ex)
@@ -3708,14 +3761,6 @@ namespace test
                 MessageBox.Show("请输入分数完整范围.");
                 return;
             }
-            else if( (sta_exa_y1.Text.Length|sta_exa_y2.Text.Length | sta_exa_m2.Text.Length | sta_exa_m2.Text.Length 
-                | sta_exa_d1.Text.Length| sta_exa_d2.Text.Length) >=1 && (sta_exa_y1.Text.Length 
-                & sta_exa_y2.Text.Length & sta_exa_m2.Text.Length & sta_exa_m2.Text.Length 
-                & sta_exa_d1.Text.Length & sta_exa_d2.Text.Length) == 0)
-            {
-                MessageBox.Show("请输入日期完整范围.");
-                return;
-            }
             
             using (conn = new SqlConnection(sqlconnect))
             {
@@ -3868,14 +3913,7 @@ namespace test
                 MessageBox.Show("请输入分数完整范围.");
                 return;
             }
-            else if ((sta_inc_y1.Text.Length | sta_inc_y2.Text.Length | sta_inc_m2.Text.Length | sta_inc_m2.Text.Length
-                | sta_inc_d1.Text.Length | sta_inc_d2.Text.Length) >= 1 && (sta_inc_y1.Text.Length
-                & sta_inc_y2.Text.Length & sta_inc_m2.Text.Length & sta_inc_m2.Text.Length
-                & sta_inc_d1.Text.Length & sta_inc_d2.Text.Length) == 0)
-            {
-                MessageBox.Show("请输入日期完整范围.");
-                return;
-            }
+            
 
             using (conn = new SqlConnection(sqlconnect))
             {
@@ -4037,14 +4075,7 @@ namespace test
                 MessageBox.Show("请输入分数完整范围.");
                 return;
             }
-            else if ((sta_exp_y1.Text.Length | sta_exp_y2.Text.Length | sta_exp_m2.Text.Length | sta_exp_m2.Text.Length
-                | sta_exp_d1.Text.Length | sta_exp_d2.Text.Length) >= 1 && (sta_exp_y1.Text.Length
-                & sta_exp_y2.Text.Length & sta_exp_m2.Text.Length & sta_exp_m2.Text.Length
-                & sta_exp_d1.Text.Length & sta_exp_d2.Text.Length) == 0)
-            {
-                MessageBox.Show("请输入日期完整范围.");
-                return;
-            }
+            
 
             using (conn = new SqlConnection(sqlconnect))
             {
@@ -4118,7 +4149,7 @@ namespace test
 
             else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
             {
-                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.student out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.student out " + tb_table_path.Text.Trim() + " -c -q -S\"(local)\" -U\"sa\" -P\"111\"' ";
                 try
                 {
                     int count = 0;
@@ -4145,7 +4176,7 @@ namespace test
             if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
             else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
             {
-                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.coach out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.coach out " + tb_table_path.Text.Trim() + " -c -q -S\"(local)\" -U\"sa\" -P\"111\"' ";
 
                 try
                 {
@@ -4172,7 +4203,7 @@ namespace test
             if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
             else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
             {
-                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.car out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.car out " + tb_table_path.Text.Trim() + " -c -q -S\"(local)\" -U\"sa\" -P\"111\"' ";
 
                 try
                 {
@@ -4199,7 +4230,7 @@ namespace test
             if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
             else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
             {
-                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.sc out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.sc out " + tb_table_path.Text.Trim() + " -c -q -S\"(local)\" -U\"sa\" -P\"111\"' ";
 
                 try
                 {
@@ -4226,7 +4257,7 @@ namespace test
             if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
             else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
             {
-                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.cc out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.cc out " + tb_table_path.Text.Trim() + " -c -q -S\"(local)\" -U\"sa\" -P\"111\"' ";
 
                 try
                 {
@@ -4253,7 +4284,7 @@ namespace test
             if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
             else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
             {
-                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.expenditure out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.expenditure out " + tb_table_path.Text.Trim() + " -c -q -S\"(local)\" -U\"sa\" -P\"111\"' ";
 
                 try
                 {
@@ -4280,7 +4311,7 @@ namespace test
             if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
             else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
             {
-                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.e_kind out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.e_kind out " + tb_table_path.Text.Trim() + " -c -q -S\"(local)\" -U\"sa\" -P\"111\"' ";
 
                 try
                 {
@@ -4307,7 +4338,7 @@ namespace test
             if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
             else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
             {
-                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.income out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.income out " + tb_table_path.Text.Trim() + " -c -q -S\"(local)\" -U\"sa\" -P\"111\"' ";
 
                 try
                 {
@@ -4334,7 +4365,7 @@ namespace test
             if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
             else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
             {
-                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.i_kind out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.i_kind out " + tb_table_path.Text.Trim() + " -c -q -S\"(local)\" -U\"sa\" -P\"111\"' ";
 
                 try
                 {
@@ -4361,7 +4392,7 @@ namespace test
             if (tb_table_path.Text.Trim() == "") MessageBox.Show("请输入路径");
             else if (System.IO.File.Exists(tb_table_path.Text.Trim()))
             {
-                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.sname_grade out " + tb_table_path.Text.Trim() + " -c -q -S\"N7C1PEX7L7UKIDH\" -U\"sa\" -P\"12345\"' ";
+                string strsql = "EXEC master..xp_cmdshell 'bcp DriverSchool.dbo.sname_grade out " + tb_table_path.Text.Trim() + " -c -q -S\"(local)\" -U\"sa\" -P\"111\"' ";
 
                 try
                 {
